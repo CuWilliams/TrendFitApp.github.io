@@ -1,89 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Trend Fit App</title>
-    <link rel="stylesheet" href="form.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f6f9fc;
-            text-align: center;
-            padding: 40px;
-        }
+  <meta charset="UTF-8" />
+  <title>Trend Fit App</title>
+  <link rel="stylesheet" href="form.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #e9eff5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px;
+    }
 
-        .logo {
-            width: 150px;
-            margin-bottom: 20px;
-        }
+    .container {
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      max-width: 600px;
+      padding: 40px 30px;
+      width: 100%;
+      text-align: center;
+    }
 
-        .hero h1 {
-            font-size: 28px;
-            margin-bottom: 10px;
-        }
+    .logo {
+      width: 120px;
+      margin-bottom: 20px;
+    }
 
-        .hero p {
-            font-size: 18px;
-            margin-top: 0;
-        }
+    h1 {
+      font-size: 26px;
+      margin-bottom: 10px;
+    }
 
-        .signup-btn {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: white;
-            font-size: 16px;
-            border: none;
-            text-decoration: none;
-            margin-top: 20px;
-        }
+    p {
+      font-size: 16px;
+      margin: 5px 0;
+    }
 
-        .footer {
-            margin-top: 50px;
-            font-size: 14px;
-            color: #888;
-        }
-    </style>
+    .signup-btn {
+      display: inline-block;
+      padding: 12px 25px;
+      background-color: #007bff;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      margin-top: 20px;
+    }
+
+    .footer {
+      margin-top: 40px;
+      font-size: 14px;
+      color: #777;
+    }
+
+    .socials {
+      margin-top: 25px;
+    }
+
+    .socials a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #007bff;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
+  <div class="container">
+    <img src="logo.png" alt="Trend Fit App Logo" class="logo" />
 
-    <img src="logo.png" alt="Trend Fit App Logo" class="logo">
-
-    <div class="hero">
-        <h1>A Smarter Way to Track Your Workouts</h1>
-        <p>Fast. Efficient. Insightful.</p>
-        <p>Get the data you need to improve your performance—with just a couple of clicks.</p>
-    </div>
+    <h1>A Smarter Way to Track Your Workouts</h1>
+    <p>Fast. Efficient. Insightful.</p>
+    <p>Get the data you need to improve your performance—with just a couple of clicks.</p>
 
     <div class="signup">
-        <h3>Sign Up to Become a Founding Member</h3>
-        <p>Are you passionate about better workouts? Join us on the front end of something special!</p>
-        <form action='https://forms.zohopublic.ca/curtistrend1/form/TrendFitAppSignup/formperma/QXi6QZ4d366i_XrSZ83lHonBhcGNv7NdfmIoGj68nts/htmlRecords/submit' name='form' id='form' method='POST' accept-charset='UTF-8' enctype='multipart/form-data'>
-    <input type="hidden" name="zf_referrer_name" value="">
-    <!-- To Track referrals , place the referrer name within the " " in the above hidden input field -->
-    <input type="hidden" name="zf_redirect_url" value="">
-    <!-- To redirect to a specific page after record submission , place the respective url within the " " in the above hidden input field -->
-    <input type="hidden" name="zc_gad" value="">
-    <!-- If GCLID is enabled in Zoho CRM Integration, click details of AdWords Ads will be pushed to Zoho CRM -->
-    <h2>Trend Fit App Signup</h2>
-    <p></p>
-    <!--Email-->
-    <label>
-         Email 
-        <em>*</em>
-    </label>
-    <input type="text" maxlength="255" name="Email" value="" fieldType=9 placeholder="Enter&#x20;your&#x20;Email&#x20;address"/>
-    <button type="submit">
-        <em>Submit</em>
-    </button>
-</form>
+      <h3>Sign Up to Become a Founding Member</h3>
+      <p>Are you passionate about better workouts? Join us on the front end of something special!</p>
+      <a href="mailto:signup@trendfitapp.com" class="signup-btn">Sign Up as a Founding Member</a>
+    </div>
 
+    <div class="socials">
+      <p>Follow Us:</p>
+      <a href="https://www.instagram.com/trendfitapp" target="_blank">Instagram</a>
+      <a href="https://www.tiktok.com/@trendfitapp" target="_blank">TikTok</a>
+      <a href="https://twitter.com/trendfitapp" target="_blank">Twitter/X</a>
     </div>
 
     <div class="footer">
-        <p><strong>Coming 2025</strong></p>
-        &copy; 2025 Trend Fit App. All rights reserved.
+      <p><strong>Coming 2025</strong></p>
+      &copy; 2025 Trend Fit App. All rights reserved.
     </div>
-
+  </div>
 </body>
 </html>
