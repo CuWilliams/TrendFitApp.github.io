@@ -5,6 +5,7 @@
   <meta charset="UTF-8" />
   <title>Trend Fit App</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
 
     body::before {
@@ -33,9 +34,9 @@
 
     .container {
       display: flex;
-      background-color: white;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      background-color: white; 
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+      border-radius: 12px;               
       max-width: 1100px;
       width: 100%;
       margin: 40px;
@@ -50,6 +51,10 @@
 
     .left-content {
       text-align: center;
+    }
+
+    .right-content {
+      padding: 0;
     }
 
     .logo {
@@ -86,8 +91,9 @@
 
     iframe {
       width: 100%;
-      height: 500px;
+      height: 100%;
       border: none;
+      display: block;
     }
 
     @media (max-width: 900px) {
@@ -95,7 +101,23 @@
         flex-direction: column;
         margin: 20px;
       }
+
+      .left-content, .right-content {
+        padding: 20px;
+        text-align: center;
+      }
+
+      .logo {
+        margin: 0 auto 20px auto;
+      }
+
+      iframe {
+        width: 100%;
+        height: 500px;
+        border: none;
+      }
     }
+    
   </style>
 </head>
 <body>
@@ -110,9 +132,18 @@
       <p><strong>Sign Up to Become a Founding Member!</strong></p>
       <div class="socials">
         <p>Follow Us:</p>
-        <a href="https://www.instagram.com/trendfitapp" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
-        <a href="https://www.tiktok.com/@trendfitapp" target="_blank"><i class="fab fa-tiktok"></i> TikTok</a>
-        <a href="https://twitter.com/trendfitapp" target="_blank"><i class="fab fa-twitter"></i> Twitter/X</a>
+        <a href="https://www.instagram.com/trendfitapp" target="_blank">
+          <span style="white-space: nowrap;"><i class="fab fa-instagram"></i> Instagram</span>
+        </a>
+        <a href="https://www.tiktok.com/@trendfitapp" target="_blank">
+          <span style="white-space: nowrap;"><i class="fab fa-tiktok"></i> TikTok</span>
+        </a>
+        <a href="https://twitter.com/trendfitapp" target="_blank">
+          <span style="white-space: nowrap;"><i class="fab fa-twitter"></i> Twitter/X</span>
+        </a>
+        <a href="https://www.linkedin.com/company/trendfitapp" target="_blank">
+          <span style="white-space: nowrap;"><i class="fab fa-linkedin"></i> LinkedIn</span>
+        </a>
       </div>
       <div class="footer">
         <p><strong>Coming 2025</strong></p>
