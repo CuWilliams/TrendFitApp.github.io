@@ -99,6 +99,33 @@
     }
   </style>
 </head>
+  <script>
+  (function () {
+    // Cutoff at end of day Oct 11, 2025 (local time). Months are 0-based: 9 = October.
+    var cutoff = new Date(2025, 9, 11, 23, 59, 59);
+    var now = new Date();
+    var isClosed = now > cutoff;
+
+    var navLink = document.querySelector('nav.nav-links a[href="#signup"]');
+    var openWrap = document.getElementById('signup-open');
+    var closedWrap = document.getElementById('signup-closed');
+
+    if (isClosed) {
+      // Disable the navbar CTA
+      if (navLink) {
+        navLink.textContent = 'Signups Closed';
+        navLink.removeAttribute('href');
+        navLink.setAttribute('aria-disabled', 'true');
+        navLink.classList.add('btn','btn-compact');
+        navLink.style.opacity = '0.55';
+        navLink.style.cursor = 'not-allowed';
+      }
+      // Toggle panels
+      if (openWrap) openWrap.style.display = 'none';
+      if (closedWrap) closedWrap.style.display = 'block';
+    }
+  })();
+</script>
 <body>
   <!-- ============ Site Header / Navbar (shared look) ============ -->
   <header class="site-header" style="width:100%;">
@@ -151,15 +178,32 @@
       </div>
     </div>
 
-    <div class="right-content">
-      <!-- Anchor for the navbar CTA -->
-      <a id="signup"></a>
-      <iframe 
-        title="Trend Fit App Signup"
-        aria-label="Trend Fit App Signup"
-        src="https://forms.zohopublic.ca/curtistrend1/form/TrendFitAppSignup/formperma/_6xAp1_xssGxZZB_l8ADgST0ffX3GYKSCEtSvUV8rpM">
-      </iframe>
+    <div class="right-content" id="signup-section">
+  <!-- Anchor for the navbar CTA -->
+  <a id="signup"></a>
+
+  <!-- OPEN: shown until cutoff -->
+  <div id="signup-open">
+    <iframe 
+      id="signupFrame"
+      title="Trend Fit App Signup"
+      aria-label="Trend Fit App Signup"
+      src="https://forms.zohopublic.ca/curtistrend1/form/TrendFitAppSignup/formperma/_6xAp1_xssGxZZB_l8ADgST0ffX3GYKSCEtSvUV8rpM">
+    </iframe>
+  </div>
+
+  <!-- CLOSED: shown after cutoff -->
+  <div id="signup-closed" class="card" style="display:none; margin:16px;">
+    <h3>Founding Member signups are now closed</h3>
+    <p style="color:var(--muted); font-size:14px; margin-top:6px;">
+      Thank you to everyone who joined! You can still follow progress and join the beta.
+    </p>
+    <div style="margin-top:8px; display:flex; gap:10px; flex-wrap:wrap;">
+      <a class="btn btn-primary" href="beta-feedback.html"><i class="fa-solid fa-flask"></i> Become a Beta Tester</a>
+      <a class="btn btn-ghost" href="announcements.html"><i class="fa-solid fa-bullhorn"></i> See Announcements</a>
     </div>
+  </div>
+</div>
   </div>
 </body>
 </html>
