@@ -1,17 +1,21 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <title>Trend Fit App</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+
+  <!-- Icons & Styles -->
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+
   <!-- Favicon support for modern browsers -->
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  
+
   <style>
+    /* === Existing page-specific styles (kept) === */
     body::before {
       content: '';
       position: absolute;
@@ -20,7 +24,6 @@
       background-repeat: repeat;
       z-index: 0;
       pointer-events: none;
-
     }
 
     body {
@@ -29,7 +32,7 @@
       margin: 0;
       padding: 0;
       display: flex;
-      justify-content: center;
+      flex-direction: column; /* stack header + content */
       align-items: center;
       min-height: 100vh;
       position: relative;
@@ -43,7 +46,7 @@
       border-radius: 12px;               
       max-width: 1100px;
       width: 100%;
-      margin: 40px;
+      margin: 24px; /* reduced to sit nicely under sticky header */
       overflow: hidden;
     }
 
@@ -53,33 +56,15 @@
       box-sizing: border-box;
     }
 
-    .left-content {
-      text-align: center;
-    }
+    .left-content { text-align: center; }
+    .right-content { padding: 0; }
 
-    .right-content {
-      padding: 0;
-    }
+    .logo { width: 100px; margin-bottom: 20px; }
 
-    .logo {
-      width: 100px;
-      margin-bottom: 20px;
-    }
+    h1 { font-size: 24px; margin-bottom: 10px; }
+    p  { font-size: 16px; margin: 10px 0; }
 
-    h1 {
-      font-size: 24px;
-      margin-bottom: 10px;
-    }
-
-    p {
-      font-size: 16px;
-      margin: 10px 0;
-    }
-
-    .socials {
-      margin-top: 25px;
-    }
-
+    .socials { margin-top: 25px; }
     .socials a {
       margin: 0 10px;
       text-decoration: none;
@@ -103,29 +88,38 @@
     @media (max-width: 900px) {
       .container {
         flex-direction: column;
-        margin: 20px;
+        margin: 16px;
       }
-
       .left-content, .right-content {
         padding: 20px;
         text-align: center;
       }
-
-      .logo {
-        margin: 0 auto 20px auto;
-      }
-
-      iframe {
-        width: 100%;
-        height: 500px;
-        border: none;
-      }
+      .logo { margin: 0 auto 20px auto; }
+      iframe { width: 100%; height: 500px; border: none; }
     }
-    
   </style>
 </head>
 <body>
-  <div class="container">
+  <!-- ============ Site Header / Navbar (shared look) ============ -->
+  <header class="site-header" style="width:100%;">
+    <div class="container nav" style="background:transparent; box-shadow:none; border:none; max-width:1100px; margin:0 auto; padding:0 20px;">
+      <a class="brand" href="index.html">
+        <img src="logo.png" alt="TrendFit Logo" height="28" />
+        <span>TrendFit</span>
+      </a>
+      <nav class="nav-links">
+        <a href="features.html">Features</a>
+        <a href="announcements.html">Announcements</a>
+        <a href="beta-feedback.html">Beta Feedback</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a class="btn btn-compact" href="#signup">Founding Signup</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============ Landing Content ============ -->
+  <div class="container" style="margin-top:16px;">
     <div class="left-content">
       <img src="logo.png" alt="Trend Fit App Logo" class="logo" />
       <h1>A Smarter Way to Track Your Workouts</h1>
@@ -134,13 +128,14 @@
       <p>Are you passionate about better workouts?</p>
       <p>Join us on the front end of something special!</p>
       <p><strong>Sign Up to Become a Founding Member!</strong></p>
+
       <div class="socials">
         <p>Follow Us:</p>
         <a href="https://www.instagram.com/trendfitapp" target="_blank">
           <span style="white-space: nowrap;"><i class="fab fa-instagram"></i> Instagram</span>
         </a>
         <a href="https://www.facebook.com/trendfitapp" target="_blank">
-          <span style="white-space: nowrap;"><i class="fab fa-facbook-f"></i> Facebook</span>
+          <span style="white-space: nowrap;"><i class="fab fa-facebook-f"></i> Facebook</span>
         </a>
         <a href="https://twitter.com/trendfitapp" target="_blank">
           <span style="white-space: nowrap;"><i class="fab fa-twitter"></i> Twitter/X</span>
@@ -149,15 +144,20 @@
           <span style="white-space: nowrap;"><i class="fab fa-linkedin"></i> LinkedIn</span>
         </a>
       </div>
+
       <div class="footer">
         <p><strong>Coming 2025</strong></p>
         &copy; 2025 TrendFit. All rights reserved.
       </div>
     </div>
+
     <div class="right-content">
+      <!-- Anchor for the navbar CTA -->
+      <a id="signup"></a>
       <iframe 
-        aria-label='Trend Fit App Signup'
-        src='https://forms.zohopublic.ca/curtistrend1/form/TrendFitAppSignup/formperma/_6xAp1_xssGxZZB_l8ADgST0ffX3GYKSCEtSvUV8rpM'>
+        title="Trend Fit App Signup"
+        aria-label="Trend Fit App Signup"
+        src="https://forms.zohopublic.ca/curtistrend1/form/TrendFitAppSignup/formperma/_6xAp1_xssGxZZB_l8ADgST0ffX3GYKSCEtSvUV8rpM">
       </iframe>
     </div>
   </div>
