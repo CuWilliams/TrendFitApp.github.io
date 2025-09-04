@@ -1,0 +1,58 @@
+[
+  {
+    "id": "2025-09-01-beta-focus",
+    "date": "2025-09-01",
+    "title": "Project Update: Beta focus for 2025",
+    "pinned": true,
+    "tags": ["Roadmap", "Beta"],
+    "body": [
+      "We’re focusing the initial public beta on TrendFit and TrendFitStack to keep things fast, simple, and stable.",
+      "TrendFitChallenge is deferred until after we ship a solid first beta and collect feedback.",
+      "Apple requires a one-time external TestFlight review for the first public beta build."
+    ],
+    "links": [
+      { "label": "Become a Beta Tester", "href": "beta-feedback.html" },
+      { "label": "Explore Features", "href": "features.html" }
+    ]
+  },
+  {
+    "id": "2025-08-28-feature-spotlight-stack",
+    "date": "2025-08-28",
+    "title": "Feature Spotlight: TrendFitStack",
+    "tags": ["Feature"],
+    "body": [
+      "Compare a single trend (like Active Energy) across multiple workout types—Running, Walking, Hiking, and more.",
+      "Flip between daily, weekly, monthly, and annual views, and stack totals to see the bigger picture."
+    ],
+    "links": [
+      { "label": "See Screenshots", "href": "features.html#screenshots" },
+      { "label": "Try the Beta", "href": "beta-feedback.html" }
+    ]
+  },
+  {
+    "id": "2025-08-18-privacy-policy",
+    "date": "2025-08-18",
+    "title": "Privacy Policy Published",
+    "tags": ["Policy"],
+    "body": [
+      "TrendFit reads Apple HealthKit data on-device and does not upload your health data to servers.",
+      "You can review the full policy any time on our site."
+    ],
+    "links": [
+      { "label": "Read Privacy Policy", "href": "privacy.html" }
+    ]
+  },
+  {
+    "id": "2025-08-10-founding-members",
+    "date": "2025-08-10",
+    "title": "Founding Member Program",
+    "tags": ["Community"],
+    "body": [
+      "Founding Member signups are open now and will close in the coming months.",
+      "Join early to follow progress and help shape the direction of TrendFit."
+    ],
+    "links": [
+      { "label": "Sign Up", "href": "index.html#signup" }
+    ]
+  }
+]
