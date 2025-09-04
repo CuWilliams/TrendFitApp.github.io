@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Point crawlers to your sitemap
+Sitemap: YOUR_BASE_URL/sitemap.xml
