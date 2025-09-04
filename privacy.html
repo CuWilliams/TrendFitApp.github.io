@@ -1,75 +1,69 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Trend Fit App — Privacy Policy</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Trend Fit App Privacy Policy">
+  <meta charset="utf-8" />
+  <title>TrendFit — Privacy Policy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="TrendFit Privacy Policy" />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script defer src="js/policy.js"></script>
   <style>
-    :root { color-scheme: light dark; }
-    body {
-      margin: 0; padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Helvetica, Arial, sans-serif;
-      line-height: 1.6; font-size: 17px;
-      background: Canvas; color: CanvasText;
-    }
-    .container { max-width: 820px; margin: 0 auto; padding: 24px; }
-    h1 { font-size: 2rem; margin: 0 0 4px; }
-    h2 { font-size: 1.25rem; margin-top: 24px; }
-    .muted { color: gray; }
-    hr { border: 0; border-top: 1px solid rgba(128,128,128,.3); margin: 16px 0; }
-    ul { padding-left: 1.2rem; }
-    strong { font-weight: 600; }
+    /* Page-local tweaks (can move to css/style.css later) */
+    .policy-meta { color: var(--muted); font-size: 14px; margin-top: 4px; }
+    .policy-section { margin: 18px 0 0; }
+    .policy-section h2 { font-size: 1.1rem; margin: 16px 0 6px; }
+    .policy-section ul { padding-left: 1.2rem; }
   </style>
 </head>
-<body>
-  <main class="container">
-    <h1>Privacy Policy</h1>
-    <p class="muted">Effective Date: September 17, 2025</p>
-    <hr>
+<body class="bg-gradient">
+  <!-- ============ Header / Navbar ============ -->
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html">
+        <img src="logo.png" alt="TrendFit Logo" height="28" />
+        <span>TrendFit</span>
+      </a>
+      <nav class="nav-links">
+        <a href="features.html">Features</a>
+        <a href="announcements.html">Announcements</a>
+        <a href="beta-feedback.html">Beta Feedback</a>
+        <a href="privacy.html" aria-current="page">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a class="btn btn-compact" href="index.html#signup">Founding Signup</a>
+      </nav>
+    </div>
+  </header>
 
-    <!-- Introduction -->
-    <p>
-      Welcome to <strong>Trend Fit App</strong>. Your privacy is important to us. This Privacy Policy explains how we collect, use, and protect your data when using our app.
-    </p>
+  <main class="section">
+    <div class="container">
+      <!-- policy.js will render into this root -->
+      <div id="policy-root" data-policy="privacy">
+        <!-- Fallback / Initial skeleton -->
+        <h1>Privacy Policy</h1>
+        <p class="policy-meta">Loading latest policy…</p>
+      </div>
 
-    <!-- Section 1 -->
-    <h2>1. Data We Collect</h2>
-    <p>Trend Fit App accesses the following data from Apple HealthKit:</p>
-    <ul>
-      <li><strong>Workout Data</strong> (e.g., active calories, heart rate, workout duration)</li>
-      <li><strong>Personal Health Data</strong> (e.g., age, gender, height, weight)</li>
-    </ul>
-    <p>We do <strong>not</strong> collect, store, or transmit any of your HealthKit data outside your device.</p>
-    <p>In addition, the app stores basic preferences (e.g., unit settings) and debugging logs locally on your device. These do not contain HealthKit data and are not shared.</p>
-
-    <!-- Section 2 -->
-    <h2>2. How We Use Your Data</h2>
-    <p>
-      We use the data solely for <strong>displaying and analyzing workout trends</strong> to help you track fitness progress. We do <strong>not</strong> share, sell, or distribute your data to any third parties.
-    </p>
-
-    <!-- Section 3 -->
-    <h2>3. Third-Party Services</h2>
-    <p>
-      Trend Fit App does <strong>not</strong> use any third-party services to process or store HealthKit data. All HealthKit data remains on your device and is used only for in-app functionality.
-    </p>
-
-    <!-- Section 4 -->
-    <h2>4. How to Contact Us</h2>
-    <p>
-      If you have any questions about this Privacy Policy or your data, you can contact us at:<br>
-      📧 <strong>Email:</strong> <a href="mailto:support@trendfitapp.com">support@trendfitapp.com</a>
-    </p>
-
-    <!-- Changes -->
-    <h2>Changes to This Policy</h2>
-    <p>
-      We may update this Privacy Policy from time to time. Any changes will be reflected within the app.
-    </p>
-    <p>
-      By using Trend Fit App, you agree to this Privacy Policy.
-    </p>
+      <noscript>
+        <article class="card" style="margin-top:12px;">
+          <h3>Enable JavaScript to view Privacy Policy</h3>
+          <p class="muted">This page loads the policy from a JSON file. Please enable JavaScript.</p>
+        </article>
+      </noscript>
+    </div>
   </main>
+
+  <!-- ============ Footer ============ -->
+  <footer class="site-footer">
+    <div class="container footer-row">
+      <small>© 2025 TrendFit</small>
+      <div class="footer-links">
+        <a href="privacy.html">Privacy</a>
+        <span>&middot;</span>
+        <a href="terms.html">Terms</a>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
