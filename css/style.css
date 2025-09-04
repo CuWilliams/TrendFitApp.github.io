@@ -113,3 +113,49 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto
 
 /* Accessibility niceties */
 a:focus-visible, button:focus-visible { outline: 3px solid color-mix(in oklab, var(--accent) 40%, transparent); outline-offset: 2px; }
+
+/* ==============================================
+   Page: Landing (welcome)
+   - Vertical centering shell
+   - Signup iframe sizing
+   ============================================== */
+
+/* Sticky header height used in the min-height calc */
+:root { --header-h: 56px; }
+
+/* Shell that vertically centers the main landing card on larger screens */
+.page-wrap {
+  min-height: calc(100dvh - var(--header-h)); /* fill viewport under sticky header */
+  width: 100%;
+  display: grid;
+  place-items: center; /* centers both axes */
+}
+
+/* Spacing for the landing card itself */
+.page-wrap > .container { margin: 24px; }
+
+/* Mobile: allow natural flow (no forced vertical centering) */
+@media (max-width: 900px) {
+  .page-wrap {
+    min-height: auto;
+    place-items: stretch;
+  }
+  .page-wrap > .container { margin: 16px; }
+}
+
+/* Signup iframe sizing – adapts to viewport height */
+#signupFrame {
+  width: 100%;
+  height: clamp(640px, 70vh, 1100px);  /* min 640px, usually ~70% of view height, cap at 1100px */
+  border: 0;
+  display: block;
+}
+@media (max-width: 900px) {
+  #signupFrame { height: 560px; }      /* comfortable mobile height */
+}
+
+/* Landing: column balance on wide screens (overrides page <style>) */
+@media (min-width: 901px) {
+  .page-wrap .left-content  { flex: 0 1 480px; }  /* text column */
+  .page-wrap .right-content { flex: 1 1 620px; }  /* form column */
+}
