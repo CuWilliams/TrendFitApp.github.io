@@ -159,3 +159,28 @@ a:focus-visible, button:focus-visible { outline: 3px solid color-mix(in oklab, v
   .page-wrap .left-content  { flex: 0 1 480px; }  /* text column */
   .page-wrap .right-content { flex: 1 1 620px; }  /* form column */
 }
+
+/* ==============================================
+   Page: Home video preview
+   ============================================== */
+.video-box {
+  width: 100%;
+  aspect-ratio: 16 / 9;           /* keeps a nice shape in the card */
+  background: #000;               /* safe background while loading */
+  display: grid;
+  place-items: center;
+}
+.video-el {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;              /* fills box; use 'contain' for letterbox */
+  border: 0;
+  display: block;
+  border-radius: 0;               /* inherited by card; keep flush */
+}
+
+/* Optional: give the form/video column more room on desktop */
+@media (min-width: 901px) {
+  .page-wrap .left-content  { flex: 0 1 480px; }
+  .page-wrap .right-content { flex: 1 1 620px; }
+}
