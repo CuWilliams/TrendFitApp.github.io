@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>TrendFit — Page Not Found (404)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .oops { text-align: center; padding: 56px 0 24px; }
+    .oops h1 { font-size: clamp(28px, 6vw, 44px); margin: 0 0 8px; }
+    .oops p  { color: var(--muted); margin: 0 auto; max-width: 720px; }
+    .oops .actions { margin-top: 18px; display: inline-flex; gap: 10px; flex-wrap: wrap; }
+    .redir-note { color: var(--muted); font-size: 14px; margin-top: 14px; }
+  </style>
+</head>
+<body class="bg-gradient">
+  <!-- Header / Navbar -->
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html">
+        <img src="logo.png" alt="TrendFit Logo" height="28" />
+        <span>TrendFit</span>
+      </a>
+      <nav class="nav-links">
+        <a href="features.html">Features</a>
+        <a href="announcements.html">Announcements</a>
+        <a href="beta-feedback.html">Beta Feedback</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a class="btn btn-compact" href="index.html#signup">Founding Signup</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="oops">
+    <div class="container text-center">
+      <h1>Page not found</h1>
+      <p>Sorry, we can’t find that page. It may have moved, been renamed, or no longer exist.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+        <a class="btn btn-ghost" href="features.html"><i class="fa-solid fa-circle-info"></i> Features</a>
+        <a class="btn btn-ghost" href="announcements.html"><i class="fa-solid fa-bullhorn"></i> Announcements</a>
+        <a class="btn btn-ghost" href="privacy.html"><i class="fa-solid fa-user-shield"></i> Privacy</a>
+        <a class="btn btn-ghost" href="terms.html"><i class="fa-solid fa-file-contract"></i> Terms</a>
+      </div>
+      <p class="redir-note" id="redirNote" style="display:none;"></p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-row">
+      <small>© 2025 TrendFit</small>
+      <div class="footer-links">
+        <a href="privacy.html">Privacy</a>
+        <span>&middot;</span>
+        <a href="terms.html">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Optional: gentle redirect map for legacy URLs -->
+  <script>
+    (function () {
+      // Map old/legacy paths to new ones (edit as needed)
+      var redirects = {
+        "/privacy-policy": "/privacy.html",
+        "/terms-of-service": "/terms.html",
+        "/beta": "/beta-feedback.html"
+      };
+
+      var path = location.pathname.replace(/\/+$/, ""); // trim trailing /
+      if (redirects[path]) {
+        var target = redirects[path];
+        var note = document.getElementById("redirNote");
+        if (note) {
+          note.style.display = "block";
+          note.textContent = "Redirecting you to " + target + "…";
+        }
+        setTimeout(function () { location.replace(target); }, 1200);
+      }
+    })();
+  </script>
+</body>
+</html>
