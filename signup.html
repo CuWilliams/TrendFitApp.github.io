@@ -1,231 +1,323 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Trend Fit App — Sign Up</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Trend Fit App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- SEO -->
-  <link rel="canonical" href="https://cuwilliams.github.io/TrendFitApp.github.io/signup.html" />
-  <meta name="description" content="Sign up to become a TrendFit founding member and follow app progress.">
+    <link
+      rel="canonical"
+      href="https://cuwilliams.github.io/TrendFitApp.github.io/"
+    />
+    <meta
+      name="description"
+      content="TrendFit gives you fast, privacy-first insights from Apple Health. Track workout trends and see progress clearly. Join the beta or become a founding member."
+    />
 
-  <!-- Icons & Styles -->
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="stylesheet" href="css/style.css" />
-
-  <!-- Favicon support for modern browsers -->
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-
-  <style>
-    /* === Existing page-specific styles (kept) === */
-    body::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background-image: url('data:image/svg+xml;utf8,<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"><line x1="0" y1="100%" x2="100%" y2="0" stroke="white" stroke-opacity="0.05" stroke-width="10" /></svg>');
-      background-repeat: repeat;
-      z-index: 0;
-      pointer-events: none;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #FF8C00, #FF4500);
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column; /* stack header + content */
-      align-items: center;
-      min-height: 100vh;
-      position: relative;
-      z-index: 1;
-    }
-
-    .container {
-      display: flex;
-      background-color: white; 
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
-      border-radius: 12px;               
-      max-width: 1100px;
-      width: 100%;
-      margin: 24px; /* sits nicely under sticky header */
-      overflow: hidden;
-    }
-
-    .left-content, .right-content {
-      padding: 40px;
-      flex: 1;
-      box-sizing: border-box;
-    }
-
-    .left-content { text-align: center; }
-    .right-content { padding: 0; }
-
-    .logo { width: 100px; margin-bottom: 20px; }
-
-    h1 { font-size: 24px; margin-bottom: 10px; }
-    p  { font-size: 16px; margin: 10px 0; }
-
-    .socials { margin-top: 25px; }
-    .socials a {
-      margin: 0 10px;
-      text-decoration: none;
-      color: #007bff;
-      font-weight: bold;
-    }
-
-    .footer {
-      margin-top: 30px;
-      font-size: 14px;
-      color: #777;
-    }
-
-    iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-      display: block;
-    }
-
-    @media (max-width: 900px) {
-      .container {
-        flex-direction: column;
-        margin: 16px;
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "TrendFit",
+        "url": "https://cuwilliams.github.io/TrendFitApp.github.io/",
+        "logo": "https://cuwilliams.github.io/TrendFitApp.github.io/logo.png",
+        "sameAs": [
+  "https://www.instagram.com/trendfitapp",
+  "https://www.facebook.com/trendfitapp",
+  "https://twitter.com/trendfitapp",
+  "https://www.linkedin.com/company/trend-fit-app",
+  "https://www.youtube.com/@trendfit_app"
+]
       }
-      .left-content, .right-content {
-        padding: 20px;
+    </script>
+
+    <!-- Icons & Styles -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- Favicon support for modern browsers -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+
+    <style>
+      /* === Existing page-specific styles (kept) === */
+      body::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url('data:image/svg+xml;utf8,<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"><line x1="0" y1="100%" x2="100%" y2="0" stroke="white" stroke-opacity="0.05" stroke-width="10" /></svg>');
+        background-repeat: repeat;
+        z-index: 0;
+        pointer-events: none;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #ff8c00, #ff4500);
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column; /* stack header + content */
+        align-items: center;
+        min-height: 100vh;
+        position: relative;
+        z-index: 1;
+      }
+
+      .container {
+        display: flex;
+        background-color: white;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 12px;
+        max-width: 1100px;
+        width: 100%;
+        margin: 24px; /* reduced to sit nicely under sticky header */
+        overflow: hidden;
+      }
+
+      .left-content,
+      .right-content {
+        padding: 40px;
+        flex: 1;
+        box-sizing: border-box;
+      }
+
+      .left-content {
         text-align: center;
       }
-      .logo { margin: 0 auto 20px auto; }
-      iframe { width: 100%; height: 500px; border: none; }
-    }
-  </style>
-</head>
-<body class="home">
-  <!-- ============ Site Header / Navbar (shared look) ============ -->
-  <header class="site-header" style="width:100%;">
-    <div class="container nav" style="background:transparent; box-shadow:none; border:none; max-width:1100px; margin:0 auto; padding:0 20px;">
-      <a class="brand" href="index.html">
-        <img src="logo.png" alt="TrendFit Logo" height="28" />
-        <span>TrendFit</span>
-      </a>
-      <nav class="nav-links">
-        <a href="features.html">Features</a>
-        <a href="announcements.html">Announcements</a>
-        <a href="beta-feedback.html">Beta Feedback</a>
-        <a href="privacy.html">Privacy</a>
-        <a href="terms.html">Terms</a>
-        <a class="btn btn-compact" href="signup.html#signup" aria-current="page">Sign Up</a>
-      </nav>
-    </div>
-  </header>
+      .right-content {
+        padding: 0;
+      }
 
-  <!-- ============ Landing Content (Sign Up) ============ -->
-  <main class="page-wrap">
-    <div class="container">
-      <div class="left-content">
-        <img src="logo.png" alt="Trend Fit App Logo" class="logo" />
-        <h1>A Smarter Way to Track Your Workouts</h1>
-        <p>Fast. Efficient. Insightful.</p>
-        <p>Get the data you need to improve your performance with just a couple of clicks.</p>
-        <p>Are you passionate about better workouts?</p>
-        <p>Join us on the front end of something special!</p>
-        <p><strong>Sign Up to Become a Founding Member!</strong></p>
+      .logo {
+        width: 100px;
+        margin-bottom: 20px;
+      }
 
-        <div class="socials">
-          <p>Follow Us:</p>
-          <a href="https://www.instagram.com/trendfitapp" target="_blank" rel="noopener">
-            <span style="white-space: nowrap;"><i class="fab fa-instagram"></i> Instagram</span>
-          </a>
-          <a href="https://www.facebook.com/trendfitapp" target="_blank" rel="noopener">
-            <span style="white-space: nowrap;"><i class="fab fa-facebook-f"></i> Facebook</span>
-          </a>
-          <a href="https://twitter.com/trendfitapp" target="_blank" rel="noopener">
-            <span style="white-space: nowrap;"><i class="fab fa-twitter"></i> Twitter/X</span>
-          </a>
-          <a href="https://www.linkedin.com/company/trendfitapp" target="_blank" rel="noopener">
-            <span style="white-space: nowrap;"><i class="fab fa-linkedin"></i> LinkedIn</span>
-          </a>
-          <a href="https://www.youtube.com/@trendfitapp" target="_blank" rel="noopener">
-            <span style="white-space: nowrap;"><i class="fab fa-youtube"></i> YouTube</span>
-          </a>
-        </div>
+      h1 {
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+      p {
+        font-size: 16px;
+        margin: 10px 0;
+      }
 
-        <div class="footer">
-          <p><strong>Coming 2025</strong></p>
-          &copy; 2025 TrendFit. All rights reserved.
-        </div>
+      .socials {
+        margin-top: 25px;
+      }
+      .socials a {
+        margin: 0 10px;
+        text-decoration: none;
+        color: #007bff;
+        font-weight: bold;
+      }
+
+      .footer {
+        margin-top: 30px;
+        font-size: 14px;
+        color: #777;
+      }
+
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+        display: block;
+      }
+
+      @media (max-width: 900px) {
+        .container {
+          flex-direction: column;
+          margin: 16px;
+        }
+        .left-content,
+        .right-content {
+          padding: 20px;
+          text-align: center;
+        }
+        .logo {
+          margin: 0 auto 20px auto;
+        }
+        iframe {
+          width: 100%;
+          height: 500px;
+          border: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ============ Site Header / Navbar (shared look) ============ -->
+    <header class="site-header" style="width: 100%">
+      <div
+        class="container nav"
+        style="
+          background: transparent;
+          box-shadow: none;
+          border: none;
+          max-width: 1100px;
+          margin: 0 auto;
+          padding: 0 20px;
+        "
+      >
+        <a class="brand" href="index.html">
+          <img src="logo.png" alt="TrendFit Logo" height="28" />
+          <span>TrendFit</span>
+        </a>
+        <nav class="nav-links">
+          <a href="features.html">Features</a>
+          <a href="announcements.html">Announcements</a>
+          <a href="beta-feedback.html">Beta Feedback</a>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a class="btn btn-compact" href="#signup">Sign Up</a>
+        </nav>
       </div>
+    </header>
 
-      <div class="right-content" id="signup-section">
-        <!-- Anchor for the navbar CTA -->
-        <a id="signup"></a>
+    <!-- ============ Landing Content ============ -->
+    <main class="page-wrap">
+      <div class="container">
+        <!-- Left: welcome copy -->
+        <div class="left-content">
+          <img src="logo.png" alt="Trend Fit App Logo" class="logo" />
+          <h1>A Smarter Way to Track Your Workouts</h1>
+          <p>Fast. Efficient. Insightful.</p>
+          <p>
+            Get the data you need to improve your performance with just a couple
+            of clicks.
+          </p>
+          <p>Are you passionate about better workouts?</p>
+          <p>Join us on the front end of something special!</p>
+          <p><strong>Sign Up to Become a Founding Member!</strong></p>
 
-        <!-- OPEN: shown until cutoff -->
-        <div id="signup-open">
-          <iframe 
-            id="signupFrame"
-            title="Trend Fit App Signup"
-            aria-label="Trend Fit App Signup"
-            src="https://forms.zohopublic.ca/curtistrend1/form/TrendFitAppSignup/formperma/_6xAp1_xssGxZZB_l8ADgST0ffX3GYKSCEtSvUV8rpM">
-          </iframe>
+          <div class="socials">
+            <p>Follow Us:</p>
+            <a href="https://www.instagram.com/trendfitapp" target="_blank">
+              <span style="white-space: nowrap"
+                ><i class="fab fa-instagram"></i> Instagram</span
+              >
+            </a>
+            <a href="https://www.facebook.com/trendfitapp" target="_blank">
+              <span style="white-space: nowrap"
+                ><i class="fab fa-facebook-f"></i> Facebook</span
+              >
+            </a>
+            <a href="https://twitter.com/trendfitapp" target="_blank">
+              <span style="white-space: nowrap"
+                ><i class="fab fa-twitter"></i> Twitter/X</span
+              >
+            </a>
+            <a
+              href="https://www.linkedin.com/company/trend-fit-app"
+              target="_blank"
+            >
+              <span style="white-space: nowrap"
+                ><i class="fab fa-linkedin"></i> LinkedIn</span
+              >
+            </a>
+            <a href="https://www.youtube.com/@trendfit_app" target="_blank" rel="noopener">
+              <span style="white-space: nowrap;"><i class="fab fa-youtube"></i> YouTube</span>
+            </a>
+          </div>
+
+          <div class="footer">
+            <p><strong>Coming 2025</strong></p>
+            &copy; 2025 TrendFit. All rights reserved.
+          </div>
         </div>
 
-        <!-- CLOSED: shown after cutoff -->
-        <div id="signup-closed" class="card" style="display:none; margin:16px;">
-          <h3>Founding Member signups are now closed</h3>
-          <p style="color:var(--muted); font-size:14px; margin-top:6px;">
-            Thank you to everyone who joined! You can still follow progress and join the beta.
-          </p>
-          <div style="margin-top:8px; display:flex; gap:10px; flex-wrap:wrap;">
-            <a class="btn btn-primary" href="beta-feedback.html"><i class="fa-solid fa-flask"></i> Become a Beta Tester</a>
-            <a class="btn btn-ghost" href="announcements.html"><i class="fa-solid fa-bullhorn"></i> See Announcements</a>
+        <!-- Right: signup (inside the same card) -->
+        <div class="right-content" id="signup-section">
+          <!-- Anchor for the navbar CTA -->
+          <a id="signup"></a>
+
+          <!-- OPEN: shown until cutoff -->
+          <div id="signup-open">
+            <iframe
+              id="signupFrame"
+              title="Trend Fit App Signup"
+              aria-label="Trend Fit App Signup"
+              src="https://forms.zohopublic.ca/curtistrend1/form/TrendFitAppSignup/formperma/_6xAp1_xssGxZZB_l8ADgST0ffX3GYKSCEtSvUV8rpM"
+            >
+            </iframe>
+          </div>
+
+          <!-- CLOSED: shown after cutoff -->
+          <div
+            id="signup-closed"
+            class="card"
+            style="display: none; margin: 16px"
+          >
+            <h3>Founding Member signups are now closed</h3>
+            <p style="color: var(--muted); font-size: 14px; margin-top: 6px">
+              Thank you to everyone who joined! You can still follow progress
+              and join the beta.
+            </p>
+            <div
+              style="margin-top: 8px; display: flex; gap: 10px; flex-wrap: wrap"
+            >
+              <a class="btn btn-primary" href="beta-feedback.html"
+                ><i class="fa-solid fa-flask"></i> Become a Beta Tester</a
+              >
+              <a class="btn btn-ghost" href="announcements.html"
+                ><i class="fa-solid fa-bullhorn"></i> See Announcements</a
+              >
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </main>
+    </main>
+    <!-- ============ End Landing Content ============ -->
+    <script>
+      // Runs after the DOM is ready (safe to query elements)
+      (function () {
+        // Cutoff at end of day Oct 11, 2025 (local time). Months are 0-based: 9 = October.
+        var cutoff = new Date(2025, 9, 11, 23, 59, 59);
+        var now = new Date();
+        var isClosed = now > cutoff;
 
-  <!-- Keep --header-h in sync with real header height -->
-  <script>
-    (function () {
-      var header = document.querySelector('.site-header');
-      function setHeaderH() {
-        var h = header ? header.offsetHeight : 56;
-        document.documentElement.style.setProperty('--header-h', h + 'px');
-      }
-      setHeaderH();
-      window.addEventListener('resize', setHeaderH);
-    })();
-  </script>
+        // var isClosed = true; // <- uncomment to force "closed" state
 
-  <!-- Signup cutoff logic -->
-  <script>
-    (function () {
-      // Cutoff at end of day Oct 11, 2025 (local time). Months are 0-based: 9 = October.
-      var cutoff = new Date(2025, 9, 11, 23, 59, 59);
-      var now = new Date();
-      var isClosed = now > cutoff;
+        var navLink = document.querySelector('nav.nav-links a[href="#signup"]');
+        var openWrap = document.getElementById("signup-open");
+        var closedWrap = document.getElementById("signup-closed");
 
-      var navLink   = document.querySelector('nav.nav-links a[href*="signup"]');
-      var openWrap  = document.getElementById('signup-open');
-      var closedWrap= document.getElementById('signup-closed');
-
-      if (isClosed) {
-        if (navLink) {
-          navLink.textContent = 'Signups Closed';
-          navLink.removeAttribute('href');
-          navLink.setAttribute('aria-disabled', 'true');
-          navLink.classList.add('btn','btn-compact');
-          navLink.style.opacity = '0.55';
-          navLink.style.cursor = 'not-allowed';
+        if (isClosed) {
+          // Disable navbar CTA
+          if (navLink) {
+            navLink.textContent = "Signups Closed";
+            navLink.removeAttribute("href");
+            navLink.setAttribute("aria-disabled", "true");
+            navLink.classList.add("btn", "btn-compact");
+            navLink.style.opacity = "0.55";
+            navLink.style.cursor = "not-allowed";
+          }
+          // Toggle panels
+          if (openWrap) openWrap.style.display = "none";
+          if (closedWrap) closedWrap.style.display = "block";
         }
-        if (openWrap)  openWrap.style.display = 'none';
-        if (closedWrap) closedWrap.style.display = 'block';
-      }
-    })();
-  </script>
-</body>
+      })();
+    </script>
+    <script>
+      // Keep the --header-h CSS variable in sync with the real header height
+      (function () {
+        var header = document.querySelector('.site-header');
+        function setHeaderH() {
+          var h = header ? header.offsetHeight : 56;
+          document.documentElement.style.setProperty('--header-h', h + 'px');
+        }
+        setHeaderH();
+        window.addEventListener('resize', setHeaderH);
+      })();
+    </script>
+  </body>
 </html>
