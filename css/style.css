@@ -169,7 +169,7 @@ a:focus-visible, button:focus-visible { outline: 3px solid color-mix(in oklab, v
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #000;                /* safe backdrop */
+  background: #FF8C00;                /* safe backdrop */
   border-radius: 0;                /* card supplies rounding */
 }
 
@@ -177,7 +177,7 @@ a:focus-visible, button:focus-visible { outline: 3px solid color-mix(in oklab, v
   display: block;
   width: auto;                     /* keep portrait aspect */
   max-width: 100%;
-  height: clamp(520px, 80vh, 980px); /* tall but bounded */
+  height: clamp(440px, 70vh, 820px); /* tall but bounded */
   aspect-ratio: 9 / 16;
   object-fit: contain;             /* show full phone screen (no crop) */
   border: 0;
@@ -193,4 +193,18 @@ a:focus-visible, button:focus-visible { outline: 3px solid color-mix(in oklab, v
 @media (min-width: 901px) {
   .page-wrap .left-content  { flex: 0 1 520px; }
   .page-wrap .right-content { flex: 1 1 520px; }
+}
+
+/* Home: show black framing above/below the portrait preview */
+body.home .video-wrap { 
+  padding-block: 18px;   /* tweak: 12–32px as you like */
+}
+
+/* Make SVG logos scale crisply */
+.brand img { height: 28px; width: auto; display: block; }
+
+/* Home: larger hero logo in the left column (responsive) */
+body.home .left-content .logo {
+  width: clamp(140px, 18vw, 220px);
+  height: auto;
 }

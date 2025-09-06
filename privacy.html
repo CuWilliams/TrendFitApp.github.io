@@ -6,10 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="canonical" href="https://cuwilliams.github.io/TrendFitApp.github.io/privacy.html" />
   <meta name="description" content="TrendFit Privacy Policy — on-device HealthKit analytics. We don’t upload your health data." />
+
+  <!-- Styles -->
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="css/style.css" />
-  <script defer src="js/policy.js"></script>
+
+  <!-- Scripts -->
+  <script defer src="js/includes.js"></script>  <!-- needed to render shared header -->
+  <script defer src="js/policy.js"></script>    <!-- renders JSON-driven policy -->
+
   <style>
     /* Page-local tweaks (can move to css/style.css later) */
     .policy-meta { color: var(--muted); font-size: 14px; margin-top: 4px; }
@@ -19,23 +25,9 @@
   </style>
 </head>
 <body class="bg-gradient">
-  <!-- ============ Header / Navbar ============ -->
-  <header class="site-header">
-    <div class="container nav">
-      <a class="brand" href="index.html">
-        <img src="logo.png" alt="TrendFit Logo" height="28" />
-        <span>TrendFit</span>
-      </a>
-      <nav class="nav-links">
-        <a href="features.html">Features</a>
-        <a href="announcements.html">Announcements</a>
-        <a href="beta-feedback.html">Beta Feedback</a>
-        <a href="privacy.html" aria-current="page">Privacy</a>
-        <a href="terms.html">Terms</a>
-        <a class="btn btn-compact" href="signup.html#signup">Sign Up</a>
-      </nav>
-    </div>
-  </header>
+
+  <!-- ============ Header / Navbar (shared include) ============ -->
+  <div data-include="partials/header.html"></div>
 
   <main class="section">
     <div class="container">

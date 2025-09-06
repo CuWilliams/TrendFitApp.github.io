@@ -10,6 +10,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="css/style.css" />
 
+  <script defer src="js/includes.js"></script>
+
   <style>
     /* Page-local tweaks (can be moved to css/style.css later) */
     .guidelines { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 16px; }
@@ -23,23 +25,10 @@
   </style>
 </head>
 <body class="bg-gradient">
+
   <!-- ============ Header / Navbar ============ -->
-  <header class="site-header">
-    <div class="container nav">
-      <a class="brand" href="index.html">
-        <img src="logo.png" alt="TrendFit Logo" height="28" />
-        <span>TrendFit</span>
-      </a>
-      <nav class="nav-links">
-        <a href="features.html">Features</a>
-        <a href="announcements.html">Announcements</a>
-        <a href="beta-feedback.html" aria-current="page">Beta Feedback</a>
-        <a href="privacy.html">Privacy</a>
-        <a href="terms.html">Terms</a>
-        <a class="btn btn-compact" href="signup.html#signup">Sign Up</a>
-      </nav>
-    </div>
-  </header>
+  <!-- Shared header include -->
+<div data-include="partials/header.html"></div>
 
   <main>
     <!-- ============ Hero ============ -->

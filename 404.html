@@ -8,6 +8,9 @@
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="css/style.css" />
+
+<script defer src="js/includes.js"></script>
+
   <style>
     .oops { text-align: center; padding: 56px 0 24px; }
     .oops h1 { font-size: clamp(28px, 6vw, 44px); margin: 0 0 8px; }
@@ -17,23 +20,10 @@
   </style>
 </head>
 <body class="bg-gradient">
+
   <!-- Header / Navbar -->
-  <header class="site-header">
-    <div class="container nav">
-      <a class="brand" href="index.html">
-        <img src="logo.png" alt="TrendFit Logo" height="28" />
-        <span>TrendFit</span>
-      </a>
-      <nav class="nav-links">
-        <a href="features.html">Features</a>
-        <a href="announcements.html">Announcements</a>
-        <a href="beta-feedback.html">Beta Feedback</a>
-        <a href="privacy.html">Privacy</a>
-        <a href="terms.html">Terms</a>
-        <a class="btn btn-compact" href="signup.html#signup">Sign Up</a>
-      </nav>
-    </div>
-  </header>
+  <!-- Shared header include -->
+<div data-include="partials/header.html"></div>
 
   <main class="oops">
     <div class="container text-center">
