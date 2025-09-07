@@ -154,47 +154,6 @@ a:focus-visible, button:focus-visible { outline: 3px solid color-mix(in oklab, v
   #signupFrame { height: 560px; }      /* comfortable mobile height */
 }
 
-/* Landing: column balance on wide screens (overrides page <style>) */
-@media (min-width: 901px) {
-  .page-wrap .left-content  { flex: 0 1 480px; }  /* text column */
-  .page-wrap .right-content { flex: 1 1 620px; }  /* form column */
-}
-
-/* ==============================================
-   Home video (simple, portrait-friendly)
-   ============================================== */
-.video-wrap {
-  width: 100%;
-  min-height: 1px;                 /* prevents collapse */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #FF8C00;                /* safe backdrop */
-  border-radius: 0;                /* card supplies rounding */
-}
-
-.video-wrap .preview {
-  display: block;
-  width: auto;                     /* keep portrait aspect */
-  max-width: 100%;
-  height: clamp(440px, 70vh, 820px); /* tall but bounded */
-  aspect-ratio: 9 / 16;
-  object-fit: contain;             /* show full phone screen (no crop) */
-  border: 0;
-}
-
-@media (max-width: 900px) {
-  .video-wrap .preview {
-    height: 60vh;                  /* comfortable on phones */
-  }
-}
-
-/* (Optional) tweak desktop column balance */
-@media (min-width: 901px) {
-  .page-wrap .left-content  { flex: 0 1 520px; }
-  .page-wrap .right-content { flex: 1 1 520px; }
-}
-
 /* Home: show black framing above/below the portrait preview */
 body.home .video-wrap { 
   padding-block: 18px;   /* tweak: 12–32px as you like */
@@ -203,8 +162,277 @@ body.home .video-wrap {
 /* Make SVG logos scale crisply */
 .brand img { height: 28px; width: auto; display: block; }
 
-/* Home: larger hero logo in the left column (responsive) */
-body.home .left-content .logo {
-  width: clamp(140px, 18vw, 220px);
-  height: auto;
+/* Visually hidden but accessible (for structural headings, labels, etc.) */
+.sr-only {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%);
+  white-space: nowrap; border: 0;
+}
+
+/* ================================
+   Home — centered, panel layout
+   ================================ */
+
+/* Card: 1100 wide, 38px inner padding, 38px gap */
+body.home .page-wrap > .container {
+  display: flex;
+  gap: 38px;
+  padding: 38px;
+}
+
+/* Columns: ~493px rails */
+body.home .left-content  { flex: 0 1 493px; display: flex; justify-content: flex-start; }
+body.home .right-content { flex: 1 1 493px; padding: 0 !important; }
+
+/* The 445px content column centered within the left rail */
+body.home .left-content .stack {
+  width: 100%;
+  max-width: 445px;
+  margin: 0 auto;
+  display: grid;
+  gap: 18px;
+  text-align: center;
+}
+
+/* Logo sizing (180×auto slot) */
+body.home .left-content .logo { width: 180px; height: auto; margin: 6px auto 10px; }
+
+/* Tinted panels (warm complement to blue background) */
+.panel {
+  background: #FFF3E3;            /* subtle, warm */
+  border: 1px solid #FFC888;
+  border-radius: 12px;
+  padding: 18px 20px;
+}
+.panel-hero { padding: 22px 20px; }
+.panel + .panel { margin-top: 18px; }
+
+/* Hero heading */
+.panel-hero .hero-title {
+  margin: 4px 0;
+  font-weight: 800;
+  letter-spacing: .2px;
+  font-size: clamp(32px, 5vw, 44px);
+}
+
+/* Copy rhythm */
+.panel-text p { margin: 8px 0; }
+
+/* Video container: clean black framing */
+body.home .video-wrap {
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-block: 14px;
+  border-radius: 12px;
+}
+body.home .video-wrap .preview {
+  width: auto;
+  max-width: 100%;
+  height: clamp(620px, 72vh, 740px);  /* ~694px target */
+  aspect-ratio: 9 / 16;
+  object-fit: contain;
+  display: block;
+}
+
+/* Mobile stacking */
+@media (max-width: 900px) {
+  body.home .page-wrap > .container { flex-direction: column; gap: 18px; padding: 16px; }
+  body.home .left-content, body.home .right-content { flex: 1 1 auto; }
+}
+
+/* =========================================
+   Home: put “Coming Soon!” panel beside logo
+   ========================================= */
+
+/* One knob: the logo’s height (panel will match this) */
+:root { --hero-logo-h: 160px; } /* try 140–180px to taste */
+
+body.home .logo-hero-row {
+  display: flex;
+  align-items: stretch;      /* make panel match the tallest (the logo) */
+  gap: 48px;
+  margin-bottom: 18px;       /* keep your spacing rhythm */
+}
+
+/* Keep logo exactly where/size it was, but remove the old bottom margin
+   *only* in this row so it doesn’t push things down */
+body.home .logo-hero-row .logo {
+  height: var(--hero-logo-h);
+  width: auto;
+  margin: 0;                 /* override any earlier .logo margin-bottom */
+  display: block;
+}
+
+/* The panel sits to the right and stretches to the logo’s height */
+body.home .logo-hero-row .panel-hero {
+  display: grid;
+  place-items: center;       /* center text inside the panel */
+  min-height: var(--hero-logo-h);
+  text-align: center;
+}
+
+/* Stack the words to fill the panel vertically */
+body.home .logo-hero-row .panel-hero .hero-title {
+  margin: 0;
+  line-height: 0.95;
+  font-size: clamp(28px, 3.8vw, 40px);  /* scales nicely on desktop */
+}
+body.home .logo-hero-row .panel-hero .hero-title .break {
+  display: block;            /* “Coming” / “Soon!” on separate lines */
+}
+
+/* Mobile: stack panel under logo (unchanged look on phones) */
+@media (max-width: 700px) {
+  body.home .logo-hero-row { flex-direction: column; align-items: center; }
+}
+
+/* Panel-text: bullet styling (scoped so it won’t affect other panels) */
+.panel.panel-text { text-align: left; } /* just this panel goes left */
+.panel-text .panel-kicker {
+  margin: 0 0 10px;
+  font-weight: 700;
+  font-size: clamp(18px, 2.2vw, 20px);
+}
+
+.panel-text .feature-bullets {
+  list-style: none;
+  margin: 0;
+  padding: 0 4px 0 0;               /* small inner rail */
+  display: grid;
+  gap: 10px;                         /* space between bullets */
+}
+
+.panel-text .feature-bullets li {
+  display: grid;
+  grid-template-columns: 22px 1fr;   /* icon | text */
+  align-items: start;
+  column-gap: 10px;
+}
+
+.panel-text .feature-bullets i {
+  line-height: 1;
+  margin-top: 2px;                   /* align icon with first line of text */
+  color: var(--brand2);              /* warm accent to match panel border */
+  font-size: 16px;
+}
+
+.panel-text .feature-bullets span {
+  display: block;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* CTAs — two-column layout: label (left) | fixed-width button (right) */
+.panel-cta .cta-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.panel-cta .cta-row {
+  display: grid;
+  grid-template-columns: 1fr 120px;   /* <- all buttons same width */
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+}
+
+.panel-cta .cta-row + .cta-row {
+  border-top: 1px dashed color-mix(in oklab, var(--accent) 30%, transparent);
+  margin-top: 8px;
+}
+
+/* Label styling: match Copy panel vibe (same size & left aligned) */
+.panel-cta .cta-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--ink);
+  font-size: 16px;          /* <- same size we used in the Copy panel bullets */
+  line-height: 1.45;
+  text-align: left;
+}
+
+.panel-cta .cta-label .cta-icon {
+  color: var(--brand2);     /* small blue flare icon */
+  font-size: 16px;
+  line-height: 1;
+}
+
+/* Buttons: force consistent blue and fixed width */
+.panel-cta a.btn {
+  justify-self: end;        /* hugs right edge with panel padding */
+  width: 120px;             /* <- matches grid second column */
+  white-space: nowrap;      /* prevents wrapping differences */
+  background: var(--accent) !important;
+  color: #fff !important;
+  border-color: transparent !important;
+}
+.panel-cta a.btn:hover { filter: brightness(0.92); }
+
+/* Center the app preview vertically in the right column (desktop only) */
+@media (min-width: 901px) {
+  body.home .right-content {
+    display: flex;             /* make it a flex container */
+    flex-direction: column;     /* vertical stack */
+    justify-content: center;    /* ← vertical centering */
+    padding: 0 !important;      /* keep existing zero padding */
+  }
+  /* keep the video centered horizontally if needed */
+  body.home .right-content .video-wrap {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* On mobile, let it flow naturally at the top */
+@media (max-width: 900px) {
+  body.home .right-content {
+    display: block;             /* normal flow on small screens */
+  }
+}
+
+/* ================================
+   Page: Sign Up (scoped layout)
+   ================================ */
+body.signup .page-wrap {
+  min-height: calc(100dvh - var(--header-h));
+  display: grid;
+  place-items: center;
+}
+
+body.signup .page-wrap > .container {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,.10);
+  width: 100%;
+  max-width: 1100px;
+  margin: 24px;
+  overflow: hidden;
+
+  display: flex;
+  gap: 0;
+  padding: 0;
+}
+
+@media (max-width: 900px) {
+  body.signup .page-wrap > .container { flex-direction: column; margin: 16px; }
+}
+
+/* Columns (restore prior proportions) */
+body.signup .left-content  { flex: 0 1 480px; padding: 40px; text-align: center; }
+body.signup .right-content { flex: 1 1 620px; padding: 0; display: flex; align-items: center; }
+
+/* Zoho iframe sizing */
+body.signup #signupFrame {
+  width: 100%;
+  height: clamp(640px, 76vh, 1100px);
+  border: 0;
+  display: block;
+}
+@media (max-width: 900px) {
+  body.signup #signupFrame { height: 560px; }
 }
