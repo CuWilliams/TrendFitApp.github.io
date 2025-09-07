@@ -1,0 +1,55 @@
+<svg width="1440" height="900" viewBox="0 0 1440 900" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .hdr { fill:#ffffff; fill-opacity:.85; stroke:#cfcfcf; }
+    .card { fill:#ffffff; stroke:#d6d6d6; }
+    .bg  { fill:url(#grad); }
+    .col { fill:#f6f7f9; stroke:#e0e0e0; }
+    .slot{ fill:#eaf2ff; stroke:#8fb5ff; }
+    .label{ font: 12px -apple-system,Segoe UI,Roboto,Arial; fill:#333; }
+  </style>
+  <defs>
+    <linearGradient id="grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2DBAF7"/>
+      <stop offset="100%" stop-color="#0A5DB3"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background gradient -->
+  <rect class="bg" x="0" y="0" width="1440" height="900"/>
+
+  <!-- Sticky header (drag height to taste) -->
+  <rect class="hdr" x="0" y="0" width="1440" height="72"/>
+  <text class="label" x="20" y="44">Header / Navbar</text>
+
+  <!-- Main card (drag/resize to set container size and vertical position) -->
+  <rect class="card" x="170" y="140" width="1100" height="620" rx="12"/>
+  <text class="label" x="175" y="130">Main Card</text>
+
+  <!-- Left column (drag the split by resizing this rect’s width) -->
+  <rect class="col" x="190" y="160" width="480" height="580" rx="10"/>
+  <text class="label" x="195" y="155">Left Column</text>
+
+  <!-- Right column -->
+  <rect class="col" x="690" y="160" width="560" height="580" rx="10"/>
+  <text class="label" x="695" y="155">Right Column</text>
+
+  <!-- Left: logo slot (resize to control logo box) -->
+  <rect class="slot" x="210" y="185" width="160" height="80" rx="8"/>
+  <text class="label" x="215" y="180">Logo</text>
+
+  <!-- Left: text block slot (move/resize to set spacing) -->
+  <rect class="slot" x="210" y="280" width="420" height="200" rx="8"/>
+  <text class="label" x="215" y="275">Text block</text>
+
+  <!-- Left: CTA area -->
+  <rect class="slot" x="210" y="490" width="420" height="80" rx="8"/>
+  <text class="label" x="215" y="485">CTAs</text>
+
+  <!-- Left: footer/copyright (drag to bottom where you want it) -->
+  <rect class="slot" x="210" y="585" width="420" height="40" rx="8"/>
+  <text class="label" x="215" y="580">© Footer</text>
+
+  <!-- Right: video area (resize to set visual target) -->
+  <rect class="slot" x="710" y="180" width="520" height="540" rx="12"/>
+  <text class="label" x="715" y="175">Video (portrait)</text>
+</svg>
