@@ -488,3 +488,62 @@ body.signup .signup-benefits { text-align: left; margin-top: 20px; }
 body.signup .signup-benefits p {
   margin: 8px 0;
 }
+
+/* --- Navbar: let pills wrap; avoid overflow/clipping --- */
+.site-header .nav {
+  height: auto;              /* override fixed height */
+  min-height: 56px;
+  padding-block: 8px;        /* space top/bottom */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;           /* allow multiple rows */
+  gap: 12px;
+}
+
+/* keep brand on the left; links can wrap and center */
+.site-header .brand { flex: 0 0 auto; }
+.site-header .nav-links {
+  flex: 1 1 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* make the pills a bit tighter as space gets small */
+@media (max-width: 840px) {
+  .site-header .nav { padding-block: 6px; }
+  .site-header .nav-links a { padding: 6px 10px; font-size: 14px; }
+}
+
+@media (max-width: 520px) {
+  .site-header .nav-links { gap: 6px; }
+  .site-header .nav-links a { padding: 5px 8px; font-size: 13px; }
+}
+
+/* ========= Consistent responsive nav across all pages ========= */
+@media (max-width: 1180px) {
+  .site-header .nav {
+    flex-wrap: wrap;           /* allow 2 rows */
+    height: auto;              /* don't force 56px */
+    padding-block: 8px;        /* same feel as Sign Up */
+    row-gap: 8px;
+  }
+  .site-header .nav .nav-links {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;   /* center the pill row */
+    gap: 8px 10px;
+    margin-top: 6px;           /* separation below brand */
+  }
+}
+
+/* Make pills a touch more compact on small phones */
+@media (max-width: 700px) {
+  .site-header .nav .nav-links a {
+    padding: 6px 10px;
+    font-size: 14px;
+  }
+}
