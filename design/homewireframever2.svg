@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="2224"
+   height="890"
+   viewBox="0 0 2224 890"
+   version="1.1"
+   id="svg11"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <style
+     id="style1">
+    .hdr { fill:#ffffff; fill-opacity:.85; stroke:#cfcfcf; }
+    .card { fill:#ffffff; stroke:#d6d6d6; }
+    .bg  { fill:url(#grad); }
+    .col { fill:#f6f7f9; stroke:#e0e0e0; }
+    .slot{ fill:#eaf2ff; stroke:#8fb5ff; }
+    .label{ font: 12px -apple-system,Segoe UI,Roboto,Arial; fill:#333; }
+  </style>
+  <defs
+     id="defs2">
+    <linearGradient
+       id="grad"
+       x1="0"
+       y1="0"
+       x2="1365.1783"
+       y2="1365.1783"
+       gradientTransform="matrix(1.6290911,0,0,0.6138392,0,52)"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         offset="0%"
+         stop-color="#2DBAF7"
+         id="stop1" />
+      <stop
+         offset="100%"
+         stop-color="#0A5DB3"
+         id="stop2" />
+    </linearGradient>
+  </defs>
+  <!-- Background gradient -->
+  <rect
+     class="bg"
+     x="0"
+     y="52"
+     width="2224"
+     height="838"
+     id="rect2"
+     style="fill:url(#grad)" />
+  <!-- Sticky header (drag height to taste) -->
+  <rect
+     class="hdr"
+     x="0"
+     y="-5"
+     width="2224"
+     height="57"
+     id="rect3" />
+  <text
+     class="label"
+     x="51.792969"
+     y="31.853516"
+     id="text3"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;line-height:normal;font-family:'-apple-system', 'Segoe UI', Roboto, Arial">Header / Navbar</text>
+  <!-- Main card (drag/resize to set container size and vertical position) -->
+  <rect
+     class="card"
+     x="561.5"
+     y="72"
+     width="1100"
+     height="790"
+     rx="12"
+     id="rect4"
+     ry="12" />
+  <rect
+     class="card"
+     x="581.5"
+     y="72"
+     width="530"
+     height="790"
+     id="rect4-6"
+     style="opacity:1;fill:#ffc700;fill-opacity:1;stroke:#d6d6d6" />
+  <rect
+     class="card"
+     x="1111.5"
+     y="72"
+     width="530"
+     height="790"
+     id="rect4-6-6"
+     style="opacity:0.49709;fill:#ff8c00;fill-opacity:1;stroke:#d6d6d6" />
+  <text
+     class="label"
+     x="459.10938"
+     y="180.73633"
+     id="text4"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;line-height:normal;font-family:'-apple-system', 'Segoe UI', Roboto, Arial">Main Card</text>
+  <!-- Left column (drag the split by resizing this rect’s width) -->
+  <rect
+     class="col"
+     x="600"
+     y="100"
+     width="493"
+     height="742"
+     rx="12"
+     id="rect5"
+     style="opacity:1;stroke-width:1.08406"
+     ry="12" />
+  <rect
+     class="slot"
+     x="877.99609"
+     y="130.05859"
+     width="140"
+     height="140"
+     rx="4.5647955"
+     id="rect8-9"
+     style="fill:#eaf2ff;stroke:#8fb5ff;stroke-width:0.390384" />
+  <text
+     class="label"
+     x="929.45312"
+     y="196.85352"
+     id="text7-0"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;line-height:normal;font-family:'-apple-system', 'Segoe UI', Roboto, Arial;fill:#333333"><tspan
+       id="tspan11"
+       x="929.45312"
+       y="196.85352">Coming</tspan><tspan
+       id="tspan12"
+       x="929.45312"
+       y="211.85352">Soon!</tspan><tspan
+       x="929.45312"
+       y="226.85352"
+       id="tspan13" /></text>
+  <text
+     class="label"
+     x="882.51233"
+     y="148.64844"
+     id="text8-3"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;line-height:normal;font-family:'-apple-system', 'Segoe UI', Roboto, Arial;fill:#333333"><tspan
+       x="882.51233"
+       y="148.64844"
+       id="tspan18">Text block#1</tspan></text>
+  <text
+     class="label"
+     x="600"
+     y="92"
+     id="text5"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;line-height:normal;font-family:'-apple-system', 'Segoe UI', Roboto, Arial">Left Column</text>
+  <!-- Right column -->
+  <rect
+     class="col"
+     x="1130.6558"
+     y="98.655807"
+     width="493"
+     height="742"
+     rx="12"
+     id="rect6"
+     style="stroke-width:1.31162"
+     ry="12" />
+  <text
+     class="label"
+     x="1140"
+     y="92"
+     id="text6"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;line-height:normal;font-family:'-apple-system', 'Segoe UI', Roboto, Arial">Right Column</text>
+  <!-- Left: logo slot (resize to control logo box) -->
+  <rect
+     class="slot"
+     x="628.76172"
+     y="111.64645"
+     width="180"
+     height="180"
+     rx="8"
+     id="rect7"
+     style="stroke-width:0.707107" />
+  <text
+     class="label"
+     x="637.62305"
+     y="156.22266"
+     id="text7"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;line-height:normal;font-family:'-apple-system', 'Segoe UI', Roboto, Arial">Logo</text>
+  <!-- Left: text block slot (move/resize to set spacing) -->
+  <rect
+     class="slot"
+     x="627.89655"
+     y="311.94653"
+     width="445.10693"
+     height="160.3524"
+     rx="12.002884"
+     id="rect8"
+     style="stroke-width:0.916645"
+     ry="9.6211443" />
+  <text
+     class="label"
+     x="638.77557"
+     y="326.57126"
+     id="text8"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;line-height:normal;font-family:'-apple-system', 'Segoe UI', Roboto, Arial;stroke-width:0.999943"
+     transform="scale(0.99994311,1.0000569)"><tspan
+       id="tspan16"
+       x="638.77557"
+       y="326.57126"
+       style="stroke-width:0.999943">Text block#2</tspan><tspan
+       id="tspan17"
+       x="638.77557"
+       y="341.5704"
+       style="stroke-width:0.999943" /></text>
+  <!-- Left: CTA area -->
+  <rect
+     class="slot"
+     x="628.6062"
+     y="491.8837"
+     width="445.23264"
+     height="198.36232"
+     rx="8.3577948"
+     id="rect9"
+     style="stroke-width:1.60948" />
+  <rect
+     class="slot"
+     x="941"
+     y="567.1665"
+     width="118"
+     height="46"
+     rx="8"
+     id="rect9-3-7"
+     style="fill:#eaf2ff;stroke:#8fb5ff;stroke-width:1.84211"
+     ry="8" />
+  <rect
+     class="slot"
+     x="941"
+     y="628.33301"
+     width="118"
+     height="46"
+     rx="8"
+     id="rect9-3-6"
+     style="fill:#eaf2ff;stroke:#8fb5ff;stroke-width:1.84211"
+     ry="8" />
+  <text
+     class="label"
+     x="636.56543"
+     y="509.57138"
+     id="text9"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;line-height:normal;font-family:'-apple-system', 'Segoe UI', Roboto, Arial">CTAs</text>
+  <rect
+     class="slot"
+     x="941"
+     y="506"
+     width="118"
+     height="46"
+     rx="8"
+     id="rect9-3"
+     style="fill:#eaf2ff;stroke:#8fb5ff;stroke-width:1.84211"
+     ry="8" />
+  <!-- Left: footer/copyright (drag to bottom where you want it) -->
+  <rect
+     class="slot"
+     x="627.91138"
+     y="790.15326"
+     width="445"
+     height="39.977249"
+     rx="8.3729"
+     id="rect10"
+     style="stroke-width:1.02275" />
+  <rect
+     class="slot"
+     x="627.91138"
+     y="719.06427"
+     width="445"
+     height="39.977249"
+     rx="8.3729"
+     id="rect10-2"
+     style="fill:#eaf2ff;stroke:#8fb5ff;stroke-width:1.02275" />
+  <text
+     class="label"
+     x="645.83203"
+     y="735.57117"
+     id="text10-8"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;line-height:normal;font-family:'-apple-system', 'Segoe UI', Roboto, Arial;fill:#333333">Socials</text>
+  <text
+     class="label"
+     x="641.69238"
+     y="804.31146"
+     id="text10"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;line-height:normal;font-family:'-apple-system', 'Segoe UI', Roboto, Arial">© Footer</text>
+  <!-- Right: video area (resize to set visual target) -->
+  <rect
+     class="slot"
+     x="1209.8419"
+     y="123.39406"
+     width="344.31601"
+     height="694"
+     rx="16.660465"
+     id="rect11"
+     style="stroke-width:1.31162" />
+  <text
+     class="label"
+     x="1241.4625"
+     y="156.36914"
+     id="text11"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;line-height:normal;font-family:'-apple-system', 'Segoe UI', Roboto, Arial">Video (portrait)</text>
+  <text
+     xml:space="preserve"
+     style="text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;opacity:1;fill:#ffc700;fill-opacity:1;stroke-width:0.1"
+     x="960"
+     y="522"
+     id="text19"><tspan
+       id="tspan19"
+       x="960"
+       y="522">sign up</tspan></text>
+  <text
+     xml:space="preserve"
+     style="text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;opacity:1;fill:#ffc700;fill-opacity:1;stroke-width:0.1"
+     x="960"
+     y="592"
+     id="text20"><tspan
+       id="tspan20"
+       x="960"
+       y="592">Features</tspan></text>
+  <text
+     xml:space="preserve"
+     style="text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;opacity:1;fill:#ffc700;fill-opacity:1;stroke-width:0.1"
+     x="960"
+     y="652"
+     id="text21"><tspan
+       id="tspan21"
+       x="960"
+       y="652">Contact</tspan></text>
+</svg>

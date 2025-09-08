@@ -1,0 +1,53 @@
+{
+  "version": "1.0.0",
+  "effectiveDate": "2025-09-17",
+  "title": "Privacy Policy",
+  "intro": [
+    "Welcome to Trend Fit App. Your privacy is important to us. This Privacy Policy explains how we collect, use, and protect your data when using our app."
+  ],
+  "sections": [
+    {
+      "heading": "1. Data We Collect",
+      "paragraphs": [
+        "Trend Fit App accesses the following data from Apple HealthKit:"
+      ],
+      "bullets": [
+        "Workout Data (e.g., active calories, heart rate, workout duration)",
+        "Personal Health Data (e.g., age, gender, height, weight)"
+      ],
+      "notes": [
+        "We do not collect, store, or transmit any of your HealthKit data outside your device.",
+        "In addition, the app stores basic preferences (e.g., unit settings) and debugging logs locally on your device. These do not contain HealthKit data and are not shared."
+      ]
+    },
+    {
+      "heading": "2. How We Use Your Data",
+      "paragraphs": [
+        "We use the data solely for displaying and analyzing workout trends to help you track fitness progress. We do not share, sell, or distribute your data to any third parties."
+      ]
+    },
+    {
+      "heading": "3. Third-Party Services",
+      "paragraphs": [
+        "Trend Fit App does not use any third-party services to process or store HealthKit data. All HealthKit data remains on your device and is used only for in-app functionality."
+      ]
+    },
+    {
+      "heading": "4. How to Contact Us",
+      "paragraphs": [
+        "If you have any questions about this Privacy Policy or your data, you can contact us at: support@trendfitapp.com"
+      ]
+    },
+    {
+      "heading": "5. Changes to This Policy",
+      "paragraphs": [
+        "We may update this Privacy Policy from time to time. Any changes will be reflected within the app.",
+        "By using Trend Fit App, you agree to this Privacy Policy."
+      ]
+    }
+  ],
+  "contact": {
+    "label": "support@trendfitapp.com",
+    "mailto": "mailto:support@trendfitapp.com"
+  }
+}

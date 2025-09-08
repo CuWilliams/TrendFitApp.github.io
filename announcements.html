@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>TrendFit — Announcements</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="canonical" href="https://cuwilliams.github.io/TrendFitApp.github.io/announcements.html" />
+  <meta name="description" content="TrendFit news: release timing, feature spotlights, roadmap, and policy updates." />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+
+  <script defer src="js/includes.js"></script>
+
+  <!-- Local page styles (kept tiny). If you prefer, we can move these into style.css later. -->
+  <style>
+    .announce-list { display: grid; gap: 16px; }
+    .announce .meta { display:flex; gap:10px; align-items:center; flex-wrap:wrap; color: var(--muted); font-size: 14px; }
+    .badge { display:inline-block; padding:2px 8px; border-radius:999px; border:1px solid var(--border); }
+    .title-row { display:flex; align-items:flex-start; justify-content:space-between; gap:16px; }
+    .title-row h3 { margin: 0 0 6px; font-size: 18px; }
+    .pinned { color: var(--brand2); font-size: 14px; white-space: nowrap; }
+    .links { display:flex; gap:10px; flex-wrap:wrap; margin-top:8px; }
+    .links a { text-decoration:none; }
+  </style>
+
+  <script defer src="js/announcements.js"></script>
+</head>
+<body class="bg-gradient">
+  
+  <!-- ============ Header / Navbar ============ -->
+  <!-- Shared header include -->
+<div data-include="partials/header.html"></div>
+
+  <main>
+    <!-- ============ Page Header ============ -->
+    <section class="hero">
+      <div class="container text-center">
+        <h1 class="hero-title">Announcements & Updates</h1>
+        <p class="hero-subtitle">Roadmap, release timing, feature spotlights, and policy notices for TrendFit.</p>
+      </div>
+    </section>
+
+    <!-- ============ Announcements List (rendered by JS) ============ -->
+    <section class="section">
+      <div class="container">
+        <div id="announce-root" class="announce-list" aria-live="polite"></div>
+
+        <noscript>
+          <p><strong>Note:</strong> This page uses a tiny script to load announcements. Please enable JavaScript to view updates.</p>
+        </noscript>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ Footer ============ -->
+  <footer class="site-footer">
+    <div class="container footer-row">
+      <small>© 2025 TrendFit</small>
+      <div class="footer-links">
+        <a href="privacy.html">Privacy</a>
+        <span>&middot;</span>
+        <a href="terms.html">Terms</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

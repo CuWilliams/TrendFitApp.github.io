@@ -2,20 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>TrendFit — Privacy Policy</title>
+  <title>TrendFit — Terms of Use</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="canonical" href="https://cuwilliams.github.io/TrendFitApp.github.io/privacy.html" />
-  <meta name="description" content="TrendFit Privacy Policy — on-device HealthKit analytics. We don’t upload your health data." />
-
-  <!-- Styles -->
+  <link rel="canonical" href="https://cuwilliams.github.io/TrendFitApp.github.io/terms.html" />
+  <meta name="description" content="TrendFit Terms of Use — app usage, permissions, limitations, and contact information." />
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="css/style.css" />
 
-  <!-- Scripts -->
-  <script defer src="js/includes.js"></script>  <!-- needed to render shared header -->
-  <script defer src="js/policy.js"></script>    <!-- renders JSON-driven policy -->
+<script defer src="js/includes.js"></script>
 
+  <script defer src="js/policy.js"></script>
   <style>
     /* Page-local tweaks (can move to css/style.css later) */
     .policy-meta { color: var(--muted); font-size: 14px; margin-top: 4px; }
@@ -26,22 +23,23 @@
 </head>
 <body class="bg-gradient">
 
-  <!-- ============ Header / Navbar (shared include) ============ -->
-  <div data-include="partials/header.html"></div>
+  <!-- ============ Header / Navbar ============ -->
+  <!-- Shared header include -->
+<div data-include="partials/header.html"></div>
 
   <main class="section">
     <div class="container">
       <!-- policy.js will render into this root -->
-      <div id="policy-root" data-policy="privacy">
+      <div id="policy-root" data-policy="terms">
         <!-- Fallback / Initial skeleton -->
-        <h1>Privacy Policy</h1>
-        <p class="policy-meta">Loading latest policy…</p>
+        <h1>Terms of Use</h1>
+        <p class="policy-meta">Loading latest terms…</p>
       </div>
 
       <noscript>
         <article class="card" style="margin-top:12px;">
-          <h3>Enable JavaScript to view Privacy Policy</h3>
-          <p class="muted">This page loads the policy from a JSON file. Please enable JavaScript.</p>
+          <h3>Enable JavaScript to view Terms</h3>
+          <p class="muted">This page loads the Terms of Use from a JSON file. Please enable JavaScript.</p>
         </article>
       </noscript>
     </div>

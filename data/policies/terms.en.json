@@ -1,0 +1,64 @@
+{
+  "version": "1.0.0",
+  "effectiveDate": "2025-09-17",
+  "title": "Terms of Use",
+  "intro": [
+    "Welcome to Trend Fit App. By using this app, you agree to the following Terms of Use."
+  ],
+  "sections": [
+    {
+      "heading": "1. Use of the App",
+      "paragraphs": [
+        "Trend Fit App provides fitness trend analysis using Apple Health data. The app is for informational purposes only and is not a substitute for medical advice. Trend Fit App is not a medical device and is not intended for diagnosis, treatment, or prevention of disease. Always consult a qualified professional for health decisions."
+      ]
+    },
+    {
+      "heading": "2. Health Data Permissions",
+      "paragraphs": [
+        "The app requires permission to read workout and health data from Apple HealthKit. We do not store, share, or sell your personal health data outside your device."
+      ]
+    },
+    {
+      "heading": "3. User Responsibilities",
+      "bullets": [
+        "Ensure that HealthKit permissions are enabled for proper functionality.",
+        "Verify the accuracy and suitability of any information displayed for your specific situation.",
+        "Use the app in accordance with applicable laws and Apple’s policies."
+      ]
+    },
+    {
+      "heading": "4. No Warranties",
+      "paragraphs": [
+        "Trend Fit App is provided “as is” without warranties of any kind, express or implied. We do not guarantee that the app will be error-free or uninterrupted."
+      ]
+    },
+    {
+      "heading": "5. Limitation of Liability",
+      "paragraphs": [
+        "To the maximum extent permitted by law, Trend Fit App and its developers are not liable for any indirect, incidental, or consequential damages arising from your use of the app."
+      ]
+    },
+    {
+      "heading": "6. Changes to Terms",
+      "paragraphs": [
+        "We may update these Terms of Use from time to time. Continued use of the app after changes become effective constitutes acceptance of the updated terms."
+      ]
+    },
+    {
+      "heading": "7. Contact Us",
+      "paragraphs": [
+        "If you have any questions about these Terms of Use, you can contact us at: support@trendfitapp.com"
+      ]
+    },
+    {
+      "heading": "8. End User License",
+      "paragraphs": [
+        "Your use of Trend Fit App is also governed by Apple’s Standard EULA for apps distributed through the App Store. If there is any conflict between these Terms and Apple’s Standard EULA, the EULA will apply to the extent required by Apple."
+      ]
+    }
+  ],
+  "contact": {
+    "label": "support@trendfitapp.com",
+    "mailto": "mailto:support@trendfitapp.com"
+  }
+}
