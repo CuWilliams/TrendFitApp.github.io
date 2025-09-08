@@ -1,5 +1,5 @@
 User-agent: *
+Disallow: /design/
 Allow: /
 
-# Point crawlers to your sitemap
-Sitemap: YOUR_BASE_URL/sitemap.xml
+Sitemap: https://cuwilliams.github.io/TrendFitApp.github.io/sitemap.xml
