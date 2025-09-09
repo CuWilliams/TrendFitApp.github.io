@@ -2,4 +2,4 @@ User-agent: *
 Disallow: /design/
 Allow: /
 
-Sitemap: https://cuwilliams.github.io/TrendFitApp.github.io/sitemap.xml
+Sitemap: https://trendfitapp.com/sitemap.xml
