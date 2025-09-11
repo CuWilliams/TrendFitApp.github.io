@@ -1,5 +1,6 @@
 User-agent: *
-Disallow: /design/
 Allow: /
+Disallow: /design/
+Disallow: /beta-feedback.html
 
 Sitemap: https://trendfitapp.com/sitemap.xml
