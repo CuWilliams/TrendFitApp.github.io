@@ -20,7 +20,7 @@
     .form-wrap { background: #fff; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
     .form-header { padding: 14px 16px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
     .form-embed { width: 100%; height: 1100px; border: 0; display: block; }
-    .form-actions { display: inline-flex; gap: 10px; align-items: center; }
+    /* .form-actions { display: inline-flex; gap: 10px; align-items: center; } */
     .small-muted { color: var(--muted); font-size: 13px; }
     /* Make the approval notice more prominent on this page only */
 #form .small-muted {
@@ -52,22 +52,24 @@
     </section>
 
     <!-- ============ Guidance ============ -->
-    <section class="section">
-      <div class="container">
-        <div class="guidelines">
-          <h3><i class="fa-solid fa-clipboard-list"></i> What to include</h3>
-          <ul>
-            <li><strong>Device & iOS:</strong> e.g., iPhone 14, iOS 18.6</li>
-            <li><strong>TrendFit build (if shown):</strong> e.g., 0.9.3 (123)</li>
-            <li><strong>Area of the app:</strong> TrendFit, TrendFitStack, Settings, etc.</li>
-            <li><strong>Steps to reproduce:</strong> numbered steps work best</li>
-            <li><strong>Expected vs. actual:</strong> what you thought would happen vs. what happened</li>
-            <li><strong>Screenshots or short video:</strong> attach if helpful (supported by the form)</li>
-          </ul>
-          <p class="small-muted" style="margin-top:8px;">Tip: submit one issue per entry so we can track and fix faster.</p>
-        </div>
-      </div>
-    </section>
+<section class="section">
+  <div class="container">
+    <div class="guidelines">
+      <h3><i class="fa-solid fa-circle-info"></i> Instructions</h3>
+      <ul>
+        <li><strong>One issue per entry.</strong> This keeps triage fast and fixes focused.</li>
+        <li><strong>Be specific.</strong> Include clear steps to reproduce and where you were in the app.</li>
+        <li><strong>Show what you saw.</strong> Attach screenshots or a short screen recording for clarity.</li>
+        <li><strong>Describe expected vs. actual.</strong> What you thought would happen vs. what happened.</li>
+        <li><strong>Add context.</strong> Device & iOS version, and TrendFit build (if shown).</li>
+        <li><strong>Protect privacy.</strong> Redact personal info in any screenshots or videos.</li>
+      </ul>
+      <p class="small-muted" style="margin-top:8px;">
+        Tip: If you’re reporting multiple issues, submit separate entries so we can track and resolve them faster.
+      </p>
+    </div>
+  </div>
+</section>
 
     <!-- ============ Zoho Form Embed ============ -->
 <section id="form" class="section">
@@ -75,11 +77,6 @@
     <div class="form-wrap card">
       <div class="form-header">
         <strong><i class="fa-solid fa-flask"></i> Submit Your Feedback</strong>
-        <div class="form-actions">
-          <a id="openFormLink" class="btn btn-ghost btn-compact" href="#" target="_blank" rel="noopener">
-            <i class="fa-solid fa-arrow-up-right-from-square"></i> Open Form in New Tab
-          </a>
-        </div>
       </div>
 
       <iframe
@@ -92,12 +89,6 @@
         src="https://forms.zohopublic.ca/curtistrend1/form/BetaFeedback/formperma/Rf7JiQII8xRwa4CO4GOz-rw-yBmuz82HZDO4lqXu-Ic"
         aria-label="TrendFit Beta Feedback"
       ></iframe>
-
-      <div style="padding:12px 16px; border-top:1px solid var(--border);">
-        <p class="small-muted">
-          If the embedded form doesn’t load, use the “Open Form in New Tab” button above.
-        </p>
-      </div>
     </div>
   </div>
 </section>
