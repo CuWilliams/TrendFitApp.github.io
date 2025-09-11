@@ -25,6 +25,21 @@
       </article>`;
     });
 
+  // --- Patch A: Minimal Markdown renderer for trusted JSON (bold, italic, code, links)
+  function mdToHtml(s) {
+    // 1) escape HTML
+    const esc = String(s)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;");
+    // 2) inline markdown
+    return esc
+      .replace(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>')
+      .replace(/`([^`]+)`/g, '<code>$1</code>')
+      .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+      .replace(/\*(.+?)\*/g, '<em>$1</em>');
+  }
+
   function renderAnnouncements(items) {
     // normalize + sort: pinned first, then date desc
     const posts = (items || [])
@@ -84,11 +99,33 @@
 
       // Body
       const bodyWrap = document.createElement("div");
-      (post.body || []).forEach((para) => {
+
+      // --- Patch B: render body with minimal markdown + bullets grouped as <ul>
+      const lines = Array.isArray(post.body) ? post.body : [];
+      let idx = 0;
+
+      while (idx < lines.length) {
+        const line = lines[idx];
+
+        // Group bullet lines starting with "• " into one list
+        if (/^•\s/.test(line)) {
+          const ul = document.createElement("ul");
+          while (idx < lines.length && /^•\s/.test(lines[idx])) {
+            const li = document.createElement("li");
+            li.innerHTML = mdToHtml(lines[idx].replace(/^•\s/, ""));
+            ul.appendChild(li);
+            idx++;
+          }
+          bodyWrap.appendChild(ul);
+          continue;
+        }
+
+        // Normal paragraph with inline markdown
         const p = document.createElement("p");
-        p.textContent = para;
+        p.innerHTML = mdToHtml(line);
         bodyWrap.appendChild(p);
-      });
+        idx++;
+      }
 
       // Links
       if (Array.isArray(post.links) && post.links.length) {
@@ -121,8 +158,12 @@
       pinned: Boolean(p.pinned),
       tags: Array.isArray(p.tags) ? p.tags.map(String) : [],
       body: Array.isArray(p.body) ? p.body.map(String) : [],
+      // Accept either {url} or {href} in JSON
       links: Array.isArray(p.links)
-        ? p.links.map((l) => ({ label: String(l.label || "Learn more"), href: String(l.href || "#") }))
+        ? p.links.map((l) => ({
+            label: String(l.label || "Learn more"),
+            href: String((l.href || l.url || "#"))
+          }))
         : [],
     };
   }

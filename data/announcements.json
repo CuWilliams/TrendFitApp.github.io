@@ -1,9 +1,28 @@
 [
   {
+  "id": "2025-09-11-appstore-approval",
+  "date": "2025-09-11",
+  "title": "App Store Connect Approval ✅",
+  "summary": "TrendFit is approved for release. External TestFlight beta is next.",
+  "body": [
+    "Great news — **TrendFit** has been approved in App Store Connect.",
+    "**What’s next:**",
+    "• We’re opening **external TestFlight** for Founding Members first.",
+    "• Watch your inbox for a TestFlight invite (from Apple).",
+    "• Install the **TestFlight** app and accept the invite to join the beta.",
+    "• Share bugs & ideas via our **Beta Feedback** page (Founding Members only).",
+    "• Founding sign-ups remain open until **October 11, 2025**."
+  ],
+  "links": [
+    { "label": "Beta Feedback", "url": "beta-feedback.html" },
+    { "label": "Sign Up (Founding Member)", "url": "signup.html#signup" }
+  ],
+  "tags": ["release", "beta", "testflight"]
+},
+{
     "id": "2025-09-01-beta-focus",
     "date": "2025-09-01",
     "title": "Project Update: Beta focus for 2025",
-    "pinned": true,
     "tags": ["Roadmap", "Beta"],
     "body": [
       "We’re focusing the initial public beta on TrendFit and TrendFitStack to keep things fast, simple, and stable.",
