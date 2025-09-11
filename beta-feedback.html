@@ -70,27 +70,34 @@
     </section>
 
     <!-- ============ Zoho Form Embed ============ -->
-    <section id="form" class="section">
+<section id="form" class="section">
   <div class="container">
     <div class="form-wrap card">
       <div class="form-header">
-        <strong><i class="fa-solid fa-flask"></i> Beta Feedback</strong>
+        <strong><i class="fa-solid fa-flask"></i> Submit Your Feedback</strong>
+        <div class="form-actions">
+          <a id="openFormLink" class="btn btn-ghost btn-compact" href="#" target="_blank" rel="noopener">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i> Open Form in New Tab
+          </a>
+        </div>
       </div>
 
-      <div style="padding:16px;">
+      <iframe
+        id="zohoForm"
+        class="form-embed"
+        title="TrendFit Beta Feedback Form"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        allow="camera; microphone"
+        src="https://forms.zohopublic.ca/curtistrend1/form/BetaFeedback/formperma/Rf7JiQII8xRwa4CO4GOz-rw-yBmuz82HZDO4lqXu-Ic"
+        aria-label="TrendFit Beta Feedback"
+      ></iframe>
+
+      <div style="padding:12px 16px; border-top:1px solid var(--border);">
         <p class="small-muted">
-          This feature will become available pending <strong>App Store Connect approval</strong> and the official beta release.
+          If the embedded form doesn’t load, use the “Open Form in New Tab” button above.
         </p>
       </div>
-
-      <!--
-        FUTURE: When approved, re-enable the Zoho form by pasting your iframe here.
-        Example:
-        <iframe id="zohoForm" class="form-embed" title="TrendFit Beta Feedback"
-                src="https://forms.zohopublic.com/YOUR-ORG/form/TrendFitBetaFeedback/formperma/XXXXXXXX"
-                loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-                aria-label="TrendFit Beta Feedback"></iframe>
-      -->
     </div>
   </div>
 </section>
