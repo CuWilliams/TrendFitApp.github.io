@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Background gradient (your blue brand ramp) -->
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%"  stop-color="#2DBAF7"/>
+      <stop offset="100%" stop-color="#0A5DB3"/>
+    </linearGradient>
+
+    <!-- Optional soft shadow for text -->
+    <filter id="softShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feOffset in="blur" dx="0" dy="2" result="offsetBlur"/>
+      <feColorMatrix in="offsetBlur" type="matrix"
+        values="0 0 0 0 0
+                0 0 0 0 0
+                0 0 0 0 0
+                0 0 0 .35 0" result="shadow"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect x="0" y="0" width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Safe-area hint (60px padding each side) — set display:none to hide in final -->
+  <rect x="60" y="60" width="1080" height="510" rx="12" ry="12"
+        fill="none" stroke="rgba(255,255,255,0.15)" stroke-dasharray="8 8" display="none"/>
+
+  <!-- Left: Logo (imports your SVG from the same folder). In Inkscape, select and "Embed" -->
+  <image x="80" y="145" width="260" height="260"
+         href="TrendFitAppVectorIcon.svg"
+         preserveAspectRatio="xMidYMid meet" />
+
+  <!-- Right: Title & tagline -->
+  <g font-family="-apple-system, Segoe UI, Inter, Roboto, Helvetica, Arial, sans-serif" fill="#fff" filter="url(#softShadow)">
+    <text x="380" y="220" font-size="72" font-weight="800">TrendFit</text>
+    <text x="380" y="280" font-size="36" font-weight="700" opacity="0.98">Smarter Workout Trends</text>
+    <text x="380" y="330" font-size="24" opacity="0.95">Fast, privacy-first insights powered by Apple Health.</text>
+  </g>
+
+  <!-- Bottom CTA/URL (optional) -->
+  <g font-family="-apple-system, Segoe UI, Inter, Roboto, Helvetica, Arial, sans-serif" fill="#ffffff">
+    <rect x="380" y="380" rx="8" ry="8" width="330" height="56" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.28)"/>
+    <text x="400" y="416" font-size="24" font-weight="600">trendfitapp.com</text>
+  </g>
+</svg>
