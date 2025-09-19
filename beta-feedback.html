@@ -13,30 +13,28 @@
   <script defer src="js/includes.js"></script>
 
   <style>
-    /* Page-local tweaks (can be moved to css/style.css later) */
+    /* Page-local tweaks (kept minimal; can move to css/style.css later) */
     .guidelines { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 16px; }
     .guidelines h3 { margin: 0 0 8px; font-size: 18px; }
     .guidelines ul { margin: 8px 0 0; padding-left: 1.2rem; }
     .form-wrap { background: #fff; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
     .form-header { padding: 14px 16px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
     .form-embed { width: 100%; height: 1100px; border: 0; display: block; }
-    /* .form-actions { display: inline-flex; gap: 10px; align-items: center; } */
     .small-muted { color: var(--muted); font-size: 13px; }
+
     /* Make the approval notice more prominent on this page only */
-#form .small-muted {
-  font-size: 24px;      /* was ~13–15px */
-  color: #ff0000;    /* use full body color (not muted gray) */
-  font-weight: 600;     /* slight emphasis */
-  letter-spacing: 0.2px;
-}
+    #form .small-muted {
+      font-size: 24px;
+      color: #ff0000;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+    }
   </style>
   <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="bg-gradient">
-
   <!-- ============ Header / Navbar ============ -->
-  <!-- Shared header include -->
-<div data-include="partials/header.html"></div>
+  <div data-include="partials/header.html"></div>
 
   <main>
     <!-- ============ Hero ============ -->
@@ -52,46 +50,47 @@
     </section>
 
     <!-- ============ Guidance ============ -->
-<section class="section">
-  <div class="container">
-    <div class="guidelines">
-      <h3><i class="fa-solid fa-circle-info"></i> Instructions</h3>
-      <ul>
-        <li><strong>One issue per entry.</strong> This keeps triage fast and fixes focused.</li>
-        <li><strong>Be specific.</strong> Include clear steps to reproduce and where you were in the app.</li>
-        <li><strong>Show what you saw.</strong> Attach screenshots or a short screen recording for clarity.</li>
-        <li><strong>Describe expected vs. actual.</strong> What you thought would happen vs. what happened.</li>
-        <li><strong>Add context.</strong> Device & iOS version, and TrendFit build (if shown).</li>
-        <li><strong>Protect privacy.</strong> Redact personal info in any screenshots or videos.</li>
-      </ul>
-      <p class="small-muted" style="margin-top:8px;">
-        Tip: If you’re reporting multiple issues, submit separate entries so we can track and resolve them faster.
-      </p>
-    </div>
-  </div>
-</section>
+    <section class="section">
+      <div class="container">
+        <div class="guidelines">
+          <h3><i class="fa-solid fa-circle-info"></i> Instructions</h3>
+          <ul>
+            <li><strong>One issue per entry.</strong> This keeps triage fast and fixes focused.</li>
+            <li><strong>Be specific.</strong> Include clear steps to reproduce and where you were in the app.</li>
+            <li><strong>Show what you saw.</strong> Attach screenshots or a short screen recording for clarity.</li>
+            <li><strong>Describe expected vs. actual.</strong> What you thought would happen vs. what happened.</li>
+            <li><strong>Add context.</strong> Device & iOS version, and TrendFit build (if shown).</li>
+            <li><strong>Protect privacy.</strong> Redact personal info in any screenshots or videos.</li>
+          </ul>
+          <p class="small-muted" style="margin-top:8px;">
+            Tip: If you’re reporting multiple issues, submit separate entries so we can track and resolve them faster.
+          </p>
+        </div>
+      </div>
+    </section>
 
     <!-- ============ Zoho Form Embed ============ -->
-<section id="form" class="section">
-  <div class="container">
-    <div class="form-wrap card">
-      <div class="form-header">
-        <strong><i class="fa-solid fa-flask"></i> Submit Your Feedback</strong>
-      </div>
+    <section id="form" class="section">
+      <div class="container">
+        <div class="form-wrap card">
+          <div class="form-header">
+            <strong><i class="fa-solid fa-flask"></i> Submit Your Feedback</strong>
+          </div>
 
-      <iframe
-        id="zohoForm"
-        class="form-embed"
-        title="TrendFit Beta Feedback Form"
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-        allow="camera; microphone"
-        src="https://forms.zohopublic.ca/curtistrend1/form/BetaFeedback/formperma/Rf7JiQII8xRwa4CO4GOz-rw-yBmuz82HZDO4lqXu-Ic"
-        aria-label="TrendFit Beta Feedback"
-      ></iframe>
-    </div>
-  </div>
-</section>
+          <iframe
+            id="zohoForm"
+            class="form-embed"
+            title="TrendFit Beta Feedback Form"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allow="camera; microphone"
+            sandbox="allow-forms allow-scripts allow-same-origin allow-popups"
+            src="https://forms.zohopublic.ca/curtistrend1/form/BetaFeedback/formperma/Rf7JiQII8xRwa4CO4GOz-rw-yBmuz82HZDO4lqXu-Ic"
+            aria-label="TrendFit Beta Feedback"
+          ></iframe>
+        </div>
+      </div>
+    </section>
 
     <!-- ============ Privacy note ============ -->
     <section class="section">
