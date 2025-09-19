@@ -208,6 +208,24 @@ body.home {
 .btn-ghost { background: transparent; color: inherit; border-color: var(--border); }
 .btn-ghost:hover { background: rgba(0,0,0,.06); }
 
+/* Socials */
+.socials {
+  margin-top: 25px;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.social-links a {
+  text-decoration: none;
+  color: #007bff;
+  font-size: 24px; /* icons a bit larger without labels */
+}
+
 /* Footer */
 .site-footer {
   padding: 20px 0;
@@ -471,7 +489,12 @@ body.home .logo-hero-row .panel-hero .hero-title .break {
 /* ================================
    Page: Sign Up (scoped layout)
    ================================ */
-body.signup .page-wrap {
+/* Signup page background (align with Home approach) */
+body.signup {
+  background: linear-gradient(135deg, var(--brand1), var(--brand2));
+}
+
+   body.signup .page-wrap {
   min-height: calc(100dvh - var(--header-h));
   display: grid;
   place-items: center;
@@ -516,6 +539,13 @@ body.signup #signupFrame {
 /* Sign Up: benefits alignment */
 body.signup .signup-benefits { text-align: left; margin-top: 20px; }
 body.signup .signup-benefits p { margin: 8px 0; }
+
+/* Restore logo size for signup page */
+body.signup .left-content .logo {
+  width: 180px;
+  height: auto;
+  margin-bottom: 0;
+}
 
 /* Prefers-reduced-motion: tone down animated/auto-playing media where applicable */
 @media (prefers-reduced-motion: reduce) {
