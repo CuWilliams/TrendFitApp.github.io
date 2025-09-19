@@ -25,72 +25,93 @@
       <div class="container text-center">
         <h1 class="hero-title">Members Forum</h1>
         <p class="hero-subtitle">
-          Thanks for helping shape TrendFit. Share your ideas with the team or jump into the beta via TestFlight.
+          Thanks for helping shape TrendFit. Share your ideas with the team or jump into the Beta via TestFlight.
         </p>
       </div>
     </section>
 
-    <!-- ============ Two-up: Suggestions & Beta ============ -->
+   <!-- ============ Two-up: Suggestions & Beta ============ -->
+<section class="section">
+  <div class="container forum-grid">
+    <!-- Suggestions / Ideas -->
+    <article class="card">
+      <h3><i class="fa-solid fa-lightbulb card-icon" aria-hidden="true"></i> Suggestions &amp; Ideas</h3>
+      <p style="margin:8px 0 12px; color:var(--muted);">
+        Have a feature request or improvement idea? Tell us what would make TrendFit more useful for you.
+        Be specific—screens, flows, and outcomes help us evaluate and plan.
+      </p>
+
+      <iframe
+        class="suggestions-embed"
+        title="TrendFit Suggestions & Ideas"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        sandbox="allow-forms allow-scripts allow-same-origin allow-popups"
+        src="https://forms.zohopublic.ca/curtistrend1/form/FoundingMemberIdeasForm/formperma/C-O1uBYGTzpE3tcBsEZGvicspOJun0cXLUtir699pxQ">
+      </iframe>
+
+      <p style="margin-top:10px; font-size:13px; color:var(--muted);">
+        Collected via Zoho. We do not collect Apple Health data here; TrendFit analysis remains on your device.
+      </p>
+    </article>
+
+    <!-- Join the Beta -->
+    <aside class="card">
+      <h3><i class="fa-brands fa-apple card-icon" aria-hidden="true"></i> Join the Beta on TestFlight</h3>
+      <p style="margin:8px 0 12px; color:var(--muted);">
+        Install pre-release builds through Apple TestFlight. Please submit <em>all beta feedback</em>
+        inside the TestFlight app so we can triage quickly.
+      </p>
+
+      <a class="btn btn-primary" href="https://testflight.apple.com/join/jVUZRMCt" target="_blank" rel="noopener">
+        <i class="fa-brands fa-apple"></i> TrendFitApp on TestFlight
+      </a>
+
+      <ul class="steps">
+        <li>✅ Requires an iPhone or iPad running a supported version of iOS or iPadOS.</li>
+        <li>📱 Install the free <strong>TestFlight</strong> app from the App Store using your Apple ID.</li>
+        <li>🔗 Open the TestFlight invite link we provide (unique for Founding Members vs public testers).</li>
+        <li>⬇️ Tap “Accept” in TestFlight to download and install the TrendFit beta build.</li>
+        <li>🆕 New builds will appear automatically in TestFlight; update just like you would from the App Store.</li>
+        <li>💬 Send beta feedback directly through the TestFlight app:
+          <ul style="margin-top:6px;">
+            <li>Shake your device while using TrendFit to bring up the feedback dialog, or</li>
+            <li>Tap “Send Beta Feedback” in the TestFlight app under TrendFit.</li>
+          </ul>
+        </li>
+        <li>📸 You can attach screenshots or screen recordings with your feedback.</li>
+        <li>🔒 Your Apple ID email is used only for TestFlight participation; TrendFit itself never uploads Health data.</li>
+      </ul>
+    </aside>
+  </div>
+</section>
+
+    <!-- ============ FAQs ============ -->
     <section class="section">
       <div class="container">
-        <div class="grid forum-grid">
-          <!-- Suggestions / Ideas -->
-          <article class="card">
-            <header style="display:flex; align-items:center; gap:10px;">
-              <i class="fa-solid fa-lightbulb card-icon" aria-hidden="true"></i>
-              <h3 style="margin:0;">Suggestions &amp; Ideas</h3>
-            </header>
-            <p style="margin:8px 0 12px; color:var(--muted);">
-              Have a feature request or improvement idea? Tell us what would make TrendFit more useful for you.
-              Be specific—screens, flows, and outcomes help us evaluate and plan.
-            </p>
 
-            <iframe
-              class="suggestions-embed"
-              title="TrendFit Suggestions & Ideas"
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-              sandbox="allow-forms allow-scripts allow-same-origin allow-popups"
-              src="https://forms.zohopublic.ca/curtistrend1/form/FoundingMemberIdeasForm/formperma/C-O1uBYGTzpE3tcBsEZGvicspOJun0cXLUtir699pxQ">
-            </iframe>
-
-            <p style="margin-top:10px; font-size:13px; color:var(--muted);">
-              Collected via Zoho. We do not collect Apple Health data here; TrendFit analysis remains on your device.
-            </p>
-          </article>
-
-          <!-- Join the Beta -->
-          <aside class="card">
-            <header style="display:flex; align-items:center; gap:10px;">
-              <i class="fa-brands fa-apple card-icon" aria-hidden="true"></i>
-              <h3 style="margin:0;">Join the Beta on TestFlight</h3>
-            </header>
-            <p style="margin:8px 0 12px; color:var(--muted);">
-              Install pre-release builds through Apple TestFlight. Please submit <em>all beta feedback</em>
-              inside the TestFlight app so we can triage quickly.
-            </p>
-
-            <a class="btn btn-primary" href="https://testflight.apple.com/join/jVUZRMCt" target="_blank" rel="noopener">
-              <i class="fa-brands fa-apple"></i> Join the Beta on TestFlight
-            </a>
-
-            <ul class="steps" style="margin-top:12px;">
-              <li>Requires iOS (or iPadOS) per your device support.</li>
-              <li>Free Apple ID and the TestFlight app.</li>
-              <li>Beta feedback is handled by Apple TestFlight.</li>
-            </ul>
-          </aside>
-        </div>
-      </div>
-    </section>
-
-    <!-- (Optional) FAQ-style details -->
-    <section class="section">
-      <div class="container">
         <details class="faq">
           <summary>How do you evaluate suggestions?</summary>
-          <p>We weigh user impact, feasibility, and alignment with TrendFit’s vision: privacy-first and insight-driven fitness trends.</p>
+          <p>
+            We weigh user impact, feasibility, and alignment with TrendFit’s vision:
+            privacy-first and insight-driven fitness trends.
+          </p>
         </details>
+
+        <details class="faq">
+          <summary>What’s the benefit of being a Founding Member on TestFlight?</summary>
+          <p>
+            Founding Members are the first wave of TrendFit beta testers. Feedback submitted through TestFlight
+            by Founding Members is given <strong>priority review</strong> over public testers — meaning your
+            ideas, bug reports, and suggestions are addressed sooner in our development cycles.
+          </p>
+          <p>
+            This ensures that early supporters directly help shape TrendFit’s roadmap and user experience.
+            While public testers are always welcome, Founding Members get the extra benefit of having their
+            feedback placed at the top of the queue.
+          </p>
+        </details>
+
       </div>
     </section>
   </main>

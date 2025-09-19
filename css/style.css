@@ -522,6 +522,11 @@ body.home .logo-hero-row .panel-hero .hero-title .break {
   display: block;
 }
 
+/* Center headers in Members Forum cards */
+.forum-grid .card h3 {
+  text-align: center;
+}
+
 /* ================================
    Page: Sign Up (scoped layout)
    ================================ */
