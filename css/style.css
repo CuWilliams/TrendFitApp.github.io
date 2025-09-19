@@ -382,6 +382,35 @@ body.home .video-wrap .preview {
   body.home .left-content, body.home .right-content { flex: 1 1 auto; }
 }
 
+/* === Home: keep centering/locking on mobile like Signup === */
+body.home .page-wrap {
+  /* Re-assert full-viewport height under the sticky header */
+  min-height: calc(100dvh - var(--header-h));
+  display: grid;
+  place-items: center;
+}
+
+/* Optional: use small-viewport units on iOS Safari for better address-bar behavior */
+@supports (height: 100svh) {
+  body.home .page-wrap {
+    min-height: calc(100svh - var(--header-h));
+  }
+}
+
+/* === Home: reduce preview min height on narrow screens to avoid forced scroll === */
+@media (max-width: 900px) {
+  body.home .video-wrap .preview {
+    /* lower min; keep a flexible vh target so the card fits within the viewport */
+    height: clamp(420px, 70vh, 740px);
+  }
+
+  /* Keep Home centered on mobile even though the global .page-wrap relaxes */
+  body.home .page-wrap {
+    min-height: calc(100svh - var(--header-h));
+    place-items: center;
+  }
+}
+
 /* =========================================
    Home: put “Coming Soon!” panel beside logo
    ========================================= */
