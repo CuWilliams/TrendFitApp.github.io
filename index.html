@@ -6,227 +6,190 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- === SEO: canonical + description + social + JSON-LD (INDEX) === -->
-<link rel="canonical" href="https://trendfitapp.com/" />
-<meta name="description" content="TrendFit gives you fast, privacy-first insights. Track workout trends and see progress clearly. See a quick preview and join the beta." />
-<meta name="theme-color" content="#FF6A00" />
+  <link rel="canonical" href="https://trendfitapp.com/" />
+  <meta name="description" content="TrendFit gives you fast, privacy-first insights. Track workout trends and see progress clearly. See a quick preview and join the beta." />
+  <meta name="theme-color" content="#FF6A00" />
 
-<!-- Open Graph -->
-<meta property="og:type" content="website" />
-<meta property="og:site_name" content="TrendFit" />
-<meta property="og:title" content="TrendFit — Select. Trend. Improve!" />
-<meta property="og:description" content="Fast, privacy-first insights. See a quick preview and join the beta." />
-<meta property="og:url" content="https://trendfitapp.com/<page>.html" />
-<meta property="og:image" content="https://cuwilliams.github.io/TrendFitApp.github.io/images/og-default.png" />
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="TrendFit" />
+  <meta property="og:title" content="TrendFit — Select. Trend. Improve!" />
+  <meta property="og:description" content="Fast, privacy-first insights. See a quick preview and join the beta." />
+  <meta property="og:url" content="https://trendfitapp.com/" />
+  <meta property="og:image" content="https://trendfitapp.com/images/og-default.png" />
 
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="TrendFit — Select. Trend. Improve!" />
-<meta name="twitter:description" content="Fast, privacy-first insights. See a quick preview and join the beta." />
-<meta name="twitter:image" content="https://cuwilliams.github.io/TrendFitApp.github.io/images/og-default.png" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="TrendFit — Select. Trend. Improve!" />
+  <meta name="twitter:description" content="Fast, privacy-first insights. See a quick preview and join the beta." />
+  <meta name="twitter:image" content="https://trendfitapp.com/images/og-default.png" />
 
-<!-- Structured Data (Organization) -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "TrendFit",
-  "url": "https://trendfitapp.com/",
-  "logo": "https://trendfitapp.com/logo.png",
-  "sameAs": [
-    "https://www.instagram.com/trendfitapp",
-    "https://www.facebook.com/trendfitapp",
-    "https://twitter.com/trendfitapp",
-    "https://www.linkedin.com/company/trend-fit-app",
-    "https://www.youtube.com/@trendfit_app"
-  ]
-}
-</script>
-<!-- === /SEO block === -->
+  <!-- Structured Data (Organization) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "TrendFit",
+    "url": "https://trendfitapp.com/",
+    "logo": "https://trendfitapp.com/logo.png",
+    "sameAs": [
+      "https://www.instagram.com/trendfitapp",
+      "https://www.facebook.com/trendfitapp",
+      "https://x.com/trendfitapp",
+      "https://www.linkedin.com/company/trend-fit-app",
+      "https://www.youtube.com/@trendfit_app"
+    ]
+  }
+  </script>
+  <!-- === /SEO block === -->
 
   <!-- Icons & Styles -->
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="css/style.css" />
 
-<script defer src="js/includes.js"></script>
+  <script defer src="js/includes.js"></script>
 
   <!-- Favicon support for modern browsers -->
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-
-  <style>
-  /* Home background + subtle diagonal line */
-  body {
-    body { font-family: var(--font-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, Helvetica, Arial, sans-serif); }
-    background: linear-gradient(135deg, #2dbaf7, #0a5db3);
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
-    position: relative;
-    z-index: 1;
-  }
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image: url('data:image/svg+xml;utf8,<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"><line x1="0" y1="100%" x2="100%" y2="0" stroke="white" stroke-opacity="0.05" stroke-width="10" /></svg>');
-    background-repeat: repeat;
-    z-index: -1;
-    pointer-events: none;
-  }
-
-  /* Scope the white “card” skin to THIS page’s main card only */
-  body.home .page-wrap > .container {
-    display: flex;             /* layout handled in css/style.css too */
-    background: #fff;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    border-radius: 12px;
-    max-width: 1100px;
-    width: 100%;
-    margin: 24px auto; /* center horizontally on all widths */
-    overflow: hidden;
-  }
-
-  /* Basic type tweaks kept local (optional) */
-  h1 { font-size: 24px; margin-bottom: 10px; }
-  p  { font-size: 16px; margin: 10px 0; }
-
-  .socials { margin-top: 25px; }
-  .socials a { margin: 0 10px; text-decoration: none; color: #007bff; font-weight: bold; }
-
-  .footer { margin-top: 30px; font-size: 14px; color: #777; }
-</style>
 </head>
-<body class="home">
+<body class="home bg-diagonal-line">
   <!-- ============ Site Header / Navbar (shared look) ============ -->
   <!-- Shared header include -->
-<div data-include="partials/header.html"></div>
+  <div data-include="partials/header.html"></div>
 
   <!-- ============ Landing Content (Home with video) ============ -->
   <main class="page-wrap">
     <div class="container">
       <!-- Left: welcome copy -->
       <div class="left-content">
-  <div class="stack">
-    <!-- Hero row: logo (left) + “Coming Soon!” panel (right) -->
-<div class="logo-hero-row">
-  <div class="logo-wrap">
-    <img src="images/TrendFitAppVectorIcon.svg"
-         alt="Trend Fit App Logo"
-         class="logo" />
-  </div>
+        <div class="stack">
+          <!-- Hero row: logo (left) + “Coming Soon!” panel (right) -->
+          <div class="logo-hero-row">
+            <div class="logo-wrap">
+              <img src="images/TrendFitAppVectorIcon.svg"
+                   alt="Trend Fit App Logo"
+                   class="logo" />
+            </div>
 
-  <section class="panel panel-hero" aria-labelledby="coming-hero">
-    <h1 id="coming-hero" class="hero-title">
-      <span class="break">Coming</span>
-      <span class="break">Soon!</span>
-    </h1>
-  </section>
+            <section class="panel panel-hero" aria-labelledby="coming-hero">
+              <h1 id="coming-hero" class="hero-title">
+                <span class="break">Coming</span>
+                <span class="break">Soon!</span>
+              </h1>
+            </section>
+          </div>
+
+          <!-- Copy panel -->
+          <section class="panel panel-text" aria-labelledby="about-trendfit">
+            <h2 id="about-trendfit" class="panel-kicker">A Smarter Way to Track Your Workouts</h2>
+
+            <ul class="feature-bullets" role="list">
+              <li>
+                <i class="fa-solid fa-bolt" aria-hidden="true"></i>
+                <span>Fast. Efficient. Insightful.</span>
+              </li>
+              <li>
+                <i class="fa-solid fa-chart-line" aria-hidden="true"></i>
+                <span>Track long-term fitness trends with zoomable charts, slopes, and stacked insights.</span>
+              </li>
+              <li>
+                <i class="fa-solid fa-lock" aria-hidden="true"></i>
+                <span>Powered by your Health data, private and on-device.</span>
+              </li>
+            </ul>
+          </section>
+
+          <!-- CTA panel -->
+          <section class="panel panel-cta">
+            <div class="cta-list">
+              <div class="cta-row">
+                <div class="cta-label">
+                  <i class="cta-icon fa-solid fa-user-plus" aria-hidden="true"></i>
+                  <span>Become a Founding Member</span>
+                </div>
+                <a class="btn btn-primary" href="signup.html#signup">
+                  <i class="fa-solid fa-user-plus"></i> Sign Up
+                </a>
+              </div>
+
+              <div class="cta-row">
+                <div class="cta-label">
+                  <i class="cta-icon fa-solid fa-circle-info" aria-hidden="true"></i>
+                  <span>Check out the App</span>
+                </div>
+                <a class="btn btn-ghost" href="features.html">
+                  <i class="fa-solid fa-circle-info"></i> Features
+                </a>
+              </div>
+
+              <div class="cta-row">
+                <div class="cta-label">
+                  <i class="cta-icon fa-solid fa-envelope" aria-hidden="true"></i>
+                  <span>Contact us for more info</span>
+                </div>
+                <a class="btn btn-ghost" href="mailto:support@trendfitapp.com?subject=TrendFit%20App%20Contact">
+                  <i class="fa-solid fa-envelope"></i> Contact
+                </a>
+              </div>
+
+                  <!-- NEW: Public Beta CTA -->
+    <div class="cta-row">
+      <div class="cta-label">
+        <i class="cta-icon fa-brands fa-apple" aria-hidden="true"></i>
+        <span>Join the Public Beta</span>
+      </div>
+      <a class="btn btn-primary" href="beta-testers.html">
+        <i class="fa-brands fa-apple"></i> Join Beta
+      </a>
+    </div>
+            </div>
+          </section>
+
+          <div class="socials">
+  <div class="social-links">
+    <a href="https://www.instagram.com/trendfitapp" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.facebook.com/trendfitapp" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://x.com/trendfitapp" target="_blank" rel="noopener" aria-label="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
+    <a href="https://www.linkedin.com/company/trend-fit-app" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    <a href="https://www.youtube.com/@trendfit_app" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+  </div>
 </div>
 
-    <!-- Copy panel -->
-    <section class="panel panel-text" aria-labelledby="about-trendfit">
-  <h2 id="about-trendfit" class="panel-kicker">A Smarter Way to Track Your Workouts</h2>
-
-  <ul class="feature-bullets" role="list">
-    <li>
-      <i class="fa-solid fa-bolt" aria-hidden="true"></i>
-      <span>Fast. Efficient. Insightful.</span>
-    </li>
-    <li>
-      <i class="fa-solid fa-chart-line" aria-hidden="true"></i>
-      <span>Track long-term fitness trends with zoomable charts, slopes, and stacked insights.</span>
-    </li>
-    <li>
-      <i class="fa-solid fa-lock" aria-hidden="true"></i>
-      <span>Powered by your Health data, private and on-device.</span>
-    </li>
-  </ul>
-</section>
-
-    <!-- CTA panel -->
-    <section class="panel panel-cta">
-  <div class="cta-list">
-    <div class="cta-row">
-      <div class="cta-label">
-        <i class="cta-icon fa-solid fa-user-plus" aria-hidden="true"></i>
-        <span>Become a Founding Member</span>
+          <!-- Footer -->
+          <div class="footer">&copy; 2025 TrendFit. All rights reserved.</div>
+        </div>
       </div>
-      <a class="btn btn-primary" href="signup.html#signup">
-        <i class="fa-solid fa-user-plus"></i> Sign Up
-      </a>
-    </div>
-
-    <div class="cta-row">
-      <div class="cta-label">
-        <i class="cta-icon fa-solid fa-circle-info" aria-hidden="true"></i>
-        <span>Check out the App</span>
-      </div>
-      <a class="btn btn-ghost" href="features.html">
-        <i class="fa-solid fa-circle-info"></i> Features
-      </a>
-    </div>
-
-    <div class="cta-row">
-      <div class="cta-label">
-        <i class="cta-icon fa-solid fa-envelope" aria-hidden="true"></i>
-        <span>Contact us for more info</span>
-      </div>
-      <a class="btn btn-ghost" href="mailto:support@trendfitapp.com?subject=TrendFit%20App%20Contact">
-        <i class="fa-solid fa-envelope"></i> Contact
-      </a>
-    </div>
-  </div>
-</section>
-
-    <!-- Socials -->
-    <div class="socials">
-      <p>Follow Us:</p>
-      <a href="https://www.instagram.com/trendfitapp" target="_blank" rel="noopener"><span style="white-space: nowrap;"><i class="fab fa-instagram"></i> Instagram</span></a>
-      <a href="https://www.facebook.com/trendfitapp" target="_blank" rel="noopener"><span style="white-space: nowrap;"><i class="fab fa-facebook-f"></i> Facebook</span></a>
-      <a href="https://twitter.com/trendfitapp" target="_blank" rel="noopener"><span style="white-space: nowrap;"><i class="fab fa-twitter"></i> Twitter/X</span></a>
-      <a href="https://www.linkedin.com/company/trend-fit-app" target="_blank" rel="noopener"><span style="white-space: nowrap;"><i class="fab fa-linkedin"></i> LinkedIn</span></a>
-      <a href="https://www.youtube.com/@trendfit_app" target="_blank" rel="noopener"><span style="white-space: nowrap;"><i class="fab fa-youtube"></i> YouTube</span></a>
-    </div>
-
-    <!-- Footer -->
-    <div class="footer">&copy; 2025 TrendFit. All rights reserved.</div>
-  </div>
-</div>
 
       <!-- Right: looping preview video (inside same card) -->
       <div class="right-content">
-  <div class="video-wrap is-portrait">
-    <video
-      class="preview"
-      aria-label="TrendFit App preview video"
-      playsinline
-      muted
-      loop
-      autoplay
-      preload="metadata"
-      poster="images/app-preview-poster.jpg">
-      <source src="media/app-preview.mp4" type="video/mp4" />
-      Sorry, your browser doesn’t support embedded videos.
-    </video>
-  </div>
-</div>
+        <div class="video-wrap is-portrait">
+          <video
+            class="preview"
+            aria-label="TrendFit App preview video"
+            playsinline
+            muted
+            loop
+            autoplay
+            preload="metadata"
+            poster="images/app-preview-poster.jpg">
+            <source src="media/app-preview.mp4" type="video/mp4" />
+            Sorry, your browser doesn’t support embedded videos.
+          </video>
+        </div>
+      </div>
     </div>
   </main>
 
-  <!-- Keep --header-h in sync with real header height -->
+  <!-- Respect reduced motion: pause autoplay video -->
   <script>
     (function () {
-      var header = document.querySelector('.site-header');
-      function setHeaderH() {
-        var h = header ? header.offsetHeight : 56;
-        document.documentElement.style.setProperty('--header-h', h + 'px');
+      var mq = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)');
+      if (mq && mq.matches) {
+        var v = document.querySelector('video.preview');
+        if (v) { v.pause(); v.removeAttribute('autoplay'); }
       }
-      setHeaderH();
-      window.addEventListener('resize', setHeaderH);
     })();
   </script>
 </body>

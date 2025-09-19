@@ -15,6 +15,12 @@
   --muted: rgba(0,0,0,.6);
   --border: rgba(0,0,0,.12);
   --shadow: rgba(0,0,0,.08);
+
+  /* Sticky header height used in the min-height calc */
+  --header-h: 56px;
+
+  /* Home hero logo target height for panel pairing */
+  --hero-logo-h: 160px; /* try 140–180px to taste */
 }
 
 /* Base */
@@ -22,7 +28,7 @@
 html, body { margin: 0; padding: 0; }
 body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, Helvetica, Arial, sans-serif; color: var(--ink); background: var(--bg); line-height: 1.55; }
 
-/* Background gradient option (used on features) */
+/* Background gradient option (used on features, signup, etc.) */
 .bg-gradient::before {
   content: "";
   position: fixed;
@@ -33,6 +39,22 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto
   pointer-events: none;
 }
 
+/* NEW: Diagonal line overlay (used on home & signup) */
+.bg-diagonal-line::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url('data:image/svg+xml;utf8,<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"><line x1="0" y1="100%" x2="100%" y2="0" stroke="white" stroke-opacity="0.05" stroke-width="10" /></svg>');
+  background-repeat: repeat;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* NEW: Home page background gradient (moved from inline) */
+body.home {
+  background: linear-gradient(135deg, #2dbaf7, #0a5db3);
+}
+
 /* Layout helpers */
 .container { width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 20px; }
 .section { padding: 56px 0; }
@@ -41,13 +63,109 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto
 .section-title { margin: 0 0 20px; font-size: clamp(24px, 3vw, 32px); }
 
 /* Header / Nav */
-.site-header { position: sticky; top: 0; backdrop-filter: saturate(180%) blur(8px); background: color-mix(in oklab, white 75%, transparent); border-bottom: 1px solid var(--border); z-index: 10; }
+.site-header {
+  position: sticky; top: 0;
+  /* Fallback for older engines */
+  background: rgba(255,255,255,.85);
+  /* Modern polish */
+  backdrop-filter: saturate(180%) blur(8px);
+  background: color-mix(in oklab, white 75%, transparent);
+  border-bottom: 1px solid var(--border);
+  z-index: 10;
+}
 .nav { display: flex; align-items: center; justify-content: space-between; height: 56px; gap: 12px; }
 .brand { display: inline-flex; align-items: center; gap: 10px; color: inherit; text-decoration: none; font-weight: 700; }
 .brand img { display: block; }
 .nav-links { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
 .nav-links a { color: inherit; text-decoration: none; padding: 6px 8px; border-radius: 8px; }
 .nav-links a:hover, .nav-links a[aria-current="page"] { background: rgba(0,0,0,.06); }
+
+/* Nav: panel-style pills (unified across pages) */
+.site-header .nav-links a {
+  background: #FFF3E3;
+  border: 1px solid #FFC888;
+  border-radius: 12px;
+  padding: 8px 12px;
+  line-height: 1.2;
+}
+.site-header .nav-links a:hover,
+.site-header .nav-links a:focus-visible {
+  background: #FFEAD1;
+  border-color: #FFCF8F;
+}
+.site-header .nav-links a[aria-current="page"] {
+  background: #FFEAD1;
+  border-color: #FFB85E;
+}
+/* Normalize legacy btn classes if present in header links */
+.site-header .nav-links a.btn,
+.site-header .nav-links a.btn-compact {
+  background: #FFF3E3 !important;
+  color: inherit !important;
+  border: 1px solid #FFC888 !important;
+  border-radius: 12px !important;
+  padding: 8px 12px !important;
+  box-shadow: none !important;
+}
+
+/* --- Navbar: let pills wrap; avoid overflow/clipping --- */
+.site-header .nav {
+  height: auto;              /* override fixed height */
+  min-height: 56px;
+  padding-block: 8px;        /* space top/bottom */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;           /* allow multiple rows */
+  gap: 12px;
+}
+.site-header .brand { flex: 0 0 auto; }
+.site-header .nav-links {
+  flex: 1 1 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+@media (max-width: 840px) {
+  .site-header .nav { padding-block: 6px; }
+  .site-header .nav-links a { padding: 6px 10px; font-size: 14px; }
+}
+@media (max-width: 520px) {
+  .site-header .nav-links { gap: 6px; }
+  .site-header .nav-links a { padding: 5px 8px; font-size: 13px; }
+}
+@media (max-width: 1180px) {
+  .site-header .nav {
+    flex-wrap: wrap;
+    height: auto;
+    padding-block: 8px;
+    row-gap: 8px;
+  }
+  .site-header .nav .nav-links {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 10px;
+    margin-top: 6px;
+  }
+}
+
+/* ===== Announcements "new" badge on navbar ===== */
+.site-header .nav-links a.has-badge { position: relative; }
+
+.site-header .nav-links a .nav-badge {
+  position: absolute;
+  top: -3px;                 /* snug at top-right corner */
+  right: -3px;
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: #e11900;       /* red dot */
+  border: 2px solid #fff;    /* ring for contrast on light pills */
+  box-shadow: 0 0 0 1px rgba(0,0,0,.06); /* subtle lift */
+}
 
 /* Hero */
 .hero { padding: 56px 0 32px; text-align: center; }
@@ -60,7 +178,6 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto
 .grid { display: grid; gap: 18px; }
 .grid-3 { grid-template-columns: 1fr; }
 .grid-2 { grid-template-columns: 1fr; }
-
 @media (min-width: 700px) {
   .grid-2 { grid-template-columns: repeat(2, 1fr); }
 }
@@ -106,8 +223,33 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto
 .btn-ghost { background: transparent; color: inherit; border-color: var(--border); }
 .btn-ghost:hover { background: rgba(0,0,0,.06); }
 
+/* Socials */
+.socials {
+  margin-top: 25px;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.social-links a {
+  text-decoration: none;
+  color: #007bff;
+  font-size: 24px; /* icons a bit larger without labels */
+}
+
 /* Footer */
-.site-footer { padding: 20px 0; border-top: 1px solid var(--border); background: color-mix(in oklab, white 85%, transparent); }
+.site-footer {
+  padding: 20px 0;
+  border-top: 1px solid var(--border);
+  /* Fallback */
+  background: rgba(255,255,255,.85);
+  /* Modern */
+  background: color-mix(in oklab, white 85%, transparent);
+}
 .footer-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
 .footer-links { display: inline-flex; gap: 8px; }
 
@@ -120,21 +262,14 @@ a:focus-visible, button:focus-visible { outline: 3px solid color-mix(in oklab, v
    - Signup iframe sizing
    ============================================== */
 
-/* Sticky header height used in the min-height calc */
-:root { --header-h: 56px; }
-
-/* Shell that vertically centers the main landing card on larger screens */
 .page-wrap {
   min-height: calc(100dvh - var(--header-h)); /* fill viewport under sticky header */
   width: 100%;
   display: grid;
   place-items: center; /* centers both axes */
 }
-
-/* Spacing for the landing card itself */
 .page-wrap > .container { margin: 24px; }
 
-/* Mobile: allow natural flow (no forced vertical centering) */
 @media (max-width: 900px) {
   .page-wrap {
     min-height: auto;
@@ -146,23 +281,23 @@ a:focus-visible, button:focus-visible { outline: 3px solid color-mix(in oklab, v
 /* Signup iframe sizing – adapts to viewport height */
 #signupFrame {
   width: 100%;
-  height: clamp(640px, 70vh, 1100px);  /* min 640px, usually ~70% of view height, cap at 1100px */
+  height: clamp(640px, 70vh, 1100px);
   border: 0;
   display: block;
 }
 @media (max-width: 900px) {
-  #signupFrame { height: 560px; }      /* comfortable mobile height */
+  #signupFrame { height: 560px; }
 }
 
-/* Home: show black framing above/below the portrait preview */
+/* Home: show colored framing around portrait preview */
 body.home .video-wrap { 
-  padding-block: 18px;   /* tweak: 12–32px as you like */
+  padding-block: 18px;
 }
 
 /* Make SVG logos scale crisply */
 .brand img { height: 28px; width: auto; display: block; }
 
-/* Visually hidden but accessible (for structural headings, labels, etc.) */
+/* Visually hidden but accessible */
 .sr-only {
   position: absolute !important;
   width: 1px; height: 1px;
@@ -180,6 +315,9 @@ body.home .page-wrap > .container {
   display: flex;
   gap: 38px;
   padding: 38px;
+  background: #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  border-radius: 12px;
 }
 
 /* Columns: ~493px rails */
@@ -201,7 +339,7 @@ body.home .left-content .logo { width: 180px; height: auto; margin: 6px auto 10p
 
 /* Tinted panels (warm complement to blue background) */
 .panel {
-  background: #FFF3E3;            /* subtle, warm */
+  background: #FFF3E3;
   border: 1px solid #FFC888;
   border-radius: 12px;
   padding: 18px 20px;
@@ -220,7 +358,7 @@ body.home .left-content .logo { width: 180px; height: auto; margin: 6px auto 10p
 /* Copy rhythm */
 .panel-text p { margin: 8px 0; }
 
-/* Video container: clean black framing */
+/* Video container */
 body.home .video-wrap {
   background: var(--brand1);
   display: flex;
@@ -232,7 +370,7 @@ body.home .video-wrap {
 body.home .video-wrap .preview {
   width: auto;
   max-width: 100%;
-  height: clamp(620px, 72vh, 740px);  /* ~694px target */
+  height: clamp(620px, 72vh, 740px);
   aspect-ratio: 9 / 16;
   object-fit: contain;
   display: block;
@@ -247,79 +385,62 @@ body.home .video-wrap .preview {
 /* =========================================
    Home: put “Coming Soon!” panel beside logo
    ========================================= */
-
-/* One knob: the logo’s height (panel will match this) */
-:root { --hero-logo-h: 160px; } /* try 140–180px to taste */
-
 body.home .logo-hero-row {
   display: flex;
-  align-items: stretch;      /* make panel match the tallest (the logo) */
+  align-items: stretch;
   gap: 48px;
-  margin-bottom: 18px;       /* keep your spacing rhythm */
+  margin-bottom: 18px;
 }
-
-/* Keep logo exactly where/size it was, but remove the old bottom margin
-   *only* in this row so it doesn’t push things down */
 body.home .logo-hero-row .logo {
   height: var(--hero-logo-h);
   width: auto;
-  margin: 0;                 /* override any earlier .logo margin-bottom */
+  margin: 0;
   display: block;
 }
-
-/* The panel sits to the right and stretches to the logo’s height */
 body.home .logo-hero-row .panel-hero {
   display: grid;
-  place-items: center;       /* center text inside the panel */
+  place-items: center;
   min-height: var(--hero-logo-h);
   text-align: center;
 }
-
-/* Stack the words to fill the panel vertically */
 body.home .logo-hero-row .panel-hero .hero-title {
   margin: 0;
   line-height: 0.95;
-  font-size: clamp(28px, 3.8vw, 40px);  /* scales nicely on desktop */
+  font-size: clamp(28px, 3.8vw, 40px);
 }
 body.home .logo-hero-row .panel-hero .hero-title .break {
-  display: block;            /* “Coming” / “Soon!” on separate lines */
+  display: block;
 }
-
-/* Mobile: stack panel under logo (unchanged look on phones) */
 @media (max-width: 700px) {
   body.home .logo-hero-row { flex-direction: column; align-items: center; }
 }
 
-/* Panel-text: bullet styling (scoped so it won’t affect other panels) */
-.panel.panel-text { text-align: left; } /* just this panel goes left */
+/* Panel-text: bullet styling */
+.panel.panel-text { text-align: left; }
 .panel-text .panel-kicker {
   margin: 0 0 10px;
   font-weight: 700;
   font-size: clamp(18px, 2.2vw, 20px);
 }
-
 .panel-text .feature-bullets {
   list-style: none;
   margin: 0;
-  padding: 0 4px 0 0;               /* small inner rail */
+  padding: 0 4px 0 0;
   display: grid;
-  gap: 10px;                         /* space between bullets */
+  gap: 10px;
 }
-
 .panel-text .feature-bullets li {
   display: grid;
-  grid-template-columns: 22px 1fr;   /* icon | text */
+  grid-template-columns: 22px 1fr;
   align-items: start;
   column-gap: 10px;
 }
-
 .panel-text .feature-bullets i {
   line-height: 1;
-  margin-top: 2px;                   /* align icon with first line of text */
-  color: var(--brand2);              /* warm accent to match panel border */
+  margin-top: 2px;
+  color: var(--brand2);
   font-size: 16px;
 }
-
 .panel-text .feature-bullets span {
   display: block;
   font-size: 16px;
@@ -327,46 +448,36 @@ body.home .logo-hero-row .panel-hero .hero-title .break {
 }
 
 /* CTAs — two-column layout: label (left) | fixed-width button (right) */
-.panel-cta .cta-list {
-  display: flex;
-  flex-direction: column;
-}
-
+.panel-cta .cta-list { display: flex; flex-direction: column; }
 .panel-cta .cta-row {
   display: grid;
-  grid-template-columns: 1fr 120px;   /* <- all buttons same width */
+  grid-template-columns: 1fr 120px;
   align-items: center;
   gap: 12px;
   padding: 12px 0;
 }
-
 .panel-cta .cta-row + .cta-row {
   border-top: 1px dashed color-mix(in oklab, var(--accent) 30%, transparent);
   margin-top: 8px;
 }
-
-/* Label styling: match Copy panel vibe (same size & left aligned) */
 .panel-cta .cta-label {
   display: inline-flex;
   align-items: center;
   gap: 10px;
   color: var(--ink);
-  font-size: 16px;          /* <- same size we used in the Copy panel bullets */
+  font-size: 16px;
   line-height: 1.45;
   text-align: left;
 }
-
 .panel-cta .cta-label .cta-icon {
-  color: var(--brand2);     /* small blue flare icon */
+  color: var(--brand2);
   font-size: 16px;
   line-height: 1;
 }
-
-/* Buttons: force consistent blue and fixed width */
 .panel-cta a.btn {
-  justify-self: end;        /* hugs right edge with panel padding */
-  width: 120px;             /* <- matches grid second column */
-  white-space: nowrap;      /* prevents wrapping differences */
+  justify-self: end;
+  width: 120px;
+  white-space: nowrap;
   background: var(--accent) !important;
   color: #fff !important;
   border-color: transparent !important;
@@ -376,34 +487,66 @@ body.home .logo-hero-row .panel-hero .hero-title .break {
 /* Center the app preview vertically in the right column (desktop only) */
 @media (min-width: 901px) {
   body.home .right-content {
-    display: flex;             /* make it a flex container */
-    flex-direction: column;     /* vertical stack */
-    justify-content: center;    /* ← vertical centering */
-    padding: 0 !important;      /* keep existing zero padding */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 !important;
   }
-  /* keep the video centered horizontally if needed */
   body.home .right-content .video-wrap {
     margin-left: auto;
     margin-right: auto;
   }
 }
-
-/* On mobile, let it flow naturally at the top */
 @media (max-width: 900px) {
-  body.home .right-content {
-    display: block;             /* normal flow on small screens */
+  body.home .right-content { display: block; }
+}
+
+/* Members Forum (beta-feedback.html presented as "Members Forum") */
+.forum .forum-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: 1fr;         /* stack on mobile */
+}
+
+@media (min-width: 700px) {
+  .forum .forum-grid {
+    grid-template-columns: 1.6fr 1fr; /* give ideas card a bit more room */
   }
+}
+
+/* Suggestions form iframe sizing */
+.forum .suggestions-embed {
+  width: 100%;
+  height: clamp(640px, 70vh, 1200px);
+  border: 0;
+  display: block;
+}
+
+/* Center headers in Members Forum cards */
+.forum-grid .card h3 {
+  text-align: center;
+}
+
+/* Guarantee the TestFlight button is centered */
+.forum-grid .card .btn {
+  display: block;              /* block + auto margins centers reliably */
+  width: max-content;          /* shrink-wrap to content */
+  margin: 12px auto;           /* center horizontally */
 }
 
 /* ================================
    Page: Sign Up (scoped layout)
    ================================ */
-body.signup .page-wrap {
-  min-height: calc(100dvh - var(--header-h));
-  display: grid;
-  place-items: center;                 /* center the card in the viewport */
+/* Signup page background (align with Home approach) */
+body.signup {
+  background: linear-gradient(135deg, var(--brand1), var(--brand2));
 }
 
+   body.signup .page-wrap {
+  min-height: calc(100dvh - var(--header-h));
+  display: grid;
+  place-items: center;
+}
 body.signup .page-wrap > .container {
   background: #fff;
   border-radius: 12px;
@@ -413,137 +556,46 @@ body.signup .page-wrap > .container {
   margin: 24px;
   overflow: hidden;
 
-  /* Use grid for reliable 480 | rest split in Safari */
+  /* Use grid for reliable split in Safari */
   display: grid;
-  grid-template-columns: 640px 1fr;    /* left fixed @480, right fills the rest */
+  grid-template-columns: 640px 1fr;
   gap: 0;
   padding: 0;
 }
-
-/* Columns */
 body.signup .left-content  { padding: 40px; text-align: center; }
 body.signup .right-content {
   padding: 0;
-  display: grid;                       /* easy vertical centering of iframe */
+  display: grid;
   align-content: center;
-  min-width: 0;                        /* prevents odd intrinsic min-width in Safari */
+  min-width: 0;
 }
-
-/* Zoho iframe sizing */
 body.signup #signupFrame {
   width: 100%;
   height: clamp(480px, 76vh, 1100px);
   border: 0;
   display: block;
 }
-
 @media (max-width: 900px) {
   body.signup .page-wrap > .container {
-    grid-template-columns: 1fr;        /* stack on mobile */
+    grid-template-columns: 1fr;
     margin: 16px;
   }
   body.signup .left-content  { padding: 20px; }
   body.signup #signupFrame   { height: 560px; }
 }
 
-/* ================================
-   Nav: panel-style pills for links
-   ================================ */
-
-/* Base pill for all nav links (excludes the brand logo, which is not in .nav-links) */
-.site-header .nav-links a {
-  background: #FFF3E3;                 /* same as .panel */
-  border: 1px solid #FFC888;            /* same as .panel */
-  border-radius: 12px;                  /* same as .panel */
-  padding: 8px 12px;                    /* tidy pill padding */
-  line-height: 1.2;
-}
-
-/* Hover/focus: subtle lift */
-.site-header .nav-links a:hover,
-.site-header .nav-links a:focus-visible {
-  background: #FFEAD1;                  /* a touch deeper */
-  border-color: #FFCF8F;
-}
-
-/* Current page */
-.site-header .nav-links a[aria-current="page"] {
-  background: #FFEAD1;
-  border-color: #FFB85E;
-}
-
-/* If “Sign Up” still has btn classes, normalize it to look like the pills */
-.site-header .nav-links a.btn,
-.site-header .nav-links a.btn-compact {
-  background: #FFF3E3 !important;
-  color: inherit !important;
-  border: 1px solid #FFC888 !important;
-  border-radius: 12px !important;
-  padding: 8px 12px !important;
-  box-shadow: none !important;
-}
-
-/* Sign Up: left-align just the benefit lines */
+/* Sign Up: benefits alignment */
 body.signup .signup-benefits { text-align: left; margin-top: 20px; }
-body.signup .signup-benefits p {
-  margin: 8px 0;
+body.signup .signup-benefits p { margin: 8px 0; }
+
+/* Restore logo size for signup page */
+body.signup .left-content .logo {
+  width: 180px;
+  height: auto;
+  margin-bottom: 0;
 }
 
-/* --- Navbar: let pills wrap; avoid overflow/clipping --- */
-.site-header .nav {
-  height: auto;              /* override fixed height */
-  min-height: 56px;
-  padding-block: 8px;        /* space top/bottom */
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;           /* allow multiple rows */
-  gap: 12px;
-}
-
-/* keep brand on the left; links can wrap and center */
-.site-header .brand { flex: 0 0 auto; }
-.site-header .nav-links {
-  flex: 1 1 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 8px;
-}
-
-/* make the pills a bit tighter as space gets small */
-@media (max-width: 840px) {
-  .site-header .nav { padding-block: 6px; }
-  .site-header .nav-links a { padding: 6px 10px; font-size: 14px; }
-}
-
-@media (max-width: 520px) {
-  .site-header .nav-links { gap: 6px; }
-  .site-header .nav-links a { padding: 5px 8px; font-size: 13px; }
-}
-
-/* ========= Consistent responsive nav across all pages ========= */
-@media (max-width: 1180px) {
-  .site-header .nav {
-    flex-wrap: wrap;           /* allow 2 rows */
-    height: auto;              /* don't force 56px */
-    padding-block: 8px;        /* same feel as Sign Up */
-    row-gap: 8px;
-  }
-  .site-header .nav .nav-links {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;   /* center the pill row */
-    gap: 8px 10px;
-    margin-top: 6px;           /* separation below brand */
-  }
-}
-
-/* Make pills a touch more compact on small phones */
-@media (max-width: 700px) {
-  .site-header .nav .nav-links a {
-    padding: 6px 10px;
-    font-size: 14px;
-  }
+/* Prefers-reduced-motion: tone down animated/auto-playing media where applicable */
+@media (prefers-reduced-motion: reduce) {
+  video[autoplay] { animation: none !important; }
 }

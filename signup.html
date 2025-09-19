@@ -19,96 +19,10 @@
   <!-- Favicon support for modern browsers -->
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-
-  <style>
-    /* === Existing page-specific styles (kept) === */
-    body::before {
-      content: '';
-      position: fixed; /* detach from layout */
-      inset: 0;
-      background-image: url('data:image/svg+xml;utf8,<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"><line x1="0" y1="100%" x2="100%" y2="0" stroke="white" stroke-opacity="0.05" stroke-width="10" /></svg>');
-      background-repeat: repeat;
-      z-index: -1; /* sits below content */
-      pointer-events: none;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #FF8C00, #FF4500);
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column; /* stack header + content */
-      align-items: center;
-      min-height: 100vh;
-      position: relative;
-      z-index: 1;
-    }
-
-    .container {
-      display: flex;
-      background-color: white; 
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
-      border-radius: 12px;               
-      max-width: 1100px;
-      width: 100%;
-      margin: 24px auto; /* sits nicely under sticky header */
-      overflow: hidden;
-    }
-
-    .left-content, .right-content {
-      padding: 40px;
-      flex: 1;
-      box-sizing: border-box;
-    }
-
-    .left-content { text-align: center; }
-    .right-content { padding: 0; }
-
-    .logo { width: 180px; margin-bottom: 0px; }
-
-    h1 { font-size: 24px; margin-bottom: 10px; }
-    p  { font-size: 16px; margin: 10px 0; }
-
-    .socials { margin-top: 25px; }
-    .socials a {
-      margin: 0 10px;
-      text-decoration: none;
-      color: #007bff;
-      font-weight: bold;
-    }
-
-    .footer {
-      margin-top: 30px;
-      font-size: 14px;
-      color: #777;
-    }
-
-    iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-      display: block;
-    }
-
-    @media (max-width: 900px) {
-      .container {
-        flex-direction: column;
-        margin: 16px;
-      }
-      .left-content, .right-content {
-        padding: 20px;
-        text-align: center;
-      }
-      .logo { margin: 0 auto 20px auto; }
-      iframe { width: 100%; height: 500px; border: none; }
-    }
-  </style>
 </head>
-<body class="signup">
+<body class="signup bg-diagonal-line">
   <!-- ============ Site Header / Navbar (shared look) ============ -->
-  <!-- Shared header include -->
-<div data-include="partials/header.html"></div>
+  <div data-include="partials/header.html"></div>
 
   <!-- ============ Landing Content (Sign Up) ============ -->
   <main class="page-wrap">
@@ -117,35 +31,25 @@
         <img src="images/TrendFitAppVectorIcon.svg" alt="Trend Fit App Logo" class="logo" />
         <h1>A Smarter Way to Track Your Workouts</h1>
 
-<p><strong>Sign Up to Become a Founding Member!</strong></p>
+        <p><strong>Sign Up to Become a Founding Member!</strong></p>
 
-<div class="signup-benefits">
-  <p><strong>Be first to try the TrendFit beta via TestFlight once approved.</strong></p>
-  <p><strong>Shape the roadmap:</strong> your feedback is prioritized during beta cycles.</p>
-  <p><strong>Founding Member perks:</strong> early feature previews and optional shout-outs.</p>
-  <p><strong>Direct line to the team</strong> through the beta feedback channel.</p>
-  <p><strong>Occasional tips & progress updates</strong> (no spam, easy opt-out).</p>
-  <p><strong>Privacy-first:</strong> analysis stays <strong>on-device</strong>; email used only for updates.</p>
-</div>
+        <div class="signup-benefits">
+          <p><strong>Shape the roadmap:</strong> your feedback is prioritized during beta cycles.</p>
+          <p><strong>Founding Member perks:</strong> early feature previews and optional shout-outs.</p>
+          <p><strong>Direct line to the team</strong> through the beta feedback channel.</p>
+          <p><strong>Occasional tips & progress updates</strong> (no spam, easy opt-out).</p>
+          <p><strong>Privacy-first:</strong> analysis stays <strong>on-device</strong>; email used only for updates.</p>
+        </div>
 
         <div class="socials">
-          <p>Follow Us:</p>
-          <a href="https://www.instagram.com/trendfitapp" target="_blank" rel="noopener">
-            <span style="white-space: nowrap;"><i class="fab fa-instagram"></i> Instagram</span>
-          </a>
-          <a href="https://www.facebook.com/trendfitapp" target="_blank" rel="noopener">
-            <span style="white-space: nowrap;"><i class="fab fa-facebook-f"></i> Facebook</span>
-          </a>
-          <a href="https://twitter.com/trendfitapp" target="_blank" rel="noopener">
-            <span style="white-space: nowrap;"><i class="fab fa-twitter"></i> Twitter/X</span>
-          </a>
-          <a href="https://www.linkedin.com/company/trendfitapp" target="_blank" rel="noopener">
-            <span style="white-space: nowrap;"><i class="fab fa-linkedin"></i> LinkedIn</span>
-          </a>
-          <a href="https://www.youtube.com/@trendfitapp" target="_blank" rel="noopener">
-            <span style="white-space: nowrap;"><i class="fab fa-youtube"></i> YouTube</span>
-          </a>
-        </div>
+  <div class="social-links">
+    <a href="https://www.instagram.com/trendfitapp" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.facebook.com/trendfitapp" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://x.com/trendfitapp" target="_blank" rel="noopener" aria-label="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
+    <a href="https://www.linkedin.com/company/trend-fit-app" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    <a href="https://www.youtube.com/@trendfit_app" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+  </div>
+</div>
 
         <div class="footer">
           <p><strong>Coming 2025</strong></p>
@@ -154,8 +58,8 @@
       </div>
 
       <div class="right-content" id="signup-section">
-        <!-- Anchor for the navbar CTA -->
-        <a id="signup"></a>
+        <!-- Anchor for the navbar CTA (no empty anchor element needed) -->
+        <div id="signup" role="none"></div>
 
         <!-- OPEN: shown until cutoff -->
         <div id="signup-open">
@@ -163,6 +67,9 @@
             id="signupFrame"
             title="Trend Fit App Signup"
             aria-label="Trend Fit App Signup"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            sandbox="allow-forms allow-scripts allow-same-origin allow-popups"
             src="https://forms.zohopublic.ca/curtistrend1/form/TrendFitAppSignup/formperma/_6xAp1_xssGxZZB_l8ADgST0ffX3GYKSCEtSvUV8rpM">
           </iframe>
         </div>
@@ -181,19 +88,6 @@
       </div>
     </div>
   </main>
-
-  <!-- Keep --header-h in sync with real header height -->
-  <script>
-    (function () {
-      var header = document.querySelector('.site-header');
-      function setHeaderH() {
-        var h = header ? header.offsetHeight : 56;
-        document.documentElement.style.setProperty('--header-h', h + 'px');
-      }
-      setHeaderH();
-      window.addEventListener('resize', setHeaderH);
-    })();
-  </script>
 
   <!-- Signup cutoff logic -->
   <script>
