@@ -527,6 +527,13 @@ body.home .logo-hero-row .panel-hero .hero-title .break {
   text-align: center;
 }
 
+/* Guarantee the TestFlight button is centered */
+.forum-grid .card .btn {
+  display: block;              /* block + auto margins centers reliably */
+  width: max-content;          /* shrink-wrap to content */
+  margin: 12px auto;           /* center horizontally */
+}
+
 /* ================================
    Page: Sign Up (scoped layout)
    ================================ */
