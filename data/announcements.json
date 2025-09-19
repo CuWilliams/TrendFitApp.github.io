@@ -1,5 +1,23 @@
 [
   {
+  "id": "2025-09-19-public-beta-and-forum",
+  "date": "2025-09-19",
+  "title": "Public Beta + Members Forum Now Live 🚀",
+  "summary": "TrendFit is now open to both Founding Members and the public via Apple TestFlight. Founding Members also have a new Members Forum to share ideas directly with the team.",
+  "body": [
+    "Big milestone — **TrendFit** is now available on Apple TestFlight!",
+    "• **Founding Members:** continue to use your private TestFlight invite and now share ideas directly with us in the new **Members Forum**.",
+    "• **Public Beta Testers:** anyone can now join the beta through our new public TestFlight link.",
+    "• All beta feedback will be submitted through the TestFlight app itself.",
+    "Thank you for helping us shape TrendFit into the best way to track and understand your workouts."
+  ],
+  "links": [
+    { "label": "Join Public Beta", "url": "beta-testers.html" },
+    { "label": "Members Forum", "url": "beta-feedback.html" }
+  ],
+  "tags": ["release", "beta", "community"]
+},
+  {
   "id": "2025-09-11-appstore-approval",
   "date": "2025-09-11",
   "title": "App Store Connect Approval ✅",
