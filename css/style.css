@@ -486,6 +486,27 @@ body.home .logo-hero-row .panel-hero .hero-title .break {
   body.home .right-content { display: block; }
 }
 
+/* Members Forum (beta-feedback.html presented as "Members Forum") */
+.forum .forum-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: 1fr;         /* stack on mobile */
+}
+
+@media (min-width: 700px) {
+  .forum .forum-grid {
+    grid-template-columns: 1.6fr 1fr; /* give ideas card a bit more room */
+  }
+}
+
+/* Suggestions form iframe sizing */
+.forum .suggestions-embed {
+  width: 100%;
+  height: clamp(640px, 70vh, 1200px);
+  border: 0;
+  display: block;
+}
+
 /* ================================
    Page: Sign Up (scoped layout)
    ================================ */

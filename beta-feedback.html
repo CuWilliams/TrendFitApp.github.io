@@ -2,37 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>TrendFit — Beta Feedback</title>
+  <title>TrendFit — Members Forum</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="canonical" href="https://trendfitapp.com/beta-feedback.html" />
-  <meta name="description" content="Help improve TrendFit. Send beta feedback for the TrendFit app — bugs, usability issues, and feature requests." />
+  <meta name="description" content="Members Forum: Share ideas with the TrendFit team or join the beta via Apple TestFlight." />
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="css/style.css" />
 
   <script defer src="js/includes.js"></script>
 
-  <style>
-    /* Page-local tweaks (kept minimal; can move to css/style.css later) */
-    .guidelines { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 16px; }
-    .guidelines h3 { margin: 0 0 8px; font-size: 18px; }
-    .guidelines ul { margin: 8px 0 0; padding-left: 1.2rem; }
-    .form-wrap { background: #fff; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
-    .form-header { padding: 14px 16px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
-    .form-embed { width: 100%; height: 1100px; border: 0; display: block; }
-    .small-muted { color: var(--muted); font-size: 13px; }
-
-    /* Make the approval notice more prominent on this page only */
-    #form .small-muted {
-      font-size: 24px;
-      color: #ff0000;
-      font-weight: 600;
-      letter-spacing: 0.2px;
-    }
-  </style>
+  <!-- Keep this page out of search for now -->
   <meta name="robots" content="noindex, nofollow">
 </head>
-<body class="bg-gradient">
+<body class="forum bg-gradient">
   <!-- ============ Header / Navbar ============ -->
   <div data-include="partials/header.html"></div>
 
@@ -40,64 +23,73 @@
     <!-- ============ Hero ============ -->
     <section class="hero">
       <div class="container text-center">
-        <h1 class="hero-title">Beta Feedback</h1>
-        <p class="hero-subtitle">Thanks for helping us improve TrendFit. Share bugs, UX issues, or feature ideas below.</p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="features.html"><i class="fa-solid fa-circle-info"></i> Review Features</a>
-          <a class="btn btn-primary" href="announcements.html"><i class="fa-solid fa-bullhorn"></i> See Announcements</a>
-        </div>
+        <h1 class="hero-title">Members Forum</h1>
+        <p class="hero-subtitle">
+          Thanks for helping shape TrendFit. Share your ideas with the team or jump into the beta via TestFlight.
+        </p>
       </div>
     </section>
 
-    <!-- ============ Guidance ============ -->
+    <!-- ============ Two-up: Suggestions & Beta ============ -->
     <section class="section">
       <div class="container">
-        <div class="guidelines">
-          <h3><i class="fa-solid fa-circle-info"></i> Instructions</h3>
-          <ul>
-            <li><strong>One issue per entry.</strong> This keeps triage fast and fixes focused.</li>
-            <li><strong>Be specific.</strong> Include clear steps to reproduce and where you were in the app.</li>
-            <li><strong>Show what you saw.</strong> Attach screenshots or a short screen recording for clarity.</li>
-            <li><strong>Describe expected vs. actual.</strong> What you thought would happen vs. what happened.</li>
-            <li><strong>Add context.</strong> Device & iOS version, and TrendFit build (if shown).</li>
-            <li><strong>Protect privacy.</strong> Redact personal info in any screenshots or videos.</li>
-          </ul>
-          <p class="small-muted" style="margin-top:8px;">
-            Tip: If you’re reporting multiple issues, submit separate entries so we can track and resolve them faster.
-          </p>
+        <div class="grid forum-grid">
+          <!-- Suggestions / Ideas -->
+          <article class="card">
+            <header style="display:flex; align-items:center; gap:10px;">
+              <i class="fa-solid fa-lightbulb card-icon" aria-hidden="true"></i>
+              <h3 style="margin:0;">Suggestions &amp; Ideas</h3>
+            </header>
+            <p style="margin:8px 0 12px; color:var(--muted);">
+              Have a feature request or improvement idea? Tell us what would make TrendFit more useful for you.
+              Be specific—screens, flows, and outcomes help us evaluate and plan.
+            </p>
+
+            <iframe
+              class="suggestions-embed"
+              title="TrendFit Suggestions & Ideas"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              sandbox="allow-forms allow-scripts allow-same-origin allow-popups"
+              src="https://forms.zohopublic.ca/PLACEHOLDER/TrendFitSuggestions/formperma/PLACEHOLDER">
+            </iframe>
+
+            <p style="margin-top:10px; font-size:13px; color:var(--muted);">
+              Collected via Zoho. We do not collect Apple Health data here; TrendFit analysis remains on your device.
+            </p>
+          </article>
+
+          <!-- Join the Beta -->
+          <aside class="card">
+            <header style="display:flex; align-items:center; gap:10px;">
+              <i class="fa-brands fa-apple card-icon" aria-hidden="true"></i>
+              <h3 style="margin:0;">Join the Beta on TestFlight</h3>
+            </header>
+            <p style="margin:8px 0 12px; color:var(--muted);">
+              Install pre-release builds through Apple TestFlight. Please submit <em>all beta feedback</em>
+              inside the TestFlight app so we can triage quickly.
+            </p>
+
+            <a class="btn btn-primary" href="https://testflight.apple.com/join/XXXXXXXX" target="_blank" rel="noopener">
+              <i class="fa-brands fa-apple"></i> Join the Beta on TestFlight
+            </a>
+
+            <ul class="steps" style="margin-top:12px;">
+              <li>Requires iOS (or iPadOS) per your device support.</li>
+              <li>Free Apple ID and the TestFlight app.</li>
+              <li>Beta feedback is handled by Apple TestFlight.</li>
+            </ul>
+          </aside>
         </div>
       </div>
     </section>
 
-    <!-- ============ Zoho Form Embed ============ -->
-    <section id="form" class="section">
-      <div class="container">
-        <div class="form-wrap card">
-          <div class="form-header">
-            <strong><i class="fa-solid fa-flask"></i> Submit Your Feedback</strong>
-          </div>
-
-          <iframe
-            id="zohoForm"
-            class="form-embed"
-            title="TrendFit Beta Feedback Form"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            allow="camera; microphone"
-            sandbox="allow-forms allow-scripts allow-same-origin allow-popups"
-            src="https://forms.zohopublic.ca/curtistrend1/form/BetaFeedback/formperma/Rf7JiQII8xRwa4CO4GOz-rw-yBmuz82HZDO4lqXu-Ic"
-            aria-label="TrendFit Beta Feedback"
-          ></iframe>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ Privacy note ============ -->
+    <!-- (Optional) FAQ-style details -->
     <section class="section">
       <div class="container">
         <details class="faq">
-          <summary>How is my data handled?</summary>
-          <p>Feedback is collected via Zoho Forms and used solely to improve TrendFit. TrendFit does not upload Apple Health data; analysis remains on your device. See our <a href="privacy.html">Privacy Policy</a> for details.</p>
+          <summary>How do you evaluate suggestions?</summary>
+          <p>We weigh user impact, feasibility, and alignment with TrendFit’s vision: privacy-first and insight-driven fitness trends.</p>
         </details>
       </div>
     </section>
