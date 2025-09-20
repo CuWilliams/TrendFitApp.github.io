@@ -1,62 +1,60 @@
 /* 
-  TrendFit Announcements Renderer
-  - Fetches /data/announcements.json
+  TrendFit Announcements Renderer (clean)
+  - Fetches /data/announcements.json (with cache-busting)
   - Sorts by pinned + date (newest first)
   - Renders accessible cards using existing styles
 */
 
 (function () {
-  const ROOT_ID = "announce-root";
+  // Accept multiple possible root IDs for robustness
+  const ROOT_IDS = ["announce-root", "announcements-root", "announcements-list"];
+
+  function getRoot() {
+    for (const id of ROOT_IDS) {
+      const el = document.getElementById(id);
+      if (el) return el;
+    }
+    return null;
+  }
+
+  // JSON location (adjust if you keep it elsewhere)
   const DATA_URL = "data/announcements.json";
 
-  const root = document.getElementById(ROOT_ID);
-  if (!root) return;
+  // Bump this when you change data/renderer to dodge device caching
+  const VERSION = "2025-09-20-2";
+  const withCacheBust = (url) => url + (url.includes("?") ? "&" : "?") + "v=" + VERSION;
 
-  fetch(DATA_URL, { cache: "no-store" })
+  const root = getRoot();
+  if (!root) return; // No target container on this page
+
+  fetch(withCacheBust(DATA_URL), { cache: "no-store" })
     .then((r) => {
-      if (!r.ok) throw new Error("Failed to load announcements");
+      if (!r.ok) throw new Error("Failed to load announcements.json");
       return r.json();
     })
     .then(renderAnnouncements)
     .catch((err) => {
+      console.error(err);
       root.innerHTML = `<article class="card announce">
         <h3>Unable to load announcements</h3>
         <p style="color:var(--muted)">${err.message}</p>
       </article>`;
     });
 
-  // js/announcements.js
-fetch('data/announcements.json?v=2025-09-20-1')
-  .then(r => {
-    if (!r.ok) throw new Error('Failed to load announcements.json');
-    return r.json();
-  })
-  .then(renderAnnouncements)
-  .catch(err => {
-    console.error(err);
-    // Optional: graceful empty state
-    const el = document.getElementById('announcements-list');
-    if (el) el.innerHTML = '<p style="color:var(--muted)">No announcements available.</p>';
-  });
-
-
-  // --- Patch A: Minimal Markdown renderer for trusted JSON (bold, italic, code, links)
+  // --- Minimal Markdown renderer (trusted JSON only)
   function mdToHtml(s) {
-    // 1) escape HTML
     const esc = String(s)
       .replace(/&/g, "&amp;")
       .replace(/</g, "&lt;")
       .replace(/>/g, "&gt;");
-    // 2) inline markdown
     return esc
       .replace(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>')
-      .replace(/`([^`]+)`/g, '<code>$1</code>')
-      .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-      .replace(/\*(.+?)\*/g, '<em>$1</em>');
+      .replace(/`([^`]+)`/g, "<code>$1</code>")
+      .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+      .replace(/\*(.+?)\*/g, "<em>$1</em>");
   }
 
   function renderAnnouncements(items) {
-    // normalize + sort: pinned first, then date desc
     const posts = (items || [])
       .map(safePost)
       .sort((a, b) => {
@@ -100,7 +98,6 @@ fetch('data/announcements.json?v=2025-09-20-1')
       const when = document.createElement("time");
       when.dateTime = post.date;
       when.textContent = formatDate(post.date);
-
       meta.appendChild(when);
 
       if (Array.isArray(post.tags) && post.tags.length) {
@@ -112,17 +109,14 @@ fetch('data/announcements.json?v=2025-09-20-1')
         });
       }
 
-      // Body
+      // Body (markdown + bullets)
       const bodyWrap = document.createElement("div");
-
-      // --- Patch B: render body with minimal markdown + bullets grouped as <ul>
       const lines = Array.isArray(post.body) ? post.body : [];
       let idx = 0;
 
       while (idx < lines.length) {
         const line = lines[idx];
 
-        // Group bullet lines starting with "• " into one list
         if (/^•\s/.test(line)) {
           const ul = document.createElement("ul");
           while (idx < lines.length && /^•\s/.test(lines[idx])) {
@@ -135,7 +129,6 @@ fetch('data/announcements.json?v=2025-09-20-1')
           continue;
         }
 
-        // Normal paragraph with inline markdown
         const p = document.createElement("p");
         p.innerHTML = mdToHtml(line);
         bodyWrap.appendChild(p);
@@ -173,13 +166,12 @@ fetch('data/announcements.json?v=2025-09-20-1')
       pinned: Boolean(p.pinned),
       tags: Array.isArray(p.tags) ? p.tags.map(String) : [],
       body: Array.isArray(p.body) ? p.body.map(String) : [],
-      // Accept either {url} or {href} in JSON
       links: Array.isArray(p.links)
         ? p.links.map((l) => ({
             label: String(l.label || "Learn more"),
-            href: String((l.href || l.url || "#"))
+            href: String(l.href || l.url || "#")
           }))
-        : [],
+        : []
     };
   }
 
