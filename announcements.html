@@ -1,31 +1,52 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>TrendFit — Announcements</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8" />
+  <title>Trend Fit App — Announcements</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO -->
   <link rel="canonical" href="https://trendfitapp.com/announcements.html" />
-  <meta name="description" content="TrendFit news: release timing, feature spotlights, roadmap, and policy updates." />
+  <meta name="description" content="Latest TrendFit announcements and product updates." />
+  <meta name="theme-color" content="#FF6A00" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="TrendFit" />
+  <meta property="og:title" content="TrendFit — Announcements" />
+  <meta property="og:description" content="Latest TrendFit announcements and product updates." />
+  <meta property="og:url" content="https://trendfitapp.com/announcements.html" />
+  <meta property="og:image" content="https://trendfitapp.com/images/og-default.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="TrendFit — Announcements" />
+  <meta name="twitter:description" content="Latest TrendFit announcements and product updates." />
+  <meta name="twitter:image" content="https://trendfitapp.com/images/og-default.png" />
+
+  <!-- Structured Data: CollectionPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "TrendFit Announcements",
+    "url": "https://trendfitapp.com/announcements.html",
+    "description": "Latest TrendFit announcements and product updates."
+  }
+  </script>
+
+  <!-- Icons & Styles -->
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/style.css?v=2025-09-20-1" />
 
   <script defer src="js/includes.js"></script>
 
-  <!-- Local page styles (kept tiny). If you prefer, we can move these into style.css later. -->
-  <style>
-    .announce-list { display: grid; gap: 16px; }
-    .announce .meta { display:flex; gap:10px; align-items:center; flex-wrap:wrap; color: var(--muted); font-size: 14px; }
-    .badge { display:inline-block; padding:2px 8px; border-radius:999px; border:1px solid var(--border); }
-    .title-row { display:flex; align-items:flex-start; justify-content:space-between; gap:16px; }
-    .title-row h3 { margin: 0 0 6px; font-size: 18px; }
-    .pinned { color: var(--brand2); font-size: 14px; white-space: nowrap; }
-    .links { display:flex; gap:10px; flex-wrap:wrap; margin-top:8px; }
-    .links a { text-decoration:none; }
-  </style>
-
-  <script defer src="js/announcements.js"></script>
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 </head>
+
 <body class="bg-gradient">
   
   <!-- ============ Header / Navbar ============ -->
