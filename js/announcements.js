@@ -25,6 +25,21 @@
       </article>`;
     });
 
+  // js/announcements.js
+fetch('data/announcements.json?v=2025-09-20-1')
+  .then(r => {
+    if (!r.ok) throw new Error('Failed to load announcements.json');
+    return r.json();
+  })
+  .then(renderAnnouncements)
+  .catch(err => {
+    console.error(err);
+    // Optional: graceful empty state
+    const el = document.getElementById('announcements-list');
+    if (el) el.innerHTML = '<p style="color:var(--muted)">No announcements available.</p>';
+  });
+
+
   // --- Patch A: Minimal Markdown renderer for trusted JSON (bold, italic, code, links)
   function mdToHtml(s) {
     // 1) escape HTML
