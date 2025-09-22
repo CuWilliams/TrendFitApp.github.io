@@ -628,3 +628,25 @@ body.signup .left-content .logo {
 @media (prefers-reduced-motion: reduce) {
   video[autoplay] { animation: none !important; }
 }
+
+/* Temporary to test lock of home screen */
+/* === Mobile lock: stop sideways scroll and constrain children === */
+html, body { width:100%; max-width:100%; overflow-x:hidden; }
+
+body.home { touch-action: pan-y; }                 /* vertical gestures only */
+
+.page-wrap,
+.page-wrap > .container,
+header, main, footer { overflow-x:hidden; }        /* guardrails */
+
+/* Let flex/grid children shrink instead of pushing layout wider */
+.site-header .nav-links,
+body.home .left-content,
+body.home .right-content { min-width:0; }
+
+/* Ensure media never widens the card */
+img, svg, video { max-width:100%; height:auto; display:block; }
+
+/* Optional: if any row still overflows, allow wrapping */
+.panel-cta .cta-row { grid-template-columns: 1fr minmax(0,120px); }
+
