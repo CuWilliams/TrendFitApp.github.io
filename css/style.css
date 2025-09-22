@@ -629,7 +629,6 @@ body.signup .left-content .logo {
   video[autoplay] { animation: none !important; }
 }
 
-/* Temporary to test lock of home screen */
 /* === Mobile lock: stop sideways scroll and constrain children === */
 html, body { width:100%; max-width:100%; overflow-x:hidden; }
 
@@ -650,3 +649,17 @@ img, svg, video { max-width:100%; height:auto; display:block; }
 /* Optional: if any row still overflows, allow wrapping */
 .panel-cta .cta-row { grid-template-columns: 1fr minmax(0,120px); }
 
+/* === Fix: keep signup logo centered on mobile === */
+@media (max-width: 900px) {
+  body.signup .left-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;   /* center horizontally */
+    text-align: center;    /* center text under logo */
+  }
+
+  body.signup .left-content .logo {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
