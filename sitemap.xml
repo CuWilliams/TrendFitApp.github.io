@@ -39,8 +39,6 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-
-  <!-- New: Public Beta Testers page -->
   <url>
     <loc>https://trendfitapp.com/beta-testers.html</loc>
     <lastmod>2025-09-20</lastmod>
