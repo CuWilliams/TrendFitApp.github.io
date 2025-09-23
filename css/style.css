@@ -686,3 +686,22 @@ img, svg, video { max-width:100%; height:auto; display:block; }
   gap: 10px;
   flex-wrap: wrap;
 }
+
+/* === Sitewide: pin the header and reserve space below it === */
+.site-header{
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;                 /* above content/backgrounds */
+}
+
+/* Base header height (single row) */
+:root { --header-h: 56px; }
+
+/* Reserve space so content doesn't slide under the fixed header */
+body { padding-top: var(--header-h); }
+
+/* If the nav wraps on narrower widths, add more top padding */
+@media (max-width: 1180px){ body { padding-top: 72px; } }
+@media (max-width:  840px){ body { padding-top: 88px; } }
+@media (max-width:  520px){ body { padding-top: 104px; } }
+
