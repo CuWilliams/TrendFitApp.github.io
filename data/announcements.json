@@ -33,7 +33,7 @@
   ],
   "links": [
     { "label": "Beta Feedback", "url": "beta-feedback.html" },
-    { "label": "Sign Up (Founding Member)", "url": "signup.html#signup" }
+    { "label": "Sign Up (Founding Member)", "url": "signup.html" }
   ],
   "tags": ["release", "beta", "testflight"]
 },
