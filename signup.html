@@ -119,8 +119,8 @@
   <!-- Signup cutoff logic -->
   <script>
     (function () {
-      // Cutoff at end of day Oct 11, 2025 (local time). Months are 0-based: 9 = October.
-      var cutoff = new Date(2025, 9, 11, 23, 59, 59);
+      // Cutoff at end of day Dec 31, 2025 (local time). Months are 0-based: 12 = December.
+      var cutoff = new Date(2025, 12, 31, 23, 59, 59);
       var now = new Date();
       var isClosed = now > cutoff;
 
