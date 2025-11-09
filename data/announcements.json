@@ -1,5 +1,30 @@
 [
   {
+  "id": "2025-11-09-app-store-launch",
+  "date": "2025-11-09",
+  "pinned": true,
+  "title": "TrendFit is Now Available on the App Store! 🎉",
+  "summary": "After months of development and testing with our amazing beta community, TrendFit is officially live on the App Store. Download now and start tracking your workout trends.",
+  "body": [
+    "**We did it!** TrendFit is now available for download on the App Store.",
+    "**What's included in version 1.0:**",
+    "• **TrendFit** – Compare multiple trends (Active Energy, Heart Rate, Pace, and more) for a single workout type",
+    "• **TrendFitStack** – Compare one trend across multiple workout types with daily, weekly, monthly, and annual views",
+    "• **Zoomable Charts** – Pinch to zoom, pan, and tap data points for detailed insights",
+    "• **Privacy-First** – All analysis happens on-device. Your health data never leaves your iPhone",
+    "• **Personalization** – Choose your preferred units, chart windows, and haptic feedback",
+    "",
+    "A huge thank you to our Founding Members and Beta Testers who helped shape TrendFit into what it is today. Your feedback has been invaluable.",
+    "",
+    "**Ready to start tracking your trends?** Download TrendFit from the App Store today!"
+  ],
+  "links": [
+    { "label": "Download on App Store", "href": "https://apps.apple.com/ca/app/trendfit/id6751863796" },
+    { "label": "See What's New", "href": "features.html" }
+  ],
+  "tags": ["launch", "app-store", "release"]
+},
+  {
   "id": "2025-09-19-public-beta-and-forum",
   "date": "2025-09-19",
   "title": "Public Beta + Members Forum Now Live 🚀",
