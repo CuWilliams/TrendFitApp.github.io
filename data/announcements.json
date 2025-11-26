@@ -1,5 +1,22 @@
 [
   {
+  "id": "2025-11-26-beta-update-polish",
+  "date": "2025-11-26",
+  "title": "Beta Update: Smoother Experience + Polish ✨",
+  "tags": ["beta", "update"],
+  "body": [
+    "**New beta build available!** This update brings important polish improvements:",
+    "• **Smoother Navigation** – No more screen flashing between views",
+    "• **Better Onboarding** – Clear guidance for new users without workout data",
+    "• **Chart Fixes** – Data points now display correctly across all time periods",
+    "• **Performance** – Smoother scrolling with large workout histories",
+    "",
+    "Thanks to your feedback, TrendFit keeps getting better!",
+    "",
+    "🔗 **Update Available on TestFlight**"
+  ]
+},
+  {
   "id": "2025-11-09-app-store-launch",
   "date": "2025-11-09",
   "pinned": true,
