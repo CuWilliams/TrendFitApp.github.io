@@ -349,11 +349,6 @@ a:focus-visible, button:focus-visible { outline: 3px solid color-mix(in oklab, v
   #signupFrame { height: 560px; }
 }
 
-/* Home: show colored framing around portrait preview */
-body.home .video-wrap { 
-  padding-block: 18px;
-}
-
 /* Make SVG logos scale crisply */
 .brand img { height: 28px; width: auto; display: block; }
 
@@ -424,8 +419,9 @@ body.home .video-wrap {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-block: 14px;
+  padding: 14px;
   border-radius: 12px;
+  overflow: hidden;
 }
 body.home .video-wrap .preview {
   width: auto;
