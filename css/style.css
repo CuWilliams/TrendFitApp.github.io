@@ -444,6 +444,68 @@ body.home .logo-hero-row .panel-hero .hero-title .break {
   body.home .logo-hero-row { flex-direction: column; align-items: center; }
 }
 
+/* Hero row: App Store promo video */
+body.home .logo-hero-row .panel-hero-video {
+  padding: 12px 16px;
+  overflow: hidden;
+}
+
+body.home .hero-promo-video {
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  max-height: 140px;
+  border-radius: 8px;
+  display: block;
+  object-fit: contain;
+  /* Smooth fade-in animation */
+  animation: videoFadeIn 0.8s ease-in;
+}
+
+@keyframes videoFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Video fallback text styling */
+.hero-promo-video .video-fallback {
+  margin: 0;
+  font-weight: 700;
+  font-size: clamp(24px, 3.5vw, 32px);
+  line-height: 1.2;
+}
+
+/* Responsive adjustments for video */
+@media (max-width: 700px) {
+  body.home .hero-promo-video {
+    max-width: 100%;
+    max-height: 180px;
+  }
+  body.home .logo-hero-row .panel-hero-video {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  body.home .hero-promo-video {
+    max-height: 160px;
+    border-radius: 6px;
+  }
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  body.home .hero-promo-video {
+    animation: none;
+  }
+}
+
 /* Panel-text: bullet styling */
 .panel.panel-text { text-align: left; }
 .panel-text .panel-kicker {
