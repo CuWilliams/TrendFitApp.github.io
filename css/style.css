@@ -415,13 +415,15 @@ body.home .left-content .logo { width: 180px; height: auto; margin: 6px auto 10p
 
 /* Video container */
 body.home .video-wrap {
-  background: var(--brand1);
+  background: #FFF3E3;
+  border: 2px solid #FFC888;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 14px;
-  border-radius: 12px;
+  padding: 20px;
+  border-radius: 20px;
   overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
 }
 body.home .video-wrap .preview {
   width: auto;
