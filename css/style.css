@@ -20,7 +20,7 @@
   --header-h: 56px;
 
   /* Home hero logo target height for panel pairing */
-  --hero-logo-h: 160px; /* try 140–180px to taste */
+  --hero-logo-h: 200px; /* try 140–180px to taste */
 }
 
 /* Base */
@@ -174,6 +174,66 @@ body.home {
 .hero-actions { margin-top: 18px; display: inline-flex; gap: 12px; flex-wrap: wrap; }
 .accent { color: var(--brand2); }
 
+/* App Store Promo Video in Hero */
+.app-store-promo-container {
+  margin: 20px auto;
+  max-width: 800px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app-store-promo-video {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  display: block;
+  object-fit: contain;
+  /* Smooth fade-in animation */
+  animation: fadeIn 0.6s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive sizing for smaller screens */
+@media (max-width: 768px) {
+  .app-store-promo-video {
+    max-width: 100%;
+    border-radius: 8px;
+  }
+  .app-store-promo-container {
+    margin: 16px auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-store-promo-video {
+    border-radius: 6px;
+  }
+  .app-store-promo-container {
+    margin: 12px auto;
+  }
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .app-store-promo-video {
+    animation: none;
+  }
+}
+
 /* Grid */
 .grid { display: grid; gap: 18px; }
 .grid-3 { grid-template-columns: 1fr; }
@@ -289,11 +349,6 @@ a:focus-visible, button:focus-visible { outline: 3px solid color-mix(in oklab, v
   #signupFrame { height: 560px; }
 }
 
-/* Home: show colored framing around portrait preview */
-body.home .video-wrap { 
-  padding-block: 18px;
-}
-
 /* Make SVG logos scale crisply */
 .brand img { height: 28px; width: auto; display: block; }
 
@@ -310,24 +365,33 @@ body.home .video-wrap {
    Home — centered, panel layout
    ================================ */
 
-/* Card: 1100 wide, 38px inner padding, 38px gap */
+/* Card: 1100 wide, 38px gap between columns
+   Padding handled individually by left/right content for independent control */
 body.home .page-wrap > .container {
   display: flex;
-  gap: 38px;
-  padding: 38px;
+  gap: 24px;
+  padding: 38px 0; /* Top/bottom only - horizontal handled by children */
   background: #fff;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   border-radius: 12px;
 }
 
 /* Columns: ~493px rails */
-body.home .left-content  { flex: 0 1 493px; display: flex; justify-content: flex-start; }
-body.home .right-content { flex: 1 1 493px; padding: 0 !important; }
+body.home .left-content  {
+  flex: 0 1 560px;
+  display: flex;
+  justify-content: flex-start;
+  padding: 0 38px; /* Horizontal padding for left column content */
+}
+body.home .right-content {
+  flex: 1 1 500px;
+  padding: 0 !important; /* Right column spacing controlled by .video-wrap */
+}
 
 /* The 445px content column centered within the left rail */
 body.home .left-content .stack {
   width: 100%;
-  max-width: 445px;
+  max-width: 520px;
   margin: 0 auto;
   display: grid;
   gap: 18px;
@@ -358,28 +422,87 @@ body.home .left-content .logo { width: 180px; height: auto; margin: 6px auto 10p
 /* Copy rhythm */
 .panel-text p { margin: 8px 0; }
 
+/* ================================
+   Video Container Spacing Model
+   ================================
+   Architecture:
+   - Grandparent (.page-wrap > .container): 38px top/bottom padding only
+   - Left column (.left-content): 38px horizontal padding for panels
+   - Right column (.right-content): NO padding (spacing by video-wrap)
+   - Video container (.video-wrap): 20px padding + 2px border = 22px spacing
+
+   TOTAL video spacing: 0 (grandparent) + 0 (right-content) + 22px (video-wrap) = 22px
+
+   To adjust video spacing: Change .video-wrap padding (line 439)
+   To adjust left column spacing: Change .left-content padding (line 384)
+
+   Mobile (≤900px): Reduced to 16px horizontal padding
+   ================================ */
+
 /* Video container */
 body.home .video-wrap {
-  background: var(--brand1);
+  background: linear-gradient(to top, 
+  rgba(80, 80, 80, 0.40) 0%, 
+  rgba(25, 25, 25, 0.80) 30%, 
+  rgba(0, 0, 0, 1) 60%
+);
+  border: 2px solid #FFC888;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-block: 14px;
-  border-radius: 12px;
+  padding: 40px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(255, 140, 0, 0.2);  /* Orange glow */
+  max-width: 416.25px; /* Limit width for better focus */
+  margin: 0 auto; /* Center in right column */
 }
 body.home .video-wrap .preview {
   width: auto;
   max-width: 100%;
   height: clamp(620px, 72vh, 740px);
-  aspect-ratio: 9 / 16;
-  object-fit: contain;
+  aspect-ratio: 9 / 19.5;
+  object-fit: cover;
   display: block;
+  border-radius: 42px;
 }
 
-/* Mobile stacking */
+/* ================================
+   Mobile Responsive (≤900px)
+   ================================ */
 @media (max-width: 900px) {
-  body.home .page-wrap > .container { flex-direction: column; gap: 18px; padding: 16px; }
-  body.home .left-content, body.home .right-content { flex: 1 1 auto; }
+  /* Container stacking and spacing */
+  body.home .page-wrap > .container {
+    flex-direction: column;
+    gap: 18px;
+    padding: 16px 0; /* Top/bottom only */
+  }
+
+  /* Column adjustments */
+  body.home .left-content {
+    flex: 1 1 auto;
+    padding: 0 16px; /* Mobile horizontal padding */
+  }
+  body.home .right-content {
+    flex: 1 1 auto;
+    display: block; /* Switch from flex to block */
+  }
+
+  /* Video height adjustment for mobile viewports */
+  body.home .video-wrap .preview {
+    height: clamp(420px, 70vh, 740px);
+  }
+
+  /* Keep Home centered on mobile */
+  body.home .page-wrap {
+    min-height: calc(100svh - var(--header-h));
+    place-items: center;
+  }
+
+  /* Optional: Reduce video-wrap padding for tighter mobile layout */
+  body.home .video-wrap {
+    padding: 16px; /* Reduced from 20px */
+  }
 }
 
 /* === Home: keep centering/locking on mobile like Signup === */
@@ -397,27 +520,13 @@ body.home .page-wrap {
   }
 }
 
-/* === Home: reduce preview min height on narrow screens to avoid forced scroll === */
-@media (max-width: 900px) {
-  body.home .video-wrap .preview {
-    /* lower min; keep a flexible vh target so the card fits within the viewport */
-    height: clamp(420px, 70vh, 740px);
-  }
-
-  /* Keep Home centered on mobile even though the global .page-wrap relaxes */
-  body.home .page-wrap {
-    min-height: calc(100svh - var(--header-h));
-    place-items: center;
-  }
-}
-
 /* =========================================
-   Home: put “Coming Soon!” panel beside logo
+   Home: put "Coming Soon!" panel beside logo
    ========================================= */
 body.home .logo-hero-row {
   display: flex;
   align-items: stretch;
-  gap: 48px;
+  gap: 32px;
   margin-bottom: 18px;
 }
 body.home .logo-hero-row .logo {
@@ -525,9 +634,6 @@ body.home .logo-hero-row .panel-hero .hero-title .break {
     margin-left: auto;
     margin-right: auto;
   }
-}
-@media (max-width: 900px) {
-  body.home .right-content { display: block; }
 }
 
 /* Members Forum (beta-feedback.html presented as "Members Forum") */
@@ -644,7 +750,8 @@ body.home .left-content,
 body.home .right-content { min-width:0; }
 
 /* Ensure media never widens the card */
-img, svg, video { max-width:100%; height:auto; display:block; }
+img, svg { max-width:100%; height:auto; display:block; }
+/* Note: video elements styled specifically per component (e.g., .video-wrap .preview) */
 
 /* Optional: if any row still overflows, allow wrapping */
 .panel-cta .cta-row { grid-template-columns: 1fr minmax(0,120px); }
