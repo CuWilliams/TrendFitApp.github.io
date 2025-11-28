@@ -415,7 +415,7 @@ body.home .left-content .logo { width: 180px; height: auto; margin: 6px auto 10p
 
 /* Video container */
 body.home .video-wrap {
-  background: #FFF3E3;
+  background: rgba(55, 71, 79, 0.80);
   border: 2px solid #FFC888;
   display: flex;
   align-items: center;
@@ -423,7 +423,7 @@ body.home .video-wrap {
   padding: 20px;
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 30px rgba(255, 140, 0, 0.2);  /* Orange glow */
 }
 body.home .video-wrap .preview {
   width: auto;
