@@ -1,5 +1,28 @@
 [
   {
+  "id": "2025-12-11-v13-app-store",
+  "date": "2025-12-11",
+  "pinned": true,
+  "title": "Version 1.3 Now Available! ✨",
+  "tags": ["release", "app-store", "update"],
+  "body": [
+    "**TrendFit 1.3 is now live on the App Store!** This release brings important polish and performance improvements based on beta tester feedback.",
+    "**What's New:**",
+    "• **Smoother Navigation** – Eliminated screen flashing and visual glitches between views",
+    "• **Better Onboarding** – Clear, helpful guidance for new users starting their fitness journey",
+    "• **Chart Improvements** – Data points now display correctly across all time periods",
+    "• **Performance Boost** – Faster chart rendering and smoother scrolling with large workout histories",
+    "",
+    "A huge thank you to our beta testing community for helping make TrendFit more polished and reliable!",
+    "",
+    "**Update now** to experience the improvements."
+  ],
+  "links": [
+    { "label": "Update on App Store", "href": "https://apps.apple.com/ca/app/trendfit/id6751863796" },
+    { "label": "See All Features", "href": "features.html" }
+  ]
+},
+  {
   "id": "2025-11-26-beta-update-polish",
   "date": "2025-11-26",
   "title": "Beta Update: Smoother Experience + Polish ✨",
@@ -20,7 +43,6 @@
   {
   "id": "2025-11-09-app-store-launch",
   "date": "2025-11-09",
-  "pinned": true,
   "title": "TrendFit is Now Available on the App Store! 🎉",
   "summary": "After months of development and testing with our amazing beta community, TrendFit is officially live on the App Store. Download now and start tracking your workout trends.",
   "body": [
