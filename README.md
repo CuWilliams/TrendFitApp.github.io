@@ -6,11 +6,11 @@ Official website for TrendFit - A fitness tracking app for iOS that analyzes wor
 
 📱 **App Store:** [Download TrendFit](https://apps.apple.com/ca/app/trendfit/id6751863796)
 
-![TrendFit Welcome Screen](images/tf-welcome.png)
+<img src="images/tf-welcome.png" alt="TrendFit Welcome Screen" width="300">
 
 ## About TrendFit
 
-TrendFit is a privacy-first iOS fitness app that helps users understand their workout patterns and progress over time. By analyzing Apple Health data directly on your device, TrendFit provides fast, insightful visualizations without compromising your privacy.
+TrendFit is a privacy-first iOS fitness app that helps users understand your workout patterns and progress over time. By analyzing Apple Health data directly on your device, TrendFit provides fast, insightful visualizations without compromising your privacy.
 
 **Select. Trend. Improve!**
 
@@ -26,17 +26,17 @@ TrendFit is a privacy-first iOS fitness app that helps users understand their wo
 ## App Screenshots
 
 ### Scatter Plot View - Track Individual Workouts
-![TrendFit Scatter View](images/tf-stack-scatter.png)
+<img src="images/tf-stack-scatter.png" alt="TrendFit Scatter View" width="300">
 
 View individual workout data points with trend lines showing your progress over time. Perfect for tracking calories burned and heart rate patterns.
 
 ### Stacked Chart View - See the Big Picture
-![TrendFit Stacked View](images/tf-stack-stacked.png)
+<img src="images/tf-stack-stacked.png" alt="TrendFit Stacked View" width="300">
 
 Compare multiple workout types side-by-side with color-coded stacked bar charts. Easily see which activities contribute most to your weekly or monthly totals.
 
 ### TrendFitStack - Advanced Multi-Metric Analysis
-![TrendFitStack View](images/tf-trendfit.png)
+<img src="images/tf-trendfit.png" alt="TrendFitStack View" width="300">
 
 Analyze multiple metrics simultaneously with TrendFitStack. View Active Energy and Average Heart Rate trends across different workout types with both scatter and stacked visualizations.
 
