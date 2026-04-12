@@ -441,21 +441,17 @@ body.home .left-content .logo { width: 180px; height: auto; margin: 6px auto 10p
 
 /* Video container */
 body.home .video-wrap {
-  background: linear-gradient(to top, 
-  rgba(80, 80, 80, 0.40) 0%, 
-  rgba(25, 25, 25, 0.80) 30%, 
-  rgba(0, 0, 0, 1) 60%
-);
-  border: 2px solid #FFC888;
+  background: #FFF3E3;                             /* cream — matches panel system */
+  border: 1px solid #FFC888;                       /* same border weight as panels */
+  border-radius: 52px;                             /* outer > 42px inner video radius */
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 40px;
-  border-radius: 20px;
+  padding: 20px;                                   /* reduced from 40px */
   overflow: hidden;
-  box-shadow: 0 8px 30px rgba(255, 140, 0, 0.2);  /* Orange glow */
-  max-width: 416.25px; /* Limit width for better focus */
-  margin: 0 auto; /* Center in right column */
+  box-shadow: 0 8px 30px rgba(255, 140, 0, 0.15); /* softer orange glow */
+  max-width: 416.25px;
+  margin: 0 auto;
 }
 body.home .video-wrap .preview {
   width: auto;
@@ -501,7 +497,7 @@ body.home .video-wrap .preview {
 
   /* Optional: Reduce video-wrap padding for tighter mobile layout */
   body.home .video-wrap {
-    padding: 16px; /* Reduced from 20px */
+    padding: 12px;
   }
 }
 
