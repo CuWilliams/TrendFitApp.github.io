@@ -10,9 +10,7 @@ Official website for TrendFit - A fitness tracking app for iOS that analyzes wor
 
 ## About TrendFit
 
-TrendFit is a privacy-first iOS fitness app that helps users understand your workout patterns and progress over time. By analyzing Apple Health data directly on your device, TrendFit provides fast, insightful visualizations without compromising your privacy.
-
-**Select. Trend. Improve!**
+TrendFit is a free, privacy-first iOS app for analyzing your Apple Health workout data. It's a personal utility designed and maintained by Curtis Williams. All data processing happens on your device—nothing is sent to any server.
 
 ### Key Features
 
@@ -42,7 +40,7 @@ Analyze multiple metrics simultaneously with TrendFitStack. View Active Energy a
 
 ## Website Structure
 
-This repository contains the marketing website for TrendFit, built with HTML, CSS, and JavaScript.
+This repository contains the website for TrendFit, built with HTML, CSS, and JavaScript.
 
 ### Pages
 
@@ -60,7 +58,7 @@ This repository contains the marketing website for TrendFit, built with HTML, CS
 
 ## Development
 
-This is a static website hosted on GitHub Pages. The site serves as the web presence for the TrendFit iOS app.
+This is a static website hosted on GitHub Pages. It serves as the web home for the TrendFit iOS app, providing feature information and download links.
 
 ## About the Developer
 
