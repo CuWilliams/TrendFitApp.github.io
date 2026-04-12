@@ -68,7 +68,7 @@ Created by Curtis Williams, a retired mechanical engineer exploring app developm
 
 - [TrendFit on the App Store](https://apps.apple.com/ca/app/trendfit/id6751863796)
 - [Visit Website](https://trendfitapp.com)
-- [Contact](mailto:contact@trendfitapp.com)
+- [Contact](mailto:trendfitapp@gmail.com)
 
 ## License
 
