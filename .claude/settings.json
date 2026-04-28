@@ -6,7 +6,8 @@
         "hooks": [
           {
             "type": "command",
-            "command": "echo '[REMINDER] Did you update CHANGELOG.md for this commit?'"
+            "command": "input=$(cat); cmd=$(printf '%s' \"$input\" | jq -r '.tool_input.command // \"\"' 2>/dev/null); if printf '%s' \"$cmd\" | grep -q 'git commit'; then if ! git -C /Users/curtiswilliams/Projects_Local_Repo/trendfitapp.github.io diff HEAD~1 HEAD --name-only 2>/dev/null | grep -q 'CHANGELOG.md'; then printf '{\"hookSpecificOutput\":{\"hookEventName\":\"PostToolUse\",\"additionalContext\":\"REMINDER: CHANGELOG.md was not updated in this commit. Consider whether this change needs a changelog entry.\"}}'; fi; fi",
+            "statusMessage": "Checking changelog..."
           }
         ]
       }
