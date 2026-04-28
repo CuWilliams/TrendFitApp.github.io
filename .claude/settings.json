@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '[REMINDER] Did you update CHANGELOG.md for this commit?'"
+          }
+        ]
+      }
+    ]
+  }
+}
