@@ -2,6 +2,19 @@
 
 All notable changes to the TrendFit website are documented here.
 
+## [1.3.0] — 2026-04-28
+
+### Added
+- v1.4.0 beta announcement (pinned) to data/announcements.json covering TrendFit Challenges, smart target pre-population, edit/delete, custom names, and local push notifications; includes TestFlight link
+- TrendFitChallenge feature card (Card 3) to features.html grid, positioned between TrendFitStack and Zoomable Charts; includes Beta pill badge
+
+### Changed
+- index.html hero title updated to "v1.4 Beta is Now Live" with a link to the announcements page
+- Previous v1.3 App Store announcement un-pinned in favour of the v1.4 beta entry
+- Bumped announcements.js cache-bust version to 2026-04-28-1
+
+---
+
 ## [1.2.0] — 2026-04-19
 
 ### Changed
