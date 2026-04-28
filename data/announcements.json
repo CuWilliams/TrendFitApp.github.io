@@ -1,114 +1,130 @@
 [
   {
-  "id": "2025-12-11-v13-app-store",
-  "date": "2025-12-11",
-  "pinned": true,
-  "title": "Version 1.3 Now Available! ✨",
-  "tags": ["release", "app-store", "update"],
-  "body": [
-    "**TrendFit 1.3 is now live on the App Store!** This release brings important polish and performance improvements based on beta tester feedback.",
-    "**What's New:**",
-    "• **Smoother Navigation** – Eliminated screen flashing and visual glitches between views",
-    "• **Better Onboarding** – Clear, helpful guidance for new users starting their fitness journey",
-    "• **Chart Improvements** – Data points now display correctly across all time periods",
-    "• **Performance Boost** – Faster chart rendering and smoother scrolling with large workout histories",
-    "",
-    "A huge thank you to our beta testing community for helping make TrendFit more polished and reliable!",
-    "",
-    "**Update now** to experience the improvements."
-  ],
-  "links": [
-    { "label": "Update on App Store", "href": "https://apps.apple.com/ca/app/trendfit/id6751863796" },
-    { "label": "See All Features", "href": "features.html" }
-  ]
-},
+    "id": "v1.4.0-beta",
+    "date": "2026-04-28",
+    "title": "TrendFit 1.4 Beta — Challenges Are Here",
+    "pinned": true,
+    "tags": ["Beta", "New Feature"],
+    "body": [
+      "TrendFit v1.4.0 is now available in beta on TestFlight. This release introduces **TrendFit Challenges** — a major new feature for setting and tracking personal fitness goals.",
+      "• **Create personal challenges** through a guided 7-step flow: choose a scope (trend-wide or a specific workout type), metric, duration, target value, and start date, then review everything before saving.",
+      "• **Smart target pre-population**: the target value is pre-filled from your HealthKit history — cumulative trends (energy, distance) project a scaled total; rate-based trends (heart rate, pace, cadence) suggest your historical average.",
+      "• **Edit and delete challenges** after creation. In-progress targets and durations are editable with a confirmation prompt; deletes require confirmation.",
+      "• **Name your challenges**: add an optional user-defined name (up to 40 characters) displayed as the headline on your Challenge Standings card.",
+      "• **Local push notifications** for challenge progress updates. Configure the frequency in App Settings (daily, every 3 days, weekly, or custom). All notifications are on-device only — no external services.",
+      "Try it out on TestFlight and let us know what you think!"
+    ],
+    "links": [
+      { "label": "Join Beta on TestFlight", "href": "https://testflight.apple.com/join/tgFjfCQM" }
+    ]
+  },
   {
-  "id": "2025-11-26-beta-update-polish",
-  "date": "2025-11-26",
-  "title": "Beta Update: Smoother Experience + Polish ✨",
-  "tags": ["beta", "update"],
-  "body": [
-    "**New beta build available!** This update brings important polish improvements:",
-    "• **Smoother Navigation** – No more screen flashing between views",
-    "• **Better Onboarding** – Clear guidance for new users without workout data",
-    "• **Chart Fixes** – Data points now display correctly across all time periods",
-    "• **Performance** – Smoother scrolling with large workout histories",
-    "",
-    "Thanks to your feedback, TrendFit keeps getting better!"
-  ],
-  "links": [
-    { "label": "Join Public Beta", "href": "beta-testers.html" }
-  ]
-},
+    "id": "2025-12-11-v13-app-store",
+    "date": "2025-12-11",
+    "pinned": false,
+    "title": "Version 1.3 Now Available! ✨",
+    "tags": ["release", "app-store", "update"],
+    "body": [
+      "**TrendFit 1.3 is now live on the App Store!** This release brings important polish and performance improvements based on beta tester feedback.",
+      "**What's New:**",
+      "• **Smoother Navigation** – Eliminated screen flashing and visual glitches between views",
+      "• **Better Onboarding** – Clear, helpful guidance for new users starting their fitness journey",
+      "• **Chart Improvements** – Data points now display correctly across all time periods",
+      "• **Performance Boost** – Faster chart rendering and smoother scrolling with large workout histories",
+      "",
+      "A huge thank you to our beta testing community for helping make TrendFit more polished and reliable!",
+      "",
+      "**Update now** to experience the improvements."
+    ],
+    "links": [
+      { "label": "Update on App Store", "href": "https://apps.apple.com/ca/app/trendfit/id6751863796" },
+      { "label": "See All Features", "href": "features.html" }
+    ]
+  },
   {
-  "id": "2025-11-09-app-store-launch",
-  "date": "2025-11-09",
-  "title": "TrendFit is Now Available on the App Store! 🎉",
-  "summary": "After months of development and testing with our amazing beta community, TrendFit is officially live on the App Store. Download now and start tracking your workout trends.",
-  "body": [
-    "**We did it!** TrendFit is now available for download on the App Store.",
-    "**What's included in version 1.0:**",
-    "• **TrendFit** – Compare multiple trends (Active Energy, Heart Rate, Pace, and more) for a single workout type",
-    "• **TrendFitStack** – Compare one trend across multiple workout types with daily, weekly, monthly, and annual views",
-    "• **Zoomable Charts** – Pinch to zoom, pan, and tap data points for detailed insights",
-    "• **Privacy-First** – All analysis happens on-device. Your health data never leaves your iPhone",
-    "• **Personalization** – Choose your preferred units, chart windows, and haptic feedback",
-    "",
-    "A huge thank you to our Founding Members and Beta Testers who helped shape TrendFit into what it is today. Your feedback has been invaluable.",
-    "",
-    "**Ready to start tracking your trends?** Download TrendFit from the App Store today!"
-  ],
-  "links": [
-    { "label": "Download on App Store", "href": "https://apps.apple.com/ca/app/trendfit/id6751863796" },
-    { "label": "See What's New", "href": "features.html" }
-  ],
-  "tags": ["launch", "app-store", "release"]
-},
+    "id": "2025-11-26-beta-update-polish",
+    "date": "2025-11-26",
+    "title": "Beta Update: Smoother Experience + Polish ✨",
+    "tags": ["beta", "update"],
+    "body": [
+      "**New beta build available!** This update brings important polish improvements:",
+      "• **Smoother Navigation** – No more screen flashing between views",
+      "• **Better Onboarding** – Clear guidance for new users without workout data",
+      "• **Chart Fixes** – Data points now display correctly across all time periods",
+      "• **Performance** – Smoother scrolling with large workout histories",
+      "",
+      "Thanks to your feedback, TrendFit keeps getting better!"
+    ],
+    "links": [
+      { "label": "Join Public Beta", "href": "beta-testers.html" }
+    ]
+  },
   {
-  "id": "2025-09-19-public-beta-and-forum",
-  "date": "2025-09-19",
-  "title": "Public Beta + Members Forum Now Live 🚀",
-  "summary": "TrendFit is now open to both Founding Members and the public via Apple TestFlight. Founding Members also have a new Members Forum to share ideas directly with the team.",
-  "body": [
-    "Big milestone — **TrendFit** is now available on Apple TestFlight!",
-    "• **Founding Members:** continue to use your private TestFlight invite and now share ideas directly with us in the new **Members Forum**.",
-    "• **Public Beta Testers:** anyone can now join the beta through our new public TestFlight link.",
-    "• All beta feedback will be submitted through the TestFlight app itself.",
-    "Thank you for helping us shape TrendFit into the best way to track and understand your workouts."
-  ],
-  "links": [
-    { "label": "Join Public Beta", "url": "beta-testers.html" },
-    { "label": "Members Forum", "url": "beta-feedback.html" }
-  ],
-  "tags": ["release", "beta", "community"]
-},
+    "id": "2025-11-09-app-store-launch",
+    "date": "2025-11-09",
+    "title": "TrendFit is Now Available on the App Store! 🎉",
+    "body": [
+      "**We did it!** TrendFit is now available for download on the App Store.",
+      "**What's included in version 1.0:**",
+      "• **TrendFit** – Compare multiple trends (Active Energy, Heart Rate, Pace, and more) for a single workout type",
+      "• **TrendFitStack** – Compare one trend across multiple workout types with daily, weekly, monthly, and annual views",
+      "• **Zoomable Charts** – Pinch to zoom, pan, and tap data points for detailed insights",
+      "• **Privacy-First** – All analysis happens on-device. Your health data never leaves your iPhone",
+      "• **Personalization** – Choose your preferred units, chart windows, and haptic feedback",
+      "",
+      "A huge thank you to our Founding Members and Beta Testers who helped shape TrendFit into what it is today. Your feedback has been invaluable.",
+      "",
+      "**Ready to start tracking your trends?** Download TrendFit from the App Store today!"
+    ],
+    "links": [
+      { "label": "Download on App Store", "href": "https://apps.apple.com/ca/app/trendfit/id6751863796" },
+      { "label": "See What's New", "href": "features.html" }
+    ],
+    "tags": ["launch", "app-store", "release"]
+  },
   {
-  "id": "2025-09-11-appstore-approval",
-  "date": "2025-09-11",
-  "title": "App Store Connect Approval ✅",
-  "summary": "TrendFit is approved for release. External TestFlight beta is next.",
-  "body": [
-    "Great news — **TrendFit** has been approved in App Store Connect.",
-    "**What’s next:**",
-    "• We’re opening **external TestFlight** for Founding Members first.",
-    "• Watch your inbox for a TestFlight invite (from Apple).",
-    "• Install the **TestFlight** app and accept the invite to join the beta.",
-    "• Share bugs & ideas via our **Beta Feedback** page (Founding Members only).",
-    "• Founding sign-ups remain open until **October 11, 2025**."
-  ],
-  "links": [
-    { "label": "Beta Feedback", "url": "beta-feedback.html" },
-    { "label": "Sign Up (Founding Member)", "url": "signup.html" }
-  ],
-  "tags": ["release", "beta", "testflight"]
-},
-{
+    "id": "2025-09-19-public-beta-and-forum",
+    "date": "2025-09-19",
+    "title": "Public Beta + Members Forum Now Live 🚀",
+    "body": [
+      "Big milestone — **TrendFit** is now available on Apple TestFlight!",
+      "• **Founding Members:** continue to use your private TestFlight invite and now share ideas directly with us in the new **Members Forum**.",
+      "• **Public Beta Testers:** anyone can now join the beta through our new public TestFlight link.",
+      "• All beta feedback will be submitted through the TestFlight app itself.",
+      "Thank you for helping us shape TrendFit into the best way to track and understand your workouts."
+    ],
+    "links": [
+      { "label": "Join Public Beta", "href": "beta-testers.html" },
+      { "label": "Members Forum", "href": "beta-feedback.html" }
+    ],
+    "tags": ["release", "beta", "community"]
+  },
+  {
+    "id": "2025-09-11-appstore-approval",
+    "date": "2025-09-11",
+    "title": "App Store Connect Approval ✅",
+    "body": [
+      "Great news — **TrendFit** has been approved in App Store Connect.",
+      "**What's next:**",
+      "• We're opening **external TestFlight** for Founding Members first.",
+      "• Watch your inbox for a TestFlight invite (from Apple).",
+      "• Install the **TestFlight** app and accept the invite to join the beta.",
+      "• Share bugs & ideas via our **Beta Feedback** page (Founding Members only).",
+      "• Founding sign-ups remain open until **October 11, 2025**."
+    ],
+    "links": [
+      { "label": "Beta Feedback", "href": "beta-feedback.html" },
+      { "label": "Sign Up (Founding Member)", "href": "signup.html" }
+    ],
+    "tags": ["release", "beta", "testflight"]
+  },
+  {
     "id": "2025-09-01-beta-focus",
     "date": "2025-09-01",
     "title": "Project Update: Beta focus for 2025",
     "tags": ["Roadmap", "Beta"],
     "body": [
-      "We’re focusing the initial public beta on TrendFit and TrendFitStack to keep things fast, simple, and stable.",
+      "We're focusing the initial public beta on TrendFit and TrendFitStack to keep things fast, simple, and stable.",
       "TrendFitChallenge is deferred until after we ship a solid first beta and collect feedback.",
       "Apple requires a one-time external TestFlight review for the first public beta build."
     ],
