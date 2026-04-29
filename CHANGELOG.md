@@ -2,6 +2,17 @@
 
 All notable changes to the TrendFit website are documented here.
 
+## [Unreleased] — v2.0.0 overhaul
+
+### Added
+- `privacy-policy.html` — proper HTML redirect page (instant meta-refresh + canonical) for legacy `/privacy-policy` URL (Issue #8)
+- `terms-of-service.html` — proper HTML redirect page (instant meta-refresh + canonical) for legacy `/terms-of-service` URL (Issue #8)
+
+### Removed
+- JS redirect map and `redir-note` element from `404.html` — superseded by the new per-URL redirect pages (Issue #8)
+
+---
+
 ## [1.3.0] — 2026-04-28
 
 ### Added
