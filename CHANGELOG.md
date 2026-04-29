@@ -9,6 +9,13 @@ All notable changes to the TrendFit website are documented here.
 - `terms-of-service.html` — proper HTML redirect page (instant meta-refresh + canonical) for legacy `/terms-of-service` URL (Issue #8)
 - Motion One animation library (~3 KB) via jsDelivr CDN, loaded on all pages through `partials/header.html` (Issue #19)
 - `js/motion.js` — global animation utilities: `prefers-reduced-motion` guard (with live OS setting tracking via `matchMedia` listener), `IntersectionObserver` scroll-reveal for `.reveal` elements, and `window.TFMotion.reducedMotion` accessor for Phase 2 consumers (Issue #19)
+- Hidden Challenges `<section>` slot in `features.html` with two image placeholder slots (`data-final-src` swap points) and a `<video>` slot for the future Challenges promo video (Issue #20)
+- Two hidden dashboard tile slots in `index.html` (`#tile-challenges`, `#tile-challenge-notifications`) with named SVG placeholder, img slot, and benefit copy stubs in HTML comments — ready for v2 grid layout (Issue #20)
+- Draft `v1.4.0-app-store` announcement entry in `data/announcements.json` with `"published": false` — invisible until flipped to `true` (Issue #20)
+- `[data-content-pending="true"] { display: none }` utility rule in `css/style.css` to hide all pending slots (Issue #20)
+
+### Changed
+- `js/announcements.js` — entries with `"published": false` are now filtered out before render; `published` field defaults to `true` when absent for backwards compatibility (Issue #20)
 
 ### Changed
 - Refactored `css/style.css` color layer into a three-tier token system: 17 primitive `--color-*` variables, semantic tokens (`--surface-*`, `--border-*`, `--text-*`, `--shadow-*`, `--trend-*`), and theme blocks — prerequisite for dark mode (Issue #18)
