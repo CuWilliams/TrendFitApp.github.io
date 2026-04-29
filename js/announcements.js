@@ -21,7 +21,7 @@
   const DATA_URL = "data/announcements.json";
 
   // Bump this when you change data/renderer to dodge device caching
-  const VERSION = "2026-04-28-1";
+  const VERSION = "2026-04-29-1";
   const withCacheBust = (url) => url + (url.includes("?") ? "&" : "?") + "v=" + VERSION;
 
   const root = getRoot();
@@ -57,6 +57,7 @@
   function renderAnnouncements(items) {
     const posts = (items || [])
       .map(safePost)
+      .filter(p => p.published)
       .sort((a, b) => {
         if (a.pinned && !b.pinned) return -1;
         if (!a.pinned && b.pinned) return 1;
@@ -163,6 +164,7 @@
       id: String(p.id || ""),
       date: String(p.date || ""),
       title: String(p.title || "Untitled"),
+      published: p.published !== false,
       pinned: Boolean(p.pinned),
       tags: Array.isArray(p.tags) ? p.tags.map(String) : [],
       body: Array.isArray(p.body) ? p.body.map(String) : [],

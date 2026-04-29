@@ -1,5 +1,23 @@
 [
   {
+    "id": "v1.4.0-app-store",
+    "date": "2026-04-27",
+    "published": false,
+    "title": "TrendFit 1.4 — Challenges Now on the App Store",
+    "pinned": false,
+    "tags": ["Release", "New Feature"],
+    "body": [
+      "**TrendFit v1.4.0 is now available on the App Store.** This release brings TrendFit Challenges out of beta and into the hands of everyone.",
+      "• **TrendFitChallenge** — Set a goal. Beat it. See the proof.",
+      "• **Challenge Notifications** — Progress updates, on your schedule — never leaves your device.",
+      "Update now to start your first challenge."
+    ],
+    "links": [
+      { "label": "Download on App Store", "href": "https://apps.apple.com/ca/app/trendfit/id6751863796" },
+      { "label": "See What's New", "href": "features.html#challenges" }
+    ]
+  },
+  {
     "id": "v1.4.0-beta",
     "date": "2026-04-28",
     "title": "TrendFit 1.4 Beta — Challenges Are Here",
