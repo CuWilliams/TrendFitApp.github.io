@@ -338,17 +338,6 @@ a:focus-visible, button:focus-visible { outline: 3px solid color-mix(in oklab, v
   .page-wrap > .container { margin: 16px; }
 }
 
-/* Signup iframe sizing – adapts to viewport height */
-#signupFrame {
-  width: 100%;
-  height: clamp(640px, 70vh, 1100px);
-  border: 0;
-  display: block;
-}
-@media (max-width: 900px) {
-  #signupFrame { height: 560px; }
-}
-
 /* Make SVG logos scale crisply */
 .brand img { height: 28px; width: auto; display: block; }
 
@@ -632,100 +621,6 @@ body.home .logo-hero-row .panel-hero .hero-title .break {
   }
 }
 
-/* Members Forum (beta-feedback.html presented as "Members Forum") */
-.forum .forum-grid {
-  display: grid;
-  gap: 18px;
-  grid-template-columns: 1fr;         /* stack on mobile */
-}
-
-@media (min-width: 700px) {
-  .forum .forum-grid {
-    grid-template-columns: 1.6fr 1fr; /* give ideas card a bit more room */
-  }
-}
-
-/* Suggestions form iframe sizing */
-.forum .suggestions-embed {
-  width: 100%;
-  height: clamp(640px, 70vh, 1200px);
-  border: 0;
-  display: block;
-}
-
-/* Center headers in Members Forum cards */
-.forum-grid .card h3 {
-  text-align: center;
-}
-
-/* Guarantee the TestFlight button is centered */
-.forum-grid .card .btn {
-  display: block;              /* block + auto margins centers reliably */
-  width: max-content;          /* shrink-wrap to content */
-  margin: 12px auto;           /* center horizontally */
-}
-
-/* ================================
-   Page: Sign Up (scoped layout)
-   ================================ */
-/* Signup page background (align with Home approach) */
-body.signup {
-  background: linear-gradient(135deg, var(--brand1), var(--brand2));
-}
-
-   body.signup .page-wrap {
-  min-height: calc(100dvh - var(--header-h));
-  display: grid;
-  place-items: center;
-}
-body.signup .page-wrap > .container {
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,.10);
-  width: 100%;
-  max-width: 1100px;
-  margin: 24px;
-  overflow: hidden;
-
-  /* Use grid for reliable split in Safari */
-  display: grid;
-  grid-template-columns: 640px 1fr;
-  gap: 0;
-  padding: 0;
-}
-body.signup .left-content  { padding: 40px; text-align: center; }
-body.signup .right-content {
-  padding: 0;
-  display: grid;
-  align-content: center;
-  min-width: 0;
-}
-body.signup #signupFrame {
-  width: 100%;
-  height: clamp(480px, 76vh, 1100px);
-  border: 0;
-  display: block;
-}
-@media (max-width: 900px) {
-  body.signup .page-wrap > .container {
-    grid-template-columns: 1fr;
-    margin: 16px;
-  }
-  body.signup .left-content  { padding: 20px; }
-  body.signup #signupFrame   { height: 560px; }
-}
-
-/* Sign Up: benefits alignment */
-body.signup .signup-benefits { text-align: left; margin-top: 20px; }
-body.signup .signup-benefits p { margin: 8px 0; }
-
-/* Restore logo size for signup page */
-body.signup .left-content .logo {
-  width: 180px;
-  height: auto;
-  margin-bottom: 0;
-}
-
 /* Prefers-reduced-motion: tone down animated/auto-playing media where applicable */
 @media (prefers-reduced-motion: reduce) {
   video[autoplay] { animation: none !important; }
@@ -751,21 +646,6 @@ img, svg { max-width:100%; height:auto; display:block; }
 
 /* Optional: if any row still overflows, allow wrapping */
 .panel-cta .cta-row { grid-template-columns: 1fr minmax(0,120px); }
-
-/* === Fix: keep signup logo centered on mobile === */
-@media (max-width: 900px) {
-  body.signup .left-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;   /* center horizontally */
-    text-align: center;    /* center text under logo */
-  }
-
-  body.signup .left-content .logo {
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
 
 /* Announcements page styles */
 .card.announce {
