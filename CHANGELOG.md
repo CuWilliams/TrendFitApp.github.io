@@ -8,8 +8,12 @@ All notable changes to the TrendFit website are documented here.
 - `privacy-policy.html` — proper HTML redirect page (instant meta-refresh + canonical) for legacy `/privacy-policy` URL (Issue #8)
 - `terms-of-service.html` — proper HTML redirect page (instant meta-refresh + canonical) for legacy `/terms-of-service` URL (Issue #8)
 
-### Removed
-- JS redirect map and `redir-note` element from `404.html` — superseded by the new per-URL redirect pages (Issue #8)
+### Changed
+- Refactored `css/style.css` color layer into a three-tier token system: 17 primitive `--color-*` variables, semantic tokens (`--surface-*`, `--border-*`, `--text-*`, `--shadow-*`, `--trend-*`), and theme blocks — prerequisite for dark mode (Issue #18)
+- Added `[data-theme="dawn"]` block formalizing the existing orange/cream identity
+- Added `[data-theme="dark"]` block with iOS app dark palette
+- Wired `prefers-color-scheme: dark` to auto-apply dark tokens without JavaScript; theme can also be forced via `data-theme` attribute
+- Replaced all hardcoded hex values in style rules with semantic tokens; zero hardcoded hex values remain outside the primitive definitions
 
 ---
 
