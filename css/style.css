@@ -4,23 +4,164 @@
    - Mobile-first, responsive
    ============================ */
 
+/* === Layer 1: Primitive tokens (raw palette) === */
+:root {
+  --color-orange-500:  #FF8C00;
+  --color-orange-red:  #FF4500;
+  --color-blue-sky:    #2dbaf7;
+  --color-blue-deep:   #0a5db3;
+  --color-blue-action: #0d6efd;
+  --color-blue-link:   #007bff;
+  --color-cream-100:   #FFF3E3;
+  --color-cream-200:   #FFEAD1;
+  --color-orange-200:  #FFC888;
+  --color-orange-250:  #FFCF8F;
+  --color-orange-300:  #FFB85E;
+  --color-red-600:     #e11900;
+  --color-white:       #ffffff;
+  --color-gray-900:    #1c1c1e;
+  --color-gray-800:    #2c2c2e;
+  --color-gray-700:    #3a3a3c;
+  --color-gray-600:    #48484a;
+}
+
+/* === Layer 2: Semantic tokens (default: dawn) === */
 :root {
   color-scheme: light;
-  --brand1: #FF8C00; /* orange */
-  --brand2: #FF4500; /* orange-red */
-  --accent: #0d6efd; /* action blue */
-  --ink: CanvasText;
-  --bg: Canvas;
-  --card: #ffffff;
-  --muted: rgba(0,0,0,.6);
-  --border: rgba(0,0,0,.12);
-  --shadow: rgba(0,0,0,.08);
 
-  /* Sticky header height used in the min-height calc */
-  --header-h: 56px;
+  /* Surfaces */
+  --surface-card:         var(--color-white);
+  --surface-warm:         var(--color-cream-100);
+  --surface-warm-hover:   var(--color-cream-200);
+  --surface-header:       color-mix(in oklab, var(--color-white) 75%, transparent);
+  --surface-footer:       color-mix(in oklab, var(--color-white) 85%, transparent);
+  --surface-home-start:   var(--color-blue-sky);
+  --surface-home-end:     var(--color-blue-deep);
 
-  /* Home hero logo target height for panel pairing */
-  --hero-logo-h: 200px; /* try 140–180px to taste */
+  /* Borders */
+  --border-default:       rgba(0,0,0,.12);
+  --border-accent:        var(--color-orange-200);
+  --border-accent-hover:  var(--color-orange-250);
+  --border-accent-active: var(--color-orange-300);
+
+  /* Text */
+  --text-ink:             CanvasText;
+  --text-muted:           rgba(0,0,0,.6);
+
+  /* Action / brand */
+  --accent-action:        var(--color-blue-action);
+  --accent-brand1:        var(--color-orange-500);
+  --accent-brand2:        var(--color-orange-red);
+  --social-link:          var(--color-blue-link);
+
+  /* Feedback */
+  --badge-dot:            var(--color-red-600);
+  --badge-ring:           var(--color-white);
+
+  /* Shadows */
+  --shadow-card:          rgba(0,0,0,.08);
+  --shadow-orange-glow:   rgba(255,140,0,.15);
+
+  /* Trend (reserved for chart overlays) */
+  --trend-positive:       #34C759;
+  --trend-negative:       #FF3B30;
+  --trend-neutral:        #FFCC00;
+
+  /* Legacy aliases — keep existing var() calls working */
+  --brand1:  var(--accent-brand1);
+  --brand2:  var(--accent-brand2);
+  --accent:  var(--accent-action);
+  --ink:     var(--text-ink);
+  --bg:      Canvas;
+  --card:    var(--surface-card);
+  --muted:   var(--text-muted);
+  --border:  var(--border-default);
+  --shadow:  var(--shadow-card);
+
+  /* Layout */
+  --header-h:    56px;
+  --hero-logo-h: 200px;
+}
+
+/* === Layer 3: Dawn theme (formalizes existing identity) === */
+[data-theme="dawn"] {
+  color-scheme: light;
+  --surface-card:         var(--color-white);
+  --surface-warm:         var(--color-cream-100);
+  --surface-warm-hover:   var(--color-cream-200);
+  --surface-header:       color-mix(in oklab, var(--color-white) 75%, transparent);
+  --surface-footer:       color-mix(in oklab, var(--color-white) 85%, transparent);
+  --surface-home-start:   var(--color-blue-sky);
+  --surface-home-end:     var(--color-blue-deep);
+  --border-default:       rgba(0,0,0,.12);
+  --border-accent:        var(--color-orange-200);
+  --border-accent-hover:  var(--color-orange-250);
+  --border-accent-active: var(--color-orange-300);
+  --text-ink:             CanvasText;
+  --text-muted:           rgba(0,0,0,.6);
+  --shadow-card:          rgba(0,0,0,.08);
+  --shadow-orange-glow:   rgba(255,140,0,.15);
+  --bg:                   Canvas;
+  /* Legacy aliases */
+  --border: var(--border-default);
+  --shadow: var(--shadow-card);
+  --muted:  var(--text-muted);
+}
+
+/* === Layer 3: Dark theme (iOS app dark palette) === */
+[data-theme="dark"] {
+  color-scheme: dark;
+  --surface-card:         var(--color-gray-800);
+  --surface-warm:         var(--color-gray-700);
+  --surface-warm-hover:   var(--color-gray-600);
+  --surface-header:       color-mix(in oklab, var(--color-gray-900) 80%, transparent);
+  --surface-footer:       color-mix(in oklab, var(--color-gray-900) 85%, transparent);
+  --surface-home-start:   var(--color-gray-900);
+  --surface-home-end:     #000000;
+  --border-default:       rgba(255,255,255,.12);
+  --border-accent:        var(--color-gray-700);
+  --border-accent-hover:  var(--color-gray-600);
+  --border-accent-active: var(--color-orange-300);
+  --text-ink:             rgba(255,255,255,.9);
+  --text-muted:           rgba(255,255,255,.55);
+  --shadow-card:          rgba(0,0,0,.35);
+  --shadow-orange-glow:   rgba(255,140,0,.20);
+  --bg:                   var(--color-gray-900);
+  /* Legacy aliases */
+  --border: var(--border-default);
+  --shadow: var(--shadow-card);
+  --muted:  var(--text-muted);
+  --ink:    var(--text-ink);
+  --card:   var(--surface-card);
+}
+
+/* === Auto dark mode (no JS required) === */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    color-scheme: dark;
+    --surface-card:         var(--color-gray-800);
+    --surface-warm:         var(--color-gray-700);
+    --surface-warm-hover:   var(--color-gray-600);
+    --surface-header:       color-mix(in oklab, var(--color-gray-900) 80%, transparent);
+    --surface-footer:       color-mix(in oklab, var(--color-gray-900) 85%, transparent);
+    --surface-home-start:   var(--color-gray-900);
+    --surface-home-end:     #000000;
+    --border-default:       rgba(255,255,255,.12);
+    --border-accent:        var(--color-gray-700);
+    --border-accent-hover:  var(--color-gray-600);
+    --border-accent-active: var(--color-orange-300);
+    --text-ink:             rgba(255,255,255,.9);
+    --text-muted:           rgba(255,255,255,.55);
+    --shadow-card:          rgba(0,0,0,.35);
+    --shadow-orange-glow:   rgba(255,140,0,.20);
+    --bg:                   var(--color-gray-900);
+    /* Legacy aliases */
+    --border: var(--border-default);
+    --shadow: var(--shadow-card);
+    --muted:  var(--text-muted);
+    --ink:    var(--text-ink);
+    --card:   var(--surface-card);
+  }
 }
 
 /* Base */
@@ -34,7 +175,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto
   position: fixed;
   inset: 0;
   z-index: -1;
-  background: linear-gradient(135deg, var(--brand1), var(--brand2));
+  background: linear-gradient(135deg, var(--accent-brand1), var(--accent-brand2));
   opacity: .13;
   pointer-events: none;
 }
@@ -52,14 +193,14 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto
 
 /* NEW: Home page background gradient (moved from inline) */
 body.home {
-  background: linear-gradient(135deg, #2dbaf7, #0a5db3);
+  background: linear-gradient(135deg, var(--surface-home-start), var(--surface-home-end));
 }
 
 /* Layout helpers */
 .container { width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 20px; }
 .section { padding: 56px 0; }
-.section.alt { background: rgba(255,255,255,.55); }
-.section.highlight { background: #fff; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.section.alt { background: color-mix(in oklab, var(--surface-card) 55%, transparent); }
+.section.highlight { background: var(--surface-card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
 .section-title { margin: 0 0 20px; font-size: clamp(24px, 3vw, 32px); }
 
 /* Header / Nav */
@@ -69,7 +210,7 @@ body.home {
   background: rgba(255,255,255,.85);
   /* Modern polish */
   backdrop-filter: saturate(180%) blur(8px);
-  background: color-mix(in oklab, white 75%, transparent);
+  background: var(--surface-header);
   border-bottom: 1px solid var(--border);
   z-index: 10;
 }
@@ -82,27 +223,27 @@ body.home {
 
 /* Nav: panel-style pills (unified across pages) */
 .site-header .nav-links a {
-  background: #FFF3E3;
-  border: 1px solid #FFC888;
+  background: var(--surface-warm);
+  border: 1px solid var(--border-accent);
   border-radius: 12px;
   padding: 8px 12px;
   line-height: 1.2;
 }
 .site-header .nav-links a:hover,
 .site-header .nav-links a:focus-visible {
-  background: #FFEAD1;
-  border-color: #FFCF8F;
+  background: var(--surface-warm-hover);
+  border-color: var(--border-accent-hover);
 }
 .site-header .nav-links a[aria-current="page"] {
-  background: #FFEAD1;
-  border-color: #FFB85E;
+  background: var(--surface-warm-hover);
+  border-color: var(--border-accent-active);
 }
 /* Normalize legacy btn classes if present in header links */
 .site-header .nav-links a.btn,
 .site-header .nav-links a.btn-compact {
-  background: #FFF3E3 !important;
+  background: var(--surface-warm) !important;
   color: inherit !important;
-  border: 1px solid #FFC888 !important;
+  border: 1px solid var(--border-accent) !important;
   border-radius: 12px !important;
   padding: 8px 12px !important;
   box-shadow: none !important;
@@ -162,8 +303,8 @@ body.home {
   width: 10px;
   height: 10px;
   border-radius: 999px;
-  background: #e11900;       /* red dot */
-  border: 2px solid #fff;    /* ring for contrast on light pills */
+  background: var(--badge-dot);
+  border: 2px solid var(--badge-ring);
   box-shadow: 0 0 0 1px rgba(0,0,0,.06); /* subtle lift */
 }
 
@@ -189,7 +330,7 @@ body.home {
   max-width: 600px;
   height: auto;
   border-radius: 12px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 30px var(--shadow-card);
   display: block;
   object-fit: contain;
   /* Smooth fade-in animation */
@@ -297,7 +438,7 @@ body.home {
 
 .social-links a {
   text-decoration: none;
-  color: #007bff;
+  color: var(--social-link);
   font-size: 24px; /* icons a bit larger without labels */
 }
 
@@ -308,7 +449,7 @@ body.home {
   /* Fallback */
   background: rgba(255,255,255,.85);
   /* Modern */
-  background: color-mix(in oklab, white 85%, transparent);
+  background: var(--surface-footer);
 }
 .footer-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
 .footer-links { display: inline-flex; gap: 8px; }
@@ -360,8 +501,8 @@ body.home .page-wrap > .container {
   display: flex;
   gap: 24px;
   padding: 38px 0; /* Top/bottom only - horizontal handled by children */
-  background: #fff;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  background: var(--surface-card);
+  box-shadow: 0 4px 10px var(--shadow-card);
   border-radius: 12px;
 }
 
@@ -392,8 +533,8 @@ body.home .left-content .logo { width: 180px; height: auto; margin: 6px auto 10p
 
 /* Tinted panels (warm complement to blue background) */
 .panel {
-  background: #FFF3E3;
-  border: 1px solid #FFC888;
+  background: var(--surface-warm);
+  border: 1px solid var(--border-accent);
   border-radius: 12px;
   padding: 18px 20px;
 }
@@ -430,15 +571,15 @@ body.home .left-content .logo { width: 180px; height: auto; margin: 6px auto 10p
 
 /* Video container */
 body.home .video-wrap {
-  background: #FFF3E3;                             /* cream — matches panel system */
-  border: 1px solid #FFC888;                       /* same border weight as panels */
+  background: var(--surface-warm);
+  border: 1px solid var(--border-accent);
   border-radius: 52px;                             /* outer > 42px inner video radius */
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 20px;                                   /* reduced from 40px */
   overflow: hidden;
-  box-shadow: 0 8px 30px rgba(255, 140, 0, 0.15); /* softer orange glow */
+  box-shadow: 0 8px 30px var(--shadow-orange-glow);
   max-width: 416.25px;
   margin: 0 auto;
 }
@@ -602,7 +743,7 @@ body.home .logo-hero-row .panel-hero .hero-title .break {
   width: 120px;
   white-space: nowrap;
   background: var(--accent) !important;
-  color: #fff !important;
+  color: var(--color-white) !important;
   border-color: transparent !important;
 }
 .panel-cta a.btn:hover { filter: brightness(0.92); }
@@ -687,4 +828,3 @@ body { padding-top: var(--header-h); }
 @media (max-width: 1180px){ body { padding-top: 72px; } }
 @media (max-width:  840px){ body { padding-top: 88px; } }
 @media (max-width:  520px){ body { padding-top: 104px; } }
-
