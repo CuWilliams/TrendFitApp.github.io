@@ -163,7 +163,34 @@
           <h2 class="feat-title">TrendFit</h2>
           <p class="feat-copy">See whether you're actually improving.</p>
           <div class="feat-img-wrap">
-            <img src="images/tf-trendfit.png" alt="TrendFit trend chart view" class="feat-img" />
+            <svg role="img" aria-label="Line chart showing an improving distance trend over time"
+                 viewBox="0 0 280 130" xmlns="http://www.w3.org/2000/svg">
+              <!-- Grid lines -->
+              <line x1="28" y1="25" x2="268" y2="25" stroke-width="1" style="stroke:var(--text-muted);opacity:0.15"/>
+              <line x1="28" y1="50" x2="268" y2="50" stroke-width="1" style="stroke:var(--text-muted);opacity:0.15"/>
+              <line x1="28" y1="75" x2="268" y2="75" stroke-width="1" style="stroke:var(--text-muted);opacity:0.15"/>
+              <line x1="28" y1="100" x2="268" y2="100" stroke-width="1" style="stroke:var(--text-muted);opacity:0.15"/>
+              <!-- Axes -->
+              <line x1="28" y1="14" x2="28" y2="115" stroke-width="1.5" style="stroke:var(--text-muted);opacity:0.4"/>
+              <line x1="28" y1="115" x2="270" y2="115" stroke-width="1.5" style="stroke:var(--text-muted);opacity:0.4"/>
+              <!-- Trend line (dashed green, positive slope) -->
+              <line x1="45" y1="104" x2="258" y2="28" stroke-width="2" stroke-dasharray="5 3" style="stroke:var(--trend-positive)"/>
+              <!-- Data line -->
+              <polyline points="45,102 85,90 120,86 155,70 195,60 230,46 258,32"
+                        fill="none" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"
+                        style="stroke:var(--accent-action)"/>
+              <!-- Data dots -->
+              <circle cx="45"  cy="102" r="3.5" style="fill:var(--accent-action)"/>
+              <circle cx="85"  cy="90"  r="3.5" style="fill:var(--accent-action)"/>
+              <circle cx="120" cy="86"  r="3.5" style="fill:var(--accent-action)"/>
+              <circle cx="155" cy="70"  r="3.5" style="fill:var(--accent-action)"/>
+              <circle cx="195" cy="60"  r="3.5" style="fill:var(--accent-action)"/>
+              <circle cx="230" cy="46"  r="3.5" style="fill:var(--accent-action)"/>
+              <circle cx="258" cy="32"  r="3.5" style="fill:var(--accent-action)"/>
+              <!-- Label -->
+              <text x="172" y="22" font-size="11" font-weight="600"
+                    font-family="system-ui,sans-serif" style="fill:var(--trend-positive)">↑ Improving</text>
+            </svg>
           </div>
         </article>
 
@@ -172,9 +199,36 @@
           <div class="feat-icon"><i class="fa-solid fa-layer-group" aria-hidden="true"></i></div>
           <h2 class="feat-title">TrendFitStack</h2>
           <p class="feat-copy">Compare your week to your year — at a glance.</p>
-          <div class="feat-img-wrap feat-img-pair">
-            <img src="images/tf-stack-scatter.png" alt="TrendFitStack scatter view" class="feat-img" />
-            <img src="images/tf-stack-stacked.png" alt="TrendFitStack stacked view" class="feat-img" />
+          <div class="feat-img-wrap">
+            <svg role="img" aria-label="Stacked bar chart comparing cumulative workout totals across five months"
+                 viewBox="0 0 280 130" xmlns="http://www.w3.org/2000/svg">
+              <!-- Grid lines (dashed) -->
+              <line x1="28" y1="35" x2="265" y2="35" stroke-width="0.8" stroke-dasharray="3 3" style="stroke:var(--text-muted);opacity:0.3"/>
+              <line x1="28" y1="60" x2="265" y2="60" stroke-width="0.8" stroke-dasharray="3 3" style="stroke:var(--text-muted);opacity:0.3"/>
+              <line x1="28" y1="85" x2="265" y2="85" stroke-width="0.8" stroke-dasharray="3 3" style="stroke:var(--text-muted);opacity:0.3"/>
+              <!-- X axis -->
+              <line x1="28" y1="110" x2="265" y2="110" stroke-width="1.5" style="stroke:var(--text-muted);opacity:0.4"/>
+              <!-- Bar 1 — bottom=110 -->
+              <rect x="35"  y="86" width="28" height="24" rx="2" style="fill:var(--accent-brand1)"/>
+              <rect x="35"  y="72" width="28" height="14" rx="2" style="fill:var(--accent-action)"/>
+              <rect x="35"  y="64" width="28" height="8"  rx="2" style="fill:var(--trend-positive)"/>
+              <!-- Bar 2 -->
+              <rect x="81"  y="80" width="28" height="30" rx="2" style="fill:var(--accent-brand1)"/>
+              <rect x="81"  y="63" width="28" height="17" rx="2" style="fill:var(--accent-action)"/>
+              <rect x="81"  y="53" width="28" height="10" rx="2" style="fill:var(--trend-positive)"/>
+              <!-- Bar 3 -->
+              <rect x="127" y="74" width="28" height="36" rx="2" style="fill:var(--accent-brand1)"/>
+              <rect x="127" y="55" width="28" height="19" rx="2" style="fill:var(--accent-action)"/>
+              <rect x="127" y="44" width="28" height="11" rx="2" style="fill:var(--trend-positive)"/>
+              <!-- Bar 4 -->
+              <rect x="173" y="68" width="28" height="42" rx="2" style="fill:var(--accent-brand1)"/>
+              <rect x="173" y="46" width="28" height="22" rx="2" style="fill:var(--accent-action)"/>
+              <rect x="173" y="33" width="28" height="13" rx="2" style="fill:var(--trend-positive)"/>
+              <!-- Bar 5 -->
+              <rect x="219" y="60" width="28" height="50" rx="2" style="fill:var(--accent-brand1)"/>
+              <rect x="219" y="36" width="28" height="24" rx="2" style="fill:var(--accent-action)"/>
+              <rect x="219" y="22" width="28" height="14" rx="2" style="fill:var(--trend-positive)"/>
+            </svg>
           </div>
         </article>
 
@@ -184,7 +238,40 @@
           <h2 class="feat-title">Zoomable Charts</h2>
           <p class="feat-copy">Zoom into one bad day, pan through a whole season.</p>
           <div class="feat-img-wrap">
-            <img src="images/tf-welcome.jpg" alt="TrendFit chart navigation" class="feat-img" />
+            <svg role="img" aria-label="Zoomed-in chart segment with pan navigation indicators"
+                 viewBox="0 0 280 130" xmlns="http://www.w3.org/2000/svg">
+              <!-- X axis -->
+              <line x1="22" y1="115" x2="262" y2="115" stroke-width="1.5" style="stroke:var(--text-muted);opacity:0.4"/>
+              <!-- Overview line (full width, muted) -->
+              <polyline points="25,90 50,82 75,92 100,76 125,68 150,73 175,58 200,63 225,50 250,44 265,48"
+                        fill="none" stroke-width="1.5" stroke-linejoin="round"
+                        style="stroke:var(--text-muted);opacity:0.35"/>
+              <!-- Zoom window -->
+              <rect x="90" y="14" width="108" height="104" rx="5"
+                    style="fill:var(--accent-action);opacity:0.07"/>
+              <rect x="90" y="14" width="108" height="104" rx="5"
+                    fill="none" stroke-width="1.5" style="stroke:var(--accent-action)"/>
+              <!-- Zoomed detail line inside window -->
+              <polyline points="100,76 116,66 133,72 150,62 166,68 175,58 188,63"
+                        fill="none" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"
+                        style="stroke:var(--accent-action)"/>
+              <!-- Detail dots -->
+              <circle cx="100" cy="76"  r="3" style="fill:var(--accent-action)"/>
+              <circle cx="116" cy="66"  r="3" style="fill:var(--accent-action)"/>
+              <circle cx="133" cy="72"  r="3" style="fill:var(--accent-action)"/>
+              <circle cx="150" cy="62"  r="3" style="fill:var(--accent-action)"/>
+              <circle cx="166" cy="68"  r="3" style="fill:var(--accent-action)"/>
+              <circle cx="175" cy="58"  r="3" style="fill:var(--accent-action)"/>
+              <circle cx="188" cy="63"  r="3" style="fill:var(--accent-action)"/>
+              <!-- Pan arrows -->
+              <text x="10" y="72" font-size="18" font-family="system-ui,sans-serif"
+                    style="fill:var(--accent-action);opacity:0.7">‹</text>
+              <text x="258" y="72" font-size="18" font-family="system-ui,sans-serif"
+                    style="fill:var(--accent-action);opacity:0.7">›</text>
+              <!-- Label -->
+              <text x="144" y="11" font-size="9" font-weight="600" text-anchor="middle"
+                    font-family="system-ui,sans-serif" style="fill:var(--accent-action)">Zoomed View</text>
+            </svg>
           </div>
         </article>
 
@@ -195,6 +282,29 @@
             <h2 class="feat-title">Privacy-First</h2>
             <p class="feat-copy">Your data never leaves your phone. All analysis happens on-device using Apple HealthKit. No servers. No tracking. No ads.</p>
           </div>
+          <div class="feat-svg-wrap">
+            <svg role="img" aria-label="Shield with padlock representing on-device privacy"
+                 viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"
+                 style="width:64px;height:64px;display:block;">
+              <!-- Shield body (fill + stroke) -->
+              <path d="M40 7 L68 19 L68 46 Q68 64 40 75 Q12 64 12 46 L12 19 Z"
+                    style="fill:var(--accent-brand1);opacity:0.15"/>
+              <path d="M40 7 L68 19 L68 46 Q68 64 40 75 Q12 64 12 46 L12 19 Z"
+                    fill="none" stroke-width="2.5" stroke-linejoin="round"
+                    style="stroke:var(--accent-brand1)"/>
+              <!-- Padlock shackle -->
+              <path d="M30 39 L30 31 Q30 22 40 22 Q50 22 50 31 L50 39"
+                    fill="none" stroke-width="2.5" stroke-linecap="round"
+                    style="stroke:var(--accent-brand1)"/>
+              <!-- Padlock body -->
+              <rect x="27" y="39" width="26" height="18" rx="3"
+                    style="fill:var(--accent-brand1);opacity:0.85"/>
+              <!-- Keyhole circle -->
+              <circle cx="40" cy="47" r="3.5" style="fill:var(--color-white)"/>
+              <!-- Keyhole slot -->
+              <rect x="38.5" y="47" width="3" height="5" style="fill:var(--color-white)"/>
+            </svg>
+          </div>
         </article>
 
         <!-- TILE: Personalization -->
@@ -203,6 +313,33 @@
           <div class="feat-copy-group">
             <h2 class="feat-title">Personalization</h2>
             <p class="feat-copy">Units, windows, haptics — tuned to you. TrendFit adapts to how you like to train and review progress.</p>
+          </div>
+          <div class="feat-svg-wrap">
+            <svg role="img" aria-label="Unit preference toggle showing metric km and imperial mi options"
+                 viewBox="0 0 140 70" xmlns="http://www.w3.org/2000/svg"
+                 style="width:120px;height:auto;display:block;">
+              <!-- Active card: km -->
+              <rect x="4" y="8" width="52" height="54" rx="8"
+                    style="fill:var(--accent-action);opacity:0.12"/>
+              <rect x="4" y="8" width="52" height="54" rx="8"
+                    fill="none" stroke-width="1.8" style="stroke:var(--accent-action)"/>
+              <text x="30" y="35" font-size="17" font-weight="700" text-anchor="middle"
+                    font-family="system-ui,sans-serif" style="fill:var(--accent-action)">5.2</text>
+              <text x="30" y="52" font-size="11" text-anchor="middle"
+                    font-family="system-ui,sans-serif" style="fill:var(--accent-action)">km</text>
+              <!-- Toggle arrow -->
+              <text x="70" y="42" font-size="16" text-anchor="middle"
+                    font-family="system-ui,sans-serif" style="fill:var(--text-muted);opacity:0.6">⇄</text>
+              <!-- Inactive card: mi -->
+              <rect x="84" y="8" width="52" height="54" rx="8"
+                    style="fill:var(--text-muted);opacity:0.06"/>
+              <rect x="84" y="8" width="52" height="54" rx="8"
+                    fill="none" stroke-width="1.5" style="stroke:var(--text-muted);opacity:0.4"/>
+              <text x="110" y="35" font-size="17" font-weight="700" text-anchor="middle"
+                    font-family="system-ui,sans-serif" style="fill:var(--text-muted)">3.2</text>
+              <text x="110" y="52" font-size="11" text-anchor="middle"
+                    font-family="system-ui,sans-serif" style="fill:var(--text-muted)">mi</text>
+            </svg>
           </div>
         </article>
 

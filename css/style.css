@@ -789,6 +789,19 @@ body.home .feat-copy-group {
   gap: 6px;
 }
 
+/* SVG illustration container for row-layout tiles (Privacy, Personalization) */
+body.home .feat-svg-wrap {
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+/* SVGs inside feat-img-wrap fill the container width */
+body.home .feat-img-wrap svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 /* CTA + Socials tile */
 body.home .tile-cta-social {
   grid-area: cta;
