@@ -802,6 +802,63 @@ body.home .feat-img-wrap svg {
   display: block;
 }
 
+/* Tile expand overlay (Issue #23) */
+body.home .tile-feature { position: relative; cursor: pointer; }
+body.home .tile-expand {
+  position: absolute;
+  inset: 0;
+  background: var(--surface-card);
+  border-radius: inherit;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  overflow-y: auto;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(6px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  z-index: 2;
+}
+body.home .tile-expand.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: none;
+}
+body.home .tile-expand .expand-benefit {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.55;
+  margin: 0;
+}
+body.home .tile-expand .expand-img {
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+  flex: 1;
+  min-height: 0;
+}
+body.home .tile-expand .btn-appstore {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  background: var(--accent-action);
+  color: #fff;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+body.home .tile-expand .btn-appstore:hover {
+  opacity: 0.88;
+}
+@media (prefers-reduced-motion: reduce) {
+  body.home .tile-expand { transition: none; }
+}
+
 /* CTA + Socials tile */
 body.home .tile-cta-social {
   grid-area: cta;
