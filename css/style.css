@@ -493,44 +493,8 @@ a:focus-visible, button:focus-visible { outline: 3px solid color-mix(in oklab, v
 }
 
 /* ================================
-   Home — centered, panel layout
+   Home — panels (shared, also used by features.html)
    ================================ */
-
-/* Card: 1100 wide, 38px gap between columns
-   Padding handled individually by left/right content for independent control */
-body.home .page-wrap > .container {
-  display: flex;
-  gap: 24px;
-  padding: 38px 0; /* Top/bottom only - horizontal handled by children */
-  background: var(--surface-card);
-  box-shadow: 0 4px 10px var(--shadow-card);
-  border-radius: 12px;
-}
-
-/* Columns: ~493px rails */
-body.home .left-content  {
-  flex: 0 1 560px;
-  display: flex;
-  justify-content: flex-start;
-  padding: 0 38px; /* Horizontal padding for left column content */
-}
-body.home .right-content {
-  flex: 1 1 500px;
-  padding: 0 !important; /* Right column spacing controlled by .video-wrap */
-}
-
-/* The 445px content column centered within the left rail */
-body.home .left-content .stack {
-  width: 100%;
-  max-width: 520px;
-  margin: 0 auto;
-  display: grid;
-  gap: 18px;
-  text-align: center;
-}
-
-/* Logo sizing (180×auto slot) */
-body.home .left-content .logo { width: 180px; height: auto; margin: 6px auto 10px; }
 
 /* Tinted panels (warm complement to blue background) */
 .panel {
@@ -553,85 +517,6 @@ body.home .left-content .logo { width: 180px; height: auto; margin: 6px auto 10p
 /* Copy rhythm */
 .panel-text p { margin: 8px 0; }
 
-/* ================================
-   Video Container Spacing Model
-   ================================
-   Architecture:
-   - Grandparent (.page-wrap > .container): 38px top/bottom padding only
-   - Left column (.left-content): 38px horizontal padding for panels
-   - Right column (.right-content): NO padding (spacing by video-wrap)
-   - Video container (.video-wrap): 20px padding + 2px border = 22px spacing
-
-   TOTAL video spacing: 0 (grandparent) + 0 (right-content) + 22px (video-wrap) = 22px
-
-   To adjust video spacing: Change .video-wrap padding (line 439)
-   To adjust left column spacing: Change .left-content padding (line 384)
-
-   Mobile (≤900px): Reduced to 16px horizontal padding
-   ================================ */
-
-/* Video container */
-body.home .video-wrap {
-  background: var(--surface-warm);
-  border: 1px solid var(--border-accent);
-  border-radius: 52px;                             /* outer > 42px inner video radius */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;                                   /* reduced from 40px */
-  overflow: hidden;
-  box-shadow: 0 8px 30px var(--shadow-orange-glow);
-  max-width: 416.25px;
-  margin: 0 auto;
-}
-body.home .video-wrap .preview {
-  width: auto;
-  max-width: 100%;
-  height: clamp(620px, 72vh, 740px);
-  aspect-ratio: 9 / 19.5;
-  object-fit: cover;
-  display: block;
-  border-radius: 42px;
-}
-
-/* ================================
-   Mobile Responsive (≤900px)
-   ================================ */
-@media (max-width: 900px) {
-  /* Container stacking and spacing */
-  body.home .page-wrap > .container {
-    flex-direction: column;
-    gap: 18px;
-    padding: 16px 0; /* Top/bottom only */
-  }
-
-  /* Column adjustments */
-  body.home .left-content {
-    flex: 1 1 auto;
-    padding: 0 16px; /* Mobile horizontal padding */
-  }
-  body.home .right-content {
-    flex: 1 1 auto;
-    display: block; /* Switch from flex to block */
-  }
-
-  /* Video height adjustment for mobile viewports */
-  body.home .video-wrap .preview {
-    height: clamp(420px, 70vh, 740px);
-  }
-
-  /* Keep Home centered on mobile */
-  body.home .page-wrap {
-    min-height: calc(100svh - var(--header-h));
-    place-items: center;
-  }
-
-  /* Optional: Reduce video-wrap padding for tighter mobile layout */
-  body.home .video-wrap {
-    padding: 12px;
-  }
-}
-
 /* === Home: keep centering/locking on mobile like Signup === */
 body.home .page-wrap {
   /* Re-assert full-viewport height under the sticky header */
@@ -645,39 +530,6 @@ body.home .page-wrap {
   body.home .page-wrap {
     min-height: calc(100svh - var(--header-h));
   }
-}
-
-/* =========================================
-   Home: put "Coming Soon!" panel beside logo
-   ========================================= */
-body.home .logo-hero-row {
-  display: flex;
-  align-items: stretch;
-  gap: 32px;
-  margin-bottom: 18px;
-}
-body.home .logo-hero-row .logo {
-  height: var(--hero-logo-h);
-  width: auto;
-  margin: 0;
-  display: block;
-}
-body.home .logo-hero-row .panel-hero {
-  display: grid;
-  place-items: center;
-  min-height: var(--hero-logo-h);
-  text-align: center;
-}
-body.home .logo-hero-row .panel-hero .hero-title {
-  margin: 0;
-  line-height: 0.95;
-  font-size: clamp(28px, 3.8vw, 40px);
-}
-body.home .logo-hero-row .panel-hero .hero-title .break {
-  display: block;
-}
-@media (max-width: 700px) {
-  body.home .logo-hero-row { flex-direction: column; align-items: center; }
 }
 
 /* Panel-text: bullet styling */
@@ -749,20 +601,6 @@ body.home .logo-hero-row .panel-hero .hero-title .break {
 }
 .panel-cta a.btn:hover { filter: brightness(0.92); }
 
-/* Center the app preview vertically in the right column (desktop only) */
-@media (min-width: 901px) {
-  body.home .right-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 0 !important;
-  }
-  body.home .right-content .video-wrap {
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-
 /* Prefers-reduced-motion: tone down animated/auto-playing media where applicable */
 @media (prefers-reduced-motion: reduce) {
   video[autoplay] { animation: none !important; }
@@ -778,9 +616,7 @@ body.home { touch-action: pan-y; }                 /* vertical gestures only */
 header, main, footer { overflow-x:hidden; }        /* guardrails */
 
 /* Let flex/grid children shrink instead of pushing layout wider */
-.site-header .nav-links,
-body.home .left-content,
-body.home .right-content { min-width:0; }
+.site-header .nav-links { min-width:0; }
 
 /* Ensure media never widens the card */
 img, svg { max-width:100%; height:auto; display:block; }
@@ -788,6 +624,243 @@ img, svg { max-width:100%; height:auto; display:block; }
 
 /* Optional: if any row still overflows, allow wrapping */
 .panel-cta .cta-row { grid-template-columns: 1fr minmax(0,120px); }
+
+/* ================================================================
+   Home v2 — Dashboard Grid Layout (Issue #21)
+   Replaces the old two-column flex layout.
+   All rules scoped under body.home.
+   ================================================================ */
+
+/* Override shared .page-wrap > .container margin/padding for home */
+body.home .page-wrap > .container {
+  margin: 0;
+  width: 100%;
+  max-width: 1100px;
+  padding: 20px;
+  background: transparent;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+/* Dashboard grid container */
+body.home .dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 16px;
+  width: 100%;
+  grid-template-areas:
+    "hero  hero  hero  hero  hero  hero  hero  video video video video video"
+    "tf    tf    tf    tf    stack stack stack stack  zoom  zoom  zoom  zoom"
+    "priv  priv  priv  priv  priv  priv  pers  pers  pers  pers  pers  pers"
+    "cta   cta   cta   cta   cta   cta   cta   cta   cta   cta   cta   cta";
+}
+
+/* Shared tile base */
+body.home .dash-tile {
+  background: var(--surface-card);
+  border: 1px solid var(--border-default);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 12px var(--shadow-card);
+  overflow: hidden;
+}
+
+/* Hero tile */
+body.home .tile-hero {
+  grid-area: hero;
+  background: var(--surface-warm);
+  border-color: var(--border-accent);
+  display: flex;
+  align-items: center;
+}
+body.home .tile-hero .tile-hero-inner {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  width: 100%;
+}
+body.home .tile-hero .hero-logo-img {
+  width: clamp(80px, 14%, 140px);
+  height: auto;
+  flex-shrink: 0;
+}
+body.home .tile-hero .hero-copy { flex: 1; }
+body.home .tile-hero .hero-title {
+  margin: 0 0 8px;
+  font-size: clamp(26px, 3.5vw, 40px);
+  font-weight: 800;
+  line-height: 1;
+}
+body.home .tile-hero .hero-title .break { display: block; }
+body.home .tile-hero .hero-kicker {
+  margin: 0 0 6px;
+  font-size: clamp(14px, 1.6vw, 17px);
+  color: var(--text-muted);
+}
+body.home .tile-hero .hero-announce { margin: 0; font-size: 14px; }
+body.home .tile-hero .hero-announce a { color: var(--accent-action); }
+
+/* Video tile */
+body.home .tile-video {
+  grid-area: video;
+  background: var(--surface-warm);
+  border-color: var(--border-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-shadow: 0 8px 30px var(--shadow-orange-glow);
+}
+body.home .tile-video .video-wrap {
+  border-radius: 52px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  max-width: 100%;
+}
+body.home .tile-video .video-wrap .preview {
+  width: auto;
+  max-width: 100%;
+  height: clamp(340px, 55vh, 620px);
+  aspect-ratio: 9 / 19.5;
+  object-fit: cover;
+  display: block;
+  border-radius: 36px;
+}
+
+/* Feature tiles (shared) */
+body.home .tile-feature {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+body.home .feat-icon {
+  font-size: 22px;
+  color: var(--accent-brand2);
+  line-height: 1;
+}
+body.home .feat-icon--large { font-size: 36px; }
+body.home .feat-title {
+  margin: 0;
+  font-size: clamp(16px, 1.8vw, 20px);
+  font-weight: 700;
+  color: var(--text-ink);
+}
+body.home .feat-copy {
+  margin: 0;
+  font-size: clamp(13px, 1.3vw, 15px);
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+body.home .feat-img-wrap {
+  margin-top: auto;
+  border-radius: 10px;
+  overflow: hidden;
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+}
+body.home .feat-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  object-fit: cover;
+}
+/* Stack tile: side-by-side screenshot pair */
+body.home .feat-img-pair { gap: 8px; }
+body.home .feat-img-pair .feat-img { width: 50%; }
+
+/* Privacy / Personalization: horizontal icon + copy layout */
+body.home .tile-row-layout {
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+body.home .tile-row-layout .feat-icon { flex-shrink: 0; }
+body.home .feat-copy-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* CTA + Socials tile */
+body.home .tile-cta-social {
+  grid-area: cta;
+  background: var(--surface-warm);
+  border-color: var(--border-accent);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+body.home .tile-cta-social .panel.panel-cta {
+  width: 100%;
+  max-width: 560px;
+}
+body.home .tile-cta-social .socials { margin-top: 0; }
+body.home .tile-cta-social .footer {
+  font-size: 13px;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* ================================================================
+   Home v2 — Responsive Breakpoints
+   ================================================================ */
+
+@media (min-width: 520px) and (max-width: 840px) {
+  body.home .dashboard-grid {
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-areas:
+      "hero  hero  hero  hero  hero  hero"
+      "video video video video video video"
+      "tf    tf    tf    stack stack stack"
+      "zoom  zoom  zoom  priv  priv  priv"
+      "pers  pers  pers  pers  pers  pers"
+      "cta   cta   cta   cta   cta   cta";
+  }
+  body.home .tile-video .video-wrap .preview {
+    height: clamp(260px, 48vh, 500px);
+  }
+}
+
+@media (max-width: 519px) {
+  body.home .page-wrap > .container { padding: 12px; }
+  body.home .dashboard-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    grid-template-areas:
+      "hero"
+      "video"
+      "tf"
+      "stack"
+      "zoom"
+      "priv"
+      "pers"
+      "cta";
+  }
+  body.home .tile-hero .tile-hero-inner {
+    flex-direction: column;
+    text-align: center;
+    gap: 16px;
+  }
+  body.home .tile-hero .hero-logo-img { width: 80px; }
+  body.home .tile-video .video-wrap .preview {
+    height: clamp(300px, 60vh, 520px);
+  }
+  body.home .tile-row-layout {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  body.home .feat-img-pair { flex-direction: column; }
+  body.home .feat-img-pair .feat-img { width: 100%; }
+}
 
 /* Announcements page styles */
 .card.announce {

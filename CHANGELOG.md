@@ -16,6 +16,8 @@ All notable changes to the TrendFit website are documented here.
 
 ### Changed
 - `js/announcements.js` — entries with `"published": false` are now filtered out before render; `published` field defaults to `true` when absent for backwards compatibility (Issue #20)
+- `index.html` — replaced two-column flex layout (`left-content` / `right-content`) with CSS Grid dashboard tile structure; 8 named `grid-template-areas`: `hero`, `video`, `tf`, `stack`, `zoom`, `priv`, `pers`, `cta` (Issue #21)
+- `css/style.css` — removed old home flex rules (`body.home .page-wrap > .container`, `.left-content`, `.right-content`, `.video-wrap`, `.logo-hero-row`, `@media (max-width: 900px)` home block, `@media (min-width: 901px)` right-content block); added `body.home .dashboard-grid` grid layout with shared `.dash-tile` base, per-tile rules (`tile-hero`, `tile-video`, `tile-feature`, `tile-row-layout`, `tile-cta-social`), and responsive breakpoints at 840 px and 519 px (Issue #21)
 
 ### Changed
 - Refactored `css/style.css` color layer into a three-tier token system: 17 primitive `--color-*` variables, semantic tokens (`--surface-*`, `--border-*`, `--text-*`, `--shadow-*`, `--trend-*`), and theme blocks — prerequisite for dark mode (Issue #18)

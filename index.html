@@ -125,135 +125,139 @@
   <!-- Shared header include -->
   <div data-include="partials/header.html"></div>
 
-  <!-- ============ Landing Content (Home with video) ============ -->
-  <main class="page-wrap">
-    <div class="container">
-      <!-- Left: welcome copy -->
-      <div class="left-content">
-        <div class="stack">
-          <!-- Hero row: logo (left) + “Coming Soon!” panel (right) -->
-          <div class="logo-hero-row">
-            <div class="logo-wrap">
-              <img src="images/TrendFitAppVectorIcon.svg"
-                   alt="Trend Fit App Logo"
-                   class="logo" />
-            </div>
+  <!-- ============ Landing Content (Home — Dashboard Grid v2) ============ -->
+  <main class=”page-wrap”>
+    <div class=”container”>
+      <div class=”dashboard-grid”>
 
-            <section class="panel panel-hero" aria-labelledby="coming-hero">
-              <h1 id="coming-hero" class="hero-title">
-                <span class="break">v1.4 Beta</span>
-                <span class="break">is Now Live</span>
+        <!-- TILE: Hero -->
+        <section class=”dash-tile tile-hero” aria-labelledby=”hero-heading” style=”grid-area: hero”>
+          <div class=”tile-hero-inner”>
+            <img src=”images/TrendFitAppVectorIcon.svg” alt=”Trend Fit App Logo” class=”hero-logo-img” />
+            <div class=”hero-copy”>
+              <h1 id=”hero-heading” class=”hero-title”>
+                <span class=”break”>v1.4 Beta</span>
+                <span class=”break”>is Now Live</span>
               </h1>
-              <p style="margin: 6px 0 0; font-size: 0.9em;"><a href="announcements.html">See latest announcements →</a></p>
-            </section>
+              <p class=”hero-kicker”>See whether you're actually improving.</p>
+              <p class=”hero-announce”><a href=”announcements.html”>See latest announcements →</a></p>
+            </div>
           </div>
+        </section>
 
-          <!-- Copy panel -->
-          <section class="panel panel-text" aria-labelledby="about-trendfit">
-            <h2 id="about-trendfit" class="panel-kicker">Privacy-First Fitness Analytics</h2>
+        <!-- TILE: Video -->
+        <section class=”dash-tile tile-video” aria-label=”TrendFit app preview” style=”grid-area: video”>
+          <div class=”video-wrap”>
+            <video class=”preview” aria-label=”TrendFit App preview video”
+              playsinline muted loop autoplay preload=”auto”
+              poster=”images/app-preview-poster.jpg”>
+              <source src=”media/app-preview.mp4” type=”video/mp4” />
+              Sorry, your browser doesn't support embedded videos.
+            </video>
+          </div>
+        </section>
 
-            <ul class="feature-bullets" role="list">
-              <li>
-                <i class="fa-solid fa-chart-line" aria-hidden="true"></i>
-                <span>Track long-term fitness trends with interactive charts and slopes.</span>
-              </li>
-              <li>
-                <i class="fa-solid fa-lock" aria-hidden="true"></i>
-                <span>Uses your HealthKit data. All processing happens on your device.</span>
-              </li>
-              <li>
-                <i class="fa-solid fa-square-heart" aria-hidden="true"></i>
-                <span>Free app, no tracking, no ads.</span>
-              </li>
-            </ul>
-          </section>
+        <!-- TILE: TrendFit -->
+        <article class=”dash-tile tile-feature” id=”tile-trendfit” style=”grid-area: tf”>
+          <div class=”feat-icon”><i class=”fa-solid fa-chart-line” aria-hidden=”true”></i></div>
+          <h2 class=”feat-title”>TrendFit</h2>
+          <p class=”feat-copy”>See whether you're actually improving.</p>
+          <div class=”feat-img-wrap”>
+            <img src=”images/tf-trendfit.png” alt=”TrendFit trend chart view” class=”feat-img” />
+          </div>
+        </article>
 
-          <!-- CTA panel -->
-          <section class="panel panel-cta">
-            <div class="cta-list">
-              <div class="cta-row">
-                <div class="cta-label">
-                  <i class="cta-icon fa-brands fa-apple" aria-hidden="true"></i>
+        <!-- TILE: TrendFitStack -->
+        <article class=”dash-tile tile-feature” id=”tile-stack” style=”grid-area: stack”>
+          <div class=”feat-icon”><i class=”fa-solid fa-layer-group” aria-hidden=”true”></i></div>
+          <h2 class=”feat-title”>TrendFitStack</h2>
+          <p class=”feat-copy”>Compare your week to your year — at a glance.</p>
+          <div class=”feat-img-wrap feat-img-pair”>
+            <img src=”images/tf-stack-scatter.png” alt=”TrendFitStack scatter view” class=”feat-img” />
+            <img src=”images/tf-stack-stacked.png” alt=”TrendFitStack stacked view” class=”feat-img” />
+          </div>
+        </article>
+
+        <!-- TILE: Zoomable Charts -->
+        <article class=”dash-tile tile-feature” id=”tile-zoom” style=”grid-area: zoom”>
+          <div class=”feat-icon”><i class=”fa-solid fa-magnifying-glass-plus” aria-hidden=”true”></i></div>
+          <h2 class=”feat-title”>Zoomable Charts</h2>
+          <p class=”feat-copy”>Zoom into one bad day, pan through a whole season.</p>
+          <div class=”feat-img-wrap”>
+            <img src=”images/tf-welcome.jpg” alt=”TrendFit chart navigation” class=”feat-img” />
+          </div>
+        </article>
+
+        <!-- TILE: Privacy-First -->
+        <article class=”dash-tile tile-feature tile-row-layout” id=”tile-privacy” style=”grid-area: priv”>
+          <div class=”feat-icon feat-icon--large”><i class=”fa-solid fa-shield-heart” aria-hidden=”true”></i></div>
+          <div class=”feat-copy-group”>
+            <h2 class=”feat-title”>Privacy-First</h2>
+            <p class=”feat-copy”>Your data never leaves your phone. All analysis happens on-device using Apple HealthKit. No servers. No tracking. No ads.</p>
+          </div>
+        </article>
+
+        <!-- TILE: Personalization -->
+        <article class=”dash-tile tile-feature tile-row-layout” id=”tile-personal” style=”grid-area: pers”>
+          <div class=”feat-icon feat-icon--large”><i class=”fa-solid fa-sliders” aria-hidden=”true”></i></div>
+          <div class=”feat-copy-group”>
+            <h2 class=”feat-title”>Personalization</h2>
+            <p class=”feat-copy”>Units, windows, haptics — tuned to you. TrendFit adapts to how you like to train and review progress.</p>
+          </div>
+        </article>
+
+        <!-- TILE: CTA + Socials -->
+        <section class=”dash-tile tile-cta-social” style=”grid-area: cta” aria-label=”Download and follow”>
+          <div class=”panel panel-cta”>
+            <div class=”cta-list”>
+              <div class=”cta-row”>
+                <div class=”cta-label”>
+                  <i class=”cta-icon fa-brands fa-apple” aria-hidden=”true”></i>
                   <span>Download TrendFit</span>
                 </div>
-                <a class="btn btn-primary" href="https://apps.apple.com/ca/app/trendfit/id6751863796" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-apple"></i> App Store
+                <a class=”btn btn-primary” href=”https://apps.apple.com/ca/app/trendfit/id6751863796” target=”_blank” rel=”noopener”>
+                  <i class=”fa-brands fa-apple”></i> App Store
                 </a>
               </div>
-
-              <div class="cta-row">
-                <div class="cta-label">
-                  <i class="cta-icon fa-solid fa-circle-info" aria-hidden="true"></i>
+              <div class=”cta-row”>
+                <div class=”cta-label”>
+                  <i class=”cta-icon fa-solid fa-circle-info” aria-hidden=”true”></i>
                   <span>Learn more about features</span>
                 </div>
-                <a class="btn btn-ghost" href="features.html">
-                  <i class="fa-solid fa-circle-info"></i> Features
+                <a class=”btn btn-ghost” href=”features.html”>
+                  <i class=”fa-solid fa-circle-info”></i> Features
                 </a>
               </div>
             </div>
-          </section>
+          </div>
+          <div class=”socials”>
+            <div class=”social-links”>
+              <a href=”https://www.instagram.com/trendfitapp” target=”_blank” rel=”noopener” aria-label=”Instagram”><i class=”fab fa-instagram”></i></a>
+              <a href=”https://www.facebook.com/trendfitapp” target=”_blank” rel=”noopener” aria-label=”Facebook”><i class=”fab fa-facebook-f”></i></a>
+              <a href=”https://x.com/trendfitapp” target=”_blank” rel=”noopener” aria-label=”X (Twitter)”><i class=”fab fa-x-twitter”></i></a>
+              <a href=”https://www.linkedin.com/company/trend-fit-app” target=”_blank” rel=”noopener” aria-label=”LinkedIn”><i class=”fab fa-linkedin”></i></a>
+              <a href=”https://www.youtube.com/@trendfit_app” target=”_blank” rel=”noopener” aria-label=”YouTube”><i class=”fab fa-youtube”></i></a>
+            </div>
+          </div>
+          <div class=”footer”>&copy; 2025 TrendFit. All rights reserved.</div>
+        </section>
 
-          <div class="socials">
-  <div class="social-links">
-    <a href="https://www.instagram.com/trendfitapp" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-    <a href="https://www.facebook.com/trendfitapp" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-    <a href="https://x.com/trendfitapp" target="_blank" rel="noopener" aria-label="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
-    <a href="https://www.linkedin.com/company/trend-fit-app" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-    <a href="https://www.youtube.com/@trendfit_app" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-  </div>
-</div>
+        <!-- PENDING: Challenges (hidden — no grid gap) -->
+        <article class=”dash-tile tile-feature” id=”tile-challenges” data-content-pending=”true” aria-hidden=”true”>
+          <div class=”feat-icon”><i class=”fa-solid fa-trophy” aria-hidden=”true”></i></div>
+          <h2 class=”feat-title”>Challenges</h2>
+          <p class=”feat-copy”>Set a goal. Beat it. See the proof.</p>
+        </article>
 
-          <!-- Footer -->
-          <div class="footer">&copy; 2025 TrendFit. All rights reserved.</div>
-        </div>
-      </div>
+        <!-- PENDING: Challenge Notifications (hidden — no grid gap) -->
+        <article class=”dash-tile tile-feature” id=”tile-challenge-notifications” data-content-pending=”true” aria-hidden=”true”>
+          <div class=”feat-icon”><i class=”fa-solid fa-bell” aria-hidden=”true”></i></div>
+          <h2 class=”feat-title”>Challenge Notifications</h2>
+          <p class=”feat-copy”>Progress updates, on your schedule — never leaves your device.</p>
+        </article>
 
-      <!-- Right: looping preview video (inside same card) -->
-      <div class="right-content">
-        <div class="video-wrap">
-          <video
-            class="preview"
-            aria-label="TrendFit App preview video"
-            playsinline
-            muted
-            loop
-            autoplay
-            preload="auto"
-            poster="images/app-preview-poster.jpg">
-            <source src="media/app-preview.mp4" type="video/mp4" />
-            Sorry, your browser doesn't support embedded videos.
-          </video>
-        </div>
-      </div>
-    </div>
-    <!-- ============ Dashboard tile slots (content pending — v1.4.0) ============ -->
-    <!-- Reserve two tile slots for the v2 dashboard grid. Hidden until grid + assets are ready. -->
-    <div data-content-pending="true" aria-hidden="true">
-
-      <!-- Tile: Challenges -->
-      <article class="card" id="tile-challenges" data-content-pending="true">
-        <!-- benefit copy stub: "Set a goal. Beat it. See the proof." -->
-        <div class="card-icon"><i class="fa-solid fa-trophy"></i></div>
-        <h3>Challenges</h3>
-        <svg aria-hidden="true" width="100%" height="120">
-          <g id="challenges-chart-placeholder">
-            <!-- Real SVG drops in here via a single swap -->
-          </g>
-        </svg>
-        <img
-          src="images/tf-challenges-placeholder.png"
-          data-final-src="images/tf-challenges-standings.png"
-          alt="Challenges standings" />
-      </article>
-
-      <!-- Tile: Challenge Notifications -->
-      <article class="card" id="tile-challenge-notifications" data-content-pending="true">
-        <!-- benefit copy stub: "Progress updates, on your schedule — never leaves your device." -->
-        <div class="card-icon"><i class="fa-solid fa-bell"></i></div>
-        <h3>Challenge Notifications</h3>
-      </article>
-
-    </div>
+      </div><!-- /.dashboard-grid -->
+    </div><!-- /.container -->
   </main>
 
   <!-- ============ Footer ============ -->
