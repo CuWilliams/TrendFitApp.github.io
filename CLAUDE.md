@@ -93,7 +93,7 @@ Resolve #NN: short description
 Co-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>
 ```
 
-**CHANGELOG.md** must be updated in every feature commit. A post-commit hook will remind if skipped.
+**CHANGELOG.md** must be updated in every feature commit. A post-commit hook will remind if skipped. Exception: `CLAUDE.md`-only commits do not require a CHANGELOG entry.
 
 ---
 
