@@ -202,7 +202,7 @@ body.home {
 .section.alt { background: color-mix(in oklab, var(--surface-card) 55%, transparent); }
 .section.highlight { background: var(--surface-card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
 .section-title { margin: 0 0 20px; font-size: clamp(24px, 3vw, 32px); }
-[data-content-pending="true"] { display: none; }
+[data-content-pending="true"] { display: none !important; }
 
 /* Header / Nav */
 .site-header {
