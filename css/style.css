@@ -1002,6 +1002,18 @@ body.home .tile-cta-social .footer {
   flex-wrap: wrap;
 }
 
+/* Policy pages (privacy.html, terms.html) */
+.policy-meta { color: var(--text-muted); font-size: 14px; margin-top: 4px; }
+.policy-section { margin: 18px 0 0; }
+.policy-section h2 { font-size: 1.1rem; margin: 16px 0 6px; }
+.policy-section ul { padding-left: 1.2rem; }
+
+/* 404 page */
+.oops { text-align: center; padding: 56px 0 24px; }
+.oops h1 { font-size: clamp(28px, 6vw, 44px); margin: 0 0 8px; }
+.oops p { color: var(--text-muted); margin: 0 auto; max-width: 720px; }
+.oops .actions { margin-top: 18px; display: inline-flex; gap: 10px; flex-wrap: wrap; }
+
 /* === Sitewide: pin the header and reserve space below it === */
 .site-header{
   position: fixed;

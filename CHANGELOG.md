@@ -19,6 +19,11 @@ All notable changes to the TrendFit website are documented here.
 - `[data-content-pending="true"] { display: none }` utility rule in `css/style.css` to hide all pending slots (Issue #20)
 
 ### Changed
+- `css/style.css` — added `.policy-meta` and `.policy-section` rules (moved from inline `<style>` blocks in `privacy.html` and `terms.html`); added `.oops` rules (moved from inline `<style>` block in `404.html`); all color references use `var(--text-muted)` semantic token (Issue #27)
+- `privacy.html` — removed inline `<style>` block (rules now in `css/style.css`); bumped CSS version to `2026-05-02-2` (Issue #27)
+- `terms.html` — removed inline `<style>` block (rules now in `css/style.css`); bumped CSS version to `2026-05-02-2` (Issue #27)
+- `404.html` — removed inline `<style>` block (rules now in `css/style.css`); added missing theme-init `<script>` to prevent flash-of-wrong-theme; bumped CSS version to `2026-05-02-2` (Issue #27)
+- `announcements.html`, `features.html`, `index.html` — bumped CSS version to `2026-05-02-2` (Issue #27)
 - `features.html` — rewrote all five feature card headings and body copy to benefit-led framing matching dashboard tile labels; replaced one hardcoded `#fff` on the Beta badge with `var(--color-white)` (Issue #25)
 - `js/announcements.js` — entries with `"published": false` are now filtered out before render; `published` field defaults to `true` when absent for backwards compatibility (Issue #20)
 - `index.html` — replaced two-column flex layout (`left-content` / `right-content`) with CSS Grid dashboard tile structure; 8 named `grid-template-areas`: `hero`, `video`, `tf`, `stack`, `zoom`, `priv`, `pers`, `cta` (Issue #21)
