@@ -5,6 +5,10 @@ All notable changes to the TrendFit website are documented here.
 ## [Unreleased] — v2.0.0 overhaul
 
 ### Added
+- Theme toggle button (☀️/🌙) in `partials/header.html` — pill-style, matches nav, switches between `dawn` and `dark` themes (Issue #26)
+- Inline theme-init `<script>` in all five HTML pages — reads `localStorage('theme:preference')` and sets `data-theme` on `<html>` before CSS parses, preventing flash-of-wrong-theme (Issue #26)
+- `initThemeToggle()` in `js/includes.js` — wires toggle click handler, persists preference to `localStorage`, and syncs `aria-label` to current state (Issue #26)
+- Theme transition block in `css/style.css` — `background-color`, `color`, and `border-color` transitions on key elements under `@media (prefers-reduced-motion: no-preference)` (Issue #26)
 - `privacy-policy.html` — proper HTML redirect page (instant meta-refresh + canonical) for legacy `/privacy-policy` URL (Issue #8)
 - `terms-of-service.html` — proper HTML redirect page (instant meta-refresh + canonical) for legacy `/terms-of-service` URL (Issue #8)
 - Motion One animation library (~3 KB) via jsDelivr CDN, loaded on all pages through `partials/header.html` (Issue #19)

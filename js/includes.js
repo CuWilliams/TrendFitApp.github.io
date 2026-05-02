@@ -105,6 +105,32 @@
     linkEl.setAttribute('aria-label', baseText);
   }
 
+  // Wire up the sun/moon toggle button
+  function initThemeToggle() {
+    const btn = document.querySelector('#theme-toggle');
+    if (!btn) return;
+
+    function isDarkNow() {
+      const t = document.documentElement.getAttribute('data-theme');
+      if (t === 'dark') return true;
+      if (t === 'dawn') return false;
+      return window.matchMedia('(prefers-color-scheme: dark)').matches;
+    }
+
+    function syncLabel() {
+      btn.setAttribute('aria-label', isDarkNow() ? 'Switch to light mode' : 'Switch to dark mode');
+    }
+
+    syncLabel();
+
+    btn.addEventListener('click', () => {
+      const next = isDarkNow() ? 'dawn' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme:preference', next);
+      syncLabel();
+    });
+  }
+
   // Run once DOM is parsed
   document.addEventListener('DOMContentLoaded', async () => {
     await includeFragments();
@@ -112,8 +138,8 @@
     requestAnimationFrame(() => {
       markActiveNav();
       setHeaderH();
-      // After header/nav present, initialize the badge
       initAnnouncementsBadge();
+      initThemeToggle();
     });
     window.addEventListener('resize', setHeaderH);
   });
