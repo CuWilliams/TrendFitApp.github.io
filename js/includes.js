@@ -121,13 +121,21 @@
       btn.setAttribute('aria-label', isDarkNow() ? 'Switch to light mode' : 'Switch to dark mode');
     }
 
+    function syncThemeColorMeta() {
+      const meta = document.querySelector('meta[name="theme-color"]');
+      if (!meta) return;
+      meta.setAttribute('content', isDarkNow() ? '#1c1c1e' : '#FF8C00');
+    }
+
     syncLabel();
+    syncThemeColorMeta();
 
     btn.addEventListener('click', () => {
       const next = isDarkNow() ? 'dawn' : 'dark';
       document.documentElement.setAttribute('data-theme', next);
       localStorage.setItem('theme:preference', next);
       syncLabel();
+      syncThemeColorMeta();
     });
   }
 

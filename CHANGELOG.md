@@ -5,6 +5,10 @@ All notable changes to the TrendFit website are documented here.
 ## [Unreleased] — v2.0.0 overhaul
 
 ### Added
+- `<meta name="theme-color">` to `features.html`, `privacy.html`, and `terms.html` — dawn value `#FF8C00`, updated dynamically to `#1c1c1e` in dark mode via `syncThemeColorMeta()` in `js/includes.js` (Issue #28)
+- Full Open Graph block (`og:type`, `og:site_name`, `og:title`, `og:description`, `og:image`, `og:image:width/height/alt/type`) to `features.html`, `privacy.html`, and `terms.html` (Issue #28)
+- Twitter Card block (`twitter:card`, `twitter:title`, `twitter:description`, `twitter:image`, `twitter:image:alt`) to `features.html`, `privacy.html`, and `terms.html` (Issue #28)
+- `syncThemeColorMeta()` helper in `initThemeToggle()` (`js/includes.js`) — updates `<meta name="theme-color">` content on page init and on each theme toggle click (Issue #28)
 - Theme toggle button (☀️/🌙) in `partials/header.html` — pill-style, matches nav, switches between `dawn` and `dark` themes (Issue #26)
 - Inline theme-init `<script>` in all five HTML pages — reads `localStorage('theme:preference')` and sets `data-theme` on `<html>` before CSS parses, preventing flash-of-wrong-theme (Issue #26)
 - `initThemeToggle()` in `js/includes.js` — wires toggle click handler, persists preference to `localStorage`, and syncs `aria-label` to current state (Issue #26)
@@ -19,6 +23,7 @@ All notable changes to the TrendFit website are documented here.
 - `[data-content-pending="true"] { display: none }` utility rule in `css/style.css` to hide all pending slots (Issue #20)
 
 ### Changed
+- `index.html`, `announcements.html` — corrected `<meta name="theme-color">` from `#FF6A00` to `#FF8C00` (aligns with `--color-orange-500` CSS primitive) (Issue #28)
 - `css/style.css` — added `.policy-meta` and `.policy-section` rules (moved from inline `<style>` blocks in `privacy.html` and `terms.html`); added `.oops` rules (moved from inline `<style>` block in `404.html`); all color references use `var(--text-muted)` semantic token (Issue #27)
 - `privacy.html` — removed inline `<style>` block (rules now in `css/style.css`); bumped CSS version to `2026-05-02-2` (Issue #27)
 - `terms.html` — removed inline `<style>` block (rules now in `css/style.css`); bumped CSS version to `2026-05-02-2` (Issue #27)
