@@ -112,7 +112,7 @@
   <link rel="dns-prefetch" href="https://apps.apple.com">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <script>(function(){var p=localStorage.getItem('theme:preference');if(p==='dawn'||p==='dark')document.documentElement.setAttribute('data-theme',p);})();</script>
-  <link rel="stylesheet" href="css/style.css?v=2026-05-02-2" />
+  <link rel="stylesheet" href="css/style.css?v=2026-05-06-3" />
 
   <script defer src="js/includes.js"></script>
 
@@ -146,15 +146,26 @@
           </div>
         </section>
 
-        <!-- TILE: Video -->
-        <section class="dash-tile tile-video" aria-label="TrendFit app preview" style="grid-area: video">
-          <div class="video-wrap">
-            <video class="preview" aria-label="TrendFit App preview video"
-              playsinline muted loop autoplay preload="auto"
-              poster="images/app-preview-poster.jpg">
-              <source src="media/app-preview.mp4" type="video/mp4" />
-              Sorry, your browser doesn't support embedded videos.
-            </video>
+        <!-- TILE: Promo -->
+        <section class="dash-tile tile-promo" aria-label="TrendFit app promo" style="grid-area: video">
+          <div class="hero">
+            <h2 class="hero-title">Track. Analyze. <span class="accent">Improve.</span></h2>
+            <p class="hero-subtitle">Understand your fitness trends with interactive charts and on-device analysis.</p>
+            <div class="app-store-promo-container">
+              <video class="app-store-promo-video"
+                aria-label="TrendFit App Store promotional video"
+                playsinline muted loop autoplay preload="auto">
+                <source src="media/App_Store_Promo-V1.2.mp4" type="video/mp4" />
+                Sorry, your browser doesn't support embedded videos.
+              </video>
+            </div>
+            <div class="hero-actions">
+              <a class="btn btn-primary"
+                 href="https://apps.apple.com/ca/app/trendfit/id6751863796"
+                 target="_blank" rel="noopener">
+                <i class="fa-brands fa-apple"></i> Download on App Store
+              </a>
+            </div>
           </div>
         </section>
 
@@ -359,11 +370,11 @@
               </div>
               <div class="cta-row">
                 <div class="cta-label">
-                  <i class="cta-icon fa-solid fa-circle-info" aria-hidden="true"></i>
-                  <span>Learn more about features</span>
+                  <i class="cta-icon fa-solid fa-circle-question" aria-hidden="true"></i>
+                  <span>Have questions?</span>
                 </div>
-                <a class="btn btn-ghost" href="features.html">
-                  <i class="fa-solid fa-circle-info"></i> Features
+                <a class="btn btn-ghost" href="faq.html">
+                  <i class="fa-solid fa-circle-question"></i> FAQ
                 </a>
               </div>
             </div>
@@ -380,18 +391,79 @@
           <div class="footer">&copy; 2025 TrendFit. All rights reserved.</div>
         </section>
 
-        <!-- PENDING: Challenges (hidden — no grid gap) -->
-        <article class="dash-tile tile-feature" id="tile-challenges" data-content-pending="true" aria-hidden="true">
+        <!-- TILE: Challenges -->
+        <article class="dash-tile tile-feature" id="tile-challenges" style="grid-area: chal" tabindex="0" aria-expanded="false">
           <div class="feat-icon"><i class="fa-solid fa-trophy" aria-hidden="true"></i></div>
           <h2 class="feat-title">Challenges</h2>
           <p class="feat-copy">Set a goal. Beat it. See the proof.</p>
+          <div class="feat-img-wrap">
+            <svg role="img" aria-label="Challenges feature — screenshot placeholder"
+                 viewBox="0 0 280 130" xmlns="http://www.w3.org/2000/svg">
+              <!-- Goal progress bars -->
+              <text x="14" y="22" font-size="10" font-weight="600" font-family="system-ui,sans-serif"
+                    style="fill:var(--text-muted);opacity:0.55">Weekly Distance Goal</text>
+              <rect x="14" y="28" width="252" height="12" rx="6" style="fill:var(--text-muted);opacity:0.1"/>
+              <rect x="14" y="28" width="196" height="12" rx="6" style="fill:var(--accent-action);opacity:0.7"/>
+              <text x="216" y="38" font-size="9" font-family="system-ui,sans-serif" style="fill:var(--accent-action)">78%</text>
+
+              <text x="14" y="58" font-size="10" font-weight="600" font-family="system-ui,sans-serif"
+                    style="fill:var(--text-muted);opacity:0.55">Monthly Active Energy</text>
+              <rect x="14" y="64" width="252" height="12" rx="6" style="fill:var(--text-muted);opacity:0.1"/>
+              <rect x="14" y="64" width="126" height="12" rx="6" style="fill:var(--trend-positive);opacity:0.7"/>
+              <text x="146" y="74" font-size="9" font-family="system-ui,sans-serif" style="fill:var(--trend-positive)">50%</text>
+
+              <text x="14" y="94" font-size="10" font-weight="600" font-family="system-ui,sans-serif"
+                    style="fill:var(--text-muted);opacity:0.55">Pace PR Streak</text>
+              <rect x="14" y="100" width="252" height="12" rx="6" style="fill:var(--text-muted);opacity:0.1"/>
+              <rect x="14" y="100" width="232" height="12" rx="6" style="fill:var(--accent-brand1);opacity:0.7"/>
+              <text x="252" y="110" font-size="9" font-family="system-ui,sans-serif" style="fill:var(--accent-brand1)">92%</text>
+            </svg>
+          </div>
         </article>
 
-        <!-- PENDING: Challenge Notifications (hidden — no grid gap) -->
-        <article class="dash-tile tile-feature" id="tile-challenge-notifications" data-content-pending="true" aria-hidden="true">
+        <!-- TILE: Challenge Notifications -->
+        <article class="dash-tile tile-feature" id="tile-challenge-notifications" style="grid-area: notif" tabindex="0" aria-expanded="false">
           <div class="feat-icon"><i class="fa-solid fa-bell" aria-hidden="true"></i></div>
           <h2 class="feat-title">Challenge Notifications</h2>
           <p class="feat-copy">Progress updates, on your schedule — never leaves your device.</p>
+          <div class="feat-img-wrap">
+            <svg role="img" aria-label="Challenge Notifications feature — screenshot placeholder"
+                 viewBox="0 0 280 130" xmlns="http://www.w3.org/2000/svg">
+              <!-- Notification cards -->
+              <rect x="14" y="10" width="252" height="32" rx="8" style="fill:var(--surface-raised);opacity:0.6"/>
+              <rect x="14" y="10" width="252" height="32" rx="8" fill="none" stroke-width="1"
+                    style="stroke:var(--border-default)"/>
+              <circle cx="32" cy="26" r="8" style="fill:var(--accent-action);opacity:0.15"/>
+              <text x="32" y="30" font-size="10" text-anchor="middle" font-family="system-ui,sans-serif"
+                    style="fill:var(--accent-action)">🏆</text>
+              <text x="50" y="22" font-size="10" font-weight="600" font-family="system-ui,sans-serif"
+                    style="fill:var(--text-ink)">Goal reached — Weekly Distance</text>
+              <text x="50" y="35" font-size="9" font-family="system-ui,sans-serif"
+                    style="fill:var(--text-muted)">You hit 42 km this week</text>
+
+              <rect x="14" y="50" width="252" height="32" rx="8" style="fill:var(--surface-raised);opacity:0.6"/>
+              <rect x="14" y="50" width="252" height="32" rx="8" fill="none" stroke-width="1"
+                    style="stroke:var(--border-default)"/>
+              <circle cx="32" cy="66" r="8" style="fill:var(--trend-positive);opacity:0.15"/>
+              <text x="32" y="70" font-size="10" text-anchor="middle" font-family="system-ui,sans-serif"
+                    style="fill:var(--trend-positive)">📈</text>
+              <text x="50" y="62" font-size="10" font-weight="600" font-family="system-ui,sans-serif"
+                    style="fill:var(--text-ink)">78% to your pace goal</text>
+              <text x="50" y="75" font-size="9" font-family="system-ui,sans-serif"
+                    style="fill:var(--text-muted)">3 more runs to go</text>
+
+              <rect x="14" y="90" width="252" height="32" rx="8" style="fill:var(--surface-raised);opacity:0.6"/>
+              <rect x="14" y="90" width="252" height="32" rx="8" fill="none" stroke-width="1"
+                    style="stroke:var(--border-default)"/>
+              <circle cx="32" cy="106" r="8" style="fill:var(--accent-brand1);opacity:0.15"/>
+              <text x="32" y="110" font-size="10" text-anchor="middle" font-family="system-ui,sans-serif"
+                    style="fill:var(--accent-brand1)">🔔</text>
+              <text x="50" y="102" font-size="10" font-weight="600" font-family="system-ui,sans-serif"
+                    style="fill:var(--text-ink)">Monthly energy — halfway there</text>
+              <text x="50" y="115" font-size="9" font-family="system-ui,sans-serif"
+                    style="fill:var(--text-muted)">Keep it up — all on-device</text>
+            </svg>
+          </div>
         </article>
 
       </div><!-- /.dashboard-grid -->
@@ -403,6 +475,8 @@
     <div class="container footer-row">
       <small>© 2025 TrendFit</small>
       <div class="footer-links">
+        <a href="faq.html">FAQ</a>
+        <span>&middot;</span>
         <a href="privacy.html">Privacy</a>
         <span>&middot;</span>
         <a href="terms.html">Terms</a>
@@ -417,8 +491,9 @@
     (function () {
       var mq = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)');
       if (mq && mq.matches) {
-        var v = document.querySelector('video.preview');
-        if (v) { v.pause(); v.removeAttribute('autoplay'); }
+        document.querySelectorAll('video.preview, video.app-store-promo-video').forEach(function(v) {
+        v.pause(); v.removeAttribute('autoplay');
+      });
       }
     })();
   </script>

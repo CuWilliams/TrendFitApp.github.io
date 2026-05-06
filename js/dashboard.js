@@ -3,8 +3,6 @@
 (function () {
   'use strict';
 
-  var APP_STORE_URL = 'https://apps.apple.com/ca/app/trendfit/id6751863796';
-
   var TILE_DATA = {
     'tile-trendfit': {
       benefit: 'Track heart rate, distance, pace, cadence, and active energy across every workout. Spot the trends that matter — and see exactly where you\'re headed.',
@@ -50,16 +48,8 @@
     img.alt = data.imgAlt;
     img.loading = 'lazy';
 
-    var a = document.createElement('a');
-    a.className = 'btn-appstore';
-    a.href = APP_STORE_URL;
-    a.target = '_blank';
-    a.rel = 'noopener';
-    a.innerHTML = '<i class="fa-brands fa-apple" aria-hidden="true"></i> Download on the App Store';
-
     panel.appendChild(p);
     panel.appendChild(img);
-    panel.appendChild(a);
     tile.appendChild(panel);
 
     return panel;
@@ -145,7 +135,6 @@
       // Tap toggle — touch/non-hover devices
       tile.addEventListener('click', function (e) {
         if (hoverMQ && hoverMQ.matches) return;
-        if (e.target.closest('.btn-appstore')) return; // let CTA link navigate
         toggleTile(tile);
       });
 

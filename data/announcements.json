@@ -14,7 +14,7 @@
     ],
     "links": [
       { "label": "Download on App Store", "href": "https://apps.apple.com/ca/app/trendfit/id6751863796" },
-      { "label": "See What's New", "href": "features.html#challenges" }
+      { "label": "See What's New", "href": "faq.html" }
     ]
   },
   {
@@ -56,7 +56,7 @@
     ],
     "links": [
       { "label": "Update on App Store", "href": "https://apps.apple.com/ca/app/trendfit/id6751863796" },
-      { "label": "See All Features", "href": "features.html" }
+      { "label": "See All Features", "href": "faq.html" }
     ]
   },
   {
@@ -96,7 +96,7 @@
     ],
     "links": [
       { "label": "Download on App Store", "href": "https://apps.apple.com/ca/app/trendfit/id6751863796" },
-      { "label": "See What's New", "href": "features.html" }
+      { "label": "See What's New", "href": "faq.html" }
     ],
     "tags": ["launch", "app-store", "release"]
   },
@@ -148,7 +148,7 @@
     ],
     "links": [
       { "label": "Become a Beta Tester", "href": "beta-feedback.html" },
-      { "label": "Explore Features", "href": "features.html" }
+      { "label": "Explore Features", "href": "faq.html" }
     ]
   },
   {
@@ -161,7 +161,7 @@
       "Flip between daily, weekly, monthly, and annual views, and stack totals to see the bigger picture."
     ],
     "links": [
-      { "label": "See Screenshots", "href": "features.html#screenshots" },
+      { "label": "See Screenshots", "href": "index.html" },
       { "label": "Try the Beta", "href": "beta-feedback.html" }
     ]
   },

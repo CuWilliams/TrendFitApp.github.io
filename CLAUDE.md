@@ -19,19 +19,23 @@ Live at `trendfitapp.com`. No build step. No dependencies.
 ```
 trendfitapp.github.io/
 ├── index.html              # Homepage (body.home)
-├── features.html           # Features page
+├── faq.html                # FAQ page (rendered by js/faq.js)
 ├── announcements.html      # Announcements shell (rendered by JS)
 ├── privacy.html            # Policy shell (rendered by JS)
 ├── terms.html              # Policy shell (rendered by JS)
+├── 404.html                # Custom 404 page
 ├── css/style.css           # Single stylesheet — all pages
 ├── js/
 │   ├── includes.js         # Partial injection + nav active state + header height
 │   ├── motion.js           # Motion One scroll-reveal (TFMotion global)
 │   ├── announcements.js    # Fetches + renders data/announcements.json
+│   ├── faq.js              # Fetches + renders data/faq.json
+│   ├── dashboard.js        # Homepage tile hover/expand interaction
 │   └── policy.js           # Fetches + renders data/policies/*.json
 ├── partials/header.html    # Shared header (injected via includes.js)
 ├── data/
 │   ├── announcements.json
+│   ├── faq.json            # FAQ content (categories + Q&A entries)
 │   └── policies/           # privacy.en.json, terms.en.json
 ├── images/                 # App screenshots + OG images + SVG logo
 └── media/                  # App preview videos
@@ -69,9 +73,15 @@ To activate: remove the attribute, add `style="grid-area: <name>"`, expand `grid
 
 ### Dashboard Grid (index.html)
 `body.home .dashboard-grid` uses `grid-template-areas` at three breakpoints:
-- **>840px** — 12-column, 4 rows
-- **520–840px** — 6-column, 6 rows
-- **<520px** — 1-column
+- **>840px** — 12-column, 5 rows: `hero/video` · `tf/stack/zoom` · `priv/pers` · `chal/notif` · `cta`
+- **520–840px** — 6-column, 7 rows: `hero` · `video` · `tf/stack` · `zoom/priv` · `pers` · `chal/notif` · `cta`
+- **<520px** — 1-column, 10 rows (each area stacked)
+
+Named grid areas: `hero`, `video` (promo tile), `tf`, `stack`, `zoom`, `priv`, `pers`, `chal`, `notif`, `cta`.
+
+Tile classes: `tile-hero`, `tile-promo` (formerly tile-video — now holds promo hero content), `tile-feature`, `tile-row-layout`, `tile-cta-social`.
+
+**Activating a pending tile** (`data-content-pending="true"`): remove the attribute, add `style="grid-area: <name>"` and `tabindex="0" aria-expanded="false"`, add a `feat-img-wrap` SVG, expand all three `grid-template-areas` breakpoints in CSS, add an entry to `TILE_DATA` in `js/dashboard.js` once a screenshot is ready.
 
 ### CSS Version Busting
 `css/style.css?v=YYYY-MM-DD-N` — bump when making CSS changes so browsers fetch fresh.

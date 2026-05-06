@@ -5,6 +5,28 @@ All notable changes to the TrendFit website are documented here.
 ## [Unreleased] — v2.0.0 overhaul
 
 ### Added
+- `faq.html` — standalone FAQ page (shell pattern matching `privacy.html`/`terms.html`); SEO meta, OG, Twitter Card
+- `js/faq.js` — fetches `data/faq.json` and renders `<details>`/`<summary>` accordion by category into `#faq-root`; follows `announcements.js` fetch pattern
+- `data/faq.json` — 14 Q&A entries across four categories: Privacy & Data, Getting Started, Features, Challenges; seeded from existing site copy and announcement content
+- FAQ link added to shared nav (`partials/header.html`) and all page footers (index, faq, announcements, privacy, terms, 404)
+- `.faq-category`, `.faq-category-heading`, `.faq-item`, `.faq-question`, `.faq-answer`, `.faq-error` CSS rules in `css/style.css`; accordion uses native `<details>` with `+`/`×` toggle via `::after`
+- `tile-challenges` and `tile-challenge-notifications` dashboard tiles activated in `index.html`; grid areas `chal` and `notif` added to all three CSS breakpoints; placeholder SVGs (goal progress bars / notification cards) in each `feat-img-wrap`
+- `tile-promo` tile in `index.html` — replaces the portrait phone video tile; displays promo hero (h2, subtitle, `App_Store_Promo-V1.2.mp4`, App Store CTA); scoped `body.home .tile-promo` CSS rules preserve warm-surface + orange-glow tile aesthetic
+
+### Changed
+- `index.html` CTA tile — "Learn more about features" row replaced with "Have questions? → FAQ" row
+- `index.html` reduced-motion script — selector broadened to catch `video.app-store-promo-video` (replaces `video.preview` which no longer exists)
+- `404.html` — Features button replaced with FAQ button
+- `data/announcements.json` — all `features.html` links redirected: `features.html#challenges` → `faq.html`, `features.html#screenshots` → `index.html`, remaining `features.html` → `faq.html`
+- `js/dashboard.js` — removed `btn-appstore` CTA from tile expand panels; removed `APP_STORE_URL` constant; removed `btn-appstore` click-guard from touch handler
+- `css/style.css` — removed `body.home .tile-video`, `.video-wrap`, `.preview` rules and two responsive `preview` height overrides; removed `.tile-expand .btn-appstore` and `:hover` rules; added `video` to global `img, svg` max-width rule
+- `CLAUDE.md` — project structure updated (features.html removed, faq.html/faq.js/faq.json added, dashboard.js listed); Dashboard Grid section updated with correct row counts, named grid areas, tile classes, and full pending-tile activation checklist
+
+### Removed
+- `features.html` — page retired; content consolidated into `index.html` (hero → promo tile, feature tiles) and `faq.html` (FAQ section)
+- `partials/header.html` — Features nav link removed
+
+### Added
 - `<meta name="theme-color">` to `features.html`, `privacy.html`, and `terms.html` — dawn value `#FF8C00`, updated dynamically to `#1c1c1e` in dark mode via `syncThemeColorMeta()` in `js/includes.js` (Issue #28)
 - Full Open Graph block (`og:type`, `og:site_name`, `og:title`, `og:description`, `og:image`, `og:image:width/height/alt/type`) to `features.html`, `privacy.html`, and `terms.html` (Issue #28)
 - Twitter Card block (`twitter:card`, `twitter:title`, `twitter:description`, `twitter:image`, `twitter:image:alt`) to `features.html`, `privacy.html`, and `terms.html` (Issue #28)

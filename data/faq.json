@@ -1,0 +1,82 @@
+[
+  {
+    "category": "Privacy & Data",
+    "items": [
+      {
+        "q": "Does TrendFit upload my health data?",
+        "a": "No. TrendFit reads Apple HealthKit data locally on your device. Your data is never uploaded, shared, or sold — ever."
+      },
+      {
+        "q": "What health data does TrendFit access?",
+        "a": "TrendFit reads workout data (active calories, heart rate, pace, duration, distance) and personal metrics (age, gender, height, weight) from Apple HealthKit. It does not access any data outside of what you explicitly grant permission for."
+      },
+      {
+        "q": "Does TrendFit use any third-party services?",
+        "a": "No third-party services process or store your HealthKit data. All analysis happens on-device. Cloudflare Web Analytics is used on this website (not in the app) to count page visits — no personal data is collected."
+      },
+      {
+        "q": "Is TrendFit a medical device?",
+        "a": "No. TrendFit is for informational purposes only and is not a substitute for medical advice, diagnosis, or treatment."
+      }
+    ]
+  },
+  {
+    "category": "Getting Started",
+    "items": [
+      {
+        "q": "What devices does TrendFit support?",
+        "a": "TrendFit runs on iPhone with Apple HealthKit permissions enabled."
+      },
+      {
+        "q": "How do I connect HealthKit?",
+        "a": "Open TrendFit and follow the onboarding prompt to grant HealthKit read access. You can adjust permissions at any time in Settings → Privacy & Security → Health."
+      },
+      {
+        "q": "Where can I download TrendFit?",
+        "a": "TrendFit is free on the App Store. Search for \"TrendFit\" or use the Download button on the home page."
+      }
+    ]
+  },
+  {
+    "category": "Features",
+    "items": [
+      {
+        "q": "What is TrendFit?",
+        "a": "TrendFit shows you whether you're actually improving. Pick a metric — Active Energy, Heart Rate, Pace, Cadence, Distance — and see your trend line across every workout of a given type."
+      },
+      {
+        "q": "What is TrendFitStack?",
+        "a": "TrendFitStack lets you compare one metric across multiple workout types — day, week, month, or year — in a single stacked view, so you can see the bigger picture at a glance."
+      },
+      {
+        "q": "What is TrendFitChallenge?",
+        "a": "TrendFitChallenge (Beta) lets you set personal fitness challenges with a guided creation flow. Choose a scope, metric, target, and duration — TrendFit pre-fills smart target values from your HealthKit history."
+      },
+      {
+        "q": "Can I zoom and pan the charts?",
+        "a": "Yes. Pinch to zoom into any timeframe, then swipe to pan through your full history. Tap any data point for exact numbers."
+      },
+      {
+        "q": "Can I personalise units and chart windows?",
+        "a": "Yes. You can set metric or imperial units, choose your chart lookback window, and configure haptic feedback from the app settings."
+      }
+    ]
+  },
+  {
+    "category": "Challenges",
+    "items": [
+      {
+        "q": "How are challenge targets calculated?",
+        "a": "For cumulative metrics (energy, distance) TrendFit projects a scaled total from your HealthKit history. For rate-based metrics (heart rate, pace, cadence) it suggests your historical average as the target."
+      },
+      {
+        "q": "Can I edit or delete a challenge?",
+        "a": "Yes. In-progress challenge targets and durations are editable (with a confirmation step). Challenges can also be deleted — a confirmation is required before anything is removed."
+      },
+      {
+        "q": "How do challenge notifications work?",
+        "a": "TrendFit sends optional local push notifications for challenge progress. You can configure the frequency in App Settings (daily, every 3 days, weekly, or a custom interval). All notifications are generated on-device — nothing is sent to external servers."
+      }
+    ]
+  }
+]

@@ -540,7 +540,7 @@ a:focus-visible, button:focus-visible { outline: 3px solid color-mix(in oklab, v
 }
 
 /* ================================
-   Home — panels (shared, also used by features.html)
+   Home — panels
    ================================ */
 
 /* Tinted panels (warm complement to blue background) */
@@ -666,8 +666,7 @@ header, main, footer { overflow-x:hidden; }        /* guardrails */
 .site-header .nav-links { min-width:0; }
 
 /* Ensure media never widens the card */
-img, svg { max-width:100%; height:auto; display:block; }
-/* Note: video elements styled specifically per component (e.g., .video-wrap .preview) */
+img, svg, video { max-width:100%; height:auto; display:block; }
 
 /* Optional: if any row still overflows, allow wrapping */
 .panel-cta .cta-row { grid-template-columns: 1fr minmax(0,120px); }
@@ -699,6 +698,7 @@ body.home .dashboard-grid {
     "hero  hero  hero  hero  hero  hero  hero  video video video video video"
     "tf    tf    tf    tf    stack stack stack stack  zoom  zoom  zoom  zoom"
     "priv  priv  priv  priv  priv  priv  pers  pers  pers  pers  pers  pers"
+    "chal  chal  chal  chal  chal  chal  notif notif notif notif notif notif"
     "cta   cta   cta   cta   cta   cta   cta   cta   cta   cta   cta   cta";
 }
 
@@ -747,37 +747,39 @@ body.home .tile-hero .hero-kicker {
 body.home .tile-hero .hero-announce { margin: 0; font-size: 14px; }
 body.home .tile-hero .hero-announce a { color: var(--accent-action); }
 
-/* Video tile */
-body.home .tile-video {
+/* Promo tile */
+body.home .tile-promo {
   grid-area: video;
   background: var(--surface-warm);
   border-color: var(--border-accent);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
   box-shadow: 0 8px 30px var(--shadow-orange-glow);
 }
-body.home .tile-video .video-wrap {
-  border-radius: 52px;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: transparent;
-  border: none;
-  box-shadow: none;
+body.home .tile-promo .hero {
   padding: 0;
+  width: 100%;
+}
+body.home .tile-promo .hero-title {
+  font-size: clamp(18px, 2.4vw, 28px);
+  font-weight: 800;
+  line-height: 1.1;
+  margin: 0 0 8px;
+}
+body.home .tile-promo .hero-subtitle {
+  font-size: clamp(12px, 1.2vw, 14px);
   max-width: 100%;
 }
-body.home .tile-video .video-wrap .preview {
-  width: auto;
+body.home .tile-promo .app-store-promo-container {
+  margin: 14px auto;
+}
+body.home .tile-promo .app-store-promo-video {
   max-width: 100%;
-  height: clamp(340px, 55vh, 620px);
-  aspect-ratio: 9 / 19.5;
-  object-fit: cover;
-  display: block;
-  border-radius: 36px;
+  height: auto;
+}
+body.home .tile-promo .hero-actions {
+  margin-top: 14px;
 }
 
 /* Feature tiles (shared) */
@@ -885,23 +887,7 @@ body.home .tile-expand .expand-img {
   flex: 1;
   min-height: 0;
 }
-body.home .tile-expand .btn-appstore {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 10px 16px;
-  border-radius: 10px;
-  font-size: 14px;
-  font-weight: 600;
-  background: var(--accent-action);
-  color: #fff;
-  text-decoration: none;
-  flex-shrink: 0;
-}
-body.home .tile-expand .btn-appstore:hover {
-  opacity: 0.88;
-}
+
 @media (prefers-reduced-motion: reduce) {
   body.home .tile-expand { transition: none; }
 }
@@ -940,10 +926,8 @@ body.home .tile-cta-social .footer {
       "tf    tf    tf    stack stack stack"
       "zoom  zoom  zoom  priv  priv  priv"
       "pers  pers  pers  pers  pers  pers"
+      "chal  chal  chal  notif notif notif"
       "cta   cta   cta   cta   cta   cta";
-  }
-  body.home .tile-video .video-wrap .preview {
-    height: clamp(260px, 48vh, 500px);
   }
 }
 
@@ -960,6 +944,8 @@ body.home .tile-cta-social .footer {
       "zoom"
       "priv"
       "pers"
+      "chal"
+      "notif"
       "cta";
   }
   body.home .tile-hero .tile-hero-inner {
@@ -968,9 +954,6 @@ body.home .tile-cta-social .footer {
     gap: 16px;
   }
   body.home .tile-hero .hero-logo-img { width: 80px; }
-  body.home .tile-video .video-wrap .preview {
-    height: clamp(300px, 60vh, 520px);
-  }
   body.home .tile-row-layout {
     flex-direction: column;
     align-items: flex-start;
@@ -1007,6 +990,56 @@ body.home .tile-cta-social .footer {
 .policy-section { margin: 18px 0 0; }
 .policy-section h2 { font-size: 1.1rem; margin: 16px 0 6px; }
 .policy-section ul { padding-left: 1.2rem; }
+
+/* FAQ page (faq.html) */
+.faq-category { margin: 28px 0 0; }
+.faq-category-heading {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0 0 10px;
+  color: var(--accent-action);
+}
+.faq-item {
+  border: 1px solid var(--border-default);
+  border-radius: 10px;
+  margin-bottom: 8px;
+  background: var(--surface-card);
+  overflow: hidden;
+}
+.faq-item[open] { border-color: var(--border-accent); }
+.faq-question {
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 15px;
+  font-weight: 600;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--text-ink);
+  user-select: none;
+}
+.faq-question::-webkit-details-marker { display: none; }
+.faq-question::after {
+  content: "+";
+  font-size: 18px;
+  font-weight: 300;
+  color: var(--accent-action);
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+.faq-item[open] .faq-question::after {
+  transform: rotate(45deg);
+}
+.faq-answer {
+  padding: 0 16px 14px;
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+.faq-error { color: var(--text-muted); font-size: 14px; }
 
 /* 404 page */
 .oops { text-align: center; padding: 56px 0 24px; }
