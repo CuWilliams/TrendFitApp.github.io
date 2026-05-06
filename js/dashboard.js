@@ -5,33 +5,40 @@
 
   var TILE_DATA = {
     'tile-trendfit': {
-      benefit: 'Track heart rate, distance, pace, cadence, and active energy across every workout. Spot the trends that matter — and see exactly where you\'re headed.',
-      img: 'images/tf-trendfit.png',
-      imgAlt: 'TrendFit trend chart showing an improving distance trend'
+      benefit: 'Linear regression over your actual workouts — see if you\'re getting faster, stronger, or just consistent.',
+      video: 'media/tile-trendfit.mp4',
+      videoAlt: 'Screen recording of TrendFit chart with trend line'
     },
     'tile-stack': {
-      benefit: 'See every metric side by side across weeks, months, or your entire history. Find patterns you\'d never catch workout by workout.',
-      img: 'images/tf-stack-scatter.png',
-      imgAlt: 'TrendFitStack showing stacked workout metrics across multiple months'
+      benefit: 'Stack week-over-week or month-over-month totals to spot effort patterns at a glance.',
+      video: 'media/tile-stack.mp4',
+      videoAlt: 'Screen recording of TrendFitStack stacked bar chart'
     },
     'tile-zoom': {
-      benefit: 'Pinch to zoom into any timeframe, then swipe to explore your full history. No detail too small, no season too long.',
-      img: 'images/tf-trendfit.png',
-      imgAlt: 'Zoomed-in chart detail showing a focused workout segment'
+      benefit: 'Pinch to zoom into any date range. Pan through the season. Spot the outlier.',
+      video: 'media/tile-zoom.mp4',
+      videoAlt: 'Screen recording of pinch-to-zoom and pan on a TrendFit chart'
     },
     'tile-privacy': {
-      benefit: 'Your health data never leaves your device. TrendFit reads directly from Apple HealthKit — no account required, no data shared, ever.',
-      img: 'images/tf-welcome.jpg',
-      imgAlt: 'TrendFit welcome screen showing privacy-first on-device analysis'
+      benefit: 'Your health data stays on your device. TrendFit uses Apple HealthKit with read-only access — nothing is uploaded, shared, or sold. No account required. No cloud.'
     },
     'tile-personal': {
-      benefit: 'Choose metric or imperial, set your training window, and dial in haptics. TrendFit adapts to how you like to train and review progress.',
-      img: 'images/tf-trendfit.png',
-      imgAlt: 'TrendFit settings showing unit and window personalization options'
+      benefit: 'Switch between metric and imperial, set your preferred time windows, and enable haptic feedback for milestones. TrendFit adapts to how you train.'
+    },
+    'tile-challenges': {
+      benefit: 'Set a distance, energy, or pace goal. Track progress as you train. See the moment you beat it.',
+      video: 'media/tile-challenges.mp4',
+      videoAlt: 'Screen recording of Challenges goal progress view'
+    },
+    'tile-challenge-notifications': {
+      benefit: 'Get progress updates on your schedule. All notifications are generated on-device — no data leaves your phone.',
+      video: 'media/tile-notif.mp4',
+      videoAlt: 'Screen recording of a Challenge notification appearing'
     }
   };
 
   var hoverMQ = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)');
+  var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   function buildExpandPanel(tile, data) {
     var panel = document.createElement('div');
@@ -41,17 +48,31 @@
     var p = document.createElement('p');
     p.className = 'expand-benefit';
     p.textContent = data.benefit;
-
-    var img = document.createElement('img');
-    img.className = 'expand-img';
-    img.src = data.img;
-    img.alt = data.imgAlt;
-    img.loading = 'lazy';
-
     panel.appendChild(p);
-    panel.appendChild(img);
-    tile.appendChild(panel);
 
+    if (data.video) {
+      var vid = document.createElement('video');
+      vid.className = 'expand-video';
+      vid.muted = true;
+      vid.loop = true;
+      vid.setAttribute('playsinline', '');
+      vid.setAttribute('preload', 'none');
+      vid.setAttribute('aria-label', data.videoAlt || '');
+      var src = document.createElement('source');
+      src.src = data.video;
+      src.type = 'video/mp4';
+      vid.appendChild(src);
+      panel.appendChild(vid);
+    } else if (data.img) {
+      var img = document.createElement('img');
+      img.className = 'expand-img';
+      img.src = data.img;
+      img.alt = data.imgAlt || '';
+      img.loading = 'lazy';
+      panel.appendChild(img);
+    }
+
+    tile.appendChild(panel);
     return panel;
   }
 
@@ -63,15 +84,18 @@
     panel.setAttribute('aria-hidden', 'false');
     panel.classList.add('is-visible');
 
-    var reducedMotion = window.TFMotion && window.TFMotion.reducedMotion;
     var motionAnimate = window.Motion && window.Motion.animate;
-
     if (motionAnimate && !reducedMotion) {
       motionAnimate(
         panel,
         { opacity: [0, 1], transform: ['translateY(6px)', 'translateY(0px)'] },
         { duration: 0.22, easing: 'ease-out' }
       );
+    }
+
+    if (!reducedMotion) {
+      var vid = tile.querySelector('video.expand-video');
+      if (vid) { vid.currentTime = 0; vid.play(); }
     }
   }
 
@@ -82,9 +106,10 @@
     tile.setAttribute('aria-expanded', 'false');
     panel.setAttribute('aria-hidden', 'true');
 
-    var reducedMotion = window.TFMotion && window.TFMotion.reducedMotion;
-    var motionAnimate = window.Motion && window.Motion.animate;
+    var vid = tile.querySelector('video.expand-video');
+    if (vid) { vid.pause(); vid.currentTime = 0; }
 
+    var motionAnimate = window.Motion && window.Motion.animate;
     if (motionAnimate && !reducedMotion) {
       var controls = motionAnimate(
         panel,

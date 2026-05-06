@@ -14,6 +14,8 @@ All notable changes to the TrendFit website are documented here.
 - `tile-promo` tile in `index.html` — replaces the portrait phone video tile; displays promo hero (h2, subtitle, `App_Store_Promo-V1.2.mp4`, App Store CTA); scoped `body.home .tile-promo` CSS rules preserve warm-surface + orange-glow tile aesthetic
 
 ### Changed
+- `js/dashboard.js` — tile expand panels for 5 feature tiles (TrendFit, TrendFitStack, Zoomable Charts, Challenges, Challenge Notifications) now reveal a looping muted `<video>` on hover instead of a static image; Privacy-First and Personalization tiles now reveal text only (no image); `TILE_DATA` entries added for `tile-challenges` and `tile-challenge-notifications` (previously unregistered); `reducedMotion` moved to module scope; `openTile` calls `vid.play()`, `closeTile` calls `vid.pause()` + resets `currentTime`; video files expected at `media/tile-{trendfit,stack,zoom,challenges,notif}.mp4`
+- `css/style.css` — `.expand-video` rule added (mirrors `.expand-img` layout; adds `display: block`)
 - `index.html` CTA tile — "Learn more about features" row replaced with "Have questions? → FAQ" row
 - `index.html` reduced-motion script — selector broadened to catch `video.app-store-promo-video` (replaces `video.preview` which no longer exists)
 - `404.html` — Features button replaced with FAQ button

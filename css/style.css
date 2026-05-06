@@ -887,6 +887,14 @@ body.home .tile-expand .expand-img {
   flex: 1;
   min-height: 0;
 }
+body.home .tile-expand .expand-video {
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+  flex: 1;
+  min-height: 0;
+  display: block;
+}
 
 @media (prefers-reduced-motion: reduce) {
   body.home .tile-expand { transition: none; }
