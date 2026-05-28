@@ -1,5 +1,26 @@
 [
   {
+    "id": "v1.4-now-live",
+    "date": "2026-05-28",
+    "published": true,
+    "pinned": true,
+    "title": "TrendFit v1.4 — Now Live on the App Store",
+    "tags": ["Release", "New Feature"],
+    "body": [
+      "**TrendFit v1.4 is here** — and it's the biggest update yet. Whether you're chasing a personal best or just trying to see if your training is actually working, v1.4 gives you the tools to know for sure.",
+      "**What's New:**",
+      "• **TrendFit Challenges** – Set a personal fitness goal, track your progress in real time, and get a completion summary when you're done. Everything stays on your device.",
+      "• **On-Device Notifications** – Get progress check-ins on your own schedule — daily, every few days, or weekly. No accounts, no cloud.",
+      "• **Trend Colors You Can Trust** – The trend line now reflects exactly what you're looking at on screen. Pan or zoom to any part of your history and the color updates to match that window — green means you're improving *there*, not somewhere else.",
+      "• **Calorie Values That Match Apple Fitness** – Active Energy now reads from the same source Apple Fitness uses, so the numbers finally agree.",
+      "• **Charts That Show All Your Data** – Several chart display issues have been fixed. Data that was previously cut off or hidden — particularly for heart rate, VO₂max, SpO₂, and cadence during walks — now renders correctly.",
+      "Update now to get everything above — or download TrendFit free today."
+    ],
+    "links": [
+      { "label": "Download on App Store", "href": "https://apps.apple.com/ca/app/trendfit/id6751863796" }
+    ]
+  },
+  {
     "id": "v1.4.0-app-store",
     "date": "2026-04-27",
     "published": false,
@@ -20,8 +41,9 @@
   {
     "id": "v1.4.0-beta",
     "date": "2026-04-28",
+    "published": false,
     "title": "TrendFit 1.4 Beta — Challenges Are Here",
-    "pinned": true,
+    "pinned": false,
     "tags": ["Beta", "New Feature"],
     "body": [
       "TrendFit v1.4.0 is now available in beta on TestFlight. This release introduces **TrendFit Challenges** — a major new feature for setting and tracking personal fitness goals.",

@@ -5,6 +5,22 @@ All notable changes to the TrendFit website are documented here.
 ## [Unreleased] — v2.0.0 overhaul
 
 ### Added
+- Full dark glass-morphism visual redesign across all pages — deep charcoal background with radial brand-color glows, frosted glass cards (`backdrop-filter: blur(20px) saturate(1.4)`), hover lift + per-page glow ring, staggered `tileReveal` entrance animation
+- `index.html` hero tile restructured — `hero-top` flex row (icon top-left + v1.4 badge pill), `hero-body` fills remaining height; title enlarged to `clamp(32px, 4.5vw, 58px)`; bullets styled with orange `✓` markers; "What's new →" link
+- Real app screenshots wired into TrendFit and Stack feature tiles (`tf-trendfit.png`, `tf-stack-stacked.png`) replacing placeholder SVGs; area-fill gradient added to Zoom tile SVG
+- Per-page dark background scenes for all non-home pages — each page has a distinct accent glow: sky blue (Announcements), violet (FAQ), emerald (Privacy), indigo (Terms), red (404)
+- Per-page glass card treatment — `.card.announce`, `.faq-category`, `.policy-section`, `.oops .container` each get frosted glass with per-page accent-colored border
+- Dark glass header on non-home pages — always dark regardless of theme toggle; nav pill borders match each page's accent color; hover/active pill tinted with page accent
+- Dark glass footer on non-home pages
+- Genuine dawn/dark mode for non-home pages — dark mode: cool charcoal glass; dawn mode: light cream background + high-opacity white frosted glass + orange-pastel nav pills + dark text
+- v1.4 pinned announcement in `data/announcements.json` — consumer-friendly, covers Challenges, on-device notifications, trend color accuracy, calorie accuracy, chart data fixes; App Store download link; old beta announcement suppressed
+
+### Changed
+- `data/announcements.json` — `v1.4.0-beta` marked `published: false`, `pinned: false` (superseded by new v1.4 release announcement)
+- `js/announcements.js` — cache-bust version bumped to `2026-05-28-1`
+- `faq.html`, `announcements.html`, `privacy.html`, `terms.html`, `404.html` — body class changed from `bg-gradient` to `page-<name>` for per-page dark glass scoping
+
+
 - `faq.html` — standalone FAQ page (shell pattern matching `privacy.html`/`terms.html`); SEO meta, OG, Twitter Card
 - `js/faq.js` — fetches `data/faq.json` and renders `<details>`/`<summary>` accordion by category into `#faq-root`; follows `announcements.js` fetch pattern
 - `data/faq.json` — 14 Q&A entries across four categories: Privacy & Data, Getting Started, Features, Challenges; seeded from existing site copy and announcement content
