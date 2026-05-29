@@ -5,6 +5,20 @@ All notable changes to the TrendFit website are documented here.
 ## [Unreleased] — v2.0.0 overhaul
 
 ### Added
+- Real app screenshots (`trendfit.png`, `trendfitstack.png`, `trendfitchallenge.png`) and hover screen recordings (`trendfit.mp4`, `trendfitstack.mp4`, `trendfitchallenge.mp4`) wired into the three second-tier feature tiles; old `tf-trendfit.png` removed
+- `has-video` CSS pattern for expand panels: when a tile has a video, the recording fills the full tile overlay (`position: absolute; inset: 0; object-fit: cover`) and the benefit text is hidden — video speaks for itself
+- Hero kicker restyled: larger (`clamp(17px, 2.2vw, 24px)`), italic, semi-bold, bright white with a subtle orange ambient glow (`text-shadow`)
+
+### Changed
+- Hero kicker copy updated to "Your data knows. Now you will too."
+- Hero bullets rewritten as evergreen marketing pillars (trend intelligence, challenges, metric breadth, privacy) replacing changelog-style v1.3→v1.4 entries
+- Feature tile taglines updated: TrendFit → "See your trend for any workout, any metric — in an instant."; TrendFitStack → "Your week vs. your year. One sport vs. another. See it all at a glance."; TrendFit Challenge → "Set a goal, track every step, and celebrate — all on your device."
+- Tile renamed from "Challenges" to "TrendFit Challenge" to match app screen name
+- Tile grid positions swapped: TrendFit Challenge moved to `zoom` area (second tier alongside TrendFit and TrendFitStack); Zoomable Charts moved to `chal` area — second tier now follows the app's natural screen flow
+- `feat-img-wrap` top-aligned: removed `margin-top: auto` and changed `align-items` from `flex-end` to `flex-start` so screenshots anchor at the top of the image area
+- `dashboard.js` — `buildExpandPanel` adds `has-video` class when tile has a video; `TILE_DATA` video paths updated to match new asset naming convention (`media/trendfit.mp4`, `media/trendfitstack.mp4`, `media/trendfitchallenge.mp4`)
+
+### Added
 - Full dark glass-morphism visual redesign across all pages — deep charcoal background with radial brand-color glows, frosted glass cards (`backdrop-filter: blur(20px) saturate(1.4)`), hover lift + per-page glow ring, staggered `tileReveal` entrance animation
 - `index.html` hero tile restructured — `hero-top` flex row (icon top-left + v1.4 badge pill), `hero-body` fills remaining height; title enlarged to `clamp(32px, 4.5vw, 58px)`; bullets styled with orange `✓` markers; "What's new →" link
 - Real app screenshots wired into TrendFit and Stack feature tiles (`tf-trendfit.png`, `tf-stack-stacked.png`) replacing placeholder SVGs; area-fill gradient added to Zoom tile SVG
