@@ -34,14 +34,13 @@
       "Update now to start your first challenge."
     ],
     "links": [
-      { "label": "Download on App Store", "href": "https://apps.apple.com/ca/app/trendfit/id6751863796" },
-      { "label": "See What's New", "href": "faq.html" }
+      { "label": "Download on App Store", "href": "https://apps.apple.com/ca/app/trendfit/id6751863796" }
     ]
   },
   {
     "id": "v1.4.0-beta",
     "date": "2026-04-28",
-    "published": false,
+    "published": true,
     "title": "TrendFit 1.4 Beta — Challenges Are Here",
     "pinned": false,
     "tags": ["Beta", "New Feature"],
@@ -62,7 +61,7 @@
     "id": "2025-12-11-v13-app-store",
     "date": "2025-12-11",
     "pinned": false,
-    "title": "Version 1.3 Now Available! ✨",
+    "title": "Version 1.3 Now Available",
     "tags": ["release", "app-store", "update"],
     "body": [
       "**TrendFit 1.3 is now live on the App Store!** This release brings important polish and performance improvements based on beta tester feedback.",
@@ -75,16 +74,12 @@
       "A huge thank you to our beta testing community for helping make TrendFit more polished and reliable!",
       "",
       "**Update now** to experience the improvements."
-    ],
-    "links": [
-      { "label": "Update on App Store", "href": "https://apps.apple.com/ca/app/trendfit/id6751863796" },
-      { "label": "See All Features", "href": "faq.html" }
     ]
   },
   {
     "id": "2025-11-26-beta-update-polish",
     "date": "2025-11-26",
-    "title": "Beta Update: Smoother Experience + Polish ✨",
+    "title": "Beta Update: Smoother Experience + Polish",
     "tags": ["beta", "update"],
     "body": [
       "**New beta build available!** This update brings important polish improvements:",
@@ -94,15 +89,12 @@
       "• **Performance** – Smoother scrolling with large workout histories",
       "",
       "Thanks to your feedback, TrendFit keeps getting better!"
-    ],
-    "links": [
-      { "label": "Join Public Beta", "href": "beta-testers.html" }
     ]
   },
   {
     "id": "2025-11-09-app-store-launch",
     "date": "2025-11-09",
-    "title": "TrendFit is Now Available on the App Store! 🎉",
+    "title": "TrendFit is Now Available on the App Store",
     "body": [
       "**We did it!** TrendFit is now available for download on the App Store.",
       "**What's included in version 1.0:**",
@@ -115,34 +107,24 @@
       "A huge thank you to our Founding Members and Beta Testers who helped shape TrendFit into what it is today. Your feedback has been invaluable.",
       "",
       "**Ready to start tracking your trends?** Download TrendFit from the App Store today!"
-    ],
-    "links": [
-      { "label": "Download on App Store", "href": "https://apps.apple.com/ca/app/trendfit/id6751863796" },
-      { "label": "See What's New", "href": "faq.html" }
-    ],
-    "tags": ["launch", "app-store", "release"]
+    ]
   },
   {
     "id": "2025-09-19-public-beta-and-forum",
     "date": "2025-09-19",
-    "title": "Public Beta + Members Forum Now Live 🚀",
+    "title": "Public Beta + Members Forum Now Live",
     "body": [
       "Big milestone — **TrendFit** is now available on Apple TestFlight!",
       "• **Founding Members:** continue to use your private TestFlight invite and now share ideas directly with us in the new **Members Forum**.",
       "• **Public Beta Testers:** anyone can now join the beta through our new public TestFlight link.",
       "• All beta feedback will be submitted through the TestFlight app itself.",
       "Thank you for helping us shape TrendFit into the best way to track and understand your workouts."
-    ],
-    "links": [
-      { "label": "Join Public Beta", "href": "beta-testers.html" },
-      { "label": "Members Forum", "href": "beta-feedback.html" }
-    ],
-    "tags": ["release", "beta", "community"]
+    ]
   },
   {
     "id": "2025-09-11-appstore-approval",
     "date": "2025-09-11",
-    "title": "App Store Connect Approval ✅",
+    "title": "App Store Connect Approval",
     "body": [
       "Great news — **TrendFit** has been approved in App Store Connect.",
       "**What's next:**",
@@ -151,12 +133,7 @@
       "• Install the **TestFlight** app and accept the invite to join the beta.",
       "• Share bugs & ideas via our **Beta Feedback** page (Founding Members only).",
       "• Founding sign-ups remain open until **October 11, 2025**."
-    ],
-    "links": [
-      { "label": "Beta Feedback", "href": "beta-feedback.html" },
-      { "label": "Sign Up (Founding Member)", "href": "signup.html" }
-    ],
-    "tags": ["release", "beta", "testflight"]
+    ]
   },
   {
     "id": "2025-09-01-beta-focus",
@@ -167,50 +144,6 @@
       "We're focusing the initial public beta on TrendFit and TrendFitStack to keep things fast, simple, and stable.",
       "TrendFitChallenge is deferred until after we ship a solid first beta and collect feedback.",
       "Apple requires a one-time external TestFlight review for the first public beta build."
-    ],
-    "links": [
-      { "label": "Become a Beta Tester", "href": "beta-feedback.html" },
-      { "label": "Explore Features", "href": "faq.html" }
-    ]
-  },
-  {
-    "id": "2025-08-28-feature-spotlight-stack",
-    "date": "2025-08-28",
-    "title": "Feature Spotlight: TrendFitStack",
-    "tags": ["Feature"],
-    "body": [
-      "Compare a single trend (like Active Energy) across multiple workout types—Running, Walking, Hiking, and more.",
-      "Flip between daily, weekly, monthly, and annual views, and stack totals to see the bigger picture."
-    ],
-    "links": [
-      { "label": "See Screenshots", "href": "index.html" },
-      { "label": "Try the Beta", "href": "beta-feedback.html" }
-    ]
-  },
-  {
-    "id": "2025-08-18-privacy-policy",
-    "date": "2025-08-18",
-    "title": "Privacy Policy Published",
-    "tags": ["Policy"],
-    "body": [
-      "TrendFit reads Apple HealthKit data on-device and does not upload your health data to servers.",
-      "You can review the full policy any time on our site."
-    ],
-    "links": [
-      { "label": "Read Privacy Policy", "href": "privacy.html" }
-    ]
-  },
-  {
-    "id": "2025-08-10-founding-members",
-    "date": "2025-08-10",
-    "title": "Founding Member Program",
-    "tags": ["Community"],
-    "body": [
-      "Founding Member signups are open now and will close in the coming months.",
-      "Join early to follow progress and help shape the direction of TrendFit."
-    ],
-    "links": [
-      { "label": "Sign Up", "href": "index.html#signup" }
     ]
   }
 ]
