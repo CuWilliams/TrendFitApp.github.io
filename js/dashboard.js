@@ -16,10 +16,24 @@
     },
     // tile-zoom uses image-area-only video; no expand panel needed
     'tile-privacy': {
-      benefit: 'Your health data stays on your device. TrendFit uses Apple HealthKit with read-only access — nothing is uploaded, shared, or sold. No account required. No cloud.'
+      introHtml: 'TrendFit reads from <span class="expand-intro-accent">Apple HealthKit</span> — here\'s exactly how it works:',
+      bullets: [
+        { label: 'Read-only access', text: 'TrendFit can read your workouts, but it can never add, edit, or delete your Health data' },
+        { label: 'You approve every metric', text: 'iOS shows a permission sheet where you choose exactly which types TrendFit can see' },
+        { label: 'Revoke anytime', text: 'Settings → Privacy & Security → Health → TrendFit' },
+        { label: 'No account, no upload', text: 'no sign-in required; nothing is sent to a server or third party' },
+        { label: 'On-device only', text: 'all analysis runs entirely on your iPhone' }
+      ]
     },
     'tile-personal': {
-      benefit: 'Switch between metric and imperial, set your preferred time windows, and enable haptic feedback for milestones. TrendFit adapts to how you train.'
+      introHtml: 'Apple Health stores it. <span class="expand-intro-accent">TrendFit surfaces it — instantly:</span>',
+      bullets: [
+        { label: 'One tap', text: 'open the app, pick a workout and metric — your trend line appears immediately' },
+        { label: 'Try it in Apple Fitness', text: 'finding a 90-day pace trend takes multiple steps and still won\'t give you a regression line' },
+        { label: 'Improving or plateauing?', text: 'TrendFit answers that in seconds, not minutes' },
+        { label: 'Any sport, any metric', text: 'running pace, cycling speed, swim distance — same instant view across all of them' },
+        { label: 'Zero friction', text: 'no account, no setup, no learning curve — grant HealthKit access and go' }
+      ]
     },
     'tile-challenges': {
       benefit: 'Set a distance, energy, or pace goal. Track progress as you train. See the moment you beat it.',
@@ -41,10 +55,39 @@
     panel.className = data.video ? 'tile-expand has-video' : 'tile-expand';
     panel.setAttribute('aria-hidden', 'true');
 
-    var p = document.createElement('p');
-    p.className = 'expand-benefit';
-    p.textContent = data.benefit;
-    panel.appendChild(p);
+    if (data.intro || data.introHtml) {
+      var intro = document.createElement('p');
+      intro.className = 'expand-intro';
+      if (data.introHtml) {
+        intro.innerHTML = data.introHtml;
+      } else {
+        intro.textContent = data.intro;
+      }
+      panel.appendChild(intro);
+    }
+
+    if (data.bullets) {
+      var ul = document.createElement('ul');
+      ul.className = 'expand-bullets';
+      data.bullets.forEach(function (bullet) {
+        var li = document.createElement('li');
+        if (typeof bullet === 'string') {
+          li.textContent = bullet;
+        } else {
+          var strong = document.createElement('strong');
+          strong.textContent = bullet.label;
+          li.appendChild(strong);
+          li.appendChild(document.createTextNode(' — ' + bullet.text));
+        }
+        ul.appendChild(li);
+      });
+      panel.appendChild(ul);
+    } else if (data.benefit) {
+      var p = document.createElement('p');
+      p.className = 'expand-benefit';
+      p.textContent = data.benefit;
+      panel.appendChild(p);
+    }
 
     if (data.video) {
       var vid = document.createElement('video');
