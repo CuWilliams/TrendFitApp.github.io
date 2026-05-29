@@ -5,6 +5,15 @@ All notable changes to the TrendFit website are documented here.
 ## [Unreleased] — v2.0.0 overhaul
 
 ### Changed
+- **Dawn (light) mode — home page**: replaced near-black background with warm cream gradient (`#fdf5eb → #fffaf4`) with brand-orange radial glows; tiles now use high-opacity white frosted glass (`rgba(255,255,255,.72)`) with orange accent borders; all hardcoded white-rgba text (headings, body copy, hero title/kicker/bullets, CTA tagline, ghost button, social links, footer) overridden to `--text-ink` / `--text-muted` semantic tokens
+- **Dawn mode — expand panels**: Privacy-First and Instant Clarity tile hover panels now render with `rgba(255,255,255,.92)` frosted glass background instead of the dark `rgba(7,11,22,.94)` base; text tokens already in place now read correctly
+- **Instant Clarity sparkline SVG**: baseline stroke and scatter dot fills replaced with CSS custom properties (`--sparkline-base-stroke`, `--sparkline-dot-fill`); dark defaults preserved on `body.home`, dawn overrides use `rgba(0,0,0,…)` values so the graphic renders visibly on the cream tile
+- **FAQ color scheme**: recolored from violet (`rgba(139,92,246,…)`) to amber/brand-orange (`rgba(255,140,0,…)`) throughout — page background, card borders, category headings, expand toggles, item borders, hover ring, nav pill borders, hover/active pill states, and all dawn-mode counterparts
+- **Nav pill order**: Announcements now leads, FAQ follows (updated `partials/header.html`)
+- **Dawn mode — per-page nav pill borders**: all non-home pages now render per-page accent borders in dawn mode (sky blue / amber / emerald / indigo / red) matching the dark mode behavior, replacing the uniform orange border that previously applied to all pages
+- Updated `trendfitchallenge.png` screenshot
+
+### Changed
 - Privacy-First tile hover panel: replaced single benefit paragraph with an intro line + 5 HealthKit-specific bullets (read-only access, approve metrics, revoke anytime, no upload, on-device analysis); intro line highlights "Apple HealthKit" in orange accent; `buildExpandPanel` extended to support `introHtml` (renders via `innerHTML`) and `bullets` array (renders `<ul class="expand-bullets">` with `<strong>` labels)
 - Personalization tile renamed to **Instant Clarity**: icon changed to `fa-bolt`, copy rewritten to lead with speed-to-insight value prop; SVG replaced with an upward sparkline (scattered data dots + orange trend line + orange bullseye endpoint); hover panel updated with intro + 5 bullets contrasting TrendFit's one-tap trend view against the effort required in Apple Fitness
 - `css/style.css` — added `.expand-intro` (semi-bold white, 13 px), `.expand-intro-accent` (orange brand color, bold), `.expand-bullets` / `li` / `li::before` / `li strong` rules; explicit `rgba(255,255,255,…)` colors used throughout to avoid `--text-muted` rendering as dark text on the dark overlay panel; `min-height: 210px` added to both `#tile-privacy` and `#tile-personal` so row-layout tiles have room for the full hover content
