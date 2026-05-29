@@ -112,7 +112,7 @@
   <link rel="dns-prefetch" href="https://apps.apple.com">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <script>(function(){var p=localStorage.getItem('theme:preference');if(p==='dawn'||p==='dark')document.documentElement.setAttribute('data-theme',p);})();</script>
-  <link rel="stylesheet" href="css/style.css?v=2026-05-29-11" />
+  <link rel="stylesheet" href="css/style.css?v=2026-05-29-17" />
 
   <script defer src="js/includes.js"></script>
 
@@ -250,17 +250,17 @@
                  style="width:100px;height:auto;display:block;">
               <!-- Baseline -->
               <line x1="6" y1="46" x2="104" y2="46" stroke-width="1"
-                    style="stroke:rgba(255,255,255,.12)"/>
+                    style="stroke:var(--sparkline-base-stroke)"/>
               <!-- Trend line -->
               <line x1="6" y1="44" x2="100" y2="11" stroke-width="2.5" stroke-linecap="round"
                     style="stroke:var(--accent-brand1);opacity:0.65"/>
               <!-- Data scatter -->
-              <circle cx="10" cy="43" r="2.5" style="fill:rgba(255,255,255,.38)"/>
-              <circle cx="25" cy="37" r="2.5" style="fill:rgba(255,255,255,.38)"/>
-              <circle cx="40" cy="30" r="2.5" style="fill:rgba(255,255,255,.38)"/>
-              <circle cx="55" cy="34" r="2.5" style="fill:rgba(255,255,255,.38)"/>
-              <circle cx="70" cy="22" r="2.5" style="fill:rgba(255,255,255,.38)"/>
-              <circle cx="84" cy="17" r="2.5" style="fill:rgba(255,255,255,.38)"/>
+              <circle cx="10" cy="43" r="2.5" style="fill:var(--sparkline-dot-fill)"/>
+              <circle cx="25" cy="37" r="2.5" style="fill:var(--sparkline-dot-fill)"/>
+              <circle cx="40" cy="30" r="2.5" style="fill:var(--sparkline-dot-fill)"/>
+              <circle cx="55" cy="34" r="2.5" style="fill:var(--sparkline-dot-fill)"/>
+              <circle cx="70" cy="22" r="2.5" style="fill:var(--sparkline-dot-fill)"/>
+              <circle cx="84" cy="17" r="2.5" style="fill:var(--sparkline-dot-fill)"/>
               <!-- Current position: bullseye -->
               <circle cx="100" cy="11" r="6.5" style="fill:var(--accent-brand1);opacity:0.25"/>
               <circle cx="100" cy="11" r="4" style="fill:var(--accent-brand1)"/>
