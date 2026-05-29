@@ -6,12 +6,12 @@
   var TILE_DATA = {
     'tile-trendfit': {
       benefit: 'Linear regression over your actual workouts — see if you\'re getting faster, stronger, or just consistent.',
-      video: 'media/tile-trendfit.mp4',
+      video: 'media/trendfit.mp4',
       videoAlt: 'Screen recording of TrendFit chart with trend line'
     },
     'tile-stack': {
       benefit: 'Stack week-over-week or month-over-month totals to spot effort patterns at a glance.',
-      video: 'media/tile-stack.mp4',
+      video: 'media/trendfitstack.mp4',
       videoAlt: 'Screen recording of TrendFitStack stacked bar chart'
     },
     'tile-zoom': {
@@ -27,8 +27,8 @@
     },
     'tile-challenges': {
       benefit: 'Set a distance, energy, or pace goal. Track progress as you train. See the moment you beat it.',
-      video: 'media/tile-challenges.mp4',
-      videoAlt: 'Screen recording of Challenges goal progress view'
+      video: 'media/trendfitchallenge.mp4',
+      videoAlt: 'Screen recording of TrendFit Challenge goal progress view'
     },
     'tile-challenge-notifications': {
       benefit: 'Get progress updates on your schedule. All notifications are generated on-device — no data leaves your phone.',
@@ -42,7 +42,7 @@
 
   function buildExpandPanel(tile, data) {
     var panel = document.createElement('div');
-    panel.className = 'tile-expand';
+    panel.className = data.video ? 'tile-expand has-video' : 'tile-expand';
     panel.setAttribute('aria-hidden', 'true');
 
     var p = document.createElement('p');

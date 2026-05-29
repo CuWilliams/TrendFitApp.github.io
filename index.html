@@ -140,12 +140,12 @@
             </div>
             <div class="hero-body">
               <h1 id="hero-heading" class="hero-title">Your workouts.<br>Your trends.<br><em class="hero-accent">No guessing.</em></h1>
-              <p class="hero-kicker">See whether you're actually improving.</p>
+              <p class="hero-kicker">Your data knows. Now you will too.</p>
               <ul class="hero-bullets">
-                <li>Challenges — set a goal, track progress in real time, get nudged on-device</li>
-                <li>Trend colors you can trust — green means you're actually improving</li>
-                <li>Calorie &amp; chart accuracy — energy matches Apple Fitness; all your data is visible</li>
-                <li>Smoother charts — fluid pan, zoom &amp; scroll with no flicker or overlap</li>
+                <li>Actual trend intelligence — regression lines that tell you if you're improving, plateauing, or sliding across any workout or metric</li>
+                <li>Challenges built in — set a goal, watch progress build in real time, and get nudged — all on your device</li>
+                <li>Every metric, every sport — distance, pace, heart rate, energy, speed, cadence, VO₂max, and more</li>
+                <li>Private by design — HealthKit data analyzed entirely on your iPhone; no servers, no accounts, nothing leaves your phone</li>
               </ul>
               <p class="hero-announce"><a href="announcements.html">What's new in v1.4 →</a></p>
             </div>
@@ -179,9 +179,9 @@
         <article class="dash-tile tile-feature reveal" id="tile-trendfit" style="grid-area: tf; --reveal-delay: 0.16s" tabindex="0" aria-expanded="false">
           <div class="feat-icon"><i class="fa-solid fa-chart-line" aria-hidden="true"></i></div>
           <h2 class="feat-title">TrendFit</h2>
-          <p class="feat-copy">See whether you're actually improving.</p>
+          <p class="feat-copy">See your trend for any workout, any metric — in an instant.</p>
           <div class="feat-img-wrap">
-            <img src="images/tf-trendfit.png" alt="TrendFit trend chart showing distance improving over time" class="feat-img" loading="lazy" style="max-height:160px; object-fit:cover; object-position:top;" />
+            <img src="images/trendfit.png" alt="TrendFit trend chart showing distance improving over time" class="feat-img" loading="lazy" style="object-fit:cover; object-position:center 55%;" />
           </div>
         </article>
 
@@ -189,14 +189,14 @@
         <article class="dash-tile tile-feature reveal" id="tile-stack" style="grid-area: stack; --reveal-delay: 0.22s" tabindex="0" aria-expanded="false">
           <div class="feat-icon"><i class="fa-solid fa-layer-group" aria-hidden="true"></i></div>
           <h2 class="feat-title">TrendFitStack</h2>
-          <p class="feat-copy">Compare your week to your year — at a glance.</p>
+          <p class="feat-copy">Your week vs. your year. One sport vs. another. See it all at a glance.</p>
           <div class="feat-img-wrap">
-            <img src="images/tf-stack-stacked.png" alt="TrendFit Stack view showing stacked bar chart comparing workout totals" class="feat-img" loading="lazy" style="max-height:160px; object-fit:cover; object-position:top;" />
+            <img src="images/trendfitstack.png" alt="TrendFitStack view showing stacked bar chart comparing workout totals" class="feat-img" loading="lazy" style="object-fit:cover; object-position:center 45%;" />
           </div>
         </article>
 
         <!-- TILE: Zoomable Charts -->
-        <article class="dash-tile tile-feature reveal" id="tile-zoom" style="grid-area: zoom; --reveal-delay: 0.28s" tabindex="0" aria-expanded="false">
+        <article class="dash-tile tile-feature reveal" id="tile-zoom" style="grid-area: chal; --reveal-delay: 0.46s" tabindex="0" aria-expanded="false">
           <div class="feat-icon"><i class="fa-solid fa-magnifying-glass-plus" aria-hidden="true"></i></div>
           <h2 class="feat-title">Zoomable Charts</h2>
           <p class="feat-copy">Zoom into one bad day, pan through a whole season.</p>
@@ -342,32 +342,12 @@
         </section>
 
         <!-- TILE: Challenges -->
-        <article class="dash-tile tile-feature reveal" id="tile-challenges" style="grid-area: chal; --reveal-delay: 0.46s" tabindex="0" aria-expanded="false">
+        <article class="dash-tile tile-feature reveal" id="tile-challenges" style="grid-area: zoom; --reveal-delay: 0.28s" tabindex="0" aria-expanded="false">
           <div class="feat-icon"><i class="fa-solid fa-trophy" aria-hidden="true"></i></div>
-          <h2 class="feat-title">Challenges</h2>
-          <p class="feat-copy">Set a goal. Beat it. See the proof.</p>
+          <h2 class="feat-title">TrendFit Challenge</h2>
+          <p class="feat-copy">Set a goal, track every step, and celebrate — all on your device.</p>
           <div class="feat-img-wrap">
-            <svg role="img" aria-label="Challenges feature — screenshot placeholder"
-                 viewBox="0 0 280 130" xmlns="http://www.w3.org/2000/svg">
-              <!-- Goal progress bars -->
-              <text x="14" y="22" font-size="10" font-weight="600" font-family="system-ui,sans-serif"
-                    style="fill:var(--text-muted);opacity:0.55">Weekly Distance Goal</text>
-              <rect x="14" y="28" width="252" height="12" rx="6" style="fill:var(--text-muted);opacity:0.1"/>
-              <rect x="14" y="28" width="196" height="12" rx="6" style="fill:var(--accent-action);opacity:0.7"/>
-              <text x="216" y="38" font-size="9" font-family="system-ui,sans-serif" style="fill:var(--accent-action)">78%</text>
-
-              <text x="14" y="58" font-size="10" font-weight="600" font-family="system-ui,sans-serif"
-                    style="fill:var(--text-muted);opacity:0.55">Monthly Active Energy</text>
-              <rect x="14" y="64" width="252" height="12" rx="6" style="fill:var(--text-muted);opacity:0.1"/>
-              <rect x="14" y="64" width="126" height="12" rx="6" style="fill:var(--trend-positive);opacity:0.7"/>
-              <text x="146" y="74" font-size="9" font-family="system-ui,sans-serif" style="fill:var(--trend-positive)">50%</text>
-
-              <text x="14" y="94" font-size="10" font-weight="600" font-family="system-ui,sans-serif"
-                    style="fill:var(--text-muted);opacity:0.55">Pace PR Streak</text>
-              <rect x="14" y="100" width="252" height="12" rx="6" style="fill:var(--text-muted);opacity:0.1"/>
-              <rect x="14" y="100" width="232" height="12" rx="6" style="fill:var(--accent-brand1);opacity:0.7"/>
-              <text x="252" y="110" font-size="9" font-family="system-ui,sans-serif" style="fill:var(--accent-brand1)">92%</text>
-            </svg>
+            <img src="images/trendfitchallenge.png" alt="TrendFit Challenge screen showing an active workout duration challenge with progress" class="feat-img" loading="lazy" style="object-fit:cover; object-position:center 35%;" />
           </div>
         </article>
 
