@@ -4,6 +4,11 @@ All notable changes to the TrendFit website are documented here.
 
 ## [Unreleased] — v2.0.0 overhaul
 
+### Changed
+- Privacy-First tile hover panel: replaced single benefit paragraph with an intro line + 5 HealthKit-specific bullets (read-only access, approve metrics, revoke anytime, no upload, on-device analysis); intro line highlights "Apple HealthKit" in orange accent; `buildExpandPanel` extended to support `introHtml` (renders via `innerHTML`) and `bullets` array (renders `<ul class="expand-bullets">` with `<strong>` labels)
+- Personalization tile renamed to **Instant Clarity**: icon changed to `fa-bolt`, copy rewritten to lead with speed-to-insight value prop; SVG replaced with an upward sparkline (scattered data dots + orange trend line + orange bullseye endpoint); hover panel updated with intro + 5 bullets contrasting TrendFit's one-tap trend view against the effort required in Apple Fitness
+- `css/style.css` — added `.expand-intro` (semi-bold white, 13 px), `.expand-intro-accent` (orange brand color, bold), `.expand-bullets` / `li` / `li::before` / `li strong` rules; explicit `rgba(255,255,255,…)` colors used throughout to avoid `--text-muted` rendering as dark text on the dark overlay panel; `min-height: 210px` added to both `#tile-privacy` and `#tile-personal` so row-layout tiles have room for the full hover content
+
 ### Added
 - Zoomable Charts tile: real screenshot (`zoomablecharts.png`) replaces SVG placeholder; tagline updated to "Explore every detail, at any scale."; four orange bullet points listing pinch-zoom, pan, double-tap reset, and long-press data reveal interactions
 - Zoomable Charts image-area-only hover video (`zoomablecharts.mp4`): video fades in over the screenshot on hover while title, tagline, and bullets remain visible above — tile removed from `TILE_DATA` (no full-tile expand panel); dedicated `mouseenter`/`mouseleave` JS handler added to `init()`; `.zoom-hover-video` CSS rules added
