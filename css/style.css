@@ -896,6 +896,28 @@ body.home .feat-copy {
   color: var(--text-muted);
   line-height: 1.5;
 }
+body.home .feat-bullets {
+  margin: 4px 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+body.home .feat-bullets li {
+  font-size: clamp(12px, 1.2vw, 14px);
+  color: var(--accent-brand1);
+  line-height: 1.4;
+  padding-left: 14px;
+  position: relative;
+}
+body.home .feat-bullets li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--accent-brand1);
+  font-weight: 700;
+}
 body.home .feat-img-wrap {
   border-radius: 10px;
   overflow: hidden;
@@ -1006,6 +1028,38 @@ body.home .tile-expand.has-video .expand-video {
   border-radius: inherit;
   display: block;
   flex: none;
+}
+
+/* Zoomable Charts: video plays in image area only, text stays visible above */
+body.home #tile-zoom .feat-img-wrap {
+  position: relative;
+  align-items: stretch;
+}
+
+/* Challenge Notifications: center image vertically, rounded corners from feat-img */
+body.home #tile-challenge-notifications .feat-img-wrap {
+  align-items: center;
+}
+body.home #tile-zoom .zoom-hover-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  opacity: 0;
+  transition: opacity 0.22s ease;
+}
+body.home #tile-zoom:hover .zoom-hover-video {
+  opacity: 1;
+}
+
+/* Challenge Notifications: show full screen without cropping */
+body.home #tile-challenge-notifications .tile-expand.has-video {
+  background: rgba(0, 0, 0, 0.88);
+}
+body.home #tile-challenge-notifications .tile-expand.has-video .expand-video {
+  object-fit: contain;
 }
 
 @media (prefers-reduced-motion: reduce) {

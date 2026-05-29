@@ -14,11 +14,7 @@
       video: 'media/trendfitstack.mp4',
       videoAlt: 'Screen recording of TrendFitStack stacked bar chart'
     },
-    'tile-zoom': {
-      benefit: 'Pinch to zoom into any date range. Pan through the season. Spot the outlier.',
-      video: 'media/tile-zoom.mp4',
-      videoAlt: 'Screen recording of pinch-to-zoom and pan on a TrendFit chart'
-    },
+    // tile-zoom uses image-area-only video; no expand panel needed
     'tile-privacy': {
       benefit: 'Your health data stays on your device. TrendFit uses Apple HealthKit with read-only access — nothing is uploaded, shared, or sold. No account required. No cloud.'
     },
@@ -32,7 +28,7 @@
     },
     'tile-challenge-notifications': {
       benefit: 'Get progress updates on your schedule. All notifications are generated on-device — no data leaves your phone.',
-      video: 'media/tile-notif.mp4',
+      video: 'media/challenge-notifications.mp4',
       videoAlt: 'Screen recording of a Challenge notification appearing'
     }
   };
@@ -171,6 +167,20 @@
         }
       });
     });
+
+    // Zoomable Charts: play/pause video in image area on hover
+    var zoomTile = document.getElementById('tile-zoom');
+    if (zoomTile) {
+      var zoomVid = zoomTile.querySelector('.zoom-hover-video');
+      if (zoomVid && !reducedMotion) {
+        zoomTile.addEventListener('mouseenter', function () {
+          if (hoverMQ && hoverMQ.matches) { zoomVid.currentTime = 0; zoomVid.play(); }
+        });
+        zoomTile.addEventListener('mouseleave', function () {
+          zoomVid.pause(); zoomVid.currentTime = 0;
+        });
+      }
+    }
 
     // Escape closes all
     document.addEventListener('keydown', function (e) {

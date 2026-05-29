@@ -5,6 +5,10 @@ All notable changes to the TrendFit website are documented here.
 ## [Unreleased] — v2.0.0 overhaul
 
 ### Added
+- Zoomable Charts tile: real screenshot (`zoomablecharts.png`) replaces SVG placeholder; tagline updated to "Explore every detail, at any scale."; four orange bullet points listing pinch-zoom, pan, double-tap reset, and long-press data reveal interactions
+- Zoomable Charts image-area-only hover video (`zoomablecharts.mp4`): video fades in over the screenshot on hover while title, tagline, and bullets remain visible above — tile removed from `TILE_DATA` (no full-tile expand panel); dedicated `mouseenter`/`mouseleave` JS handler added to `init()`; `.zoom-hover-video` CSS rules added
+- Challenge Notifications tile: real screenshot (`challenge-notifications.png`) and hover video (`challenge-notifications.mp4`) replace SVG placeholder; `dashboard.js` path updated to `media/challenge-notifications.mp4`
+- `.feat-bullets` CSS class: orange (`--accent-brand1`) bullet markers and text, compact gap-based list layout, used by Zoomable Charts tile
 - Real app screenshots (`trendfit.png`, `trendfitstack.png`, `trendfitchallenge.png`) and hover screen recordings (`trendfit.mp4`, `trendfitstack.mp4`, `trendfitchallenge.mp4`) wired into the three second-tier feature tiles; old `tf-trendfit.png` removed
 - `has-video` CSS pattern for expand panels: when a tile has a video, the recording fills the full tile overlay (`position: absolute; inset: 0; object-fit: cover`) and the benefit text is hidden — video speaks for itself
 - Hero kicker restyled: larger (`clamp(17px, 2.2vw, 24px)`), italic, semi-bold, bright white with a subtle orange ambient glow (`text-shadow`)
@@ -17,6 +21,9 @@ All notable changes to the TrendFit website are documented here.
 - Tile grid positions swapped: TrendFit Challenge moved to `zoom` area (second tier alongside TrendFit and TrendFitStack); Zoomable Charts moved to `chal` area — second tier now follows the app's natural screen flow
 - `feat-img-wrap` top-aligned: removed `margin-top: auto` and changed `align-items` from `flex-end` to `flex-start` so screenshots anchor at the top of the image area
 - `dashboard.js` — `buildExpandPanel` adds `has-video` class when tile has a video; `TILE_DATA` video paths updated to match new asset naming convention (`media/trendfit.mp4`, `media/trendfitstack.mp4`, `media/trendfitchallenge.mp4`)
+- `index.html` tile DOM order resequenced to match visual grid reading order: TrendFit → TrendFitStack → TrendFit Challenge → Privacy-First → Personalization → Zoomable Charts → Challenge Notifications → CTA
+- `#tile-challenge-notifications .feat-img-wrap` — `align-items: center` vertically centres the screenshot within the wrap; `class="feat-img"` added to image for consistent `border-radius: 8px` rounded corners and `loading="lazy"`
+- Updated `trendfit.png`, `trendfitchallenge.png`, and `trendfit.mp4` with refreshed captures
 
 ### Added
 - Full dark glass-morphism visual redesign across all pages — deep charcoal background with radial brand-color glows, frosted glass cards (`backdrop-filter: blur(20px) saturate(1.4)`), hover lift + per-page glow ring, staggered `tileReveal` entrance animation
