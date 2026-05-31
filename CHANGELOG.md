@@ -4,6 +4,9 @@ All notable changes to the TrendFit website are documented here.
 
 ## [Unreleased] — v2.0.0 overhaul
 
+### Fixed
+- Announcements badge never appeared in nav — `includes.js` was fetching `announcements.json` (404) instead of `data/announcements.json`
+
 ### Changed
 - **Dawn (light) mode — home page**: replaced near-black background with warm cream gradient (`#fdf5eb → #fffaf4`) with brand-orange radial glows; tiles now use high-opacity white frosted glass (`rgba(255,255,255,.72)`) with orange accent borders; all hardcoded white-rgba text (headings, body copy, hero title/kicker/bullets, CTA tagline, ghost button, social links, footer) overridden to `--text-ink` / `--text-muted` semantic tokens
 - **Dawn mode — expand panels**: Privacy-First and Instant Clarity tile hover panels now render with `rgba(255,255,255,.92)` frosted glass background instead of the dark `rgba(7,11,22,.94)` base; text tokens already in place now read correctly
