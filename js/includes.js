@@ -43,7 +43,7 @@
       if (!annLink) return;
 
       // Fetch announcements list
-      const res = await fetch('announcements.json', { cache: 'no-store' });
+      const res = await fetch('data/announcements.json', { cache: 'no-store' });
       if (!res.ok) return; // fail silently
       const items = await res.json();
       if (!Array.isArray(items) || items.length === 0) return;
@@ -105,6 +105,40 @@
     linkEl.setAttribute('aria-label', baseText);
   }
 
+  // Wire up the sun/moon toggle button
+  function initThemeToggle() {
+    const btn = document.querySelector('#theme-toggle');
+    if (!btn) return;
+
+    function isDarkNow() {
+      const t = document.documentElement.getAttribute('data-theme');
+      if (t === 'dark') return true;
+      if (t === 'dawn') return false;
+      return window.matchMedia('(prefers-color-scheme: dark)').matches;
+    }
+
+    function syncLabel() {
+      btn.setAttribute('aria-label', isDarkNow() ? 'Switch to light mode' : 'Switch to dark mode');
+    }
+
+    function syncThemeColorMeta() {
+      const meta = document.querySelector('meta[name="theme-color"]');
+      if (!meta) return;
+      meta.setAttribute('content', isDarkNow() ? '#1c1c1e' : '#FF8C00');
+    }
+
+    syncLabel();
+    syncThemeColorMeta();
+
+    btn.addEventListener('click', () => {
+      const next = isDarkNow() ? 'dawn' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme:preference', next);
+      syncLabel();
+      syncThemeColorMeta();
+    });
+  }
+
   // Run once DOM is parsed
   document.addEventListener('DOMContentLoaded', async () => {
     await includeFragments();
@@ -112,8 +146,8 @@
     requestAnimationFrame(() => {
       markActiveNav();
       setHeaderH();
-      // After header/nav present, initialize the badge
       initAnnouncementsBadge();
+      initThemeToggle();
     });
     window.addEventListener('resize', setHeaderH);
   });

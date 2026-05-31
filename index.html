@@ -18,7 +18,7 @@
   <!-- === SEO: canonical + description + social + JSON-LD (INDEX) === -->
   <link rel="canonical" href="https://trendfitapp.com/" />
   <meta name="description" content="TrendFit is a free, privacy-first iOS app for tracking fitness trends. All data processing happens on your device." />
-  <meta name="theme-color" content="#FF6A00" />
+  <meta name="theme-color" content="#FF8C00" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
@@ -26,17 +26,17 @@
   <meta property="og:title" content="TrendFit — Privacy-First Fitness Analytics" />
   <meta property="og:description" content="Free iOS app for tracking fitness trends. All data processing happens on your device." />
   <meta property="og:url" content="https://trendfitapp.com/" />
-  <meta property="og:image" content="https://trendfitapp.com/images/og-default.png" />
+  <meta property="og:image" content="https://trendfitapp.com/images/og-default.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="TrendFit - Track workout trends with privacy-first insights" />
-  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:type" content="image/jpeg" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="TrendFit — Privacy-First Fitness Analytics" />
   <meta name="twitter:description" content="Free iOS app for tracking fitness trends. All data processing happens on your device." />
-  <meta name="twitter:image" content="https://trendfitapp.com/images/og-default.png" />
+  <meta name="twitter:image" content="https://trendfitapp.com/images/og-default.jpg" />
   <meta name="twitter:image:alt" content="TrendFit - Track workout trends with privacy-first insights" />
 
   <!-- Structured Data (Organization) -->
@@ -111,7 +111,8 @@
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
   <link rel="dns-prefetch" href="https://apps.apple.com">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="stylesheet" href="css/style.css?v=2025-09-20-1" />
+  <script>(function(){var p=localStorage.getItem('theme:preference');if(p==='dawn'||p==='dark')document.documentElement.setAttribute('data-theme',p);})();</script>
+  <link rel="stylesheet" href="css/style.css?v=2026-05-29-17" />
 
   <script defer src="js/includes.js"></script>
 
@@ -125,107 +126,209 @@
   <!-- Shared header include -->
   <div data-include="partials/header.html"></div>
 
-  <!-- ============ Landing Content (Home with video) ============ -->
+  <!-- ============ Landing Content (Home: Dashboard Grid v2) ============ -->
   <main class="page-wrap">
     <div class="container">
-      <!-- Left: welcome copy -->
-      <div class="left-content">
-        <div class="stack">
-          <!-- Hero row: logo (left) + “Coming Soon!” panel (right) -->
-          <div class="logo-hero-row">
-            <div class="logo-wrap">
-              <img src="images/TrendFitAppVectorIcon.svg"
-                   alt="Trend Fit App Logo"
-                   class="logo" />
-            </div>
+      <div class="dashboard-grid">
 
-            <section class="panel panel-hero" aria-labelledby="coming-hero">
-              <h1 id="coming-hero" class="hero-title">
-                <span class="break">v1.4 Beta</span>
-                <span class="break">is Now Live</span>
-              </h1>
-              <p style="margin: 6px 0 0; font-size: 0.9em;"><a href="announcements.html">See latest announcements →</a></p>
-            </section>
+        <!-- TILE: Hero -->
+        <section class="dash-tile tile-hero reveal" aria-labelledby="hero-heading" style="grid-area: hero; --reveal-delay: 0s">
+          <div class="tile-hero-inner">
+            <div class="hero-top">
+              <img src="images/TrendFitAppVectorIcon.svg" alt="Trend Fit App Logo" class="hero-logo-img" />
+              <span class="hero-badge">v1.4 Now Live</span>
+            </div>
+            <div class="hero-body">
+              <h1 id="hero-heading" class="hero-title">Your workouts.<br>Your trends.<br><em class="hero-accent">No guessing.</em></h1>
+              <p class="hero-kicker">Your data knows. Now you will too.</p>
+              <ul class="hero-bullets">
+                <li>Actual trend intelligence — regression lines that tell you if you're improving, plateauing, or sliding across any workout or metric</li>
+                <li>Challenges built in — set a goal, watch progress build in real time, and get nudged — all on your device</li>
+                <li>Every metric, every sport — distance, pace, heart rate, energy, speed, cadence, VO₂max, and more</li>
+                <li>Private by design — HealthKit data analyzed entirely on your iPhone; no servers, no accounts, nothing leaves your phone</li>
+              </ul>
+              <p class="hero-announce"><a href="announcements.html">What's new in v1.4 →</a></p>
+            </div>
           </div>
+        </section>
 
-          <!-- Copy panel -->
-          <section class="panel panel-text" aria-labelledby="about-trendfit">
-            <h2 id="about-trendfit" class="panel-kicker">Privacy-First Fitness Analytics</h2>
-
-            <ul class="feature-bullets" role="list">
-              <li>
-                <i class="fa-solid fa-chart-line" aria-hidden="true"></i>
-                <span>Track long-term fitness trends with interactive charts and slopes.</span>
-              </li>
-              <li>
-                <i class="fa-solid fa-lock" aria-hidden="true"></i>
-                <span>Uses your HealthKit data. All processing happens on your device.</span>
-              </li>
-              <li>
-                <i class="fa-solid fa-square-heart" aria-hidden="true"></i>
-                <span>Free app, no tracking, no ads.</span>
-              </li>
-            </ul>
-          </section>
-
-          <!-- CTA panel -->
-          <section class="panel panel-cta">
-            <div class="cta-list">
-              <div class="cta-row">
-                <div class="cta-label">
-                  <i class="cta-icon fa-brands fa-apple" aria-hidden="true"></i>
-                  <span>Download TrendFit</span>
-                </div>
-                <a class="btn btn-primary" href="https://apps.apple.com/ca/app/trendfit/id6751863796" target="_blank" rel="noopener">
-                  <i class="fa-brands fa-apple"></i> App Store
-                </a>
-              </div>
-
-              <div class="cta-row">
-                <div class="cta-label">
-                  <i class="cta-icon fa-solid fa-circle-info" aria-hidden="true"></i>
-                  <span>Learn more about features</span>
-                </div>
-                <a class="btn btn-ghost" href="features.html">
-                  <i class="fa-solid fa-circle-info"></i> Features
-                </a>
-              </div>
+        <!-- TILE: Promo -->
+        <section class="dash-tile tile-promo reveal" aria-label="TrendFit app promo" style="grid-area: video; --reveal-delay: 0.08s">
+          <div class="hero">
+            <h2 class="hero-title">Track. Analyze. <span class="accent">Improve.</span></h2>
+            <p class="hero-subtitle">Understand your fitness trends with interactive charts and on-device analysis.</p>
+            <div class="app-store-promo-container">
+              <video class="app-store-promo-video"
+                aria-label="TrendFit App Store promotional video"
+                playsinline muted loop autoplay preload="auto">
+                <source src="media/App_Store_Promo-V1.2.mp4" type="video/mp4" />
+                Sorry, your browser doesn't support embedded videos.
+              </video>
             </div>
-          </section>
+            <div class="hero-actions">
+              <a class="btn btn-primary"
+                 href="https://apps.apple.com/ca/app/trendfit/id6751863796"
+                 target="_blank" rel="noopener">
+                <i class="fa-brands fa-apple"></i> Download on App Store
+              </a>
+            </div>
+          </div>
+        </section>
 
+        <!-- TILE: TrendFit -->
+        <article class="dash-tile tile-feature reveal" id="tile-trendfit" style="grid-area: tf; --reveal-delay: 0.16s" tabindex="0" aria-expanded="false">
+          <div class="feat-icon"><i class="fa-solid fa-chart-line" aria-hidden="true"></i></div>
+          <h2 class="feat-title">TrendFit</h2>
+          <p class="feat-copy">See your trend for any workout, any metric — in an instant.</p>
+          <div class="feat-img-wrap">
+            <img src="images/trendfit.png" alt="TrendFit trend chart showing distance improving over time" class="feat-img" loading="lazy" style="object-fit:cover; object-position:center 55%;" />
+          </div>
+        </article>
+
+        <!-- TILE: TrendFitStack -->
+        <article class="dash-tile tile-feature reveal" id="tile-stack" style="grid-area: stack; --reveal-delay: 0.22s" tabindex="0" aria-expanded="false">
+          <div class="feat-icon"><i class="fa-solid fa-layer-group" aria-hidden="true"></i></div>
+          <h2 class="feat-title">TrendFitStack</h2>
+          <p class="feat-copy">Your week vs. your year. One sport vs. another. See it all at a glance.</p>
+          <div class="feat-img-wrap">
+            <img src="images/trendfitstack.png" alt="TrendFitStack view showing stacked bar chart comparing workout totals" class="feat-img" loading="lazy" style="object-fit:cover; object-position:center 45%;" />
+          </div>
+        </article>
+
+        <!-- TILE: TrendFit Challenge -->
+        <article class="dash-tile tile-feature reveal" id="tile-challenges" style="grid-area: zoom; --reveal-delay: 0.28s" tabindex="0" aria-expanded="false">
+          <div class="feat-icon"><i class="fa-solid fa-trophy" aria-hidden="true"></i></div>
+          <h2 class="feat-title">TrendFitChallenge</h2>
+          <p class="feat-copy">Set a goal, track every step, and celebrate — all on your device.</p>
+          <div class="feat-img-wrap">
+            <img src="images/trendfitchallenge.png" alt="TrendFit Challenge screen showing an active workout duration challenge with progress" class="feat-img" loading="lazy" style="object-fit:cover; object-position:center 35%;" />
+          </div>
+        </article>
+
+        <!-- TILE: Privacy-First -->
+        <article class="dash-tile tile-feature tile-row-layout reveal" id="tile-privacy" style="grid-area: priv; --reveal-delay: 0.34s" tabindex="0" aria-expanded="false">
+          <div class="feat-icon feat-icon--large"><i class="fa-solid fa-shield-heart" aria-hidden="true"></i></div>
+          <div class="feat-copy-group">
+            <h2 class="feat-title">Privacy-First</h2>
+            <p class="feat-copy">Your data never leaves your phone. All analysis happens on-device using Apple HealthKit. No servers. No tracking. No ads.</p>
+          </div>
+          <div class="feat-svg-wrap">
+            <svg role="img" aria-label="Shield with padlock representing on-device privacy"
+                 viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"
+                 style="width:64px;height:64px;display:block;">
+              <!-- Shield body (fill + stroke) -->
+              <path d="M40 7 L68 19 L68 46 Q68 64 40 75 Q12 64 12 46 L12 19 Z"
+                    style="fill:var(--accent-brand1);opacity:0.15"/>
+              <path d="M40 7 L68 19 L68 46 Q68 64 40 75 Q12 64 12 46 L12 19 Z"
+                    fill="none" stroke-width="2.5" stroke-linejoin="round"
+                    style="stroke:var(--accent-brand1)"/>
+              <!-- Padlock shackle -->
+              <path d="M30 39 L30 31 Q30 22 40 22 Q50 22 50 31 L50 39"
+                    fill="none" stroke-width="2.5" stroke-linecap="round"
+                    style="stroke:var(--accent-brand1)"/>
+              <!-- Padlock body -->
+              <rect x="27" y="39" width="26" height="18" rx="3"
+                    style="fill:var(--accent-brand1);opacity:0.85"/>
+              <!-- Keyhole circle -->
+              <circle cx="40" cy="47" r="3.5" style="fill:var(--color-white)"/>
+              <!-- Keyhole slot -->
+              <rect x="38.5" y="47" width="3" height="5" style="fill:var(--color-white)"/>
+            </svg>
+          </div>
+        </article>
+
+        <!-- TILE: Instant Clarity -->
+        <article class="dash-tile tile-feature tile-row-layout reveal" id="tile-personal" style="grid-area: pers; --reveal-delay: 0.40s" tabindex="0" aria-expanded="false">
+          <div class="feat-icon feat-icon--large"><i class="fa-solid fa-bolt" aria-hidden="true"></i></div>
+          <div class="feat-copy-group">
+            <h2 class="feat-title">Instant Clarity</h2>
+            <p class="feat-copy">Open the app, see your trend. No menus, no setup, no guessing.</p>
+          </div>
+          <div class="feat-svg-wrap">
+            <svg role="img" aria-label="Sparkline chart showing an upward fitness trend over time"
+                 viewBox="0 0 110 54" xmlns="http://www.w3.org/2000/svg"
+                 style="width:100px;height:auto;display:block;">
+              <!-- Baseline -->
+              <line x1="6" y1="46" x2="104" y2="46" stroke-width="1"
+                    style="stroke:var(--sparkline-base-stroke)"/>
+              <!-- Trend line -->
+              <line x1="6" y1="44" x2="100" y2="11" stroke-width="2.5" stroke-linecap="round"
+                    style="stroke:var(--accent-brand1);opacity:0.65"/>
+              <!-- Data scatter -->
+              <circle cx="10" cy="43" r="2.5" style="fill:var(--sparkline-dot-fill)"/>
+              <circle cx="25" cy="37" r="2.5" style="fill:var(--sparkline-dot-fill)"/>
+              <circle cx="40" cy="30" r="2.5" style="fill:var(--sparkline-dot-fill)"/>
+              <circle cx="55" cy="34" r="2.5" style="fill:var(--sparkline-dot-fill)"/>
+              <circle cx="70" cy="22" r="2.5" style="fill:var(--sparkline-dot-fill)"/>
+              <circle cx="84" cy="17" r="2.5" style="fill:var(--sparkline-dot-fill)"/>
+              <!-- Current position: bullseye -->
+              <circle cx="100" cy="11" r="6.5" style="fill:var(--accent-brand1);opacity:0.25"/>
+              <circle cx="100" cy="11" r="4" style="fill:var(--accent-brand1)"/>
+              <circle cx="100" cy="11" r="2" style="fill:rgba(255,255,255,.9)"/>
+            </svg>
+          </div>
+        </article>
+
+        <!-- TILE: Zoomable Charts -->
+        <article class="dash-tile tile-feature reveal" id="tile-zoom" style="grid-area: chal; --reveal-delay: 0.46s" tabindex="0" aria-expanded="false">
+          <div class="feat-icon"><i class="fa-solid fa-magnifying-glass-plus" aria-hidden="true"></i></div>
+          <h2 class="feat-title">Zoomable Charts</h2>
+          <p class="feat-copy">Explore every detail, at any scale.</p>
+          <ul class="feat-bullets">
+            <li>Pinch to zoom into any date range</li>
+            <li>Pan through weeks, months, or seasons</li>
+            <li>Double-tap to reset to full view</li>
+            <li>Long-press any point to reveal the exact value</li>
+          </ul>
+          <div class="feat-img-wrap">
+            <img src="images/zoomablecharts.png"
+                 alt="Zoomable Charts screen showing a pinch-zoomed date range on a trend chart"
+                 class="feat-img" loading="lazy"
+                 style="object-fit:cover; object-position:center 40%;">
+            <video class="zoom-hover-video" muted loop playsinline preload="none" aria-hidden="true">
+              <source src="media/zoomablecharts.mp4" type="video/mp4">
+            </video>
+          </div>
+        </article>
+
+        <!-- TILE: Challenge Notifications -->
+        <article class="dash-tile tile-feature reveal" id="tile-challenge-notifications" style="grid-area: notif; --reveal-delay: 0.52s" tabindex="0" aria-expanded="false">
+          <div class="feat-icon"><i class="fa-solid fa-bell" aria-hidden="true"></i></div>
+          <h2 class="feat-title">Challenge Notifications</h2>
+          <p class="feat-copy">Progress updates, on your schedule — never leaves your device.</p>
+          <div class="feat-img-wrap">
+            <img src="images/challenge-notifications.png"
+                 alt="Challenge Notifications screen showing on-device progress alerts"
+                 class="feat-img" loading="lazy"
+                 style="object-fit:cover; object-position:center center;">
+          </div>
+        </article>
+
+        <!-- TILE: CTA + Socials -->
+        <section class="dash-tile tile-cta-social reveal" style="grid-area: cta; --reveal-delay: 0.58s" aria-label="Download and follow">
+          <p class="cta-tagline">Your fitness data, analyzed privately on your device.</p>
+          <a class="btn btn-cta-hero" href="https://apps.apple.com/ca/app/trendfit/id6751863796" target="_blank" rel="noopener">
+            <i class="fa-brands fa-apple"></i> Download on App Store
+          </a>
+          <div class="cta-secondary-row">
+            <a class="btn btn-ghost" href="faq.html">
+              <i class="fa-solid fa-circle-question"></i> FAQ
+            </a>
+          </div>
           <div class="socials">
-  <div class="social-links">
-    <a href="https://www.instagram.com/trendfitapp" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-    <a href="https://www.facebook.com/trendfitapp" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-    <a href="https://x.com/trendfitapp" target="_blank" rel="noopener" aria-label="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
-    <a href="https://www.linkedin.com/company/trend-fit-app" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-    <a href="https://www.youtube.com/@trendfit_app" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-  </div>
-</div>
-
-          <!-- Footer -->
+            <div class="social-links">
+              <a href="https://www.instagram.com/trendfitapp" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+              <a href="https://www.facebook.com/trendfitapp" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="https://x.com/trendfitapp" target="_blank" rel="noopener" aria-label="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
+              <a href="https://www.linkedin.com/company/trend-fit-app" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+              <a href="https://www.youtube.com/@trendfit_app" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
           <div class="footer">&copy; 2025 TrendFit. All rights reserved.</div>
-        </div>
-      </div>
+        </section>
 
-      <!-- Right: looping preview video (inside same card) -->
-      <div class="right-content">
-        <div class="video-wrap">
-          <video
-            class="preview"
-            aria-label="TrendFit App preview video"
-            playsinline
-            muted
-            loop
-            autoplay
-            preload="auto"
-            poster="images/app-preview-poster.jpg">
-            <source src="media/app-preview.mp4" type="video/mp4" />
-            Sorry, your browser doesn't support embedded videos.
-          </video>
-        </div>
-      </div>
-    </div>
+      </div><!-- /.dashboard-grid -->
+    </div><!-- /.container -->
   </main>
 
   <!-- ============ Footer ============ -->
@@ -233,6 +336,8 @@
     <div class="container footer-row">
       <small>© 2025 TrendFit</small>
       <div class="footer-links">
+        <a href="faq.html">FAQ</a>
+        <span>&middot;</span>
         <a href="privacy.html">Privacy</a>
         <span>&middot;</span>
         <a href="terms.html">Terms</a>
@@ -247,11 +352,14 @@
     (function () {
       var mq = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)');
       if (mq && mq.matches) {
-        var v = document.querySelector('video.preview');
-        if (v) { v.pause(); v.removeAttribute('autoplay'); }
+        document.querySelectorAll('video.app-store-promo-video').forEach(function(v) {
+        v.pause(); v.removeAttribute('autoplay');
+      });
       }
     })();
   </script>
+
+<script defer src="js/dashboard.js"></script>
 
 <!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon="{&quot;token&quot;: &quot;88f8c60681cd4caaaa9c73ec113a9178&quot;}"></script><!-- End Cloudflare Web Analytics -->
 </body>

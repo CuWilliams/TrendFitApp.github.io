@@ -12,19 +12,12 @@
 
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="stylesheet" href="css/style.css?v=2025-09-20-1" />
+  <script>(function(){var p=localStorage.getItem('theme:preference');if(p==='dawn'||p==='dark')document.documentElement.setAttribute('data-theme',p);})();</script>
+  <link rel="stylesheet" href="css/style.css?v=2026-05-29-17" />
 
-<script defer src="js/includes.js"></script>
-
-  <style>
-    .oops { text-align: center; padding: 56px 0 24px; }
-    .oops h1 { font-size: clamp(28px, 6vw, 44px); margin: 0 0 8px; }
-    .oops p  { color: var(--muted); margin: 0 auto; max-width: 720px; }
-    .oops .actions { margin-top: 18px; display: inline-flex; gap: 10px; flex-wrap: wrap; }
-    .redir-note { color: var(--muted); font-size: 14px; margin-top: 14px; }
-  </style>
+  <script defer src="js/includes.js"></script>
 </head>
-<body class="bg-gradient">
+<body class="page-404">
 
   <!-- Header / Navbar -->
   <!-- Shared header include -->
@@ -36,12 +29,11 @@
       <p>Sorry, we can’t find that page. It may have moved, been renamed, or no longer exist.</p>
       <div class="actions">
         <a class="btn btn-primary" href="index.html"><i class="fa-solid fa-house"></i> Home</a>
-        <a class="btn btn-ghost" href="features.html"><i class="fa-solid fa-circle-info"></i> Features</a>
+        <a class="btn btn-ghost" href="faq.html"><i class="fa-solid fa-circle-question"></i> FAQ</a>
         <a class="btn btn-ghost" href="announcements.html"><i class="fa-solid fa-bullhorn"></i> Announcements</a>
         <a class="btn btn-ghost" href="privacy.html"><i class="fa-solid fa-user-shield"></i> Privacy</a>
         <a class="btn btn-ghost" href="terms.html"><i class="fa-solid fa-file-contract"></i> Terms</a>
       </div>
-      <p class="redir-note" id="redirNote" style="display:none;"></p>
     </div>
   </main>
 
@@ -49,6 +41,8 @@
     <div class="container footer-row">
       <small>© 2025 TrendFit</small>
       <div class="footer-links">
+        <a href="faq.html">FAQ</a>
+        <span>&middot;</span>
         <a href="privacy.html">Privacy</a>
         <span>&middot;</span>
         <a href="terms.html">Terms</a>
@@ -57,28 +51,6 @@
       </div>
     </div>
   </footer>
-
-  <!-- Optional: gentle redirect map for legacy URLs -->
-  <script>
-    (function () {
-      // Map old/legacy paths to new ones (edit as needed)
-      var redirects = {
-        "/privacy-policy": "/privacy.html",
-        "/terms-of-service": "/terms.html"
-      };
-
-      var path = location.pathname.replace(/\/+$/, ""); // trim trailing /
-      if (redirects[path]) {
-        var target = redirects[path];
-        var note = document.getElementById("redirNote");
-        if (note) {
-          note.style.display = "block";
-          note.textContent = "Redirecting you to " + target + "…";
-        }
-        setTimeout(function () { location.replace(target); }, 1200);
-      }
-    })();
-  </script>
 
 <!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon="{&quot;token&quot;: &quot;88f8c60681cd4caaaa9c73ec113a9178&quot;}"></script><!-- End Cloudflare Web Analytics -->
 </body>
