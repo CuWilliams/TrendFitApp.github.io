@@ -2,7 +2,7 @@
 
 All notable changes to the TrendFit website are documented here.
 
-## [Unreleased] — v2.0.0 overhaul
+## [2.0.0] — 2026-05-31
 
 ### Fixed
 - Announcements badge never appeared in nav — `includes.js` was fetching `announcements.json` (404) instead of `data/announcements.json`
