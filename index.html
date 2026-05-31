@@ -352,7 +352,7 @@
     (function () {
       var mq = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)');
       if (mq && mq.matches) {
-        document.querySelectorAll('video.preview, video.app-store-promo-video').forEach(function(v) {
+        document.querySelectorAll('video.app-store-promo-video').forEach(function(v) {
         v.pause(); v.removeAttribute('autoplay');
       });
       }

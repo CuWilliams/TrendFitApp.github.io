@@ -43,7 +43,7 @@
       if (!annLink) return;
 
       // Fetch announcements list
-      const res = await fetch('announcements.json', { cache: 'no-store' });
+      const res = await fetch('data/announcements.json', { cache: 'no-store' });
       if (!res.ok) return; // fail silently
       const items = await res.json();
       if (!Array.isArray(items) || items.length === 0) return;
