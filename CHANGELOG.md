@@ -2,6 +2,18 @@
 
 All notable changes to the TrendFit website are documented here.
 
+## [2.0.1] — 2026-06-11
+
+### Added
+- Pinned v1.5 release announcement (`v1.5-now-live`) covering the rebuilt trend-color classification, cross-chart trend line refresh on zoom/pan, the TrendFitStack "Avg" pill clipping fix, and the refreshed in-app FAQ; v1.4 announcement unpinned
+- FAQ entry "What do the red, yellow, and green trend lines mean?" (Features category), aligned with the v1.5 in-app FAQ wording
+
+### Changed
+- Homepage hero badge and what's-new link updated v1.4 → v1.5; `softwareVersion` in MobileApplication structured data updated to 1.5
+- Hero metric-breadth bullet no longer lists VO₂max — it is not a selectable metric in the app (Apple stores it as a standalone sample, not workout-linked)
+- FAQ: removed stale "(Beta)" label from the TrendFitChallenge entry (GA since v1.4)
+- Bumped JSON cache-bust versions in `js/announcements.js` and `js/faq.js`; refreshed `sitemap.xml` lastmod dates for home, FAQ, and announcements pages
+
 ## [2.0.0] — 2026-05-31
 
 ### Fixed

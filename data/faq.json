@@ -50,7 +50,11 @@
       },
       {
         "q": "What is TrendFitChallenge?",
-        "a": "TrendFitChallenge (Beta) lets you set personal fitness challenges with a guided creation flow. Choose a scope, metric, target, and duration — TrendFit pre-fills smart target values from your HealthKit history."
+        "a": "TrendFitChallenge lets you set personal fitness challenges with a guided creation flow. Choose a scope, metric, target, and duration — TrendFit pre-fills smart target values from your HealthKit history."
+      },
+      {
+        "q": "What do the red, yellow, and green trend lines mean?",
+        "a": "The color reflects the direction the trend line visibly moves on the chart. Green means the trend is improving, red means it is declining, and yellow means the line is roughly flat in the current view. For metrics where lower is better — like pace and heart rate — the colors are interpreted accordingly, so a falling pace line shows green. The color always matches the line you see, at any zoom level."
       },
       {
         "q": "Can I zoom and pan the charts?",
