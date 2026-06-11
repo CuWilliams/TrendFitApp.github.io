@@ -1,9 +1,29 @@
 [
   {
+    "id": "v1.5-now-live",
+    "date": "2026-06-11",
+    "published": true,
+    "pinned": true,
+    "title": "TrendFit v1.5 — Now Live on the App Store",
+    "tags": ["Release", "Improvement"],
+    "body": [
+      "**TrendFit v1.5 is now available on the App Store.** This release is all about trusting what you see: the trend engine has been rebuilt so the color of every trend line matches the line actually drawn on your screen.",
+      "**What's New:**",
+      "• **Trend Colors That Match What You See** – Trend line color is now decided by the visible angle of the line itself. A line that visibly rises is green, one that visibly falls is red, and a flat line is yellow — with pace and heart rate interpreted the right way around, so improvement is always green. Same data, same window, same color, at every zoom level.",
+      "• **Charts That Stay in Sync** – Zooming or panning one chart now refreshes the trend lines on every visible chart instantly. No more tapping a sibling chart to wake up its trend line.",
+      "• **TrendFitStack Polish** – The \"Avg\" label on the average line no longer clips against the top of the chart when your average sits near the ceiling.",
+      "• **Refreshed In-App FAQ** – The Trends entries (English, Spanish, and French) now explain exactly how trend colors are determined and when to use TrendFitStack.",
+      "Update now to get everything above — or download TrendFit free today."
+    ],
+    "links": [
+      { "label": "Download on App Store", "href": "https://apps.apple.com/ca/app/trendfit/id6751863796" }
+    ]
+  },
+  {
     "id": "v1.4-now-live",
     "date": "2026-05-28",
     "published": true,
-    "pinned": true,
+    "pinned": false,
     "title": "TrendFit v1.4 — Now Live on the App Store",
     "tags": ["Release", "New Feature"],
     "body": [
