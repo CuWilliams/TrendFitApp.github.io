@@ -2,6 +2,11 @@
 
 All notable changes to the TrendFit website are documented here.
 
+## [2.0.2] — 2026-06-11
+
+### Changed
+- All absolute site URLs updated from apex `https://trendfitapp.com` to `https://www.trendfitapp.com` to match the new Pages CNAME (canonical links, hreflang alternates, Open Graph/Twitter URLs and images, JSON-LD structured data, sitemap `loc` entries, robots.txt sitemap reference) — canonical URLs no longer point through a 301 redirect
+
 ## [2.0.1] — 2026-06-11
 
 ### Added
