@@ -1,7 +1,9 @@
 # TrendFit Website — Development Guide
 
 **Static GitHub Pages marketing site for the TrendFit iOS fitness analytics app.**
-Live at `trendfitapp.com`. No build step. No dependencies.
+Live at `www.trendfitapp.com` (canonical host, set by `CNAME`). The apex `trendfitapp.com`
+and all `http://` variants 301 to it — expected, and the reason Search Console reports
+non-www URLs under "Page with redirect". No build step. No dependencies.
 
 ---
 
@@ -38,7 +40,12 @@ trendfitapp.github.io/
 │   ├── faq.json            # FAQ content (categories + Q&A entries)
 │   └── policies/           # privacy.en.json, terms.en.json
 ├── images/                 # App screenshots + OG images + SVG logo
-└── media/                  # App preview videos
+├── media/                  # App preview videos
+├── sitemap.xml             # 5 canonical www URLs — keep lastmod current
+├── robots.txt              # Points at www sitemap
+├── CNAME                   # www.trendfitapp.com
+└── privacy-policy.html     # Legacy meta-refresh stubs (+ terms-of-service.html);
+                            # serve 200 not 301, noindex'd, unlinked — leave them
 ```
 
 ---
@@ -83,6 +90,11 @@ Tile classes: `tile-hero`, `tile-promo` (formerly tile-video — now holds promo
 
 **Activating a pending tile** (`data-content-pending="true"`): remove the attribute, add `style="grid-area: <name>"` and `tabindex="0" aria-expanded="false"`, add a `feat-img-wrap` SVG, expand all three `grid-template-areas` breakpoints in CSS, add an entry to `TILE_DATA` in `js/dashboard.js` once a screenshot is ready.
 
+### Internal Links
+Link the homepage as `href="/"`, never `index.html` — the latter is a crawlable 200-status
+duplicate of `/`. Other pages use bare filenames (`faq.html`). Note `js/includes.js`
+normalizes an empty path to the *string* `'index.html'` for nav active-state — not a link.
+
 ### CSS Version Busting
 `css/style.css?v=YYYY-MM-DD-N` — bump when making CSS changes so browsers fetch fresh.
 
@@ -90,17 +102,17 @@ Tile classes: `tile-hero`, `tile-promo` (formerly tile-video — now holds promo
 
 ## Git Workflow
 
-**Active overhaul branch:** `feature/v2-overhaul` (all v2 issues — do not merge to `main`)
-**Parent epic:** Issue #16 (tracks all v2 milestone issues on GitHub)
+**Branching:** Work directly on `main` — it auto-deploys to GitHub Pages. There is no
+active feature branch. Create one only when explicitly requested.
 
 **Commit style:**
 ```
-Resolve #NN: short description
+Resolve #NN: short description      # omit the prefix when there's no issue
 
 - Bullet detail
 - Bullet detail
 
-Co-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>
+Co-Authored-By: Claude <model> <noreply@anthropic.com>   # name the model doing the work
 ```
 
 **CHANGELOG.md** must be updated in every feature commit. A post-commit hook will remind if skipped. Exception: `CLAUDE.md`-only commits do not require a CHANGELOG entry.
