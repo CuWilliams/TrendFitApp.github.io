@@ -2,6 +2,11 @@
 
 All notable changes to the TrendFit website are documented here.
 
+## [2.0.3] — 2026-08-17
+
+### Changed
+- Home links now point at the root path `/` instead of `index.html` (shared header brand link in `partials/header.html`, 404 page "Home" button) — every page previously emitted an internal link to `/index.html`, a 200-status duplicate of `/` that Google Search Console surfaced as a separate crawled URL under "Page with redirect"
+
 ## [2.0.2] — 2026-06-11
 
 ### Changed
