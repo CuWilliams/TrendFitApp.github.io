@@ -2012,6 +2012,14 @@ body.page-doc .site-footer a:hover { color: rgba(255,255,255,.88); }
 [data-theme="dawn"] body.page-doc p,
 [data-theme="dawn"] body.page-doc li { color: var(--text-muted); }
 
+/* Two accent roles happen to sit on an h2 and a p, so the blanket reverts above
+   outrank the rules that colour them: [data-theme="dawn"] adds a class-column
+   point that body.page-faq / body.page-features cannot match. Restate them at
+   dawn's own specificity rather than weakening the blanket rules — those are
+   what keep a new doc page correct with no per-page CSS. */
+[data-theme="dawn"] body.page-faq .faq-category-heading { color: var(--faq-accent-heading); }
+[data-theme="dawn"] body.page-features .mode-kicker { color: var(--section-accent); }
+
 [data-theme="dawn"] body.page-faq .faq-answer,
 [data-theme="dawn"] body.page-faq .faq-error { color: var(--text-muted); }
 [data-theme="dawn"] body.page-announcements .card.announce .meta { color: var(--text-muted); }
