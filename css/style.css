@@ -7,6 +7,7 @@
 /* === Layer 1: Primitive tokens (raw palette) === */
 :root {
   --color-orange-500:  #FF8C00;
+  --color-orange-text: #A34900;  /* AA-safe orange on light grounds (5.5:1 on cream) */
   --color-orange-red:  #FF4500;
   --color-blue-sky:    #2dbaf7;
   --color-blue-deep:   #0a5db3;
@@ -23,6 +24,29 @@
   --color-gray-800:    #2c2c2e;
   --color-gray-700:    #3a3a3c;
   --color-gray-600:    #48484a;
+
+  /* Mode identity — the four TrendFit modes, mirroring the app's screen tints.
+     Dark values are Apple's system colours verbatim. Dawn values are NOT: three
+     of the four fail on the cream ground, so each is darkened until it clears
+     4.5:1 there. Ratios measured against #07090f (dark scene) and #fdf5eb (dawn):
+
+       mode       dark       ratio   dawn       ratio
+       trendfit   #0A84FF     5.5    #0063CC     5.3
+       stack      #5E5CE6     3.9    #5856D6     5.3
+       group      #40C8E0    10.0    #0E6E7F     5.5
+       challenge  #FF9F0A     9.7    #A34900     5.5
+
+     Indigo-on-dark is the one below 4.5 — fine for a border or ring (3:1), so
+     do not set it as body-size text on the dark scene. */
+  --color-mode-blue-dark:   #0A84FF;   /* systemBlue    (dark) */
+  --color-mode-blue-dawn:   #0063CC;   /* systemBlue    darkened for cream */
+  --color-mode-indigo-dark: #5E5CE6;   /* systemIndigo  (dark) */
+  --color-mode-indigo-dawn: #5856D6;   /* systemIndigo  (light) — already clears AA */
+  --color-mode-teal-dark:   #40C8E0;   /* systemTeal    (dark) */
+  --color-mode-teal-dawn:   #0E6E7F;   /* systemTeal    darkened for cream */
+  --color-mode-orange-dark: #FF9F0A;   /* systemOrange  (dark) */
+  /* challenge dawn reuses --color-orange-text (#A34900) — the app's own
+     WarningAccent light variant, so site and app agree on the same shade. */
 }
 
 /* === Layer 2: Semantic tokens (default: dawn) === */
@@ -52,6 +76,11 @@
   --accent-action:        var(--color-blue-action);
   --accent-brand1:        var(--color-orange-500);
   --accent-brand2:        var(--color-orange-red);
+  /* Brand orange as TEXT. #FF8C00 on the dawn cream ground is 2.16:1 — an AA
+     failure, the web mirror of the app's #149 defect. The name is stable and the
+     value moves per theme, so no call site branches. Fills, borders and SVG
+     strokes stay on --accent-brand1: they answer to 3:1, not 4.5:1. */
+  --accent-brand-text:    var(--color-orange-500);
   --social-link:          var(--color-blue-link);
 
   /* Feedback */
@@ -86,6 +115,7 @@
 /* === Layer 3: Dawn theme (formalizes existing identity) === */
 [data-theme="dawn"] {
   color-scheme: light;
+  --accent-brand-text:    var(--color-orange-text);
   --surface-card:         var(--color-white);
   --surface-warm:         var(--color-cream-100);
   --surface-warm-hover:   var(--color-cream-200);
@@ -126,6 +156,7 @@
   --text-muted:           rgba(255,255,255,.55);
   --shadow-card:          rgba(0,0,0,.35);
   --shadow-orange-glow:   rgba(255,140,0,.20);
+  --accent-brand-text:    var(--color-orange-500);
   --bg:                   var(--color-gray-900);
   /* Legacy aliases */
   --border: var(--border-default);
@@ -154,6 +185,7 @@
     --text-muted:           rgba(255,255,255,.55);
     --shadow-card:          rgba(0,0,0,.35);
     --shadow-orange-glow:   rgba(255,140,0,.20);
+    --accent-brand-text:    var(--color-orange-500);
     --bg:                   var(--color-gray-900);
     /* Legacy aliases */
     --border: var(--border-default);
@@ -162,6 +194,110 @@
     --ink:    var(--text-ink);
     --card:   var(--surface-card);
   }
+}
+
+/* === Layer 2c: Mode identity tokens ===
+   Dark-first for the same reason as the glass tokens below: every page renders
+   on a dark scene unless dawn is opted into. Used for tile accent borders,
+   hover rings and the features.html section headings. */
+:root {
+  --mode-trendfit:  var(--color-mode-blue-dark);
+  --mode-stack:     var(--color-mode-indigo-dark);
+  --mode-group:     var(--color-mode-teal-dark);
+  --mode-challenge: var(--color-mode-orange-dark);
+}
+
+[data-theme="dawn"] {
+  --mode-trendfit:  var(--color-mode-blue-dawn);
+  --mode-stack:     var(--color-mode-indigo-dawn);
+  --mode-group:     var(--color-mode-teal-dawn);
+  --mode-challenge: var(--color-orange-text);
+}
+
+/* === Layer 2b: Glass surface tokens ===
+   Every page on this site renders on a dark scene by default — dawn is opt-in,
+   not the fallback (see `body.home`, which is dark with no [data-theme] set).
+   So these default to their DARK values at :root and are rebound only under
+   [data-theme="dawn"]. Same shape as the sparkline tokens that already worked
+   this way, and the reason the ~200 lines of duplicated
+   `[data-theme="dawn"] body.home …` override rules could be deleted. */
+:root {
+  --glass-bg:            rgba(255,255,255,.05);
+  --glass-blur:          blur(20px) saturate(1.4);
+  --glass-border:        rgba(255,255,255,.09);
+  --glass-shadow:        0 4px 24px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.07);
+  --glass-shadow-hover:  0 18px 52px rgba(0,0,0,.55), 0 0 0 1px rgba(255,140,0,.28), inset 0 1px 0 rgba(255,255,255,.10);
+
+  /* Text roles on glass */
+  --glass-heading:       rgba(255,255,255,.95);
+  --glass-body:          rgba(255,255,255,.62);
+  --glass-strong:        rgba(255,255,255,.9);
+  --glass-tagline:       rgba(255,255,255,.65);
+  --glass-muted:         rgba(255,255,255,.55);
+  --glass-faint:         rgba(255,255,255,.35);
+
+  /* Hero tile */
+  --glass-hero-bg:       rgba(255,140,0,.08);
+  --glass-hero-border:   rgba(255,140,0,.22);
+  --glass-hero-shadow:   0 4px 32px rgba(0,0,0,.4), 0 0 0 1px rgba(255,140,0,.12), inset 0 1px 0 rgba(255,255,255,.08);
+  --glass-hero-title:    rgba(255,255,255,.97);
+  --glass-hero-kicker:   rgba(255,255,255,.92);
+  --glass-hero-glow:     0 0 28px rgba(255,140,0,.38);
+
+  /* Promo tile */
+  --glass-promo-bg:      rgba(8,18,40,.72);
+  --glass-promo-border:  rgba(45,186,247,.18);
+  --glass-promo-shadow:  0 8px 40px rgba(0,0,0,.55), inset 0 1px 0 rgba(45,186,247,.12);
+
+  /* Hover/expand panel */
+  --glass-panel-bg:      rgba(7,11,22,.94);
+  --glass-panel-blur:    blur(12px);
+  --glass-panel-intro:   rgba(255,255,255,.82);
+
+  /* Ghost button on glass */
+  --glass-ghost-border:  rgba(255,255,255,.2);
+  --glass-ghost-text:    rgba(255,255,255,.7);
+  --glass-ghost-hover:   rgba(255,255,255,.08);
+
+  /* Feature-tile bullet copy: brand orange in dark, muted in dawn — the dawn
+     `.dash-tile li` override used to win on specificity and produce exactly this. */
+  --glass-list-accent:   var(--accent-brand1);
+}
+
+[data-theme="dawn"] {
+  --glass-bg:            rgba(255,255,255,.72);
+  --glass-blur:          blur(20px) saturate(1.2);
+  --glass-border:        rgba(255,140,0,.22);
+  --glass-shadow:        0 2px 16px rgba(0,0,0,.06), inset 0 1px 0 rgba(255,255,255,.95);
+  --glass-shadow-hover:  0 8px 32px rgba(0,0,0,.10), 0 0 0 1px rgba(255,140,0,.30), inset 0 1px 0 rgba(255,255,255,.95);
+
+  --glass-heading:       var(--text-ink);
+  --glass-body:          var(--text-muted);
+  --glass-strong:        var(--text-ink);
+  --glass-tagline:       var(--text-muted);
+  --glass-muted:         var(--text-muted);
+  --glass-faint:         var(--text-muted);
+
+  --glass-hero-bg:       rgba(255,140,0,.08);
+  --glass-hero-border:   rgba(255,140,0,.28);
+  --glass-hero-shadow:   0 2px 16px rgba(0,0,0,.06), inset 0 1px 0 rgba(255,255,255,.95);
+  --glass-hero-title:    var(--text-ink);
+  --glass-hero-kicker:   var(--text-muted);
+  --glass-hero-glow:     none;
+
+  --glass-promo-bg:      rgba(255,255,255,.55);
+  --glass-promo-border:  rgba(255,140,0,.22);
+  --glass-promo-shadow:  0 4px 24px rgba(0,0,0,.06), inset 0 1px 0 rgba(255,255,255,.90);
+
+  --glass-panel-bg:      rgba(255,255,255,.92);
+  --glass-panel-blur:    blur(16px) saturate(1.2);
+  --glass-panel-intro:   var(--text-ink);
+
+  --glass-ghost-border:  var(--border-default);
+  --glass-ghost-text:    var(--text-ink);
+  --glass-ghost-hover:   rgba(0,0,0,.06);
+
+  --glass-list-accent:   var(--glass-body);
 }
 
 /* === Theme transition (smooth token swap on toggle) === */
@@ -713,19 +849,19 @@ body.home .dashboard-grid {
 
 /* Shared tile base — glass cards on dark scene */
 body.home .dash-tile {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(20px) saturate(1.4);
-  -webkit-backdrop-filter: blur(20px) saturate(1.4);
-  border: 1px solid rgba(255, 255, 255, 0.09);
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
   border-radius: 16px;
   padding: 24px;
-  box-shadow: 0 4px 24px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.07);
+  box-shadow: var(--glass-shadow);
   overflow: hidden;
   transition: transform 0.22s ease, box-shadow 0.22s ease;
 }
 body.home .dash-tile:hover {
   transform: translateY(-5px);
-  box-shadow: 0 18px 52px rgba(0,0,0,.55), 0 0 0 1px rgba(255,140,0,.28), inset 0 1px 0 rgba(255,255,255,.10);
+  box-shadow: var(--glass-shadow-hover);
 }
 @media (prefers-reduced-motion: reduce) {
   body.home .dash-tile { transition: none; }
@@ -736,21 +872,21 @@ body.home .dash-tile:hover {
 body.home .dash-tile .feat-title,
 body.home .dash-tile h1,
 body.home .dash-tile h2 {
-  color: rgba(255,255,255,.95);
+  color: var(--glass-heading);
 }
 body.home .dash-tile .feat-copy,
 body.home .dash-tile p,
 body.home .dash-tile li {
-  color: rgba(255,255,255,.62);
+  color: var(--glass-body);
 }
 body.home .dash-tile .feat-icon { color: var(--accent-brand2); }
 
 /* Hero tile */
 body.home .tile-hero {
   grid-area: hero;
-  background: rgba(255,140,0,.08);
-  border-color: rgba(255,140,0,.22);
-  box-shadow: 0 4px 32px rgba(0,0,0,.4), 0 0 0 1px rgba(255,140,0,.12), inset 0 1px 0 rgba(255,255,255,.08);
+  background: var(--glass-hero-bg);
+  border-color: var(--glass-hero-border);
+  box-shadow: var(--glass-hero-shadow);
   display: flex;
   align-items: stretch;
 }
@@ -788,7 +924,7 @@ body.home .tile-hero .hero-badge {
   background: rgba(255,140,0,.14);
   border: 1px solid rgba(255,140,0,.45);
   border-radius: 24px;
-  color: var(--accent-brand1);
+  color: var(--accent-brand-text);
   font-size: 13px;
   font-weight: 700;
   letter-spacing: .05em;
@@ -800,11 +936,11 @@ body.home .tile-hero .hero-title {
   font-size: clamp(32px, 4.5vw, 58px);
   font-weight: 800;
   line-height: 1.05;
-  color: rgba(255,255,255,.97);
+  color: var(--glass-hero-title);
 }
 body.home .tile-hero .hero-accent {
   font-style: normal;
-  color: var(--accent-brand1);
+  color: var(--accent-brand-text);
 }
 body.home .tile-hero .hero-kicker {
   margin: 0 0 12px;
@@ -812,26 +948,26 @@ body.home .tile-hero .hero-kicker {
   font-weight: 600;
   font-style: italic;
   letter-spacing: 0.02em;
-  color: rgba(255,255,255,.92);
-  text-shadow: 0 0 28px rgba(255,140,0,.38);
+  color: var(--glass-hero-kicker);
+  text-shadow: var(--glass-hero-glow);
 }
 body.home .tile-hero .hero-bullets {
   margin: 0 0 14px;
   padding: 0;
   list-style: none;
   font-size: clamp(13px, 1.5vw, 16px);
-  color: rgba(255,255,255,.62);
+  color: var(--glass-body);
   line-height: 1.75;
 }
 body.home .tile-hero .hero-bullets li::before {
   content: "✓";
-  color: var(--accent-brand1);
+  color: var(--accent-brand-text);
   font-weight: 700;
   margin-right: 8px;
 }
 body.home .tile-hero .hero-announce { margin: 0; font-size: 15px; }
 body.home .tile-hero .hero-announce a {
-  color: var(--accent-brand1);
+  color: var(--accent-brand-text);
   text-decoration: none;
   font-weight: 600;
 }
@@ -840,12 +976,12 @@ body.home .tile-hero .hero-announce a:hover { text-decoration: underline; }
 /* Promo tile */
 body.home .tile-promo {
   grid-area: video;
-  background: rgba(8, 18, 40, 0.72);
-  border-color: rgba(45,186,247,.18);
+  background: var(--glass-promo-bg);
+  border-color: var(--glass-promo-border);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 8px 40px rgba(0,0,0,.55), inset 0 1px 0 rgba(45,186,247,.12);
+  box-shadow: var(--glass-promo-shadow);
 }
 body.home .tile-promo .hero {
   padding: 0;
@@ -906,7 +1042,7 @@ body.home .feat-bullets {
 }
 body.home .feat-bullets li {
   font-size: clamp(12px, 1.2vw, 14px);
-  color: var(--accent-brand1);
+  color: var(--glass-list-accent);
   line-height: 1.4;
   padding-left: 14px;
   position: relative;
@@ -967,9 +1103,9 @@ body.home .tile-feature { position: relative; cursor: pointer; }
 body.home .tile-expand {
   position: absolute;
   inset: 0;
-  background: rgba(7, 11, 22, 0.94);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: var(--glass-panel-bg);
+  backdrop-filter: var(--glass-panel-blur);
+  -webkit-backdrop-filter: var(--glass-panel-blur);
   border-radius: inherit;
   padding: 20px;
   display: flex;
@@ -995,13 +1131,13 @@ body.home .tile-expand .expand-benefit {
 }
 body.home .tile-expand .expand-intro {
   font-size: 13px;
-  color: rgba(255,255,255,.82);
+  color: var(--glass-panel-intro);
   line-height: 1.45;
   margin: 0;
   font-weight: 600;
 }
 body.home .tile-expand .expand-intro-accent {
-  color: var(--accent-brand1);
+  color: var(--accent-brand-text);
   font-weight: 700;
 }
 body.home .tile-expand .expand-bullets {
@@ -1014,7 +1150,7 @@ body.home .tile-expand .expand-bullets {
 }
 body.home .tile-expand .expand-bullets li {
   font-size: 13px;
-  color: rgba(255,255,255,.62);
+  color: var(--glass-body);
   line-height: 1.45;
   padding-left: 14px;
   position: relative;
@@ -1027,7 +1163,7 @@ body.home .tile-expand .expand-bullets li::before {
   font-weight: 700;
 }
 body.home .tile-expand .expand-bullets li strong {
-  color: rgba(255,255,255,.9);
+  color: var(--glass-strong);
   font-weight: 600;
 }
 body.home #tile-privacy,
@@ -1124,7 +1260,7 @@ body.home .tile-cta-social {
 body.home .tile-cta-social .cta-tagline {
   margin: 0;
   font-size: clamp(14px, 1.6vw, 17px);
-  color: rgba(255,255,255,.65);
+  color: var(--glass-tagline);
   max-width: 440px;
 }
 body.home .tile-cta-social .btn-cta-hero {
@@ -1147,21 +1283,21 @@ body.home .tile-cta-social .cta-secondary-row {
   align-items: center;
 }
 body.home .tile-cta-social .socials { margin-top: 0; }
-body.home .tile-cta-social .social-links a { color: rgba(255,255,255,.55); font-size: 20px; }
-body.home .tile-cta-social .social-links a:hover { color: rgba(255,255,255,.9); }
+body.home .tile-cta-social .social-links a { color: var(--glass-muted); font-size: 20px; }
+body.home .tile-cta-social .social-links a:hover { color: var(--glass-strong); }
 body.home .tile-cta-social .footer {
   font-size: 12px;
-  color: rgba(255,255,255,.35);
+  color: var(--glass-faint);
   text-align: center;
   margin: 0;
 }
 body.home .tile-cta-social .btn-ghost {
-  border-color: rgba(255,255,255,.2);
-  color: rgba(255,255,255,.7);
+  border-color: var(--glass-ghost-border);
+  color: var(--glass-ghost-text);
 }
 body.home .tile-cta-social .btn-ghost:hover {
-  background: rgba(255,255,255,.08);
-  color: rgba(255,255,255,.9);
+  background: var(--glass-ghost-hover);
+  color: var(--glass-strong);
 }
 
 /* ================================================================
@@ -1236,78 +1372,9 @@ body.home {
   --sparkline-dot-fill:    rgba(0,0,0,.28);
 }
 
-/* ================================================================
-   Home v2 — Dawn (light) theme overrides
-   ================================================================ */
-
-/* Tiles: warm frosted glass on cream background */
-[data-theme="dawn"] body.home .dash-tile {
-  background: rgba(255,255,255,.72);
-  backdrop-filter: blur(20px) saturate(1.2);
-  -webkit-backdrop-filter: blur(20px) saturate(1.2);
-  border-color: rgba(255,140,0,.22);
-  box-shadow: 0 2px 16px rgba(0,0,0,.06), inset 0 1px 0 rgba(255,255,255,.95);
-}
-[data-theme="dawn"] body.home .dash-tile:hover {
-  box-shadow: 0 8px 32px rgba(0,0,0,.10), 0 0 0 1px rgba(255,140,0,.30), inset 0 1px 0 rgba(255,255,255,.95);
-}
-
-/* Hero tile */
-[data-theme="dawn"] body.home .tile-hero {
-  background: rgba(255,140,0,.08);
-  border-color: rgba(255,140,0,.28);
-}
-
-/* Promo tile */
-[data-theme="dawn"] body.home .tile-promo {
-  background: rgba(255,255,255,.55);
-  border-color: rgba(255,140,0,.22);
-  box-shadow: 0 4px 24px rgba(0,0,0,.06), inset 0 1px 0 rgba(255,255,255,.90);
-}
-
-/* Text: headings + body throughout all home tiles */
-[data-theme="dawn"] body.home .dash-tile .feat-title,
-[data-theme="dawn"] body.home .dash-tile h1,
-[data-theme="dawn"] body.home .dash-tile h2 {
-  color: var(--text-ink);
-}
-[data-theme="dawn"] body.home .dash-tile .feat-copy,
-[data-theme="dawn"] body.home .dash-tile p,
-[data-theme="dawn"] body.home .dash-tile li {
-  color: var(--text-muted);
-}
-
-/* Hero tile text */
-[data-theme="dawn"] body.home .tile-hero .hero-title { color: var(--text-ink); }
-[data-theme="dawn"] body.home .tile-hero .hero-kicker {
-  color: var(--text-muted);
-  text-shadow: none;
-}
-[data-theme="dawn"] body.home .tile-hero .hero-bullets { color: var(--text-muted); }
-
-/* Expand panel background + text */
-[data-theme="dawn"] body.home .tile-expand {
-  background: rgba(255,255,255,.92);
-  backdrop-filter: blur(16px) saturate(1.2);
-  -webkit-backdrop-filter: blur(16px) saturate(1.2);
-}
-[data-theme="dawn"] body.home .tile-expand .expand-intro { color: var(--text-ink); }
-[data-theme="dawn"] body.home .tile-expand .expand-bullets li { color: var(--text-muted); }
-[data-theme="dawn"] body.home .tile-expand .expand-bullets li strong { color: var(--text-ink); }
-
-/* CTA / Socials tile */
-[data-theme="dawn"] body.home .tile-cta-social .cta-tagline { color: var(--text-muted); }
-[data-theme="dawn"] body.home .tile-cta-social .social-links a { color: var(--text-muted); }
-[data-theme="dawn"] body.home .tile-cta-social .social-links a:hover { color: var(--text-ink); }
-[data-theme="dawn"] body.home .tile-cta-social .footer { color: var(--text-muted); }
-[data-theme="dawn"] body.home .tile-cta-social .btn-ghost {
-  border-color: var(--border-default);
-  color: var(--text-ink);
-}
-[data-theme="dawn"] body.home .tile-cta-social .btn-ghost:hover {
-  background: rgba(0,0,0,.06);
-  color: var(--text-ink);
-}
+/* Home v2 dawn overrides used to live here — roughly 75 lines restating every
+   glass value for the light theme. They are gone: the --glass-* tokens above
+   carry both themes now, so there is one place to change a surface. */
 
 /* Announcements page styles */
 .card.announce {
@@ -1487,13 +1554,13 @@ body.page-faq .faq-category,
 body.page-privacy .policy-section,
 body.page-terms .policy-section,
 body.page-404 .oops .container {
-  background: rgba(255,255,255,.05);
-  backdrop-filter: blur(20px) saturate(1.4);
-  -webkit-backdrop-filter: blur(20px) saturate(1.4);
-  border: 1px solid rgba(255,255,255,.09);
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
   border-radius: 16px;
   padding: 24px;
-  box-shadow: 0 4px 24px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.07);
+  box-shadow: var(--glass-shadow);
 }
 
 /* --- Per-page accent border overrides --- */
@@ -1525,10 +1592,20 @@ body.page-announcements .card.announce .meta { color: rgba(255,255,255,.45); }
 body.page-privacy .policy-meta,
 body.page-terms .policy-meta { color: rgba(255,255,255,.40); }
 
-/* --- FAQ: amber accent for headings and toggle markers --- */
-body.page-faq .faq-category-heading { color: rgba(255,140,0,.95); }
+/* --- FAQ: amber accent for headings and toggle markers ---
+   The dawn value was a hand-rolled rgba(200,100,0) at 3.68:1 — short of AA for a
+   1.1rem heading. Same fix as the hero: name the role, move the value per theme. */
+body.page-faq {
+  --faq-accent-heading: rgba(255,140,0,.95);
+  --faq-accent-marker:  rgba(255,140,0,.90);
+}
+[data-theme="dawn"] body.page-faq {
+  --faq-accent-heading: var(--accent-brand-text);
+  --faq-accent-marker:  var(--accent-brand-text);
+}
+body.page-faq .faq-category-heading { color: var(--faq-accent-heading); }
 body.page-faq .faq-question { color: rgba(255,255,255,.90); }
-body.page-faq .faq-question::after { color: rgba(255,140,0,.90); }
+body.page-faq .faq-question::after { color: var(--faq-accent-marker); }
 
 /* --- FAQ items: translucent surface inside glass category card --- */
 body.page-faq .faq-item {
@@ -1696,18 +1773,8 @@ body.page-404 .site-footer a:hover {
    Light cream background + frosted white glass + dark text.
    ================================================================ */
 
-/* --- Glass cards: high-opacity white frost on light background --- */
-[data-theme="dawn"] body.page-announcements .card,
-[data-theme="dawn"] body.page-faq .faq-category,
-[data-theme="dawn"] body.page-privacy .policy-section,
-[data-theme="dawn"] body.page-terms .policy-section,
-[data-theme="dawn"] body.page-404 .oops .container {
-  background: rgba(255,255,255,.72);
-  backdrop-filter: blur(20px) saturate(1.2);
-  -webkit-backdrop-filter: blur(20px) saturate(1.2);
-  box-shadow: 0 2px 16px rgba(0,0,0,.06), inset 0 1px 0 rgba(255,255,255,.95);
-}
-/* Per-page accent borders, suited to light surface */
+/* Glass surface itself now comes from --glass-bg/--glass-blur/--glass-shadow.
+   Only the per-page accent border is genuinely per-page, so only it stays. */
 [data-theme="dawn"] body.page-announcements .card     { border-color: rgba(45,186,247,.35); }
 [data-theme="dawn"] body.page-faq .faq-category       { border-color: rgba(255,140,0,.28); }
 [data-theme="dawn"] body.page-privacy .policy-section { border-color: rgba(16,185,129,.28); }
@@ -1744,9 +1811,7 @@ body.page-404 .site-footer a:hover {
 [data-theme="dawn"] body.page-terms .policy-meta { color: var(--text-muted); }
 
 /* --- FAQ: page-accent colors work on light bg --- */
-[data-theme="dawn"] body.page-faq .faq-category-heading { color: rgba(200,100,0,.95); }
 [data-theme="dawn"] body.page-faq .faq-question { color: var(--text-ink); }
-[data-theme="dawn"] body.page-faq .faq-question::after { color: rgba(200,100,0,.85); }
 [data-theme="dawn"] body.page-faq .faq-item {
   background: rgba(255,255,255,.55);
   border-color: rgba(255,140,0,.20);
@@ -1854,4 +1919,4 @@ body.page-404 .site-footer a:hover {
 [data-theme="dawn"] body.page-faq .site-footer a:hover,
 [data-theme="dawn"] body.page-privacy .site-footer a:hover,
 [data-theme="dawn"] body.page-terms .site-footer a:hover,
-[data-theme="dawn"] body.page-404 .site-footer a:hover { color: var(--accent-brand1); }
+[data-theme="dawn"] body.page-404 .site-footer a:hover { color: var(--accent-brand-text); }

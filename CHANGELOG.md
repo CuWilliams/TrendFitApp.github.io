@@ -2,6 +2,24 @@
 
 All notable changes to the TrendFit website are documented here.
 
+## [3.0.0] — unreleased
+
+Site revamp for the TrendFit iOS **v2.0 public beta**. Being prepared on the branch
+`feature/v3-site-revamp` rather than directly on `main`, by explicit request — `main`
+auto-deploys, so merging is the production release and waits on the live TestFlight link.
+
+### Fixed
+- Brand orange failed WCAG AA as text on the dawn (light) theme: `#FF8C00` on the cream ground measures **2.16:1** against a 4.5:1 requirement. This is the web mirror of the app's #149 defect. Added `--accent-brand-text`, which resolves to `#FF8C00` on dark and `#A34900` (**5.54:1**) on dawn — the same value the app uses for its `WarningAccent` light variant, so site and app now agree on the shade. Applied to the hero badge, hero accent, hero checkmark glyphs, the what's-new link, and `.expand-intro-accent`. Decorative bullet glyphs stay on `--accent-brand1`: they answer to 3:1, not 4.5:1
+- FAQ headings and disclosure markers on dawn used a hand-rolled `rgba(200,100,0)` at **3.68:1** — also short of AA for a 1.1rem heading. Now `--faq-accent-heading` / `--faq-accent-marker`, taking the AA-safe value on dawn
+
+### Added
+- `--glass-*` token set (surface, blur, border, shadow, hover shadow, six text roles, and the hero/promo/panel/ghost-button variants), bound once per theme. Dark-first at `:root` and rebound under `[data-theme="dawn"]`, because every page on this site renders on a dark scene unless dawn is opted into — dawn is not the fallback
+- `--mode-trendfit` / `--mode-stack` / `--mode-group` / `--mode-challenge` mode-identity tokens, mirroring the four app screen tints. Dark values are Apple's system colours verbatim; three of the four fail on the cream ground, so the dawn values are darkened until they clear 4.5:1 there. Measured ratios are recorded beside the primitives
+
+### Changed
+- Glass surfaces on the homepage and on the five non-home pages now consume the shared tokens instead of restating literal `rgba()` values, and the ~75-line `[data-theme="dawn"] body.home …` override block plus the duplicated non-home dawn glass base were deleted. No user-visible behavior change: the rendered output in both themes is unchanged apart from the two contrast fixes above
+- Bumped the CSS cache-bust string to `?v=2026-09-08-1` across all six page files
+
 ## [2.0.3] — 2026-08-17
 
 ### Changed
