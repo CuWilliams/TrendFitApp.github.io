@@ -135,7 +135,7 @@
         <section class="dash-tile tile-hero reveal" aria-labelledby="hero-heading" style="grid-area: hero; --reveal-delay: 0s">
           <div class="tile-hero-inner">
             <div class="hero-top">
-              <img src="images/TrendFitAppVectorIcon.svg" alt="Trend Fit App Logo" class="hero-logo-img" />
+              <img src="images/TrendFitAppVectorIcon.svg" alt="Trend Fit App Logo" class="hero-logo-img" width="1024" height="1024" />
               <span class="hero-badge">v2.0 Public Beta</span>
             </div>
             <div class="hero-body">
@@ -218,7 +218,10 @@
              The route-carousel screenshot has not been captured yet, so the
              image wrap carries data-content-pending and is hidden with no gap.
              To activate: drop images/route-carousel.png in, remove the
-             data-content-pending and aria-hidden attributes. -->
+             data-content-pending and aria-hidden attributes, and put the file's
+             real pixel width/height on the img -- every other screenshot on this
+             page carries them, and without them the tile shifts as it loads.
+             `sips -g pixelWidth -g pixelHeight images/route-carousel.png` -->
         <article class="dash-tile tile-feature reveal" id="tile-group" data-mode="group" style="grid-area: group; --reveal-delay: 0.26s" tabindex="0" aria-expanded="false">
           <div class="feat-icon"><i class="fa-solid fa-route" aria-hidden="true"></i></div>
           <div class="feat-title-row">
@@ -337,7 +340,7 @@
           <div class="feat-img-wrap">
             <img src="images/zoomablecharts.png"
                  alt="Zoomable Charts screen showing a pinch-zoomed date range on a trend chart"
-                 class="feat-img" loading="lazy" width="2296" height="1704"
+                 class="feat-img" loading="lazy" width="1500" height="1113"
                  style="object-fit:cover; object-position:center 40%;">
             <video class="zoom-hover-video" muted loop playsinline preload="none" aria-hidden="true">
               <source src="media/zoomablecharts.mp4" type="video/mp4">
