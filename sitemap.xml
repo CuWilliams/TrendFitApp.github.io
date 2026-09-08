@@ -1,35 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Six canonical www URLs. 404.html is deliberately absent, as are the two
+     legacy meta-refresh stubs (privacy-policy.html, terms-of-service.html),
+     which are noindex'd and unlinked.
+
+     lastmod below is the date of the 3.0.0 site revamp. Every page was touched
+     by it, so they legitimately share one date, but it is the date the work
+     was done, not the date it went live. If this branch merges later than
+     2026-09-08, roll these forward to the merge date rather than leaving a
+     lastmod that predates the deploy. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Homepage -->
   <url>
     <loc>https://www.trendfitapp.com/</loc>
-    <lastmod>2026-06-11</lastmod>
+    <lastmod>2026-09-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <!-- Core pages -->
   <url>
-    <loc>https://www.trendfitapp.com/faq.html</loc>
-    <lastmod>2026-06-11</lastmod>
+    <loc>https://www.trendfitapp.com/features.html</loc>
+    <lastmod>2026-09-08</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.trendfitapp.com/announcements.html</loc>
-    <lastmod>2026-06-11</lastmod>
+    <lastmod>2026-09-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://www.trendfitapp.com/faq.html</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.trendfitapp.com/privacy.html</loc>
-    <lastmod>2026-05-31</lastmod>
+    <lastmod>2026-09-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.trendfitapp.com/terms.html</loc>
-    <lastmod>2026-05-31</lastmod>
+    <lastmod>2026-09-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
