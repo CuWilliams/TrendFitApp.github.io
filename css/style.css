@@ -847,12 +847,17 @@ body.home .dashboard-grid {
   grid-template-columns: repeat(12, 1fr);
   gap: 16px;
   width: 100%;
+  /* Areas are named for the tile that occupies them. Until 3.0.0 `zoom` held
+     the Challenge tile and `chal` held Zoomable Charts — swapped in the 2.0.0
+     overhaul and never renamed. Both are corrected here, so a grep for an area
+     name now finds the tile you expect. */
   grid-template-areas:
     "hero  hero  hero  hero  hero  hero  hero  video video video video video"
-    "tf    tf    tf    tf    stack stack stack stack  zoom  zoom  zoom  zoom"
+    "beta  beta  beta  beta  beta  beta  beta  beta  beta  beta  beta  beta"
+    "tf    tf    tf    tf    stack stack stack stack group group group group"
+    "chal  chal  chal  chal  years years years years zoom  zoom  zoom  zoom"
     "priv  priv  priv  priv  priv  priv  pers  pers  pers  pers  pers  pers"
-    "chal  chal  chal  chal  chal  chal  notif notif notif notif notif notif"
-    "cta   cta   cta   cta   cta   cta   cta   cta   cta   cta   cta   cta";
+    "notif notif notif notif notif notif cta   cta   cta   cta   cta   cta";
 }
 
 /* Shared tile base — glass cards on dark scene */
@@ -1062,6 +1067,66 @@ body.home .feat-bullets li::before {
   color: var(--accent-brand1);
   font-weight: 700;
 }
+
+/* Mode identity on the feature tiles — the four app screen tints, carried by
+   --tile-accent so the icon and the rail read one value. Compare Years takes
+   indigo because it is a TrendFitStack feature, not a fifth mode.
+
+   Only the icon and the 3px rail are tinted, and both are decorative: the tile
+   title spells the mode out beside them, so they answer to 3:1, not 4.5:1. That
+   matters here — measured against the lightest ground a home tile can sit on
+   (the orange page radial at its centre, under the .05 white glass, #423325),
+   blue is 3.32:1 and indigo 3.44:1. Legible as a graphic, not as body text.
+   Titles and copy stay on --glass-heading / --glass-body, which already clear
+   AA in both themes. */
+body.home .tile-feature[data-mode="trendfit"]  { --tile-accent: var(--mode-trendfit); }
+body.home .tile-feature[data-mode="stack"]     { --tile-accent: var(--mode-stack); }
+body.home .tile-feature[data-mode="group"]     { --tile-accent: var(--mode-group); }
+body.home .tile-feature[data-mode="challenge"] { --tile-accent: var(--mode-challenge); }
+
+body.home .tile-feature[data-mode] { position: relative; }
+body.home .tile-feature[data-mode] .feat-icon { color: var(--tile-accent); }
+body.home .tile-feature[data-mode]::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--tile-accent);
+  opacity: .85;
+}
+
+/* "New in 2.0" flag beside a tile title. */
+body.home .feat-title-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+body.home .feat-new {
+  padding: 2px 9px;
+  border: 1px solid var(--tile-accent, var(--accent-brand1));
+  border-radius: 20px;
+  color: var(--tile-accent, var(--accent-brand-text));
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* "Learn more" pointer into the matching features.html section. Pushed to the
+   bottom of the tile so it lands in the same place on every card. */
+body.home .feat-more {
+  margin: auto 0 0;
+  font-size: 13px;
+  font-weight: 600;
+}
+body.home .feat-more a {
+  color: var(--tile-accent, var(--accent-brand-text));
+  text-decoration: none;
+}
+body.home .feat-more a:hover,
+body.home .feat-more a:focus-visible { text-decoration: underline; }
 body.home .feat-img-wrap {
   border-radius: 10px;
   overflow: hidden;
@@ -1308,6 +1373,74 @@ body.home .tile-cta-social .btn-ghost:hover {
   color: var(--glass-strong);
 }
 
+/* Beta CTA tile — full-width band under the hero. Teal-edged rather than
+   orange so it reads as a separate channel from the App Store CTA at the
+   bottom of the page, which is still serving stable v1.5. */
+body.home .tile-beta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+  padding: 28px 24px;
+  background: linear-gradient(135deg, rgba(64,200,224,.10) 0%, rgba(255,140,0,.08) 100%);
+  border-color: rgba(64,200,224,.28);
+}
+body.home .tile-beta .beta-kicker {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--mode-group);
+}
+body.home .tile-beta h2 {
+  margin: 0;
+  font-size: clamp(20px, 2.6vw, 28px);
+  font-weight: 800;
+}
+body.home .tile-beta .beta-copy {
+  margin: 0;
+  max-width: 560px;
+  font-size: clamp(13px, 1.4vw, 15px);
+  line-height: 1.6;
+}
+body.home .tile-beta .beta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 4px;
+}
+body.home .tile-beta .btn-cta-hero {
+  font-size: 16px;
+  padding: 14px 28px;
+  border-radius: 14px;
+  background: var(--accent-brand1);
+  color: #fff;
+  border: none;
+  box-shadow: 0 4px 24px rgba(255,140,0,.35);
+  transition: filter 0.18s ease, box-shadow 0.18s ease;
+}
+body.home .tile-beta .btn-cta-hero:hover {
+  filter: brightness(1.1);
+  box-shadow: 0 8px 32px rgba(255,140,0,.5);
+}
+body.home .tile-beta .btn-ghost {
+  border-color: var(--glass-ghost-border);
+  color: var(--glass-ghost-text);
+}
+body.home .tile-beta .btn-ghost:hover {
+  background: var(--glass-ghost-hover);
+  color: var(--glass-strong);
+}
+body.home .tile-beta .beta-note {
+  margin: 0;
+  font-size: 12px;
+  color: var(--glass-faint);
+}
+body.home .tile-beta .beta-note a { color: inherit; }
+
 /* ================================================================
    Home v2 — Responsive Breakpoints
    ================================================================ */
@@ -1318,10 +1451,13 @@ body.home .tile-cta-social .btn-ghost:hover {
     grid-template-areas:
       "hero  hero  hero  hero  hero  hero"
       "video video video video video video"
+      "beta  beta  beta  beta  beta  beta"
       "tf    tf    tf    stack stack stack"
-      "zoom  zoom  zoom  priv  priv  priv"
+      "group group group chal  chal  chal"
+      "years years years zoom  zoom  zoom"
+      "priv  priv  priv  priv  priv  priv"
       "pers  pers  pers  pers  pers  pers"
-      "chal  chal  chal  notif notif notif"
+      "notif notif notif notif notif notif"
       "cta   cta   cta   cta   cta   cta";
   }
 }
@@ -1334,12 +1470,15 @@ body.home .tile-cta-social .btn-ghost:hover {
     grid-template-areas:
       "hero"
       "video"
+      "beta"
       "tf"
       "stack"
+      "group"
+      "chal"
+      "years"
       "zoom"
       "priv"
       "pers"
-      "chal"
       "notif"
       "cta";
   }

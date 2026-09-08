@@ -3,16 +3,24 @@
 (function () {
   'use strict';
 
+  // A tile with a video has no `benefit`: .tile-expand.has-video sets
+  // .expand-benefit to display:none, so the string never rendered. The prose
+  // that used to sit here is on features.html now, which is where a reader can
+  // actually see it — each tile links straight to its section.
   var TILE_DATA = {
     'tile-trendfit': {
-      benefit: 'Linear regression over your actual workouts — see if you\'re getting faster, stronger, or just consistent.',
       video: 'media/trendfit.mp4',
       videoAlt: 'Screen recording of TrendFit chart with trend line'
     },
     'tile-stack': {
-      benefit: 'Stack week-over-week or month-over-month totals to spot effort patterns at a glance.',
       video: 'media/trendfitstack.mp4',
       videoAlt: 'Screen recording of TrendFitStack stacked bar chart'
+    },
+    'tile-group': {
+      benefit: 'Matched by the GPS route already recorded with each outdoor workout — then charted for pace, speed and duration across every repeat. Distance is the constant on a fixed route, so it is deliberately left out. Route outlines draw offline from cached geometry; no map tiles are ever fetched.'
+    },
+    'tile-compare-years': {
+      benefit: 'Each calendar year drawn as its own line on a shared January-to-December axis, so last June lands directly under this June. Charts now reach back three years.'
     },
     // tile-zoom uses image-area-only video; no expand panel needed
     'tile-privacy': {
@@ -36,12 +44,10 @@
       ]
     },
     'tile-challenges': {
-      benefit: 'Set a distance, energy, or pace goal. Track progress as you train. See the moment you beat it.',
       video: 'media/trendfitchallenge.mp4',
       videoAlt: 'Screen recording of TrendFit Challenge goal progress view'
     },
     'tile-challenge-notifications': {
-      benefit: 'Get progress updates on your schedule. All notifications are generated on-device — no data leaves your phone.',
       video: 'media/challenge-notifications.mp4',
       videoAlt: 'Screen recording of a Challenge notification appearing'
     }

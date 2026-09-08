@@ -19,13 +19,24 @@ auto-deploys, so merging is the production release and waits on the live TestFli
 - A **Features** link, first in the shared nav (`Features · Announcements · FAQ · Privacy · Terms`)
 - `body.page-doc` — a shared class on all six non-home pages, and `--page-accent` / `--page-card-border-a` per page, so a page's identity is one declaration instead of a name added to twenty selector lists
 - `js/faq.js` renders an optional `link` object on an FAQ entry as a real `<a>` element. Answer text is escaped through `esc()` on the way in, so markup inside `a` is impossible by design — the pointer had to be structured data, not inline HTML
+- Homepage tile: **TrendFitGroup** (teal), the flagship of app v2.0 — route-matched trends for the loops you repeat
+- Homepage tile: **Compare Years** (indigo, because it is a TrendFitStack feature rather than a fifth mode)
+- Homepage tile: a full-width **beta CTA band** under the hero — "Join the v2.0 Beta" to TestFlight, "See what's new" to `features.html`, and the feedback address
+- Mode tints on the feature tiles, carried by `--tile-accent`: a 3px rail across the top of the tile and the tile's icon. Both are decorative — the title names the mode beside them — so they answer to 3:1 rather than 4.5:1, which is the margin they need: against the lightest ground a home tile can sit on (`#423325`, the orange page radial at its centre under the .05 white glass) blue measures 3.32:1 and indigo 3.44:1
+- "Learn more →" from each mode tile into its `features.html` section, and a Features link in every page footer
+- Explicit `width`/`height` on all five homepage screenshots, from the files' real pixel dimensions, so the tiles reserve their space before the image decodes
 
 ### Changed
 - Glass surfaces on the homepage and on the five non-home pages now consume the shared tokens instead of restating literal `rgba()` values, and the ~75-line `[data-theme="dawn"] body.home …` override block plus the duplicated non-home dawn glass base were deleted. No user-visible behavior change: the rendered output in both themes is unchanged apart from the two contrast fixes above
 - About twenty five-page enumerated selector lists (page text colours, header, nav pills and their three states, theme toggle, footer and its links — in both the dark and the dawn half) collapsed onto `body.page-doc` with the hue composed from `rgba(var(--page-accent), …)`. Net effect: `css/style.css` got shorter while gaining a sixth page scene. No user-visible behavior change
 - `data/faq.json` answers questions instead of re-describing features. "What is TrendFit / TrendFitStack / TrendFitChallenge?" are each one sentence now, followed by a link into the matching `features.html` anchor; a "What is TrendFitGroup?" entry joins them. "What health data does TrendFit access?" names Workout Routes and the 15 data types v2.0 stopped asking for; the device and personalisation entries pick up iOS 18, the route requirement, and the 24- and 36-month windows
 - The stepped `body` top-padding rules below 1180px are now `max(var(--header-h), …)` rather than fixed values. `js/includes.js` already measured the real header and wrote it to `--header-h`; the fixed values were overriding that measurement, so the fifth nav pill — which takes the pills to two rows below 520px — would have left the fixed header sitting on the first heading. The old values survive as floors, so nothing changes where the header is shorter than the guess
-- Bumped the CSS cache-bust string to `?v=2026-09-08-1` across all seven page files, and `VERSION` in `js/faq.js`
+- Homepage grid rebuilt at all three breakpoints to carry thirteen areas instead of ten. The `zoom` and `chal` areas are also renamed to match the tiles that occupy them: the 2.0.0 overhaul swapped the two tiles without renaming the areas, so `grid-area: zoom` had been holding the Challenge tile for four months
+- Hero: badge reads **v2.0 Public Beta**, a routes bullet joins the list, and the what's-new link points at the v2.0 announcement
+- The bottom CTA promotes the beta to the primary button; the App Store demotes to the secondary row and is labelled **App Store (v1.5)**, which is what it actually serves while the beta runs
+- `TILE_DATA` in `js/dashboard.js` drops the `benefit` string from all four video tiles. It never rendered — `.tile-expand.has-video` sets `.expand-benefit` to `display: none` — so the copy was invisible maintenance. That prose lives on `features.html`, which each tile now links to. The two new tiles have no recording yet and so carry a benefit panel
+- Homepage `© 2025` → `© 2026`, in the CTA tile and the site footer, and on the other five pages
+- Bumped the CSS cache-bust string to `?v=2026-09-08-2` across all seven page files, and `VERSION` in `js/faq.js`
 
 ## [2.0.3] — 2026-08-17
 
