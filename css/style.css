@@ -26,21 +26,29 @@
   --color-gray-600:    #48484a;
 
   /* Mode identity — the four TrendFit modes, mirroring the app's screen tints.
-     Dark values are Apple's system colours verbatim. Dawn values are NOT: three
-     of the four fail on the cream ground, so each is darkened until it clears
-     4.5:1 there. Ratios measured against #07090f (dark scene) and #fdf5eb (dawn):
+     Every value is measured against the *lightest* stop of every page scene it
+     can land on, dark and dawn, so these are worst-case ratios rather than
+     best-case ones. All eight clear 4.5:1, which is what lets them carry
+     section-heading text and not only borders:
 
-       mode       dark       ratio   dawn       ratio
-       trendfit   #0A84FF     5.5    #0063CC     5.3
-       stack      #5E5CE6     3.9    #5856D6     5.3
-       group      #40C8E0    10.0    #0E6E7F     5.5
-       challenge  #FF9F0A     9.7    #A34900     5.5
+       mode       dark       worst   dawn       worst
+       trendfit   #0A84FF     5.11   #0063CC     4.72
+       stack      #7D7BEF     5.28   #5856D6     4.64
+       group      #40C8E0     9.36   #0E6E7F     4.86
+       challenge  #FF9F0A     9.06   #A34900     4.92
 
-     Indigo-on-dark is the one below 4.5 — fine for a border or ring (3:1), so
-     do not set it as body-size text on the dark scene. */
+     Six of the eight are Apple's system colours; the two that are not are
+     deliberate. systemIndigo dark (#5E5CE6) measures 3.83 on the features
+     page's ground — Apple validated it against systemBackground, far lighter
+     than these scenes — so it is lifted to #7D7BEF. systemTeal and systemOrange
+     light both fail badly on cream (2.39 and 2.04), the same defect as the
+     app's #149, so both are darkened.
+
+     Fills and hairline borders answer to 3:1, not 4.5:1, and are composed from
+     the per-page --page-accent triples at low alpha instead. */
   --color-mode-blue-dark:   #0A84FF;   /* systemBlue    (dark) */
   --color-mode-blue-dawn:   #0063CC;   /* systemBlue    darkened for cream */
-  --color-mode-indigo-dark: #5E5CE6;   /* systemIndigo  (dark) */
+  --color-mode-indigo-dark: #7D7BEF;   /* systemIndigo, lifted for these grounds */
   --color-mode-indigo-dawn: #5856D6;   /* systemIndigo  (light) — already clears AA */
   --color-mode-teal-dark:   #40C8E0;   /* systemTeal    (dark) */
   --color-mode-teal-dawn:   #0E6E7F;   /* systemTeal    darkened for cream */
@@ -1455,6 +1463,21 @@ body.home {
 }
 .faq-error { color: var(--text-muted); font-size: 14px; }
 
+/* Optional pointer from a trimmed FAQ answer into features.html. Built as a
+   real element by js/faq.js, because answer text is escaped on the way in. */
+.faq-more {
+  padding: 0 16px 14px;
+  margin: -4px 0 0;
+  font-size: 14px;
+}
+.faq-more a {
+  color: var(--accent-brand-text);
+  text-decoration: none;
+  font-weight: 600;
+}
+.faq-more a:hover,
+.faq-more a:focus-visible { text-decoration: underline; }
+
 /* 404 page */
 .oops { text-align: center; padding: 56px 0 24px; }
 .oops h1 { font-size: clamp(28px, 6vw, 44px); margin: 0 0 8px; }
@@ -1474,14 +1497,36 @@ body.home {
 /* Reserve space so content doesn't slide under the fixed header */
 body { padding-top: var(--header-h); }
 
-/* If the nav wraps on narrower widths, add more top padding */
-@media (max-width: 1180px){ body { padding-top: 72px; } }
-@media (max-width:  840px){ body { padding-top: 88px; } }
-@media (max-width:  520px){ body { padding-top: 104px; } }
+/* If the nav wraps on narrower widths, add more top padding.
+   These are floors, not overrides. js/includes.js measures the real header and
+   writes it back to --header-h, so max() lets the measurement win whenever the
+   header is taller than the guess — which is what the fifth nav pill does below
+   520px, where the pills now take two rows. Before max(), the hard 104px was
+   the ceiling and the sticky header sat on top of the first heading. Below the
+   floor the value is unchanged from before, and the pre-JS/no-JS fallback of
+   --header-h: 56px keeps the first paint identical. */
+@media (max-width: 1180px){ body { padding-top: max(var(--header-h), 72px); } }
+@media (max-width:  840px){ body { padding-top: max(var(--header-h), 88px); } }
+@media (max-width:  520px){ body { padding-top: max(var(--header-h), 104px); } }
 
 /* ================================================================
    Non-home page backgrounds & glass treatment
    ================================================================ */
+
+/* Each doc page states its accent once, as an unwrapped RGB triple so every
+   alpha below can be composed from it — `rgba(var(--page-accent), .28)`. Before
+   this, the same five hues were spelled out across roughly twenty rule blocks,
+   which is why a sixth page could not simply be added. Only the card border's
+   alpha moves per theme; dawn's lighter glass needs a stronger edge. */
+body.page-announcements { --page-accent:  45,186,247; --page-card-border-a: .20; }
+body.page-faq           { --page-accent: 255,140,  0; --page-card-border-a: .22; }
+body.page-privacy       { --page-accent:  16,185,129; --page-card-border-a: .22; }
+body.page-terms         { --page-accent:  99,102,241; --page-card-border-a: .22; }
+body.page-features      { --page-accent: 139, 92,246; --page-card-border-a: .22; }
+body.page-404           { --page-accent: 239, 68, 68; --page-card-border-a: .22; }
+
+[data-theme="dawn"] body.page-doc           { --page-card-border-a: .28; }
+[data-theme="dawn"] body.page-announcements { --page-card-border-a: .35; }
 
 /* --- Announcements — sky blue --- */
 body.page-announcements {
@@ -1535,6 +1580,19 @@ body.page-terms {
     linear-gradient(160deg, #f2f2fb 0%, #e7e7f8 55%, #f2f2fb 100%);
 }
 
+/* --- Features — violet --- */
+body.page-features {
+  background:
+    radial-gradient(ellipse 62% 45% at 82% 12%, rgba(139,92,246,.16) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 40% at 12% 80%, rgba(45,186,247,.07) 0%, transparent 50%),
+    linear-gradient(160deg, #08060f 0%, #0e0b1c 55%, #08060f 100%);
+}
+[data-theme="dawn"] body.page-features {
+  background:
+    radial-gradient(ellipse 62% 45% at 82% 12%, rgba(139,92,246,.13) 0%, transparent 55%),
+    linear-gradient(160deg, #f6f3fd 0%, #ece6fa 55%, #f6f3fd 100%);
+}
+
 /* --- 404 — red --- */
 body.page-404 {
   background:
@@ -1553,38 +1611,21 @@ body.page-announcements .card,
 body.page-faq .faq-category,
 body.page-privacy .policy-section,
 body.page-terms .policy-section,
+body.page-features .doc-section,
 body.page-404 .oops .container {
   background: var(--glass-bg);
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
-  border: 1px solid var(--glass-border);
+  border: 1px solid rgba(var(--page-accent), var(--page-card-border-a));
   border-radius: 16px;
   padding: 24px;
   box-shadow: var(--glass-shadow);
 }
 
-/* --- Per-page accent border overrides --- */
-body.page-announcements .card     { border-color: rgba(45,186,247,.20); }
-body.page-faq .faq-category       { border-color: rgba(255,140,0,.22); }
-body.page-privacy .policy-section { border-color: rgba(16,185,129,.22); }
-body.page-terms .policy-section   { border-color: rgba(99,102,241,.22); }
-body.page-404 .oops .container    { border-color: rgba(239,68,68,.22); }
-
 /* --- White text (overrides semantic tokens on dark backgrounds) --- */
-body.page-faq, body.page-announcements, body.page-privacy,
-body.page-terms, body.page-404 { color: rgba(255,255,255,.88); }
-
-body.page-faq h1, body.page-faq h2, body.page-faq h3,
-body.page-announcements h1, body.page-announcements h2, body.page-announcements h3,
-body.page-privacy h1, body.page-privacy h2, body.page-privacy h3,
-body.page-terms h1, body.page-terms h2, body.page-terms h3,
-body.page-404 h1, body.page-404 h2 { color: rgba(255,255,255,.97); }
-
-body.page-faq p, body.page-faq li,
-body.page-announcements p, body.page-announcements li,
-body.page-privacy p, body.page-privacy li,
-body.page-terms p, body.page-terms li,
-body.page-404 p { color: rgba(255,255,255,.65); }
+body.page-doc { color: rgba(255,255,255,.88); }
+body.page-doc h1, body.page-doc h2, body.page-doc h3 { color: rgba(255,255,255,.97); }
+body.page-doc p, body.page-doc li { color: rgba(255,255,255,.65); }
 
 body.page-faq .faq-answer,
 body.page-faq .faq-error { color: rgba(255,255,255,.55); }
@@ -1610,9 +1651,122 @@ body.page-faq .faq-question::after { color: var(--faq-accent-marker); }
 /* --- FAQ items: translucent surface inside glass category card --- */
 body.page-faq .faq-item {
   background: rgba(255,255,255,.04);
-  border-color: rgba(255,140,0,.18);
+  border-color: rgba(var(--page-accent),.18);
 }
-body.page-faq .faq-item[open] { border-color: rgba(255,140,0,.35); }
+body.page-faq .faq-item[open] { border-color: rgba(var(--page-accent),.35); }
+
+/* ================================================================
+   Features page
+   ================================================================ */
+
+body.page-features .doc-lede {
+  font-size: clamp(16px, 2vw, 20px);
+  line-height: 1.6;
+  max-width: 64ch;
+  margin: 0 0 28px;
+}
+
+/* Jump links to the four mode sections. Each pill takes its own mode colour,
+   which is the whole point of the --mode-* tokens: the page reads as the app. */
+body.page-features .doc-jump {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0 0 32px;
+  padding: 0;
+  list-style: none;
+}
+body.page-features .doc-jump a {
+  display: inline-block;
+  padding: 8px 16px;
+  border: 1px solid var(--section-accent);
+  border-radius: 24px;
+  color: var(--section-accent);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.18s ease;
+}
+body.page-features .doc-jump a:hover,
+body.page-features .doc-jump a:focus-visible {
+  background: color-mix(in srgb, var(--section-accent) 14%, transparent);
+}
+
+body.page-features .doc-section {
+  margin: 0 0 20px;
+  scroll-margin-top: calc(var(--header-h) + 16px);
+}
+/* A mode section is bordered and headed in its own mode colour; the violet
+   --page-accent stays on the supporting sections that belong to no mode. */
+body.page-features .doc-section[data-mode] {
+  border-color: color-mix(in srgb, var(--section-accent) 32%, transparent);
+}
+/* Set on the element, not on .doc-section, so the jump pills inherit the same
+   four values without restating them. */
+body.page-features [data-mode="trendfit"]  { --section-accent: var(--mode-trendfit); }
+body.page-features [data-mode="stack"]     { --section-accent: var(--mode-stack); }
+body.page-features [data-mode="group"]     { --section-accent: var(--mode-group); }
+body.page-features [data-mode="challenge"] { --section-accent: var(--mode-challenge); }
+
+body.page-features .mode-kicker {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0 0 6px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--section-accent);
+}
+body.page-features .badge-new {
+  padding: 3px 10px;
+  border: 1px solid var(--section-accent);
+  border-radius: 20px;
+  font-size: 11px;
+  letter-spacing: .04em;
+}
+body.page-features .doc-section h2 {
+  margin: 0 0 12px;
+  font-size: clamp(20px, 2.6vw, 28px);
+  line-height: 1.25;
+}
+body.page-features .doc-bullets {
+  margin: 14px 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+body.page-features .doc-bullets li {
+  padding-left: 18px;
+  position: relative;
+  line-height: 1.6;
+}
+body.page-features .doc-bullets li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: .58em;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--section-accent, rgba(var(--page-accent), 1));
+}
+body.page-features .doc-note {
+  margin: 14px 0 0;
+  font-size: 14px;
+  font-style: italic;
+}
+body.page-features .doc-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin-top: 18px;
+}
 
 /* --- Policy pages: suppress outer .card wrapper — sections are the glass units --- */
 body.page-privacy .card,
@@ -1630,19 +1784,15 @@ body.page-announcements .card {
 }
 body.page-faq .faq-item:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 32px rgba(0,0,0,.45), 0 0 0 1px rgba(255,140,0,.30);
+  box-shadow: 0 8px 32px rgba(0,0,0,.45), 0 0 0 1px rgba(var(--page-accent),.30);
 }
 body.page-announcements .card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 40px rgba(0,0,0,.50), 0 0 0 1px rgba(45,186,247,.30);
+  box-shadow: 0 12px 40px rgba(0,0,0,.50), 0 0 0 1px rgba(var(--page-accent),.30);
 }
 
 /* --- Suppress section alt/highlight background bands on dark pages --- */
-body.page-faq .section.alt, body.page-faq .section.highlight,
-body.page-announcements .section.alt, body.page-announcements .section.highlight,
-body.page-privacy .section.alt, body.page-privacy .section.highlight,
-body.page-terms .section.alt, body.page-terms .section.highlight,
-body.page-404 .section.alt, body.page-404 .section.highlight {
+body.page-doc .section.alt, body.page-doc .section.highlight {
   background: transparent;
   border-top: none;
   border-bottom: none;
@@ -1653,11 +1803,7 @@ body.page-404 .section.alt, body.page-404 .section.highlight {
    ================================================================ */
 
 /* --- Header: always dark glass (overrides both dawn and dark theme tokens) --- */
-body.page-announcements .site-header,
-body.page-faq .site-header,
-body.page-privacy .site-header,
-body.page-terms .site-header,
-body.page-404 .site-header {
+body.page-doc .site-header {
   background: rgba(7,9,15,.75);
   backdrop-filter: saturate(180%) blur(18px);
   -webkit-backdrop-filter: saturate(180%) blur(18px);
@@ -1665,144 +1811,67 @@ body.page-404 .site-header {
 }
 
 /* White text on brand and nav links */
-body.page-announcements .site-header .brand,
-body.page-faq .site-header .brand,
-body.page-privacy .site-header .brand,
-body.page-terms .site-header .brand,
-body.page-404 .site-header .brand,
-body.page-announcements .site-header .nav-links a,
-body.page-faq .site-header .nav-links a,
-body.page-privacy .site-header .nav-links a,
-body.page-terms .site-header .nav-links a,
-body.page-404 .site-header .nav-links a {
+body.page-doc .site-header .brand,
+body.page-doc .site-header .nav-links a {
   color: rgba(255,255,255,.82);
 }
 
-/* Dark glass pill base (replaces orange-pastel surface-warm) */
-body.page-announcements .site-header .nav-links a,
-body.page-faq .site-header .nav-links a,
-body.page-privacy .site-header .nav-links a,
-body.page-terms .site-header .nav-links a,
-body.page-404 .site-header .nav-links a {
+/* Dark glass pill base (replaces orange-pastel surface-warm), accented per page */
+body.page-doc .site-header .nav-links a {
   background: rgba(255,255,255,.06);
+  border-color: rgba(var(--page-accent),.28);
 }
 
-/* Per-page accent pill border */
-body.page-announcements .site-header .nav-links a { border-color: rgba(45,186,247,.28); }
-body.page-faq           .site-header .nav-links a { border-color: rgba(255,140,0,.28); }
-body.page-privacy       .site-header .nav-links a { border-color: rgba(16,185,129,.28); }
-body.page-terms         .site-header .nav-links a { border-color: rgba(99,102,241,.28); }
-body.page-404           .site-header .nav-links a { border-color: rgba(239,68,68,.28); }
-
-/* Hover + active (current page) per page */
-body.page-announcements .site-header .nav-links a:hover,
-body.page-announcements .site-header .nav-links a:focus-visible,
-body.page-announcements .site-header .nav-links a[aria-current="page"] {
-  background: rgba(45,186,247,.12); border-color: rgba(45,186,247,.55); color: #fff;
-}
-body.page-faq .site-header .nav-links a:hover,
-body.page-faq .site-header .nav-links a:focus-visible,
-body.page-faq .site-header .nav-links a[aria-current="page"] {
-  background: rgba(255,140,0,.12); border-color: rgba(255,140,0,.55); color: #fff;
-}
-body.page-privacy .site-header .nav-links a:hover,
-body.page-privacy .site-header .nav-links a:focus-visible,
-body.page-privacy .site-header .nav-links a[aria-current="page"] {
-  background: rgba(16,185,129,.12); border-color: rgba(16,185,129,.55); color: #fff;
-}
-body.page-terms .site-header .nav-links a:hover,
-body.page-terms .site-header .nav-links a:focus-visible,
-body.page-terms .site-header .nav-links a[aria-current="page"] {
-  background: rgba(99,102,241,.12); border-color: rgba(99,102,241,.55); color: #fff;
-}
-body.page-404 .site-header .nav-links a:hover,
-body.page-404 .site-header .nav-links a:focus-visible,
-body.page-404 .site-header .nav-links a[aria-current="page"] {
-  background: rgba(239,68,68,.12); border-color: rgba(239,68,68,.55); color: #fff;
+/* Hover + active (current page) */
+body.page-doc .site-header .nav-links a:hover,
+body.page-doc .site-header .nav-links a:focus-visible,
+body.page-doc .site-header .nav-links a[aria-current="page"] {
+  background: rgba(var(--page-accent),.12);
+  border-color: rgba(var(--page-accent),.55);
+  color: #fff;
 }
 
 /* Theme toggle: dark glass on dark pages */
-body.page-announcements .theme-toggle,
-body.page-faq .theme-toggle,
-body.page-privacy .theme-toggle,
-body.page-terms .theme-toggle,
-body.page-404 .theme-toggle {
+body.page-doc .theme-toggle {
   background: rgba(255,255,255,.07);
   border-color: rgba(255,255,255,.15);
   color: rgba(255,255,255,.88);
 }
-body.page-announcements .theme-toggle:hover,
-body.page-faq .theme-toggle:hover,
-body.page-privacy .theme-toggle:hover,
-body.page-terms .theme-toggle:hover,
-body.page-404 .theme-toggle:hover {
+body.page-doc .theme-toggle:hover {
   background: rgba(255,255,255,.13);
   border-color: rgba(255,255,255,.25);
 }
 
 /* --- Footer: dark glass --- */
-body.page-announcements .site-footer,
-body.page-faq .site-footer,
-body.page-privacy .site-footer,
-body.page-terms .site-footer,
-body.page-404 .site-footer {
+body.page-doc .site-footer {
   background: rgba(0,0,0,.35);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-top: 1px solid rgba(255,255,255,.08);
   color: rgba(255,255,255,.42);
 }
-body.page-announcements .site-footer a,
-body.page-faq .site-footer a,
-body.page-privacy .site-footer a,
-body.page-terms .site-footer a,
-body.page-404 .site-footer a {
+body.page-doc .site-footer a {
   color: rgba(255,255,255,.52);
   text-decoration: none;
 }
-body.page-announcements .site-footer a:hover,
-body.page-faq .site-footer a:hover,
-body.page-privacy .site-footer a:hover,
-body.page-terms .site-footer a:hover,
-body.page-404 .site-footer a:hover {
-  color: rgba(255,255,255,.88);
-}
+body.page-doc .site-footer a:hover { color: rgba(255,255,255,.88); }
 
 /* ================================================================
    Non-home pages: dawn (light) mode — genuinely light design
    Light cream background + frosted white glass + dark text.
    ================================================================ */
 
-/* Glass surface itself now comes from --glass-bg/--glass-blur/--glass-shadow.
-   Only the per-page accent border is genuinely per-page, so only it stays. */
-[data-theme="dawn"] body.page-announcements .card     { border-color: rgba(45,186,247,.35); }
-[data-theme="dawn"] body.page-faq .faq-category       { border-color: rgba(255,140,0,.28); }
-[data-theme="dawn"] body.page-privacy .policy-section { border-color: rgba(16,185,129,.28); }
-[data-theme="dawn"] body.page-terms .policy-section   { border-color: rgba(99,102,241,.28); }
-[data-theme="dawn"] body.page-404 .oops .container    { border-color: rgba(239,68,68,.28); }
+/* The glass surface comes from --glass-bg/--glass-blur/--glass-shadow, and the
+   accent border from --page-accent with dawn's own alpha, so nothing about the
+   card needs restating here at all. */
 
 /* --- Text: revert from forced white to semantic dark tokens --- */
-[data-theme="dawn"] body.page-faq,
-[data-theme="dawn"] body.page-announcements,
-[data-theme="dawn"] body.page-privacy,
-[data-theme="dawn"] body.page-terms,
-[data-theme="dawn"] body.page-404 { color: var(--text-ink); }
-
-[data-theme="dawn"] body.page-faq h1, [data-theme="dawn"] body.page-faq h2,
-[data-theme="dawn"] body.page-faq h3,
-[data-theme="dawn"] body.page-announcements h1, [data-theme="dawn"] body.page-announcements h2,
-[data-theme="dawn"] body.page-announcements h3,
-[data-theme="dawn"] body.page-privacy h1, [data-theme="dawn"] body.page-privacy h2,
-[data-theme="dawn"] body.page-privacy h3,
-[data-theme="dawn"] body.page-terms h1, [data-theme="dawn"] body.page-terms h2,
-[data-theme="dawn"] body.page-terms h3,
-[data-theme="dawn"] body.page-404 h1, [data-theme="dawn"] body.page-404 h2 { color: var(--text-ink); }
-
-[data-theme="dawn"] body.page-faq p, [data-theme="dawn"] body.page-faq li,
-[data-theme="dawn"] body.page-announcements p, [data-theme="dawn"] body.page-announcements li,
-[data-theme="dawn"] body.page-privacy p, [data-theme="dawn"] body.page-privacy li,
-[data-theme="dawn"] body.page-terms p, [data-theme="dawn"] body.page-terms li,
-[data-theme="dawn"] body.page-404 p { color: var(--text-muted); }
+[data-theme="dawn"] body.page-doc { color: var(--text-ink); }
+[data-theme="dawn"] body.page-doc h1,
+[data-theme="dawn"] body.page-doc h2,
+[data-theme="dawn"] body.page-doc h3 { color: var(--text-ink); }
+[data-theme="dawn"] body.page-doc p,
+[data-theme="dawn"] body.page-doc li { color: var(--text-muted); }
 
 [data-theme="dawn"] body.page-faq .faq-answer,
 [data-theme="dawn"] body.page-faq .faq-error { color: var(--text-muted); }
@@ -1814,109 +1883,50 @@ body.page-404 .site-footer a:hover {
 [data-theme="dawn"] body.page-faq .faq-question { color: var(--text-ink); }
 [data-theme="dawn"] body.page-faq .faq-item {
   background: rgba(255,255,255,.55);
-  border-color: rgba(255,140,0,.20);
+  border-color: rgba(var(--page-accent),.20);
 }
-[data-theme="dawn"] body.page-faq .faq-item[open] { border-color: rgba(255,140,0,.40); }
+[data-theme="dawn"] body.page-faq .faq-item[open] { border-color: rgba(var(--page-accent),.40); }
 
-/* --- Header: revert to light glass + orange-pastel pills --- */
-[data-theme="dawn"] body.page-announcements .site-header,
-[data-theme="dawn"] body.page-faq .site-header,
-[data-theme="dawn"] body.page-privacy .site-header,
-[data-theme="dawn"] body.page-terms .site-header,
-[data-theme="dawn"] body.page-404 .site-header {
+/* --- Header: revert to light glass + warm pastel pills --- */
+[data-theme="dawn"] body.page-doc .site-header {
   background: rgba(255,253,249,.88);
   border-bottom-color: var(--border-default);
 }
-/* Brand + nav text: dark */
-[data-theme="dawn"] body.page-announcements .site-header .brand,
-[data-theme="dawn"] body.page-faq .site-header .brand,
-[data-theme="dawn"] body.page-privacy .site-header .brand,
-[data-theme="dawn"] body.page-terms .site-header .brand,
-[data-theme="dawn"] body.page-404 .site-header .brand,
-[data-theme="dawn"] body.page-announcements .site-header .nav-links a,
-[data-theme="dawn"] body.page-faq .site-header .nav-links a,
-[data-theme="dawn"] body.page-privacy .site-header .nav-links a,
-[data-theme="dawn"] body.page-terms .site-header .nav-links a,
-[data-theme="dawn"] body.page-404 .site-header .nav-links a { color: var(--text-ink); }
-/* Light glass pill base — warm surface for all non-home pages */
-[data-theme="dawn"] body.page-announcements .site-header .nav-links a,
-[data-theme="dawn"] body.page-faq .site-header .nav-links a,
-[data-theme="dawn"] body.page-privacy .site-header .nav-links a,
-[data-theme="dawn"] body.page-terms .site-header .nav-links a,
-[data-theme="dawn"] body.page-404 .site-header .nav-links a {
+[data-theme="dawn"] body.page-doc .site-header .brand,
+[data-theme="dawn"] body.page-doc .site-header .nav-links a { color: var(--text-ink); }
+
+/* Light glass pill base, accented per page (mirrors dark mode at a stronger alpha) */
+[data-theme="dawn"] body.page-doc .site-header .nav-links a {
   background: var(--surface-warm);
+  border-color: rgba(var(--page-accent),.45);
 }
-/* Per-page accent borders (mirrors dark mode) */
-[data-theme="dawn"] body.page-announcements .site-header .nav-links a { border-color: rgba(45,186,247,.45); }
-[data-theme="dawn"] body.page-faq           .site-header .nav-links a { border-color: rgba(255,140,0,.45); }
-[data-theme="dawn"] body.page-privacy       .site-header .nav-links a { border-color: rgba(16,185,129,.45); }
-[data-theme="dawn"] body.page-terms         .site-header .nav-links a { border-color: rgba(99,102,241,.45); }
-[data-theme="dawn"] body.page-404           .site-header .nav-links a { border-color: rgba(239,68,68,.45); }
-/* Per-page hover + active */
-[data-theme="dawn"] body.page-announcements .site-header .nav-links a:hover,
-[data-theme="dawn"] body.page-announcements .site-header .nav-links a:focus-visible,
-[data-theme="dawn"] body.page-announcements .site-header .nav-links a[aria-current="page"] {
-  background: rgba(45,186,247,.12); border-color: rgba(45,186,247,.60); color: var(--text-ink);
+[data-theme="dawn"] body.page-doc .site-header .nav-links a:hover,
+[data-theme="dawn"] body.page-doc .site-header .nav-links a:focus-visible,
+[data-theme="dawn"] body.page-doc .site-header .nav-links a[aria-current="page"] {
+  background: rgba(var(--page-accent),.12);
+  border-color: rgba(var(--page-accent),.60);
+  color: var(--text-ink);
 }
-[data-theme="dawn"] body.page-faq .site-header .nav-links a:hover,
-[data-theme="dawn"] body.page-faq .site-header .nav-links a:focus-visible,
-[data-theme="dawn"] body.page-faq .site-header .nav-links a[aria-current="page"] {
-  background: rgba(255,140,0,.12); border-color: rgba(255,140,0,.60); color: var(--text-ink);
-}
-[data-theme="dawn"] body.page-privacy .site-header .nav-links a:hover,
-[data-theme="dawn"] body.page-privacy .site-header .nav-links a:focus-visible,
-[data-theme="dawn"] body.page-privacy .site-header .nav-links a[aria-current="page"] {
-  background: rgba(16,185,129,.12); border-color: rgba(16,185,129,.60); color: var(--text-ink);
-}
-[data-theme="dawn"] body.page-terms .site-header .nav-links a:hover,
-[data-theme="dawn"] body.page-terms .site-header .nav-links a:focus-visible,
-[data-theme="dawn"] body.page-terms .site-header .nav-links a[aria-current="page"] {
-  background: rgba(99,102,241,.12); border-color: rgba(99,102,241,.60); color: var(--text-ink);
-}
-[data-theme="dawn"] body.page-404 .site-header .nav-links a:hover,
-[data-theme="dawn"] body.page-404 .site-header .nav-links a:focus-visible,
-[data-theme="dawn"] body.page-404 .site-header .nav-links a[aria-current="page"] {
-  background: rgba(239,68,68,.12); border-color: rgba(239,68,68,.60); color: var(--text-ink);
-}
+
 /* Theme toggle: orange-pastel */
-[data-theme="dawn"] body.page-announcements .theme-toggle,
-[data-theme="dawn"] body.page-faq .theme-toggle,
-[data-theme="dawn"] body.page-privacy .theme-toggle,
-[data-theme="dawn"] body.page-terms .theme-toggle,
-[data-theme="dawn"] body.page-404 .theme-toggle {
+[data-theme="dawn"] body.page-doc .theme-toggle {
   background: var(--surface-warm);
   border-color: var(--border-accent);
   color: var(--text-ink);
 }
-[data-theme="dawn"] body.page-announcements .theme-toggle:hover,
-[data-theme="dawn"] body.page-faq .theme-toggle:hover,
-[data-theme="dawn"] body.page-privacy .theme-toggle:hover,
-[data-theme="dawn"] body.page-terms .theme-toggle:hover,
-[data-theme="dawn"] body.page-404 .theme-toggle:hover {
+[data-theme="dawn"] body.page-doc .theme-toggle:hover {
   background: var(--surface-warm-hover);
   border-color: var(--border-accent-hover);
 }
 
 /* --- Footer: light glass --- */
-[data-theme="dawn"] body.page-announcements .site-footer,
-[data-theme="dawn"] body.page-faq .site-footer,
-[data-theme="dawn"] body.page-privacy .site-footer,
-[data-theme="dawn"] body.page-terms .site-footer,
-[data-theme="dawn"] body.page-404 .site-footer {
+[data-theme="dawn"] body.page-doc .site-footer {
   background: rgba(255,253,245,.90);
   border-top-color: var(--border-default);
   color: var(--text-muted);
 }
-[data-theme="dawn"] body.page-announcements .site-footer a,
-[data-theme="dawn"] body.page-faq .site-footer a,
-[data-theme="dawn"] body.page-privacy .site-footer a,
-[data-theme="dawn"] body.page-terms .site-footer a,
-[data-theme="dawn"] body.page-404 .site-footer a {
+[data-theme="dawn"] body.page-doc .site-footer a {
   color: var(--text-ink);
   text-decoration: none;
 }
-[data-theme="dawn"] body.page-announcements .site-footer a:hover,
-[data-theme="dawn"] body.page-faq .site-footer a:hover,
-[data-theme="dawn"] body.page-privacy .site-footer a:hover,
-[data-theme="dawn"] body.page-terms .site-footer a:hover,
-[data-theme="dawn"] body.page-404 .site-footer a:hover { color: var(--accent-brand-text); }
+[data-theme="dawn"] body.page-doc .site-footer a:hover { color: var(--accent-brand-text); }

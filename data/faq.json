@@ -8,7 +8,7 @@
       },
       {
         "q": "What health data does TrendFit access?",
-        "a": "TrendFit reads workout data (active calories, heart rate, pace, duration, distance) and personal metrics (age, gender, height, weight) from Apple HealthKit. It does not access any data outside of what you explicitly grant permission for."
+        "a": "TrendFit reads workout data (active energy, heart rate, pace, duration, distance and similar workout metrics), personal metrics (age, gender, height, weight), and — from version 2.0 — workout routes, which TrendFitGroup uses to recognise repeated routes. Access is read-only: TrendFit has no permission to write to Health at all. Version 2.0 also removed 15 data types the app was not using, so it asks for less than it did before."
       },
       {
         "q": "Does TrendFit use any third-party services?",
@@ -25,7 +25,7 @@
     "items": [
       {
         "q": "What devices does TrendFit support?",
-        "a": "TrendFit runs on iPhone with Apple HealthKit permissions enabled."
+        "a": "iPhone running iOS 18.0 or later, with Apple Health permissions granted. TrendFitGroup additionally needs outdoor workouts that recorded a GPS route. The app is English-only."
       },
       {
         "q": "How do I connect HealthKit?",
@@ -42,15 +42,35 @@
     "items": [
       {
         "q": "What is TrendFit?",
-        "a": "TrendFit shows you whether you're actually improving. Pick a metric — Active Energy, Heart Rate, Pace, Cadence, Distance — and see your trend line across every workout of a given type."
+        "a": "TrendFit answers one question per mode. TrendFit itself asks whether a single metric is improving over time — pick an activity and a metric, and it draws the trend line through your history.",
+        "link": {
+          "href": "features.html#trendfit",
+          "text": "More about TrendFit →"
+        }
       },
       {
         "q": "What is TrendFitStack?",
-        "a": "TrendFitStack lets you compare one metric across multiple workout types — day, week, month, or year — in a single stacked view, so you can see the bigger picture at a glance."
+        "a": "TrendFitStack puts several activities on one chart so you can see how they divide the work between them, and can draw each calendar year as its own line for a like-for-like comparison.",
+        "link": {
+          "href": "features.html#stack",
+          "text": "More about TrendFitStack →"
+        }
+      },
+      {
+        "q": "What is TrendFitGroup?",
+        "a": "New in 2.0. TrendFitGroup matches outdoor workouts that followed the same GPS route and charts your pace, speed and duration across every repeat of it, so you can see whether you are getting faster on the routes you actually run.",
+        "link": {
+          "href": "features.html#group",
+          "text": "More about TrendFitGroup →"
+        }
       },
       {
         "q": "What is TrendFitChallenge?",
-        "a": "TrendFitChallenge lets you set personal fitness challenges with a guided creation flow. Choose a scope, metric, target, and duration — TrendFit pre-fills smart target values from your HealthKit history."
+        "a": "TrendFitChallenge lets you set a target and a deadline, then projects whether you are on course for it from the work you have already done.",
+        "link": {
+          "href": "features.html#challenge",
+          "text": "More about TrendFitChallenge →"
+        }
       },
       {
         "q": "What do the red, yellow, and green trend lines mean?",
@@ -62,7 +82,7 @@
       },
       {
         "q": "Can I personalise units and chart windows?",
-        "a": "Yes. You can set metric or imperial units, choose your chart lookback window, and configure haptic feedback from the app settings."
+        "a": "Yes. You can set metric or imperial units, choose your chart lookback window — 3, 6, 12, 24 or 36 months — and configure haptic feedback from the app settings."
       }
     ]
   },

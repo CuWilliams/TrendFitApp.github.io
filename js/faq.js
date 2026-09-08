@@ -2,7 +2,7 @@
   'use strict';
 
   var DATA_URL = 'data/faq.json';
-  var VERSION  = '2026-06-11-1';
+  var VERSION  = '2026-09-08-1';
   var root     = document.getElementById('faq-root');
 
   if (!root) return;
@@ -58,6 +58,18 @@
 
         details.appendChild(summary);
         details.appendChild(answer);
+
+        // Optional pointer into features.html. Built as a real element rather
+        // than markup in `a`, because answers are escaped on the way in.
+        if (item.link && item.link.href && item.link.text) {
+          var more = document.createElement('p');
+          more.className = 'faq-more';
+          var a = document.createElement('a');
+          a.setAttribute('href', String(item.link.href));
+          a.textContent = String(item.link.text);
+          more.appendChild(a);
+          details.appendChild(more);
+        }
         section.appendChild(details);
       });
 
