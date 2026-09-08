@@ -21,6 +21,7 @@ non-www URLs under "Page with redirect". No build step. No dependencies.
 ```
 trendfitapp.github.io/
 ├── index.html              # Homepage (body.home)
+├── features.html           # Long-form description of every mode (body.page-features)
 ├── faq.html                # FAQ page (rendered by js/faq.js)
 ├── announcements.html      # Announcements shell (rendered by JS)
 ├── privacy.html            # Policy shell (rendered by JS)
@@ -40,8 +41,11 @@ trendfitapp.github.io/
 │   ├── faq.json            # FAQ content (categories + Q&A entries)
 │   └── policies/           # privacy.en.json, terms.en.json
 ├── images/                 # App screenshots + OG images + SVG logo
-├── media/                  # App preview videos
-├── sitemap.xml             # 5 canonical www URLs — keep lastmod current
+├── media/                  # App preview videos — every file here is referenced;
+│                           #   3.0.0 deleted 27 MB that was not
+├── bimi-logo.svg           # Unreferenced BY DESIGN — an email BIMI DNS target,
+│                           #   not a page asset. Do not "tidy" it away
+├── sitemap.xml             # 6 canonical www URLs — keep lastmod current
 ├── robots.txt              # Points at www sitemap
 ├── CNAME                   # www.trendfitapp.com
 └── privacy-policy.html     # Legacy meta-refresh stubs (+ terms-of-service.html);
@@ -62,7 +66,53 @@ Three-tier token system — never use hardcoded hex values in rules:
 
 `prefers-color-scheme: dark` auto-applies the dark theme without JS.
 
-**Home page scoping:** All homepage rules use `body.home` prefix to avoid bleed onto other pages.
+**Dark-first, not dark-as-an-option.** Every page renders on a dark scene unless dawn is
+explicitly opted into, so `--glass-*` and `--mode-*` take their **dark** values at bare `:root`
+and are rebound only under `[data-theme="dawn"]`. Dawn is not the fallback. Defining a glass or
+mode value only inside the dawn block leaves it undefined on the default rendering.
+
+**Text vs. graphics is a token-level distinction.** `--accent-brand1` is for fills, borders and
+SVG strokes, which answer to 3:1. `--accent-brand-text` is for text and meaning-bearing glyphs,
+which answer to 4.5:1, and it resolves to a darker orange on dawn where the brand orange measures
+2.16:1 on the cream ground. Reaching for `--accent-brand1` on a text colour reintroduces that bug.
+
+### Glass tokens
+
+The glass layer is 27 tokens bound per theme — the surface (`--glass-bg`, `--glass-blur`,
+`--glass-border`, `--glass-shadow`, `--glass-shadow-hover`), the text roles
+(`--glass-heading`, `--glass-body`, `--glass-muted`, `--glass-faint`, `--glass-strong`,
+`--glass-tagline`, `--glass-list-accent`), and the `--glass-hero-*`, `--glass-promo-*`,
+`--glass-panel-*` and `--glass-ghost-*` variants. Rules consume the token; they never restate an
+`rgba()` literal. Before 3.0.0 every value was hardcoded
+and then re-stated inside `[data-theme="dawn"] body.home …` override blocks — those are gone, and
+re-introducing one is how the two themes drift apart again.
+
+### Mode identity tokens
+
+`--mode-trendfit` (blue) · `--mode-stack` (indigo) · `--mode-group` (teal) ·
+`--mode-challenge` (orange) mirror the four app screen tints. Dark values are Apple's system
+colours verbatim; the dawn values are darkened until they clear 4.5:1 on cream, and the measured
+ratios are recorded beside the primitives — keep that habit when adding one.
+
+On the homepage a tile sets `--tile-accent` from its `data-mode` attribute, and the icon plus the
+3px top rail read that single value. Both are decorative (the tile title names the mode beside
+them) so they answer to 3:1. Titles and body copy stay on `--glass-heading` / `--glass-body`.
+
+### Page scoping
+
+**Homepage:** all rules use the `body.home` prefix to avoid bleed onto other pages.
+
+**The six non-home pages** share `body.page-doc` and differ only by two custom properties set on
+the page's own body class:
+
+```css
+body.page-features      { --page-accent: 139, 92,246; --page-card-border-a: .22; }
+```
+
+`--page-accent` is an **unwrapped RGB triple**, deliberately — it is composed at several alphas
+via `rgba(var(--page-accent), .28)`, which a finished colour cannot be. A new page needs a body
+class, those two declarations, and nothing else; it must not be added to enumerated selector
+lists, which is what `body.page-doc` replaced.
 
 ---
 
@@ -70,6 +120,14 @@ Three-tier token system — never use hardcoded hex values in rules:
 
 ### Shared Header
 Injected via `data-include="partials/header.html"` — never duplicate nav markup in page files.
+Five nav items since 3.0.0: `Features · Announcements · FAQ · Privacy · Terms`. Active state is
+matched on `href`, so a new page picks it up with no JS change.
+
+`.site-header` is `position: fixed`, and `js/includes.js` measures the real header and writes it
+to `--header-h`. The stepped `body` top-padding rules below 1180px are therefore
+`max(var(--header-h), Npx)` — **floors, not overrides**. A hard value there beats the measurement
+and puts the fixed header on top of the first heading as soon as the nav wraps to two rows, which
+the fifth pill does below 520px. If a sixth item is ever added, re-check that band first.
 
 ### Pending Content
 ```html
@@ -78,13 +136,32 @@ Injected via `data-include="partials/header.html"` — never duplicate nav marku
 Global rule: `[data-content-pending="true"] { display: none !important; }` — hides with no grid gap.
 To activate: remove the attribute, add `style="grid-area: <name>"`, expand `grid-template-areas`.
 
-### Dashboard Grid (index.html)
-`body.home .dashboard-grid` uses `grid-template-areas` at three breakpoints:
-- **>840px** — 12-column, 5 rows: `hero/video` · `tf/stack/zoom` · `priv/pers` · `chal/notif` · `cta`
-- **520–840px** — 6-column, 7 rows: `hero` · `video` · `tf/stack` · `zoom/priv` · `pers` · `chal/notif` · `cta`
-- **<520px** — 1-column, 10 rows (each area stacked)
+It also works on **part** of a tile. The TrendFitGroup and Compare Years tiles put it on the
+`.feat-img-wrap` alone, so the copy, tint and "Learn more" link all ship while only the missing
+screenshot's slot collapses. Prefer that to hiding a whole tile — hiding the flagship feature
+until a screenshot exists is the worse trade.
 
-Named grid areas: `hero`, `video` (promo tile), `tf`, `stack`, `zoom`, `priv`, `pers`, `chal`, `notif`, `cta`.
+Any image activated this way needs its real `width`/`height` before it lands; every other `<img>`
+on the site declares its box, and the odd one out is the one that shifts the layout.
+
+### Dashboard Grid (index.html)
+`body.home .dashboard-grid` uses `grid-template-areas` at three breakpoints, carrying **thirteen**
+areas since 3.0.0:
+
+- **>840px** — 12-column, 6 rows: `hero/video` · `beta` · `tf/stack/group` · `chal/years/zoom` · `priv/pers` · `notif/cta`
+- **520–840px** — 6-column, 10 rows: `hero` · `video` · `beta` · `tf/stack` · `group/chal` · `years/zoom` · `priv` · `pers` · `notif` · `cta`
+- **<520px** — 1-column, 13 rows (each area stacked, in that same reading order)
+
+Named grid areas: `hero`, `video` (promo tile), `beta`, `tf`, `stack`, `group`, `chal`, `years`,
+`zoom`, `priv`, `pers`, `notif`, `cta`.
+
+**All three breakpoints must be edited together** — the 520–840 band is the one routinely
+forgotten. An area named in the HTML but missing from a breakpoint's template silently drops the
+tile out of the grid flow at that width only.
+
+An area name now matches the tile that occupies it. It did not before 3.0.0: the 2.0.0 overhaul
+swapped the Challenge and Zoomable Charts tiles without renaming their areas, so `grid-area: zoom`
+held the Challenge tile for four months. Keep them in step.
 
 Tile classes: `tile-hero`, `tile-promo` (formerly tile-video — now holds promo hero content), `tile-feature`, `tile-row-layout`, `tile-cta-social`.
 
@@ -102,8 +179,13 @@ normalizes an empty path to the *string* `'index.html'` for nav active-state —
 
 ## Git Workflow
 
-**Branching:** Work directly on `main` — it auto-deploys to GitHub Pages. There is no
-active feature branch. Create one only when explicitly requested.
+**Branching:** Work directly on `main` — it auto-deploys to GitHub Pages, so a commit there
+*is* a production deploy. Create a branch only when explicitly requested.
+
+**Active branch: `feature/v3-site-revamp`** — the 3.0.0 revamp for the app's v2.0 public beta,
+branched by explicit request precisely because `main` auto-deploys. It must not merge until
+(a) the maintainer approves and (b) the public TestFlight link is live. `grep -rn "PLACEHOLDER" .`
+must return nothing first — a dead "Join the Beta" button is worse than no button.
 
 **Commit style:**
 ```
