@@ -25,6 +25,8 @@ auto-deploys, so merging is the production release and waits on the live TestFli
 - Mode tints on the feature tiles, carried by `--tile-accent`: a 3px rail across the top of the tile and the tile's icon. Both are decorative — the title names the mode beside them — so they answer to 3:1 rather than 4.5:1, which is the margin they need: against the lightest ground a home tile can sit on (`#423325`, the orange page radial at its centre under the .05 white glass) blue measures 3.32:1 and indigo 3.44:1
 - "Learn more →" from each mode tile into its `features.html` section, and a Features link in every page footer
 - Explicit `width`/`height` on all five homepage screenshots, from the files' real pixel dimensions, so the tiles reserve their space before the image decodes
+- Pinned announcement `v2.0-beta`, covering TrendFitGroup, activity filtering and the LATEST badge, Compare Years, the 24- and 36-month ranges, the twelve accessibility issues, and the redesigned entry screen. It states the route bounds the app itself states — 200 most recent outdoor workouts from the last 365 days, occurrences rather than calendar days — so the site does not promise history the app will not draw
+- The announcement sets the upgrade expectation explicitly: Workout Routes is a **new row** on Apple's Health sheet, so upgrading users are asked again. Left unsaid it reads as a privacy regression, when the opposite is true — v2.0 removed 15 unused data types and asks for less than v1.5 did. Declining Workout Routes leaves everything but TrendFitGroup working
 
 ### Changed
 - Glass surfaces on the homepage and on the five non-home pages now consume the shared tokens instead of restating literal `rgba()` values, and the ~75-line `[data-theme="dawn"] body.home …` override block plus the duplicated non-home dawn glass base were deleted. No user-visible behavior change: the rendered output in both themes is unchanged apart from the two contrast fixes above
@@ -36,7 +38,8 @@ auto-deploys, so merging is the production release and waits on the live TestFli
 - The bottom CTA promotes the beta to the primary button; the App Store demotes to the secondary row and is labelled **App Store (v1.5)**, which is what it actually serves while the beta runs
 - `TILE_DATA` in `js/dashboard.js` drops the `benefit` string from all four video tiles. It never rendered — `.tile-expand.has-video` sets `.expand-benefit` to `display: none` — so the copy was invisible maintenance. That prose lives on `features.html`, which each tile now links to. The two new tiles have no recording yet and so carry a benefit panel
 - Homepage `© 2025` → `© 2026`, in the CTA tile and the site footer, and on the other five pages
-- Bumped the CSS cache-bust string to `?v=2026-09-08-2` across all seven page files, and `VERSION` in `js/faq.js`
+- `v1.5-now-live` unpinned but still published — the App Store is still serving it
+- Bumped the CSS cache-bust string to `?v=2026-09-08-2` across all seven page files, and `VERSION` in `js/faq.js` and `js/announcements.js`
 
 ## [2.0.3] — 2026-08-17
 

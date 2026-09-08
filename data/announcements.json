@@ -1,11 +1,50 @@
 [
   {
+    "id": "v2.0-beta",
+    "date": "2026-09-08",
+    "published": true,
+    "pinned": true,
+    "title": "TrendFit 2.0 Beta — TrendFitGroup, Compare Years, Three Years of History",
+    "tags": [
+      "Beta",
+      "New Feature",
+      "Accessibility"
+    ],
+    "body": [
+      "**TrendFit v2.0 is now in public beta on TestFlight.** It is the largest release since launch: a whole new mode, a new way to read a year, and the biggest accessibility pass the app has had. The App Store keeps serving stable v1.5 while the beta runs — you can install both.",
+      "**What's New:**",
+      "• **TrendFitGroup — a fourth mode.** Your iPhone already records a GPS route with every outdoor workout. TrendFitGroup finds the workouts that followed the same path and charts pace, speed and duration across every repeat of it, so you can finally see whether you are getting faster on the loops you actually run. Distance is the constant on a fixed route, so it is deliberately left out. Routes are picked from a swipeable strip of cards that draw each route's own outline — offline, from cached geometry, with no map tiles fetched. TrendFitGroup looks at your 200 most recent outdoor workouts from the last 365 days, and its charts plot occurrences rather than calendar days.",
+      "• **Activity filtering and a LATEST badge.** One activity at a time in TrendFitGroup, and the route you just recorded leads the carousel, already selected.",
+      "• **Compare Years in TrendFitStack.** Each calendar year is drawn as its own line on a shared January-to-December axis, so last June lands directly under this June and a seasonal dip stops reading as a decline.",
+      "• **Three years of history.** Chart lookback windows now offer 24 and 36 months alongside 3, 6 and 12.",
+      "• **Built to be readable.** Twelve issues of accessibility work: charts measure their own plot area and thin their axis labels instead of overlapping them, every screen scrolls when text grows, controls restack at accessibility text sizes, and the light appearance was audited end to end for contrast.",
+      "• **A redesigned entry screen** that asks which question you want answered, retiring the old Bronze/Silver/Gold identity.",
+      "**About the Health permission sheet.** TrendFitGroup reads Workout Routes, which is a new row on Apple's Health permission sheet — so when you upgrade, iOS will ask again. That is Apple's sheet, not a change in what TrendFit does with your data: access is still read-only, TrendFit still cannot write to Health at all, and nothing leaves your iPhone. Saying no to Workout Routes leaves every other part of the app working normally; only TrendFitGroup needs it.",
+      "In fact v2.0 asks for **less** than v1.5 did — 15 data types the app was never using were removed from the permission request.",
+      "**Requirements:** iPhone on iOS 18.0 or later. Free, no account, English only.",
+      "Install it from TestFlight and tell us what breaks — feedback goes to trendfitapp@gmail.com."
+    ],
+    "links": [
+      {
+        "label": "Join Beta on TestFlight",
+        "href": "https://testflight.apple.com/join/PLACEHOLDER"
+      },
+      {
+        "label": "See what's new",
+        "href": "https://www.trendfitapp.com/features.html"
+      }
+    ]
+  },
+  {
     "id": "v1.5-now-live",
     "date": "2026-06-11",
     "published": true,
-    "pinned": true,
+    "pinned": false,
     "title": "TrendFit v1.5 — Now Live on the App Store",
-    "tags": ["Release", "Improvement"],
+    "tags": [
+      "Release",
+      "Improvement"
+    ],
     "body": [
       "**TrendFit v1.5 is now available on the App Store.** This release is all about trusting what you see: the trend engine has been rebuilt so the color of every trend line matches the line actually drawn on your screen.",
       "**What's New:**",
@@ -16,7 +55,10 @@
       "Update now to get everything above — or download TrendFit free today."
     ],
     "links": [
-      { "label": "Download on App Store", "href": "https://apps.apple.com/ca/app/trendfit/id6751863796" }
+      {
+        "label": "Download on App Store",
+        "href": "https://apps.apple.com/ca/app/trendfit/id6751863796"
+      }
     ]
   },
   {
@@ -25,7 +67,10 @@
     "published": true,
     "pinned": false,
     "title": "TrendFit v1.4 — Now Live on the App Store",
-    "tags": ["Release", "New Feature"],
+    "tags": [
+      "Release",
+      "New Feature"
+    ],
     "body": [
       "**TrendFit v1.4 is here** — and it's the biggest update yet. Whether you're chasing a personal best or just trying to see if your training is actually working, v1.4 gives you the tools to know for sure.",
       "**What's New:**",
@@ -37,7 +82,10 @@
       "Update now to get everything above — or download TrendFit free today."
     ],
     "links": [
-      { "label": "Download on App Store", "href": "https://apps.apple.com/ca/app/trendfit/id6751863796" }
+      {
+        "label": "Download on App Store",
+        "href": "https://apps.apple.com/ca/app/trendfit/id6751863796"
+      }
     ]
   },
   {
@@ -46,7 +94,10 @@
     "published": false,
     "title": "TrendFit 1.4 — Challenges Now on the App Store",
     "pinned": false,
-    "tags": ["Release", "New Feature"],
+    "tags": [
+      "Release",
+      "New Feature"
+    ],
     "body": [
       "**TrendFit v1.4.0 is now available on the App Store.** This release brings TrendFit Challenges out of beta and into the hands of everyone.",
       "• **TrendFitChallenge** — Set a goal. Beat it. See the proof.",
@@ -54,7 +105,10 @@
       "Update now to start your first challenge."
     ],
     "links": [
-      { "label": "Download on App Store", "href": "https://apps.apple.com/ca/app/trendfit/id6751863796" }
+      {
+        "label": "Download on App Store",
+        "href": "https://apps.apple.com/ca/app/trendfit/id6751863796"
+      }
     ]
   },
   {
@@ -63,7 +117,10 @@
     "published": true,
     "title": "TrendFit 1.4 Beta — Challenges Are Here",
     "pinned": false,
-    "tags": ["Beta", "New Feature"],
+    "tags": [
+      "Beta",
+      "New Feature"
+    ],
     "body": [
       "TrendFit v1.4.0 is now available in beta on TestFlight. This release introduces **TrendFit Challenges** — a major new feature for setting and tracking personal fitness goals.",
       "• **Create personal challenges** through a guided 7-step flow: choose a scope (trend-wide or a specific workout type), metric, duration, target value, and start date, then review everything before saving.",
@@ -74,7 +131,10 @@
       "Try it out on TestFlight and let us know what you think!"
     ],
     "links": [
-      { "label": "Join Beta on TestFlight", "href": "https://testflight.apple.com/join/tgFjfCQM" }
+      {
+        "label": "Join Beta on TestFlight",
+        "href": "https://testflight.apple.com/join/tgFjfCQM"
+      }
     ]
   },
   {
@@ -82,7 +142,11 @@
     "date": "2025-12-11",
     "pinned": false,
     "title": "Version 1.3 Now Available",
-    "tags": ["release", "app-store", "update"],
+    "tags": [
+      "release",
+      "app-store",
+      "update"
+    ],
     "body": [
       "**TrendFit 1.3 is now live on the App Store!** This release brings important polish and performance improvements based on beta tester feedback.",
       "**What's New:**",
@@ -100,7 +164,10 @@
     "id": "2025-11-26-beta-update-polish",
     "date": "2025-11-26",
     "title": "Beta Update: Smoother Experience + Polish",
-    "tags": ["beta", "update"],
+    "tags": [
+      "beta",
+      "update"
+    ],
     "body": [
       "**New beta build available!** This update brings important polish improvements:",
       "• **Smoother Navigation** – No more screen flashing between views",
@@ -159,7 +226,10 @@
     "id": "2025-09-01-beta-focus",
     "date": "2025-09-01",
     "title": "Project Update: Beta focus for 2025",
-    "tags": ["Roadmap", "Beta"],
+    "tags": [
+      "Roadmap",
+      "Beta"
+    ],
     "body": [
       "We're focusing the initial public beta on TrendFit and TrendFitStack to keep things fast, simple, and stable.",
       "TrendFitChallenge is deferred until after we ship a solid first beta and collect feedback.",
