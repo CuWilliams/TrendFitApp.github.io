@@ -214,14 +214,9 @@
           <p class="feat-more"><a href="features.html#stack">Learn more →</a></p>
         </article>
 
-        <!-- TILE: TrendFitGroup — new in app v2.0.
-             The route-carousel screenshot has not been captured yet, so the
-             image wrap carries data-content-pending and is hidden with no gap.
-             To activate: drop images/route-carousel.png in, remove the
-             data-content-pending and aria-hidden attributes, and put the file's
-             real pixel width/height on the img -- every other screenshot on this
-             page carries them, and without them the tile shifts as it loads.
-             `sips -g pixelWidth -g pixelHeight images/route-carousel.png` -->
+        <!-- TILE: TrendFitGroup — new in app v2.0. The screenshot and the
+             hover video come from the Simulator pipeline in the app repo
+             (Tools/Demo/README.md), not from a hand-held phone recording. -->
         <article class="dash-tile tile-feature reveal" id="tile-group" data-mode="group" style="grid-area: group; --reveal-delay: 0.26s" tabindex="0" aria-expanded="false">
           <div class="feat-icon"><i class="fa-solid fa-route" aria-hidden="true"></i></div>
           <div class="feat-title-row">
@@ -229,8 +224,8 @@
             <span class="feat-new">New in 2.0</span>
           </div>
           <p class="feat-copy">Run the same loop twice and TrendFit knows. See whether you're getting faster on it.</p>
-          <div class="feat-img-wrap" data-content-pending="true" aria-hidden="true">
-            <img src="images/route-carousel.png" alt="TrendFitGroup route carousel showing repeated routes drawn as outlines" class="feat-img" loading="lazy" style="object-fit:cover; object-position:center 45%;" />
+          <div class="feat-img-wrap">
+            <img src="images/route-carousel.png" alt="TrendFitGroup route carousel showing repeated routes drawn as outlines above a map of the selected loop" class="feat-img" loading="lazy" width="1036" height="1529" style="object-fit:cover; object-position:center 45%;" />
           </div>
           <p class="feat-more"><a href="features.html#group">Learn more →</a></p>
         </article>
@@ -247,8 +242,7 @@
         </article>
 
         <!-- TILE: Compare Years — new in app v2.0, a TrendFitStack feature, so
-             it carries stack's indigo rather than a tint of its own. Screenshot
-             pending, same activation steps as TrendFitGroup above. -->
+             it carries stack's indigo rather than a tint of its own. -->
         <article class="dash-tile tile-feature reveal" id="tile-compare-years" data-mode="stack" style="grid-area: years; --reveal-delay: 0.34s" tabindex="0" aria-expanded="false">
           <div class="feat-icon"><i class="fa-solid fa-calendar-days" aria-hidden="true"></i></div>
           <div class="feat-title-row">
@@ -256,8 +250,8 @@
             <span class="feat-new">New in 2.0</span>
           </div>
           <p class="feat-copy">Two Januaries land on the same point. A seasonal dip stops looking like a decline.</p>
-          <div class="feat-img-wrap" data-content-pending="true" aria-hidden="true">
-            <img src="images/compare-years.png" alt="Compare Years chart drawing each calendar year as its own line on a shared January to December axis" class="feat-img" loading="lazy" style="object-fit:cover; object-position:center 45%;" />
+          <div class="feat-img-wrap">
+            <img src="images/compare-years.png" alt="Compare Years chart drawing each calendar year as its own line on a shared January to December axis" class="feat-img" loading="lazy" width="1036" height="1392" style="object-fit:cover; object-position:center 45%;" />
           </div>
           <p class="feat-more"><a href="features.html#stack">Learn more →</a></p>
         </article>

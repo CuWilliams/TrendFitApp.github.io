@@ -17,10 +17,12 @@
       videoAlt: 'Screen recording of TrendFitStack stacked bar chart'
     },
     'tile-group': {
-      benefit: 'Matched by the GPS route already recorded with each outdoor workout — then charted for pace, speed and duration across every repeat. Distance is the constant on a fixed route, so it is deliberately left out. Route outlines draw offline from cached geometry; no map tiles are ever fetched.'
+      video: 'media/trendfitgroup.mp4',
+      videoAlt: 'Screen recording of the TrendFitGroup route carousel, switching between repeated routes and from speed to pace'
     },
     'tile-compare-years': {
-      benefit: 'Each calendar year drawn as its own line on a shared January-to-December axis, so last June lands directly under this June. Charts now reach back three years.'
+      video: 'media/compare-years.mp4',
+      videoAlt: 'Screen recording of Compare Years drawing three calendar years on one axis and toggling a year off and on'
     },
     // tile-zoom uses image-area-only video; no expand panel needed
     'tile-privacy': {

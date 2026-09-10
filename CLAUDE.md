@@ -136,13 +136,23 @@ the fifth pill does below 520px. If a sixth item is ever added, re-check that ba
 Global rule: `[data-content-pending="true"] { display: none !important; }` — hides with no grid gap.
 To activate: remove the attribute, add `style="grid-area: <name>"`, expand `grid-template-areas`.
 
-It also works on **part** of a tile. The TrendFitGroup and Compare Years tiles put it on the
-`.feat-img-wrap` alone, so the copy, tint and "Learn more" link all ship while only the missing
-screenshot's slot collapses. Prefer that to hiding a whole tile — hiding the flagship feature
-until a screenshot exists is the worse trade.
+It also works on **part** of a tile. The TrendFitGroup and Compare Years tiles shipped with it on
+the `.feat-img-wrap` alone until their screenshots arrived, so the copy, tint and "Learn more"
+link all shipped while only the missing screenshot's slot collapsed. Prefer that to hiding a
+whole tile — hiding the flagship feature until a screenshot exists is the worse trade. Nothing
+carries the attribute today.
 
 Any image activated this way needs its real `width`/`height` before it lands; every other `<img>`
 on the site declares its box, and the odd one out is the one that shifts the layout.
+
+### Screenshots and videos come from the app repo
+
+Every feature tile's PNG and hover MP4 is produced by the Simulator pipeline in the app repo
+(`TrendFitApp_App/Tools/Demo/README.md`): a seeded HealthKit store, a scripted autopilot, and
+`record.sh`, which writes `<script>.mp4` — the README's table maps those to the names in
+`media/`. Re-recording a tile means re-running that script there, not screen-recording a phone.
+Portrait takes are 1170×2544 (the tiles use `object-fit: cover`, so the 12px over the old 2532
+does not show); `zoomablecharts.mp4` is a 1036×740 crop of the chart card.
 
 ### Dashboard Grid (index.html)
 `body.home .dashboard-grid` uses `grid-template-areas` at three breakpoints, carrying **thirteen**
