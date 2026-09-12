@@ -1291,11 +1291,6 @@ body.home .tile-expand.has-video .expand-video {
   flex: none;
 }
 
-/* Challenge Notifications: center image vertically, rounded corners from feat-img */
-body.home #tile-challenge-notifications .feat-img-wrap {
-  align-items: center;
-}
-
 /* Challenge Notifications: show full screen without cropping */
 body.home #tile-challenge-notifications .tile-expand.has-video {
   background: rgba(0, 0, 0, 0.88);
