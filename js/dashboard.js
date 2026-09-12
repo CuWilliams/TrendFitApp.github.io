@@ -24,7 +24,10 @@
       video: 'media/compare-years.mp4',
       videoAlt: 'Screen recording of Compare Years drawing three calendar years on one axis and toggling a year off and on'
     },
-    // tile-zoom uses image-area-only video; no expand panel needed
+    'tile-zoom': {
+      video: 'media/zoomablecharts.mp4',
+      videoAlt: 'Screen recording of a TrendFit chart being pinched to zoom, panned, long-pressed to reveal a point’s exact value, and double-tapped back to the full range'
+    },
     'tile-privacy': {
       introHtml: 'TrendFit reads from <span class="expand-intro-accent">Apple HealthKit</span> — here\'s exactly how it works:',
       bullets: [
@@ -218,20 +221,6 @@
         }
       });
     });
-
-    // Zoomable Charts: play/pause video in image area on hover
-    var zoomTile = document.getElementById('tile-zoom');
-    if (zoomTile) {
-      var zoomVid = zoomTile.querySelector('.zoom-hover-video');
-      if (zoomVid && !reducedMotion) {
-        zoomTile.addEventListener('mouseenter', function () {
-          if (hoverMQ && hoverMQ.matches) { zoomVid.currentTime = 0; zoomVid.play(); }
-        });
-        zoomTile.addEventListener('mouseleave', function () {
-          zoomVid.pause(); zoomVid.currentTime = 0;
-        });
-      }
-    }
 
     // Escape closes all
     document.addEventListener('keydown', function (e) {

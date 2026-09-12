@@ -151,8 +151,10 @@ Every feature tile's PNG and hover MP4 is produced by the Simulator pipeline in 
 (`TrendFitApp_App/Tools/Demo/README.md`): a seeded HealthKit store, a scripted autopilot, and
 `record.sh`, which writes `<script>.mp4` — the README's table maps those to the names in
 `media/`. Re-recording a tile means re-running that script there, not screen-recording a phone.
-Portrait takes are 1170×2544 (the tiles use `object-fit: cover`, so the 12px over the old 2532
-does not show); `zoomablecharts.mp4` is a 1036×740 crop of the chart card.
+All seven takes are portrait 1170×2544 (the tiles use `object-fit: cover`, so the 12px over the
+old 2532 does not show). `zoomablecharts.mp4` was a 1036×740 crop of the chart card until 3.0.0;
+it is a full-screen take like the rest now, and `#tile-zoom` goes through `TILE_DATA` with no
+bespoke video markup or CSS.
 
 ### Dashboard Grid (index.html)
 `body.home .dashboard-grid` uses `grid-template-areas` at three breakpoints, carrying **thirteen**
