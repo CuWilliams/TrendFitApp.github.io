@@ -53,6 +53,8 @@
   --color-mode-teal-dark:   #40C8E0;   /* systemTeal    (dark) */
   --color-mode-teal-dawn:   #0E6E7F;   /* systemTeal    darkened for cream */
   --color-mode-orange-dark: #FF9F0A;   /* systemOrange  (dark) */
+  --color-mode-purple-dark: #BF5AF2;   /* systemPurple  (dark) — 3.44 on #423325, level with indigo */
+  --color-mode-purple-dawn: #8E3FBE;   /* systemPurple  darkened for cream (light is 3.77, short of AA) */
   /* challenge dawn reuses --color-orange-text (#A34900) — the app's own
      WarningAccent light variant, so site and app agree on the same shade. */
 }
@@ -213,6 +215,7 @@
   --mode-stack:     var(--color-mode-indigo-dark);
   --mode-group:     var(--color-mode-teal-dark);
   --mode-challenge: var(--color-mode-orange-dark);
+  --mode-zoom:      var(--color-mode-purple-dark);
 }
 
 [data-theme="dawn"] {
@@ -220,6 +223,7 @@
   --mode-stack:     var(--color-mode-indigo-dawn);
   --mode-group:     var(--color-mode-teal-dawn);
   --mode-challenge: var(--color-orange-text);
+  --mode-zoom:      var(--color-mode-purple-dawn);
 }
 
 /* === Layer 2b: Glass surface tokens ===
@@ -1072,6 +1076,12 @@ body.home .feat-bullets li::before {
    --tile-accent so the icon and the rail read one value. Compare Years takes
    indigo because it is a TrendFitStack feature, not a fifth mode.
 
+   Zoomable Charts is the one accent that is not a mode tint. The gestures it
+   names are the chart's rather than any one screen's — they are on TrendFit and
+   on both pannable Stack charts — so borrowing either hue would claim it for a
+   mode it does not belong to. It takes systemPurple instead, which is the only
+   accent here no tile already carries.
+
    Only the icon and the 3px rail are tinted, and both are decorative: the tile
    title spells the mode out beside them, so they answer to 3:1, not 4.5:1. That
    matters here — measured against the lightest ground a home tile can sit on
@@ -1083,6 +1093,7 @@ body.home .tile-feature[data-mode="trendfit"]  { --tile-accent: var(--mode-trend
 body.home .tile-feature[data-mode="stack"]     { --tile-accent: var(--mode-stack); }
 body.home .tile-feature[data-mode="group"]     { --tile-accent: var(--mode-group); }
 body.home .tile-feature[data-mode="challenge"] { --tile-accent: var(--mode-challenge); }
+body.home .tile-feature[data-mode="zoom"]      { --tile-accent: var(--mode-zoom); }
 
 body.home .tile-feature[data-mode] { position: relative; }
 body.home .tile-feature[data-mode] .feat-icon { color: var(--tile-accent); }
