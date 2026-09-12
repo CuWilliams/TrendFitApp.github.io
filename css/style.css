@@ -1291,6 +1291,25 @@ body.home .tile-expand.has-video .expand-video {
   flex: none;
 }
 
+/* Challenge Notifications: the teal identity the beta band carries, against the
+   orange-edged wash on the CTA tile it shares a row with. The two sit side by
+   side, so a matching wash would read as one wide panel; teal against the CTA's
+   orange keeps them as two, and pairs with the orange icon and bullets already
+   on this tile. It is a surface tint rather than a mode tint — this tile
+   deliberately has no accent rail — so it no more claims TrendFitGroup's teal
+   than the beta band does.
+
+   The beta band runs teal → orange; this runs teal → teal, because the two sit
+   on opposite halves of the page radial. Up there the ground is cool blue and
+   the orange stop reads as warmth against it. Down here the ground is already
+   warm orange-brown, and that same stop cancelled the teal into brown — at the
+   band's own .10 the tile read as untinted. Hence a stronger teal and no warm
+   stop to fight: the effect is matched, not the literal values. */
+body.home #tile-challenge-notifications {
+  background: linear-gradient(135deg, rgba(64,200,224,.22) 0%, rgba(64,200,224,.07) 100%);
+  border-color: rgba(64,200,224,.40);
+}
+
 /* Challenge Notifications: show full screen without cropping */
 body.home #tile-challenge-notifications .tile-expand.has-video {
   background: rgba(0, 0, 0, 0.88);
