@@ -1310,11 +1310,23 @@ body.home #tile-challenge-notifications {
   border-color: rgba(64,200,224,.40);
 }
 
-/* Challenge Notifications: the take is cut to the tile's own ratio (1170x744,
-   the top of the 1170x2544 portrait recording), so `cover` fills the tile with
-   no letterboxing and effectively no crop. Anchored to the top anyway, because
-   the banner is the subject: if a narrower tile ever wants a taller box, the
-   rows it drops must come off the bottom. */
+/* Challenge Notifications: the take is the top half of the 1170x2544 portrait
+   recording (1170x1272) on a blurred, darkened copy of itself, rendered out at
+   2752x1272. The phone is untouched and fits vertically; the blur fills the
+   horizontal gaps. Half rather than the tile's own ratio because a crop that
+   tight lost the TrendFitChallenge screen almost entirely — the standings card
+   sits below the fold of a top-third cut.
+
+   The 2752 is chosen, not arbitrary. `object-fit: cover` crops on whichever
+   axis has the surplus, so a video *wider* than the tile only ever loses blur,
+   while a narrower one starts eating the phone. The tile measures 2.155:1 at
+   its widest (the 700px breakpoint; 1.571 at desktop, 0.882 at 400px), and
+   2752/1272 = 2.164 clears that — so no breakpoint above ~520px crops the
+   phone at all.
+
+   `object-position` is the guard for the sliver of margin that leaves: if a
+   viewport ever produces a tile past 2.164 the crop turns vertical, and the
+   rows it drops must come off the bottom, because the banner is the subject. */
 body.home #tile-challenge-notifications .tile-expand.has-video .expand-video {
   object-position: 50% 0%;
 }
