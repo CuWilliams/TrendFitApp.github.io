@@ -151,6 +151,15 @@ Every feature tile's PNG and hover MP4 is produced by the Simulator pipeline in 
 (`TrendFitApp_App/Tools/Demo/README.md`): a seeded HealthKit store, a scripted autopilot, and
 `record.sh`, which writes `<script>.mp4` — the README's table maps those to the names in
 `media/`. Re-recording a tile means re-running that script there, not screen-recording a phone.
+
+**The PNG and the MP4 are the same script.** `stills.sh` there plays a script to a frame the
+script itself marks and screenshots it, so a tile's rest state is a frame of its own hover video.
+Six of the seven scripts carry a mark; `challenge-notifications` has no still. Do not replace a
+tile PNG with a hand capture — that is what let the six stills sit a whole dataset behind the
+seven videos. Framing is the crop table in `stills.sh`, not `object-position` here: `.feat-img`
+is `width:100%; height:auto`, so the box already matches the file's aspect ratio and there is
+nothing for `object-fit: cover` to crop. What the tile shows is the top of the file, clipped by
+`.feat-img-wrap`'s height.
 All seven takes are portrait 1170×2544 (the tiles use `object-fit: cover`, so the 12px over the
 old 2532 does not show). `zoomablecharts.mp4` was a 1036×740 crop of the chart card until 3.0.0;
 it is a full-screen take like the rest now, and `#tile-zoom` goes through `TILE_DATA` with no
