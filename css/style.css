@@ -1310,12 +1310,13 @@ body.home #tile-challenge-notifications {
   border-color: rgba(64,200,224,.40);
 }
 
-/* Challenge Notifications: show full screen without cropping */
-body.home #tile-challenge-notifications .tile-expand.has-video {
-  background: rgba(0, 0, 0, 0.88);
-}
+/* Challenge Notifications: the take is cut to the tile's own ratio (1170x744,
+   the top of the 1170x2544 portrait recording), so `cover` fills the tile with
+   no letterboxing and effectively no crop. Anchored to the top anyway, because
+   the banner is the subject: if a narrower tile ever wants a taller box, the
+   rows it drops must come off the bottom. */
 body.home #tile-challenge-notifications .tile-expand.has-video .expand-video {
-  object-fit: contain;
+  object-position: 50% 0%;
 }
 
 @media (prefers-reduced-motion: reduce) {
