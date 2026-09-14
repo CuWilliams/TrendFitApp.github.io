@@ -2,11 +2,13 @@
 
 All notable changes to the TrendFit website are documented here.
 
-## [3.0.0] — unreleased
+## [3.0.0] — 2026-09-14
 
-Site revamp for the TrendFit iOS **v2.0 public beta**. Being prepared on the branch
+Site revamp for the TrendFit iOS **v2.0 public beta**. Built on the branch
 `feature/v3-site-revamp` rather than directly on `main`, by explicit request — `main`
-auto-deploys, so merging is the production release and waits on the live TestFlight link.
+auto-deploys, so the merge *was* the production release. It waited on two things, both
+now satisfied: the maintainer's approval, and a live public TestFlight link, which
+arrived once build 8 cleared Beta App Review on 2026-09-14.
 
 ### Fixed
 - **The public TestFlight link is live in all four beta CTAs** (#32), replacing the scaffold URL that stood in for it: the hero beta band and the bottom CTA tile on `index.html`, the Requirements section of `features.html`, and the `links` entry on the pinned `v2.0-beta` announcement. This was the hard merge gate — `main` auto-deploys, so merging with the scaffold live would have shipped four dead "Join the Beta" buttons, which is worse than shipping no button at all. The link is `https://testflight.apple.com/join/tgFjfCQM`, verified returning 200 and serving the v2.0 Beta App Description. It is the **public** group link that has been in use since the v1.4.0 beta announcement — already present further down `data/announcements.json` — and not one of the separate founding-member or website-signup group links, which are not for general distribution. Because the link belongs to the group rather than to a build, it carries forward to every later beta build without reissuing. The gate's own grep is now clean: the single surviving match is the line in `CLAUDE.md` that documents the gate, and this entry is deliberately worded to avoid adding a second one — a mechanical check that its own changelog breaks is no longer a check
@@ -52,7 +54,7 @@ auto-deploys, so merging is the production release and waits on the live TestFli
 - Explicit `width`/`height` on every `<img>` the site ships — the five homepage screenshots from their real pixel dimensions, and both instances of the app icon SVG (28×28 in the header, where CSS renders it at that size; 1024×1024 on the hero, where CSS sizes it and the attributes only carry the ratio) — so each reserves its space before the image decodes
 - Pinned announcement `v2.0-beta`, covering TrendFitGroup, activity filtering and the LATEST badge, Compare Years, the 24- and 36-month ranges, the twelve accessibility issues, and the redesigned entry screen. It states the route bounds the app itself states — 200 most recent outdoor workouts from the last 365 days, occurrences rather than calendar days — so the site does not promise history the app will not draw
 - The announcement sets the upgrade expectation explicitly: Workout Routes is a **new row** on Apple's Health sheet, so upgrading users are asked again. Left unsaid it reads as a privacy regression, when the opposite is true — v2.0 removed 15 unused data types and asks for less than v1.5 did. Declining Workout Routes leaves everything but TrendFitGroup working
-- `sitemap.xml` carries `features.html` at priority 0.9, and every `lastmod` moves to the revamp date. A comment in the file records that these are the date the work was done, so they need rolling forward if the merge slips past it — a `lastmod` that predates its own deploy is worse than none
+- `sitemap.xml` carries `features.html` at priority 0.9, and every `lastmod` reads **2026-09-14**, the deploy date. They were first set to `2026-09-08`, the date the revamp work was done; the merge waited on the TestFlight link and slipped six days past that, so all six were rolled forward at the cut — a `lastmod` that predates its own deploy is worse than none. The comment in the file, which is what flagged the risk in advance, now records the rule for the next deploy that touches every page
 
 ### Removed
 - **27 MB of orphaned media**, which GitHub Pages was serving to nobody: `media/app-preview.mp4` (15 MB) and `media/App_Store_Promo.mp4` (12 MB), plus `images/tf-stack-stacked.png`, `images/tf-welcome.jpg`, `images/app-preview-poster.jpg` and `images/og-default.svg`. Each was confirmed unreferenced across every HTML, CSS, JS and JSON file first — `og-default.svg` matched only its own filename embedded in its metadata, and `images/tf-stack-scatter.png` looked orphaned under a careless grep but is live on the homepage, so it stays
