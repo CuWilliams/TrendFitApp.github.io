@@ -203,10 +203,22 @@ normalizes an empty path to the *string* `'index.html'` for nav active-state —
 **Branching:** Work directly on `main` — it auto-deploys to GitHub Pages, so a commit there
 *is* a production deploy. Create a branch only when explicitly requested.
 
-**Active branch: `feature/v3-site-revamp`** — the 3.0.0 revamp for the app's v2.0 public beta,
-branched by explicit request precisely because `main` auto-deploys. It must not merge until
-(a) the maintainer approves and (b) the public TestFlight link is live. `grep -rn "PLACEHOLDER" .`
-must return nothing first — a dead "Join the Beta" button is worse than no button.
+**No active branch.** Site 3.0.0 — the revamp for the app's v2.0 public beta — shipped on
+2026-09-14 and `feature/v3-site-revamp` is merged. Work directly on `main` again, per the rule
+above.
+
+**The lesson from that branch, for the next one that scaffolds a live URL:** it was branched
+precisely because `main` auto-deploys, and it carried four beta CTAs pointing at a stand-in
+URL. Merging with those live would have shipped four dead "Join the Beta" buttons, which is
+worse than shipping no button at all — so the branch was gated on a grep for the stand-in
+token returning nothing. Set that kind of gate up front and write it down, because the merge
+is the deploy and there is no staging step in which to notice.
+
+**TestFlight links are per-group, and there is more than one group.** The public link is
+`https://testflight.apple.com/join/tgFjfCQM` — the only one that belongs in a site CTA, a
+social post, or anything else addressed to strangers. A separate Founding Members link exists,
+is closed to new joiners, and must never be published here. The app repo's
+`Docs/TestFlight-Beta-2.0.0.md` is the source of truth for both.
 
 **Commit style:**
 ```
