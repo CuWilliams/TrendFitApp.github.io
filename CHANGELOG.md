@@ -2,6 +2,13 @@
 
 All notable changes to the TrendFit website are documented here.
 
+## [3.0.2] — 2026-10-15
+
+### Fixed
+- **The TrendFitGroup range on `features.html` was wrong** (#37). The bullet said route history covers "the 200 most recent outdoor workouts from the last 365 days", which stopped being true when app #150 shipped in TestFlight build 9 on 2026-09-27. TrendFitGroup now follows **Settings → Chart Range** (3 to 36 months). It now reads: *"Route history follows your Chart Range in Settings, from 3 to 36 months. It covers up to 200 outdoor workouts across a year or less, rising with the range to 600 at 36 months."* The wording follows the app's actual rule rather than the "200 per year of range" the issue suggested. `RouteGroupingPolicy.windowed(lookbackDays:)` scales the cap only **up** from 200 at 365 days and never below it, so a 3-month range still counts 200 workouts, not 50
+- The pinned 2026-09-14 `v2.0-beta` announcement in `data/announcements.json` still says "200 most recent outdoor workouts from the last 365 days", and that is deliberate. It is a dated record of what build 8 did, and build 8 did exactly that. A site-wide grep for `365`, `200 most recent`, `last year`, `past year` and `12 months` finds no other current copy that states a fixed Group window
+- `sitemap.xml`: `features.html` `lastmod` rolled to 2026-10-15. The other five pages keep 2026-09-14
+
 ## [3.0.1] — 2026-09-15
 
 ### Changed
