@@ -21,7 +21,7 @@
   const DATA_URL = "data/announcements.json";
 
   // Bump this when you change data/renderer to dodge device caching
-  const VERSION = "2026-09-14-2";
+  const VERSION = "2026-10-15-1";
   const withCacheBust = (url) => url + (url.includes("?") ? "&" : "?") + "v=" + VERSION;
 
   const root = getRoot();
@@ -178,7 +178,9 @@
   }
 
   function formatDate(iso) {
-    const d = new Date(iso);
+    // A bare YYYY-MM-DD parses as UTC midnight, which renders as the previous day west of UTC
+    const ymd = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso);
+    const d = ymd ? new Date(+ymd[1], +ymd[2] - 1, +ymd[3]) : new Date(iso);
     if (isNaN(d)) return iso;
     const opts = { year: "numeric", month: "short", day: "numeric" };
     return d.toLocaleDateString(undefined, opts);

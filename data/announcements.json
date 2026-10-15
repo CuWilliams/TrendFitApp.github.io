@@ -1,9 +1,48 @@
 [
   {
+    "id": "v2.0-now-live",
+    "date": "2026-10-15",
+    "published": true,
+    "pinned": true,
+    "title": "TrendFit 2.0 — Now Live on the App Store",
+    "tags": [
+      "Release",
+      "New Feature",
+      "Accessibility"
+    ],
+    "body": [
+      "**TrendFit 2.0 is now available on the App Store.** It is the largest update since launch: a fourth mode for the routes you repeat, a new way to read this year against last, three years of history, and the biggest accessibility pass the app has had. Everything from the v2.0 public beta is in it, along with the fixes the beta turned up.",
+      "**What's New:**",
+      "• **TrendFitGroup — a fourth mode.** Outdoor workouts already carry the GPS route they were recorded on. TrendFitGroup finds the ones that followed the same path and charts pace, speed and duration across every repeat, so you can see whether you are getting faster on the loops you actually run. Pick a route from a strip of cards that each draw the route's own outline, with the one you recorded most recently in front. Filter to one activity at a time, and rename any route to what you actually call it.",
+      "• **TrendFitGroup follows your Chart Range.** Route history now follows Settings → Chart Range, from 3 to 36 months, instead of a fixed year. It covers up to 200 outdoor workouts across a year or less, rising with the range to 600 at 36 months, and routes already read stay cached when you change it.",
+      "• **Route trend lines that follow your runs.** A route's trend line is now fitted evenly across every repeat, so a big improvement on your latest run reads as the improvement it is rather than being discounted as an outlier, and the line's colour always matches the angle drawn.",
+      "• **Compare Years in TrendFitStack.** Each calendar year is drawn as its own line on a shared January-to-December axis, so last June lands on the same point as this June and a seasonal dip stops reading as a decline.",
+      "• **Three years of history.** Chart Range now offers 24 and 36 months alongside 3, 6 and 12.",
+      "• **TrendFitChallenge opens on your standings.** Challenge Standings comes first, with your active challenges already in view, and saving a new challenge brings you back to it.",
+      "• **Explanation first.** Each mode explains what it reads from Apple Health before Apple's permission sheet appears.",
+      "• **Built to be readable.** Charts measure their own plot area and draw fewer whole axis labels instead of overlapping them, every screen scrolls when text grows, controls restack at accessibility text sizes, pace reads 5:24 rather than 5.4, and the light appearance was audited end to end for contrast.",
+      "• **Smaller fixes.** A route you have done once now asks you to run, walk, hike or ride it again, matching what you actually did. Every selection control in the app looks and behaves the same, and the stacked chart's average line no longer covers the bars it describes.",
+      "**Updating from 1.5? Health will ask once more.** TrendFitGroup reads Workout Routes, which is a new row on Apple's Health permission sheet, so iOS shows the sheet again after you update. Access is still read-only, TrendFit still cannot write to Health at all, and nothing leaves your device. Saying no to Workout Routes leaves every other mode working normally.",
+      "In fact 2.0 asks for **less** than 1.5 did — 15 data types the app was never using were removed from the permission request.",
+      "**Requirements:** iPhone on iOS 18.0 or later. Free, no account, English only.",
+      "Update now to get everything above — or download TrendFit free today. Thank you to everyone who tested the beta; feedback still goes to trendfitapp@gmail.com."
+    ],
+    "links": [
+      {
+        "label": "Download on App Store",
+        "href": "https://apps.apple.com/ca/app/trendfit/id6751863796"
+      },
+      {
+        "label": "See what's new",
+        "href": "https://www.trendfitapp.com/features.html"
+      }
+    ]
+  },
+  {
     "id": "v2.0-beta",
     "date": "2026-09-14",
     "published": true,
-    "pinned": true,
+    "pinned": false,
     "title": "TrendFit 2.0 Beta — TrendFitGroup, Compare Years, Three Years of History",
     "tags": [
       "Beta",

@@ -2,6 +2,26 @@
 
 All notable changes to the TrendFit website are documented here.
 
+## [3.1.0] — 2026-10-15
+
+Release-day switch for the TrendFit iOS **2.0.0 App Store release** (build 10, `v2.0.0-build10`, submitted 2026-10-15 with manual release). Prepared on the branch `feature/v2.0-app-store` (#38) rather than on `main`, because `main` auto-deploys and the site must not advertise 2.0.0 on the App Store before Apple approves it. The merge is #39 and **is** the release. The date above is the day the branch was prepared; #39 rolls it, the pinned announcement's `date` and every sitemap `lastmod` to the merge date if that is later.
+
+### Added
+- **Pinned announcement: "TrendFit 2.0 — Now Live on the App Store"** (`v2.0-now-live` in `data/announcements.json`), modelled on the `v1.5-now-live` entry and sourced from the app's `[2.0.0]` CHANGELOG. Beyond what the beta announcement covered, it carries the four changes that reached the beta after build 8: TrendFitGroup following Settings → Chart Range with the cap scaling to 600 at 36 months (app #150), route trend lines fitted across every repeat (app #151), the "again" prompt naming the route's activity (app #152), and TrendFitChallenge opening on Challenge Standings (app #154). Its links are the App Store listing and `features.html`; it carries no TestFlight link
+
+### Changed
+- **The `v2.0-beta` announcement is unpinned, and nothing else about it changes.** It is a dated record of what build 8 did, including its TestFlight link and its "200 most recent outdoor workouts from the last 365 days", which build 8 did exactly
+- **`index.html` is out of beta mode.** The beta tile is now a "Now on the App Store" tile, "TrendFit 2.0 is here", with **Download on App Store** as its primary button and "See what's new" as its secondary. The CTA tile's primary is the App Store, where it was "Join the v2.0 Beta", and its secondary row carries "What's new" in place of the "App Store (v1.5)" button. The hero badge reads "v2.0 on the App Store", and the JSON-LD `softwareVersion` is `2.0.0`, where it was `1.5`. Both TestFlight buttons are gone. The tile keeps its `beta` grid area and `tile-beta` class, so no CSS changed. Its heading id is `release-heading`, which nothing else referenced
+- **`features.html` Requirements leads with the App Store**, now its only button. The TestFlight button is gone
+- `js/announcements.js` `VERSION` and the `?v=` token on its `<script>` in `announcements.html` bumped to `2026-10-15-1`, because the data and the renderer changed.
+- `sitemap.xml`: every `lastmod` rolled to 2026-10-15, with the comment rewritten to say so
+
+### Fixed
+- **Every announcement showed the day before its date west of UTC.** `formatDate` passed the bare `YYYY-MM-DD` to `new Date()`, which parses it as UTC midnight, so in Toronto the new entry dated 2026-10-15 read "Oct 14, 2026", and every older entry was a day early in the same way. A bare date is now built as a local calendar date. Sorting was unaffected, because every entry was shifted by the same amount `css/style.css` is untouched, so its token stays `?v=2026-09-13-1` on all seven pages
+
+### Checked
+- `grep -rn "testflight.apple.com" --include='*.html' --include='*.json' .` matches only two historical announcement entries, `v2.0-beta` and `v1.4.0-beta`. A sweep of every page, `data/faq.json` and both policy files for "beta", "TestFlight" and "v1.5" finds no other current copy. What remains is deliberate: the `tile-beta` / `beta-*` class names, the `features.html` note "Upgrading from 1.5?", which stays true for App Store users, and the promo video's filename, `media/App_Store_Promo-V1.5.mp4`. That file is v1.5 footage, and #34 covers re-cutting it
+
 ## [3.0.2] — 2026-10-15
 
 ### Fixed
