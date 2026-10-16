@@ -6,9 +6,9 @@
      lastmod below is the deploy date of the app 2.0.0 release-day switch
      (site 3.1.0, #38/#39), which took the site out of beta mode. Every page
      is rolled to it, because a lastmod that predates its own deploy is worse
-     than none. Apple approved 2.0.0 on 2026-10-16 and the merge is dated to that day;
-     if it slips to a later one, roll all six again. Roll them forward again on any future deploy that touches every
-     page. -->
+     than none. Apple approved 2.0.0 on 2026-10-16 and the merge is dated
+     to that day; if it slips to a later one, roll all six again. Roll them
+     forward again on any future deploy that touches every page. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Homepage -->
   <url>
