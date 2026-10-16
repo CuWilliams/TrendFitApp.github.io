@@ -2,6 +2,11 @@
 
 All notable changes to the TrendFit website are documented here.
 
+## [3.1.1] — 2026-10-16
+
+### Removed
+- **The self-declared `aggregateRating` in the homepage's `MobileApplication` JSON-LD** (#36). It asserted a 5.0 rating from a count of one, on a scale whose `worstRating` was also `5`, so the scale ran 5 to 5. The Rich Results Test flags that scale. Google's review-snippet guidance also expects ratings gathered from users, not declared by the page the rating is about. The block was removed outright rather than repaired: the app's real rating lives on the App Store listing that `downloadUrl` already points at. It had been present since `5549119` (2025-12-11). The `Organization`, `MobileApplication` and `BreadcrumbList` blocks all still parse. No CSS or JS changed, so no cache-bust token moved
+
 ## [3.1.0] — 2026-10-16
 
 Release-day switch for the TrendFit iOS **2.0.0 App Store release** (build 10, `v2.0.0-build10`, submitted 2026-10-15 with manual release). Prepared on the branch `feature/v2.0-app-store` (#38) rather than on `main`, because `main` auto-deploys and the site must not advertise 2.0.0 on the App Store before Apple approves it. The merge is #39 and **is** the release. The branch was prepared on 2026-10-15. Apple approved 2.0.0 on 2026-10-16, so the date above, the pinned announcement's `date` and every sitemap `lastmod` carry that day.
