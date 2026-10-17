@@ -2,6 +2,13 @@
 
 All notable changes to the TrendFit website are documented here.
 
+## [3.1.2] — 2026-10-17
+
+### Changed
+- **The homepage promo is Apple's 2.0.0 promo video** (#34), replacing the v1.5 cut. The new file is `media/App_Store_Promo-V2.0.mp4`. `App_Store_Promo-V1.5.mp4` is deleted, and the `<source>` in `index.html` follows the new filename
+- **Re-encoded, not remuxed.** Apple delivered it as HEVC (H.265), which Firefox and many Chrome-on-Windows/Linux setups cannot play, so a remux would have kept a file a large share of visitors could not see. It is now H.264 High profile, yuv420p, BT.709, at CRF 23 with `-preset veryslow`. Resolution stays at Apple's full 1080×1920 and the length at 12 s. SSIM against Apple's master is 0.9978, and the dark gradients show no banding. **9.4 MB → 1.37 MB.** There was no audio track to strip. `+faststart` is applied and source metadata is dropped. `media/` comes to about 11 MB, level with the 10.4 MB the 3.0.0 cleanup left once the v1.5 file is gone
+- The 360×640 resolution problem recorded at 3.0.0 is gone. The source is 1080 pixels wide, so the 520–840px single-column band no longer upscales the promo. Its aspect ratio is still 9:16, so the tile's box is unchanged and no CSS changed. The reduced-motion script selects `video.app-store-promo-video` by class, so it still pauses the promo
+
 ## [3.1.1] — 2026-10-16
 
 ### Removed
