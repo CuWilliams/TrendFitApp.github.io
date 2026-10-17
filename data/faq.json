@@ -151,7 +151,7 @@
       },
       {
         "q": "What do \"ahead\", \"on track\" and \"behind\" mean?",
-        "a": "For a total, TrendFit compares what you have done so far with the share of the target the elapsed days call for. Within 10% either way is on track. For an average, it compares your average so far with the target, and within 5% either way is on track."
+        "a": "For a total, TrendFit compares what you have done so far with the share of the target the elapsed days call for. Within 10% either way is on track. For an average, it compares your average so far with the target, and within 5% either way is on track. Pace and heart rate count as lower-is-better, so averaging under the target puts you ahead."
       },
       {
         "q": "Can I edit or delete a challenge?",

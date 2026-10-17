@@ -2,7 +2,7 @@
   'use strict';
 
   var DATA_URL = 'data/faq.json';
-  var VERSION  = '2026-10-17-1';
+  var VERSION  = '2026-10-17-2';
   var root     = document.getElementById('faq-root');
 
   if (!root) return;

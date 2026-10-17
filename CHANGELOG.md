@@ -21,6 +21,8 @@ All notable changes to the TrendFit website are documented here.
 
 - **The contact address is now `support@trendfitapp.com`**, replacing `trendfitapp@gmail.com` everywhere it appears: the footer `mailto:` on every page (including `404.html`), the homepage's feedback note, the FAQ's support answer, the contact sections and labels of the Privacy Policy and Terms of Use, `README.md`, and the two announcements that named it. Those announcements are dated records, but this line tells readers where to write, so it should point at the address that is monitored. The policies' `effectiveDate` is unchanged, because a new contact address does not change any term. `js/announcements.js` `VERSION` bumped to `2026-10-17-1`. The policies are fetched with `no-store` and need no token. `sitemap.xml`: every page's `lastmod` rolled to 2026-10-17. The 2025 CHANGELOG line that introduced the Gmail address stays as history. The app makes the same change in its own repo (app #165)
 
+- **The ahead / on track / behind answer names which way each average runs.** It now says pace and heart rate are lower-is-better, so averaging under the target puts you ahead. This follows app #166, which made heart-rate challenges lower-is-better, and it is the same line the in-app FAQ carries. This is a challenge's direction only. The trend-colour answer, where heart rate is judged against Active Energy, is unchanged. `js/faq.js` `VERSION` bumped to `2026-10-17-2`
+
 ### Not added
 - **`FAQPage` JSON-LD.** Since 2023 Google shows FAQ rich results only for well-known government and health sites, so the markup would not produce one here. It would also be a second copy of 42 answers to keep in step with `faq.json`
 
