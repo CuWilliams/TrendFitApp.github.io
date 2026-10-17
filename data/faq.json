@@ -4,15 +4,23 @@
     "items": [
       {
         "q": "Does TrendFit upload my health data?",
-        "a": "No. TrendFit reads Apple HealthKit data locally on your device. Your data is never uploaded, shared, or sold — ever."
+        "a": "No. TrendFit reads Apple Health data on your device and analyses it there. There is no account and no TrendFit server. Your data is never uploaded, shared or sold."
       },
       {
         "q": "What health data does TrendFit access?",
-        "a": "TrendFit reads workout data (active energy, heart rate, pace, duration, distance and similar workout metrics), personal metrics (age, gender, height, weight), and — from version 2.0 — workout routes, which TrendFitGroup uses to recognise repeated routes. Access is read-only: TrendFit has no permission to write to Health at all. Version 2.0 also removed 15 data types the app was not using, so it asks for less than it did before."
+        "a": "Your workouts, plus the measurements recorded with them: active energy, heart rate, distance, pace and speed, cadence, steps, flights climbed, swimming strokes and exercise time. It also reads your age, sex, height and weight from your Health profile, and workout routes, which TrendFitGroup uses to recognise the routes you repeat. Access is read-only. TrendFit cannot write to or change anything in Health. Version 2.0 also stopped asking for 15 data types the app was not using."
       },
       {
         "q": "Does TrendFit use any third-party services?",
-        "a": "No third-party services process or store your HealthKit data. All analysis happens on-device. Cloudflare Web Analytics is used on this website (not in the app) to count page visits — no personal data is collected."
+        "a": "The app has no analytics, no advertising and no third-party SDKs, and all analysis happens on your device. The one thing it loads over the network is the Apple Maps map behind a selected route in TrendFitGroup. The route outlines on its cards are drawn from data stored on your device. This website, not the app, uses Cloudflare Web Analytics to count page visits. No personal data is collected."
+      },
+      {
+        "q": "Where are my challenges and settings stored?",
+        "a": "In TrendFit's own storage on your device. That covers your challenges, route names, settings and the cache of route shapes. None of it is synced to iCloud or sent anywhere. Deleting TrendFit removes it. Your Apple Health data is unaffected, because TrendFit never changes it."
+      },
+      {
+        "q": "How do I revoke TrendFit's access to Apple Health?",
+        "a": "Open the Settings app, go to Privacy & Security → Health → TrendFit, and turn off any data type you want to withhold. TrendFit keeps working with whatever you leave on. A mode whose data you have turned off shows an empty screen instead of a chart."
       },
       {
         "q": "Is TrendFit a medical device?",
@@ -24,16 +32,28 @@
     "category": "Getting Started",
     "items": [
       {
-        "q": "What devices does TrendFit support?",
-        "a": "iPhone running iOS 18.0 or later, with Apple Health permissions granted. TrendFitGroup additionally needs outdoor workouts that recorded a GPS route. The app is English-only."
-      },
-      {
-        "q": "How do I connect HealthKit?",
-        "a": "Open TrendFit and follow the onboarding prompt to grant HealthKit read access. You can adjust permissions at any time in Settings → Privacy & Security → Health."
-      },
-      {
         "q": "Where can I download TrendFit?",
-        "a": "TrendFit is free on the App Store. Search for \"TrendFit\" or use the Download button on the home page."
+        "a": "TrendFit is free on the App Store. There is no account, subscription or in-app purchase. Search for \"TrendFit\" or use the Download button on the home page."
+      },
+      {
+        "q": "What devices does TrendFit support?",
+        "a": "iPhone and iPad running iOS or iPadOS 18.0 or later. TrendFit charts workouts saved in Apple Health, whether they come from an Apple Watch, the Fitness app or any other app that writes workouts to Health. There is no Apple Watch app. TrendFitGroup also needs outdoor workouts that recorded a GPS route. The app is in English only.",
+        "link": {
+          "href": "features.html#requirements",
+          "text": "Full requirements"
+        }
+      },
+      {
+        "q": "I just installed TrendFit. Where do I start?",
+        "a": "TrendFit opens on four questions, one for each mode. \"Are my metrics improving over time?\" opens TrendFit, \"How do my workouts compare side by side?\" opens TrendFitStack, \"Am I getting faster on the routes I repeat?\" opens TrendFitGroup, and \"Will I hit my target before time runs out?\" opens TrendFitChallenge. Tap the question you want answered."
+      },
+      {
+        "q": "How do I connect Apple Health?",
+        "a": "The first time you open TrendFit, TrendFitStack or TrendFitChallenge, a short screen explains what TrendFit reads. Tap Continue and Apple's Health permission sheet follows. TrendFitGroup asks separately for Workout Routes the first time you open it. To change your answers later, go to Settings → Privacy & Security → Health → TrendFit."
+      },
+      {
+        "q": "How many workouts do I need before I see a trend?",
+        "a": "Three workouts of the same type within the chart's view. With fewer, the chart still shows your workouts but draws no trend line. In TrendFitGroup, a route needs at least two repeats before it gets a trend line. A route you have done only once shows a prompt to do it again."
       }
     ]
   },
@@ -42,47 +62,79 @@
     "items": [
       {
         "q": "What is TrendFit?",
-        "a": "TrendFit answers one question per mode. TrendFit itself asks whether a single metric is improving over time — pick an activity and a metric, and it draws the trend line through your history.",
+        "a": "TrendFit answers one question per mode. TrendFit itself asks whether a single metric is improving over time: pick an activity and a metric, and it draws the trend line through your history.",
         "link": {
           "href": "features.html#trendfit",
-          "text": "More about TrendFit →"
+          "text": "More about TrendFit"
         }
       },
       {
         "q": "What is TrendFitStack?",
-        "a": "TrendFitStack puts several activities on one chart so you can see how they divide the work between them, and can draw each calendar year as its own line for a like-for-like comparison.",
+        "a": "TrendFitStack puts several activities on one chart so you can see how they divide the work between them. Stack combines them into daily, weekly, monthly or annual totals. Compare Years draws each calendar year as its own line, for a like-for-like comparison.",
         "link": {
           "href": "features.html#stack",
-          "text": "More about TrendFitStack →"
+          "text": "More about TrendFitStack"
         }
       },
       {
+        "q": "How does Compare Years work?",
+        "a": "In TrendFitStack, Compare Years adds up each month's total for the workout types you have selected and draws one line per calendar year on a shared January-to-December axis, so this March sits directly against last March. The three most recent years are shown to begin with. Tap a year to add or remove it. It always reads back to January of last year, and a Chart Range of 24 or 36 months brings in more years."
+      },
+      {
+        "q": "Why can't I stack every metric?",
+        "a": "Only metrics that add up can be stacked: active energy, distance, workout duration, flights climbed and swimming strokes. Averages such as heart rate, pace or speed do not mean anything when added together, so Stack and Compare Years are not offered for them."
+      },
+      {
         "q": "What is TrendFitGroup?",
-        "a": "New in 2.0. TrendFitGroup matches outdoor workouts that followed the same GPS route and charts your pace, speed and duration across every repeat of it, so you can see whether you are getting faster on the routes you actually run.",
+        "a": "TrendFitGroup finds outdoor runs, walks, hikes and rides that followed the same route. It charts your pace, speed or duration across every repeat, so you can see whether you are getting faster on the routes you actually do. Routes are compared one activity at a time, so the same path walked and run stays two separate routes. Route history follows your Chart Range in Settings. It covers up to 200 outdoor workouts across a year or less, rising with the range to 600 at 36 months.",
         "link": {
           "href": "features.html#group",
-          "text": "More about TrendFitGroup →"
+          "text": "More about TrendFitGroup"
         }
+      },
+      {
+        "q": "How does TrendFitGroup decide two workouts are the same route?",
+        "a": "Two workouts match when they start within about 150 m of each other, their distances are within 10%, and their paths stay, on average, within about 150 m of each other along the way. A loop matches whichever direction you went round it. If a group might contain more than one route, a note under the route's name says so. Tap it to see how closely the workouts match and how near the next route is."
+      },
+      {
+        "q": "Can I rename a route?",
+        "a": "Yes. Tap the pencil beside the route's name. The name stays with those workouts, so it survives TrendFit regrouping your routes. Clear the name to go back to the automatic one."
       },
       {
         "q": "What is TrendFitChallenge?",
         "a": "TrendFitChallenge lets you set a target and a deadline, then projects whether you are on course for it from the work you have already done.",
         "link": {
           "href": "features.html#challenge",
-          "text": "More about TrendFitChallenge →"
+          "text": "More about TrendFitChallenge"
         }
       },
       {
         "q": "What do the red, yellow, and green trend lines mean?",
-        "a": "The color reflects the direction the trend line visibly moves on the chart. Green means the trend is improving, red means it is declining, and yellow means the line is roughly flat in the current view. For metrics where lower is better — like pace and heart rate — the colors are interpreted accordingly, so a falling pace line shows green. The color always matches the line you see, at any zoom level."
+        "a": "The colour follows the direction the trend line visibly moves on the chart. Green means improving, red means declining, and yellow means roughly flat in the current view. For pace, lower is better, so a falling pace line is green. Heart rate is judged together with your Active Energy over the same period. A lower heart rate for the same or more effort is green. A heart rate that rises while your effort also rises is yellow, because working harder raises both. The colour always matches the line you see, at any zoom level."
+      },
+      {
+        "q": "How is the trend line calculated?",
+        "a": "TrendFit fits a robust line through the workouts in view. Its slope is the median of the slopes between every pair of workouts (the Theil–Sen method), so a single unusual session cannot swing it. The colour then comes from how far that line visibly rises or falls across the chart's height."
+      },
+      {
+        "q": "Why is my trend yellow when I feel I'm improving?",
+        "a": "Yellow means the line rises or falls by less than a tenth of the chart's height across the current view. A small change set against a wide range of values reads as flat. Zoom or pan to the period where the improvement happened: if the line visibly moves there, it is coloured. Sustained progress over more sessions also steepens the line."
       },
       {
         "q": "Can I zoom and pan the charts?",
-        "a": "Yes. Pinch to zoom into any timeframe, then swipe to pan through your full history. Tap any data point for exact numbers."
+        "a": "Yes. Pinch to zoom into any timeframe, then swipe to pan through your full history. On the TrendFit chart, once you have zoomed in to two weeks or less, touch and hold a data point to see its exact values."
       },
       {
-        "q": "Can I personalise units and chart windows?",
-        "a": "Yes. You can set metric or imperial units, choose your chart lookback window — 3, 6, 12, 24 or 36 months — and configure haptic feedback from the app settings."
+        "q": "What can I change in Settings?",
+        "a": "In Settings → App Settings: metric or imperial units (metric by default), and a Chart Range of 3, 6, 12, 24 or 36 months (12 by default). Chart Range sets how far back every mode reads, TrendFitGroup included. You can also turn haptic feedback on or off and set up challenge notifications. Restore Defaults puts everything back."
+      },
+      {
+        "q": "Which workout types are supported?",
+        "a": "More than 40, from running, cycling, swimming and hiking to team sports, yoga, strength training and skiing. Every type gets active energy, heart rate and duration. Distance, pace, speed, cadence, flights climbed and swimming strokes appear for the activities that record them. A workout type appears once you have workouts of that type in Health."
+      },
+      {
+        "q": "Why can't I select VO2 Max or Resting Heart Rate?",
+        "a": "Apple stores VO2 Max and Resting Heart Rate as standalone health samples, not as part of a workout. TrendFit charts the data recorded with each workout, so standalone measurements like these are not offered as metrics."
       }
     ]
   },
@@ -90,16 +142,82 @@
     "category": "Challenges",
     "items": [
       {
+        "q": "What can a challenge track?",
+        "a": "One metric, counted across all your workouts or for a single workout type, over 30, 60 or 90 days from a start date you choose. Challenge Standings is where TrendFitChallenge opens, and it lists your active and completed challenges."
+      },
+      {
         "q": "How are challenge targets calculated?",
-        "a": "For cumulative metrics (energy, distance) TrendFit projects a scaled total from your HealthKit history. For rate-based metrics (heart rate, pace, cadence) it suggests your historical average as the target."
+        "a": "TrendFit suggests a target from your history over your Chart Range. For totals such as distance or energy, it takes your average per calendar day, rest days included, and multiplies it by the challenge length. For example, 300 kcal a day suggests 9,000 kcal for a 30-day challenge. For averages such as pace or cadence, it suggests your historical average to match or beat. You can adjust the suggestion with the arrows or type your own. Targets use the notation the app displays, so a pace target reads 5:24, not 5.4."
+      },
+      {
+        "q": "What do \"ahead\", \"on track\" and \"behind\" mean?",
+        "a": "For a total, TrendFit compares what you have done so far with the share of the target the elapsed days call for. Within 10% either way is on track. For an average, it compares your average so far with the target, and within 5% either way is on track."
       },
       {
         "q": "Can I edit or delete a challenge?",
-        "a": "Yes. In-progress challenge targets and durations are editable (with a confirmation step). Challenges can also be deleted — a confirmation is required before anything is removed."
+        "a": "Yes. On Challenge Standings, an active challenge's target and length can be edited, and progress is recalculated once you confirm. Any challenge can be deleted, again with a confirmation before anything is removed."
       },
       {
         "q": "How do challenge notifications work?",
-        "a": "TrendFit sends optional local push notifications for challenge progress. You can configure the frequency in App Settings (daily, every 3 days, weekly, or a custom interval). All notifications are generated on-device — nothing is sent to external servers."
+        "a": "They are optional and off by default. Turn on Challenge Updates in Settings → App Settings → Notifications, then choose Daily, Every 3 Days, Weekly or a custom interval of 1 to 30 days. Updates arrive at 9 am. TrendFit asks for notification permission only when you turn them on. When a challenge ends, a final notification says whether you exceeded, met or missed the target. Every notification is scheduled on your device, and nothing is sent to a server."
+      }
+    ]
+  },
+  {
+    "category": "Troubleshooting",
+    "items": [
+      {
+        "q": "My workouts aren't showing up. What should I check?",
+        "a": "First, check the workout is in the Health app. TrendFit only sees what Health holds, and a watch can take a few minutes to sync. Next, check TrendFit's access under Settings → Privacy & Security → Health → TrendFit, and that the right workout type is selected. Workouts older than your Chart Range are not read, so widen the range in App Settings to reach further back."
+      },
+      {
+        "q": "The chart looks out of date. How do I refresh it?",
+        "a": "TrendFit reads Health afresh each time you open a mode and whenever you change the workout type or metric. Going back and reopening the mode picks up anything new. If a workout is still missing, check that it has reached the Health app."
+      },
+      {
+        "q": "I declined Health access by mistake. How do I fix it?",
+        "a": "Open the Settings app, go to Privacy & Security → Health → TrendFit, and turn on the data types. Then reopen the TrendFit mode you were using. The same screen covers Workout Routes, which TrendFitGroup needs."
+      },
+      {
+        "q": "TrendFitGroup says it found no routes. Why?",
+        "a": "TrendFitGroup only reads outdoor runs, walks, hikes and rides that recorded a GPS route. An Apple Watch or a GPS workout app records one. Indoor workouts and workouts added by hand do not have one. If you declined Workout Routes, turn it on under Settings → Privacy & Security → Health → TrendFit. TrendFitGroup also looks only as far back as your Chart Range."
+      },
+      {
+        "q": "Why is TrendFitGroup slow the first time?",
+        "a": "On first open, it reads every route in your Chart Range from Health. For a couple of hundred workouts that takes half a minute or more. Route shapes are then kept on your device, so later visits only read workouts that are new."
+      },
+      {
+        "q": "I accidentally denied notification permission. How do I fix it?",
+        "a": "Open the Settings app, go to Notifications → TrendFit, and turn on Allow Notifications. Then check that Challenge Updates is on in TrendFit's App Settings."
+      },
+      {
+        "q": "Why does TrendFit show \"kcal\" when Apple Fitness shows \"cal\"?",
+        "a": "They are the same unit. In fitness, Apple's \"cal\" is short for the dietary Calorie, which is a kilocalorie. TrendFit writes it as kcal, and the numbers match."
+      },
+      {
+        "q": "Why is Active Energy different for HIIT and Functional Training?",
+        "a": "The workout type you choose feeds into how Apple estimates Active Energy. Each type carries its own assumed intensity, and HIIT's is higher. So the same session recorded as HIIT usually shows more Active Energy than it would as Functional Training. Neither figure is wrong, but for a meaningful trend, record the same kind of session under the same type each time."
+      }
+    ]
+  },
+  {
+    "category": "Support & Accessibility",
+    "items": [
+      {
+        "q": "How do I contact support or report a bug?",
+        "a": "Email trendfitapp@gmail.com, or tap Contact Support in TrendFit's Settings, which opens an email already addressed. Bug reports and feature ideas are welcome the same way."
+      },
+      {
+        "q": "Does TrendFit work offline?",
+        "a": "Yes. Everything is computed on your device from Apple Health, so no connection is needed. The one exception is the map behind a selected route in TrendFitGroup, which comes from Apple Maps."
+      },
+      {
+        "q": "Does TrendFit support accessibility features?",
+        "a": "TrendFit supports Larger Text up to the largest accessibility sizes, Dark Mode and Increase Contrast, on both iPhone and iPad. VoiceOver and Reduce Motion are not yet fully supported. In particular, VoiceOver does not yet describe the charts or read out a trend's verdict.",
+        "link": {
+          "href": "features.html#readable",
+          "text": "How TrendFit is built to be readable"
+        }
       }
     ]
   }

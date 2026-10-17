@@ -2,6 +2,26 @@
 
 All notable changes to the TrendFit website are documented here.
 
+## [3.2.0] — 2026-10-17
+
+### Changed
+- **The FAQ was reviewed against the shipped 2.0.0 source and expanded from 18 questions to 42** (#40). It now has six categories: Privacy & Data, Getting Started, Features, Challenges, and the new Troubleshooting and Support & Accessibility. Each answer was checked against the app code, not against the older site copy or the in-app FAQ. The in-app FAQ turned out to be staler than this one. Its errors are filed as app #165, because app FAQ changes ship in a build
+- **Corrected answers.** Each one stated something the app does not do:
+  - **Zoom and pan:** said "Tap any data point". Showing a point's values is a touch-and-hold, it works only on the TrendFit chart, and only once that chart is zoomed in to 14 days or fewer (`MultiTrendChartView`)
+  - **Trend colours:** said heart rate is read as "lower is better". Only pace is a simple inversion. Heart rate is judged against Active Energy over the same window (`HeartRateRule`), so a rising heart rate with rising effort shows yellow, not red
+  - **Connecting Health:** "follow the onboarding prompt" predates app #144. Each chart mode now shows an explanation screen with a Continue button before Apple's sheet, and TrendFitGroup asks separately for routes
+  - **Supported devices:** said iPhone only. `TARGETED_DEVICE_FAMILY` is `1,2`, and 2.0.0's App Store accessibility labels are declared for iPad too. It now says iPhone and iPad, and that there is no Watch app
+  - **Third-party services:** "all analysis happens on-device" stays true, but the app does load one thing over the network: the Apple Maps map behind a selected route in TrendFitGroup (`RouteMapView`). The answer now says so, and the offline answer names it as the one exception
+- **Sharpened answers.** Challenge target suggestions now give the real rule from `ChallengeTargetProjector`: the per-calendar-day average, rest days included, multiplied by the challenge length. Notifications now name the 1–30-day custom range, the 9 am delivery and the end-of-challenge notification. Settings now gives the defaults (metric, 12 months) and says Chart Range drives TrendFitGroup too (app #150)
+- **New questions** cover Compare Years, why only summed metrics can be stacked (app #143), how TrendFitGroup matches routes (start within 150 m, distance within 10%, paths on average within 150 m, loops in either direction), renaming a route, the three-workout minimum, ahead / on track / behind (±10% for totals, ±5% for averages), no routes found, Group's slow first load, kcal vs cal, HIIT vs Functional Training energy, support contact, offline use, and accessibility
+- **The accessibility answer matches the App Store declaration.** It claims Larger Text, Dark Mode and Increase Contrast, and says VoiceOver and Reduce Motion are not yet fully supported, matching the "No" answers in the app's `Docs/AppStore-Release-2.0.0.md`
+- Six answers now carry a `link` into `features.html` (the four modes, `#readable` and `#requirements`). This is the first data to use the renderer's existing `link` support. No JS or CSS changed apart from the token below
+- "New in 2.0" and "from version 2.0" are gone from the TrendFitGroup and routes answers, because 2.0.0 is now simply the current release. The 15 removed data types are still mentioned, since that stays true for anyone upgrading
+- `js/faq.js` `VERSION` bumped to `2026-10-17-1`, because the data changed. The `faq.html` meta, OG and Twitter descriptions name the new categories. `sitemap.xml`: `faq.html` `lastmod` rolled to 2026-10-17, and the other five pages are unchanged
+
+### Not added
+- **`FAQPage` JSON-LD.** Since 2023 Google shows FAQ rich results only for well-known government and health sites, so the markup would not produce one here. It would also be a second copy of 42 answers to keep in step with `faq.json`
+
 ## [3.1.3] — 2026-10-17
 
 ### Fixed
