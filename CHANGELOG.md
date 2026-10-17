@@ -2,6 +2,11 @@
 
 All notable changes to the TrendFit website are documented here.
 
+## [3.1.3] — 2026-10-17
+
+### Fixed
+- **The copyright year now matches App Store Connect.** All eight notices across seven pages read © 2026, while the App Store listing's copyright is 2025. They now read © 2025: the homepage's two footers, and one each on `features.html`, `announcements.html`, `faq.html`, `privacy.html`, `terms.html` and `404.html`. Every notice is static text, and no script writes the year
+
 ## [3.1.2] — 2026-10-17
 
 ### Changed
