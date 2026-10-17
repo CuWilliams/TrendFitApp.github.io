@@ -27,7 +27,7 @@ See [CLAUDE.md](CLAUDE.md) for the full development guide and [CHANGELOG.md](CHA
 
 ## Contact
 
-Questions or feedback: [trendfitapp@gmail.com](mailto:trendfitapp@gmail.com)
+Questions or feedback: [support@trendfitapp.com](mailto:support@trendfitapp.com)
 
 ---
 

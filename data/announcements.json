@@ -25,7 +25,7 @@
       "**Updating from 1.5? Health will ask once more.** TrendFitGroup reads Workout Routes, which is a new row on Apple's Health permission sheet, so iOS shows the sheet again after you update. Access is still read-only, TrendFit still cannot write to Health at all, and nothing leaves your device. Saying no to Workout Routes leaves every other mode working normally.",
       "In fact 2.0 asks for **less** than 1.5 did — 15 data types the app was never using were removed from the permission request.",
       "**Requirements:** iPhone on iOS 18.0 or later. Free, no account, English only.",
-      "Update now to get everything above — or download TrendFit free today. Thank you to everyone who tested the beta; feedback still goes to trendfitapp@gmail.com."
+      "Update now to get everything above — or download TrendFit free today. Thank you to everyone who tested the beta; feedback still goes to support@trendfitapp.com."
     ],
     "links": [
       {
@@ -61,7 +61,7 @@
       "**About the Health permission sheet.** TrendFitGroup reads Workout Routes, which is a new row on Apple's Health permission sheet — so when you upgrade, iOS will ask again. That is Apple's sheet, not a change in what TrendFit does with your data: access is still read-only, TrendFit still cannot write to Health at all, and nothing leaves your iPhone. Saying no to Workout Routes leaves every other part of the app working normally; only TrendFitGroup needs it.",
       "In fact v2.0 asks for **less** than v1.5 did — 15 data types the app was never using were removed from the permission request.",
       "**Requirements:** iPhone on iOS 18.0 or later. Free, no account, English only.",
-      "Install it from TestFlight and tell us what breaks — feedback goes to trendfitapp@gmail.com."
+      "Install it from TestFlight and tell us what breaks — feedback goes to support@trendfitapp.com."
     ],
     "links": [
       {

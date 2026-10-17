@@ -21,7 +21,7 @@
   const DATA_URL = "data/announcements.json";
 
   // Bump this when you change data/renderer to dodge device caching
-  const VERSION = "2026-10-15-1";
+  const VERSION = "2026-10-17-1";
   const withCacheBust = (url) => url + (url.includes("?") ? "&" : "?") + "v=" + VERSION;
 
   const root = getRoot();

@@ -3,17 +3,16 @@
      legacy meta-refresh stubs (privacy-policy.html, terms-of-service.html),
      which are noindex'd and unlinked.
 
-     lastmod below is the deploy date of the app 2.0.0 release-day switch
-     (site 3.1.0, #38/#39), which took the site out of beta mode. Every page
-     is rolled to it, because a lastmod that predates its own deploy is worse
-     than none. Apple approved 2.0.0 on 2026-10-16 and the merge is dated
-     to that day; if it slips to a later one, roll all six again. Roll them
-     forward again on any future deploy that touches every page. -->
+     lastmod below is 2026-10-17, site 3.2.0, which touched every page: the
+     contact address moved to support@trendfitapp.com in every footer and
+     policy, and faq.html was rewritten (#40). A lastmod that predates its own
+     deploy is worse than none, so roll them forward again on any future
+     deploy that touches every page. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Homepage -->
   <url>
     <loc>https://www.trendfitapp.com/</loc>
-    <lastmod>2026-10-16</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -21,13 +20,13 @@
   <!-- Core pages -->
   <url>
     <loc>https://www.trendfitapp.com/features.html</loc>
-    <lastmod>2026-10-16</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.trendfitapp.com/announcements.html</loc>
-    <lastmod>2026-10-16</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -39,13 +38,13 @@
   </url>
   <url>
     <loc>https://www.trendfitapp.com/privacy.html</loc>
-    <lastmod>2026-10-16</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.trendfitapp.com/terms.html</loc>
-    <lastmod>2026-10-16</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

@@ -19,6 +19,8 @@ All notable changes to the TrendFit website are documented here.
 - "New in 2.0" and "from version 2.0" are gone from the TrendFitGroup and routes answers, because 2.0.0 is now simply the current release. The 15 removed data types are still mentioned, since that stays true for anyone upgrading
 - `js/faq.js` `VERSION` bumped to `2026-10-17-1`, because the data changed. The `faq.html` meta, OG and Twitter descriptions name the new categories. `sitemap.xml`: `faq.html` `lastmod` rolled to 2026-10-17, and the other five pages are unchanged
 
+- **The contact address is now `support@trendfitapp.com`**, replacing `trendfitapp@gmail.com` everywhere it appears: the footer `mailto:` on every page (including `404.html`), the homepage's feedback note, the FAQ's support answer, the contact sections and labels of the Privacy Policy and Terms of Use, `README.md`, and the two announcements that named it. Those announcements are dated records, but this line tells readers where to write, so it should point at the address that is monitored. The policies' `effectiveDate` is unchanged, because a new contact address does not change any term. `js/announcements.js` `VERSION` bumped to `2026-10-17-1`. The policies are fetched with `no-store` and need no token. `sitemap.xml`: every page's `lastmod` rolled to 2026-10-17. The 2025 CHANGELOG line that introduced the Gmail address stays as history. The app makes the same change in its own repo (app #165)
+
 ### Not added
 - **`FAQPage` JSON-LD.** Since 2023 Google shows FAQ rich results only for well-known government and health sites, so the markup would not produce one here. It would also be a second copy of 42 answers to keep in step with `faq.json`
 
